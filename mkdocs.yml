@@ -1,0 +1,23 @@
+site_name: Price Reversion Act
+nav:
+  - Home: index.md
+  - Summary: ../SUMMARY.md
+  - Master Outline: ../draft/act-outline.md
+  - Master Bill (compiled): ../draft/bill-text.md
+  - Sections:
+      - Definitions & Valuation: sections/01_definitions_and_valuation.md
+      - Single-Family & Land Reset: sections/02_sf_land_reset.md
+      - Rezoned Properties: sections/03_rezoned_properties.md
+      - Blight, Neglect & Trusts: sections/04_blight_neglect_trusts.md
+      - Multi-Unit Properties: sections/05_multi_unit.md
+      - Offer Registry & Anti-Bot: sections/06_offer_registry.md
+      - Payment Integrity (All Contracts): sections/07_payment_integrity.md
+      - Vehicles (Sales/Gouge): sections/08_vehicles.md
+      - Insurance (Auto/Home/Renters): sections/09_insurance.md
+      - Timeshares & Fractional Interests: sections/10_timeshares.md
+      - HOAs/Condos/Co-ops: sections/11_hoas_condos_coops.md
+      - Campgrounds & RV Parks: sections/12_campgrounds_rv.md
+      - Local Voting Integrity: sections/13_local_voting.md
+      - Property Tax Alignment: sections/14_property_taxes.md
+  - Glossary: ../references/glossary.md
+  - Open Questions: ../references/open-questions.md

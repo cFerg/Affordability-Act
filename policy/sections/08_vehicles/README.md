@@ -1,3 +1,21 @@
-# Vehicles
+# Motor Vehicles — Pricing Reversion & Dealer Practices
 
-New ≤ MSRP + NMV; add-ons opt-in; doc fee pegged to hours of local minimum wage. Used ≤ min(VWIV − depreciation − repairs, RACVV) + NMV. NMV by class/condition; antiques with proof; salvage no upward NMV.
+## §8.1 Definitions
+- **OTP, VWIV, RACVV, AVV:** Vehicle analogs of OPP/WIV/RACV/AV.  
+- **NMV:** Negotiation margin for vehicles.
+
+## §8.2 New Vehicles
+Final price ≤ **MSRP + NMV**. “Market adjustments” banned. Add‑ons must be opt‑in; admin/doc fee ≤ **six hours of local minimum wage** or $200, whichever is less *(Policy Dial)*.
+
+## §8.3 Used Vehicles
+Final price ≤ **min(VWIV − Depreciation − Required Repairs, RACVV) + NMV**. Provide an **Out‑the‑Door Sheet** with OTP proof, wage index used, mileage band, repair deductions, NMV.
+
+## §8.4 NMV Schedule (by Class & Condition)
+- **Mass‑Market New:** 1.0% base; **Luxury New:** 1.5%; **Used Standard:** 2.0%; **High‑Mileage/Older:** 1.0%; **Antique/Collectible:** up to 10% with dual appraisals; **Commercial:** 1.5%; **Salvage/Rebuilt:** 0%.  
+- Condition adj: Excellent +0.5pp; Good +0.0; Fair −0.5; Rough −1.0; Salvage 0.0 upward.
+
+## §8.5 Trade‑ins & Auctions
+Disclose trade‑in valuation sheet; disclose auction origin and condition grade upon request.
+
+## §8.6 Enforcement
+Refund + 2× penalty; license suspension for repeat offenders.

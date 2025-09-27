@@ -1,3 +1,16 @@
-# Local Voting Integrity
+# Local Voting Integrity (Model Policy)
 
-Single-domicile voting; ban non-resident property-owner ballots; beneficial-owner consolidation; residency minima.
+## §13.1 Single‑Domicile Voting
+Vote only where you **live** (domicile). Owning extra property elsewhere does not confer voting rights there.
+
+## §13.2 Residency Minimum
+Must reside in the jurisdiction at least **30–60 days** before election *(Policy Dial)*, consistent with state law.
+
+## §13.3 Ban Non‑Resident Property Ballots
+Municipalities/special districts may not create property‑owner electorates for land‑use/housing/tax matters, except narrow state‑mandated cases.
+
+## §13.4 Beneficial‑Owner Consolidation
+LLC/trust ownership does not create extra electors; consolidate to natural persons and domicile rule applies.
+
+## §13.5 Enforcement
+Residency verification, roll maintenance, civil penalties for false declarations.

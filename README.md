@@ -1,16 +1,11 @@
 # Price Reversion Act (Working Draft)
 
-Per-section pages live in `docs/sections/`. The master bill is compiled to `draft/bill-text.md` via `tools/compile_master.py`.
+Per-section folders live under `policy/sections/`. The compiled master bill is `policy/bill-text.md`.
 
-- Summary: `SUMMARY.md`
-- Outline: `draft/act-outline.md`
-- Master Bill: `draft/bill-text.md`
+## How to edit
+- Edit a section's `README.md` under `policy/sections/*/`
+- (Optional) Run `python3 tools/compile_master.py` to regenerate `policy/bill-text.md`
 
-## Contributing
-Open an Issue, then a PR with redlines and rationale. Use **[Policy Dial]** tags for tunables.
-
-## MkDocs
-```
-pip install mkdocs
-mkdocs serve
-```
+## Licensing
+- Docs/text: **CC BY 4.0** — see `LICENSE`
+- Code/scripts: **MIT** — see `LICENSE-CODE`

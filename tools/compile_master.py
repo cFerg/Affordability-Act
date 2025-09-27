@@ -1,22 +1,27 @@
 #!/usr/bin/env python3
-import os
+import os, re
 
-root = os.path.dirname(os.path.dirname(__file__))
-order = os.path.join(root, "tools", "sections_order.txt")
-outf = os.path.join(root, "draft", "bill-text.md")
+ROOT = os.path.dirname(os.path.dirname(__file__))
+SECTIONS_DIR = os.path.join(ROOT, "policy", "sections")
+OUT_FILE = os.path.join(ROOT, "policy", "bill-text.md")
 
-with open(order) as f:
-    files = [line.strip() for line in f if line.strip()]
+def sort_key(name):
+    m = re.match(r"^(\d+)", name)
+    return int(m.group(1)) if m else 9999
+
+folders = [d for d in os.listdir(SECTIONS_DIR) if os.path.isdir(os.path.join(SECTIONS_DIR, d))]
+folders.sort(key=sort_key)
 
 parts = []
-for rel in files:
-    p = os.path.join(root, rel)
-    with open(p, 'r') as fh:
-        parts.append(fh.read().strip())
+for d in folders:
+    md = os.path.join(SECTIONS_DIR, d, "README.md")
+    if os.path.exists(md):
+        with open(md, "r", encoding="utf-8") as f:
+            parts.append(f.read().strip())
 
 doc = "\n\n---\n\n".join(parts) + "\n"
-os.makedirs(os.path.dirname(outf), exist_ok=True)
-with open(outf, "w") as f:
+os.makedirs(os.path.dirname(OUT_FILE), exist_ok=True)
+with open(OUT_FILE, "w", encoding="utf-8") as f:
     f.write(doc)
 
-print("Wrote", outf)
+print(f"Wrote {OUT_FILE} from {len(parts)} sections")

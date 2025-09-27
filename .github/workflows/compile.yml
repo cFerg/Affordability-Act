@@ -1,0 +1,37 @@
+name: Compile master bill
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - 'policy/sections/**'
+      - 'tools/compile_master.py'
+      - '.github/workflows/compile.yml'
+  pull_request:
+    branches: ["**"]
+    paths:
+      - 'policy/sections/**'
+      - 'tools/compile_master.py'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Compile
+        run: python3 tools/compile_master.py
+      - name: Commit compiled bill (if changed)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: auto-compile master bill'
+          file_pattern: policy/bill-text.md

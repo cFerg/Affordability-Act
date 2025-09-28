@@ -28,10 +28,40 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+      # Find which section files changed in this push/PR
+      - name: Detect changed section files
+        id: changed
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            policy/sections/**/README.md
       - name: Compile
         run: python3 tools/compile_master.py
+
+        # Build a nice commit message including PR actor (if any) and sections touched
+      - name: Build commit message
+        id: msg
+        env:
+          ACTOR: ${{ github.event.pull_request.user.login || github.actor }}
+          CHANGED: ${{ steps.changed.outputs.all_changed_files }}
+          PRNUM: ${{ github.event.pull_request.number || '' }}
+        run: |
+          secs=$(echo "$CHANGED" | tr ' ' '\n' \
+             | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p' \
+             | tr '\n' ' ' | sed 's/ *$//')
+          title="docs(policy): rebuild master bill"
+          [ -n "$PRNUM" ] && title="$title (#$PRNUM)"
+          {
+            echo "message<<'EOF'"
+            echo "$title"
+            echo
+            echo "by: @$ACTOR"
+            [ -n "$secs" ] && echo "sections: $secs"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          
       - name: Commit compiled bill (if changed)
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'chore: auto-compile master bill'
+          commit_message: 'docs(policy): auto rebuild master bill'
           file_pattern: policy/bill-text.md

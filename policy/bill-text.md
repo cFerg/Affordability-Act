@@ -33,9 +33,6 @@ Misstatements or cap evasion → rescission, restitution, and civil penalties; r
 
 > **Universal Rule:** **Set AV = min(WIV, RACV).** Only then may NM/RTB apply. NM/RTB cannot offset missing repairs.
 
-## Test line
-- Delete after
-
 ---
 
 # Single‑Family & Land Reset

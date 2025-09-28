@@ -34,7 +34,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      # Which section files changed?
       - name: Detect changed section files
         id: changed
         uses: tj-actions/changed-files@v44
@@ -45,21 +44,21 @@ jobs:
       - name: Compile
         run: python3 tools/compile_master.py
 
-      # Decide if we can push (push event, or PR from same repo)
       - name: Can commit?
         id: can
+        shell: bash
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
-            echo "can=true" >> $GITHUB_OUTPUT
+            echo "can=true" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
-            echo "can=true" >> $GITHUB_OUTPUT
+            echo "can=true" >> "$GITHUB_OUTPUT"
           else
-            echo "can=false" >> $GITHUB_OUTPUT
+            echo "can=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # Resolve commit author to the user (uses GitHub noreply format with user ID)
       - name: Resolve commit identity
         id: ident
+        shell: bash
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             ACT="${{ github.event.pull_request.user.login }}"
@@ -70,26 +69,29 @@ jobs:
             ID="${{ github.event.sender.id }}"
             PRNUM=""
           fi
-          echo "name=$ACT" >> $GITHUB_OUTPUT
-          echo "email=${ID}+${ACT}@users.noreply.github.com" >> $GITHUB_OUTPUT
-          echo "prnum=$PRNUM" >> $GITHUB_OUTPUT
+          # Fallbacks just in case
+          [ -z "$ACT" ] && ACT="${{ github.actor }}"
+          [ -z "$ID" ] && ID="41898282"  # actions bot id
+          echo "name=$ACT" >> "$GITHUB_OUTPUT"
+          echo "email=${ID}+${ACT}@users.noreply.github.com" >> "$GITHUB_OUTPUT"
+          echo "prnum=$PRNUM" >> "$GITHUB_OUTPUT"
 
-      # Build a nice commit message (title shows in list; body has details)
       - name: Build commit message
         id: msg
+        shell: bash
         env:
           CHANGED: ${{ steps.changed.outputs.all_changed_files }}
           ACTOR: ${{ steps.ident.outputs.name }}
           PRNUM: ${{ steps.ident.outputs.prnum }}
         run: |
-          secs=$(echo "$CHANGED" | tr ' ' '\n' \
-                 | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p')
+          # Normalize file list to one-per-line then extract section slugs
+          secs=$(echo "$CHANGED" | tr ' ' '\n' | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p')
           first_sec=$(echo "$secs" | head -n1)
           title="docs(policy): rebuild master bill"
           [ -n "$PRNUM" ] && title="$title (#$PRNUM)"
           [ -n "$first_sec" ] && title="$title — $first_sec"
           {
-            echo "message<<'EOF'"
+            echo "message<<EOF"
             echo "$title"
             echo
             echo "by: @$ACTOR"
@@ -100,7 +102,6 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      # Commit the compiled bill if we can push
       - name: Commit compiled bill (if changed)
         if: steps.can.outputs.can == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -110,7 +111,6 @@ jobs:
           commit_user_name: ${{ steps.ident.outputs.name }}
           commit_user_email: ${{ steps.ident.outputs.email }}
 
-      # Fallback for forked PRs: upload artifact instead of pushing a commit
       - name: Upload compiled bill (artifact)
         if: steps.can.outputs.can != 'true'
         uses: actions/upload-artifact@v4

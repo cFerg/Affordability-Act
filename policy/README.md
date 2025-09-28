@@ -1,3 +1,5 @@
+> 🔎 Looking for the 1-page overview? See the **[Outline](./outline.md)**.
+
 # Policy
 
 **Start here → [Master Bill (compiled)](./bill-text.md)**

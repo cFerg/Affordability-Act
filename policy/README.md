@@ -1,8 +1,7 @@
-> 🔎 Looking for the 1-page overview? See the **[Outline](./outline.md)**.
-
 # Policy
 
 **Start here → [Master Bill (compiled)](./bill-text.md)**
+> 🔎 Looking for the 1-page overview? See the **[Outline](./outline.md)**.
 
 This folder holds the working draft, organized per section. Edit a section’s `README.md`; the master bill is auto-compiled on push.
 

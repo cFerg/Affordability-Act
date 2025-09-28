@@ -6,6 +6,7 @@
 This folder holds the working draft, organized per section. Edit a section’s `README.md`; the master bill is auto-compiled on push.
 
 ## Sections
+<!-- BEGIN:SECTION_INDEX -->
 - 01 — [Definitions & Valuation](sections/01_definitions_and_valuation/README.md) — WIV/RACV, lesser-of, PV/NM/RTB, audits
 - 02 — [Single-Family & Land Reset](sections/02_sf_land_reset/README.md) — first-look, caps, trusts/inheritance, mortgages
 - 03 — [Rezoned Properties](sections/03_rezoned_properties/README.md) — original-zone baseline, value capture
@@ -20,5 +21,6 @@ This folder holds the working draft, organized per section. Edit a section’s `
 - 12 — [Campgrounds & RV](sections/12_campgrounds_rv/README.md) — rate sheet, wage-indexed increases
 - 13 — [Local Voting Integrity](sections/13_local_voting/README.md) — single-domicile, no non-resident property ballots
 - 14 — [Property Taxes](sections/14_property_taxes/README.md) — min(WIV,RACV), rollback, circuit-breakers
+<!-- END:SECTION_INDEX -->
 
 > ⚙️ **Auto-compile:** editing any section triggers CI to rebuild `policy/bill-text.md`.

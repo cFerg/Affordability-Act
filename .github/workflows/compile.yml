@@ -4,17 +4,21 @@ on:
   push:
     branches: ["**"]
     paths:
-      - 'policy/sections/**'
-      - 'tools/compile_master.py'
-      - '.github/workflows/compile.yml'
+      - "policy/sections/**"
+      - "tools/compile_master.py"
+      - ".github/workflows/compile.yml"
   pull_request:
     branches: ["**"]
     paths:
-      - 'policy/sections/**'
-      - 'tools/compile_master.py'
+      - "policy/sections/**"
+      - "tools/compile_master.py"
 
 permissions:
   contents: write
+
+concurrency:
+  group: compile-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -24,44 +28,92 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      # Find which section files changed in this push/PR
+          python-version: "3.x"
+
+      # Which section files changed?
       - name: Detect changed section files
         id: changed
         uses: tj-actions/changed-files@v44
         with:
           files: |
             policy/sections/**/README.md
+
       - name: Compile
         run: python3 tools/compile_master.py
 
-        # Build a nice commit message including PR actor (if any) and sections touched
+      # Decide if we can push (push event, or PR from same repo)
+      - name: Can commit?
+        id: can
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "can=true" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ github.event.pull_request.head.repo.full_name }}" = "${{ github.repository }}" ]; then
+            echo "can=true" >> $GITHUB_OUTPUT
+          else
+            echo "can=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Resolve commit author to the user (uses GitHub noreply format with user ID)
+      - name: Resolve commit identity
+        id: ident
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            ACT="${{ github.event.pull_request.user.login }}"
+            ID="${{ github.event.pull_request.user.id }}"
+            PRNUM="${{ github.event.pull_request.number }}"
+          else
+            ACT="${{ github.actor }}"
+            ID="${{ github.event.sender.id }}"
+            PRNUM=""
+          fi
+          echo "name=$ACT" >> $GITHUB_OUTPUT
+          echo "email=${ID}+${ACT}@users.noreply.github.com" >> $GITHUB_OUTPUT
+          echo "prnum=$PRNUM" >> $GITHUB_OUTPUT
+
+      # Build a nice commit message (title shows in list; body has details)
       - name: Build commit message
         id: msg
         env:
-          ACTOR: ${{ github.event.pull_request.user.login || github.actor }}
           CHANGED: ${{ steps.changed.outputs.all_changed_files }}
-          PRNUM: ${{ github.event.pull_request.number || '' }}
+          ACTOR: ${{ steps.ident.outputs.name }}
+          PRNUM: ${{ steps.ident.outputs.prnum }}
         run: |
           secs=$(echo "$CHANGED" | tr ' ' '\n' \
-             | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p' \
-             | tr '\n' ' ' | sed 's/ *$//')
+                 | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p')
+          first_sec=$(echo "$secs" | head -n1)
           title="docs(policy): rebuild master bill"
           [ -n "$PRNUM" ] && title="$title (#$PRNUM)"
+          [ -n "$first_sec" ] && title="$title — $first_sec"
           {
             echo "message<<'EOF'"
             echo "$title"
             echo
             echo "by: @$ACTOR"
-            [ -n "$secs" ] && echo "sections: $secs"
+            if [ -n "$secs" ]; then
+              echo "sections:"
+              echo "$secs" | sed 's/^/- /'
+            fi
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
-          
+
+      # Commit the compiled bill if we can push
       - name: Commit compiled bill (if changed)
+        if: steps.can.outputs.can == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'docs(policy): auto rebuild master bill'
+          commit_message: ${{ steps.msg.outputs.message }}
           file_pattern: policy/bill-text.md
+          commit_user_name: ${{ steps.ident.outputs.name }}
+          commit_user_email: ${{ steps.ident.outputs.email }}
+
+      # Fallback for forked PRs: upload artifact instead of pushing a commit
+      - name: Upload compiled bill (artifact)
+        if: steps.can.outputs.can != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: bill-text.md
+          path: policy/bill-text.md

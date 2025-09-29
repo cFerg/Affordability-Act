@@ -1,97 +1,56 @@
-#!/usr/bin/env python3
-import os, re, json
+name: Build policy docs
 
-ROOT = os.path.dirname(os.path.dirname(__file__))
-SECTIONS_DIR = os.path.join(ROOT, "policy", "sections")
-README = os.path.join(ROOT, "policy", "README.md")
+on:
+  push:
+    paths:
+      - 'policy/sections/**'
+      - 'tools/**'
+      - 'policy/README.md'
+      - 'policy/outline.md'
+      - '.github/workflows/compile.yml'
+  pull_request:
+    paths:
+      - 'policy/sections/**'
+      - 'tools/**'
+      - 'policy/README.md'
+      - 'policy/outline.md'
+  workflow_dispatch:
 
-MARKER_BEGIN = r"<!--\s*BEGIN:\s*SECTION_INDEX\s*-->"
-MARKER_END   = r"<!--\s*END:\s*SECTION_INDEX\s*-->"
+permissions:
+  contents: write
 
-def sort_key(name: str):
-    m = re.match(r"^(\d+)", name)
-    return int(m.group(1)) if m else 9999
+concurrency:
+  group: compile-${{ github.ref }}
+  cancel-in-progress: true
 
-def read_h1(md_path: str, fallback: str) -> str:
-    try:
-        with open(md_path, "r", encoding="utf-8", errors="replace") as f:
-            for line in f:
-                if line.lstrip().startswith("#"):
-                    return re.sub(r"^#+\s*", "", line).strip()
-    except FileNotFoundError:
-        pass
-    return re.sub(r"_+", " ", fallback)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-def build_list():
-    debug = {"dir": SECTIONS_DIR, "seen": []}
-    if not os.path.isdir(SECTIONS_DIR):
-        return "", debug
-    folders = [d for d in os.listdir(SECTIONS_DIR) if os.path.isdir(os.path.join(SECTIONS_DIR, d))]
-    folders.sort(key=sort_key)
-    lines = []
-    for d in folders:
-        md = os.path.join(SECTIONS_DIR, d, "README.md")
-        title = read_h1(md, d)
-        m = re.match(r"^(\d+)", d)
-        num = f"{int(m.group(1)):02d}" if m else "—"
-        rel = f"sections/{d}/README.md"
-        lines.append(f"- {num} — [{title}]({rel})")
-        debug["seen"].append({"folder": d, "num": num, "title": title, "md_exists": os.path.exists(md)})
-    return ("\n".join(lines) + "\n") if lines else "", debug
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-def ensure_readme():
-    if os.path.exists(README):
-        with open(README, "r", encoding="utf-8", errors="replace") as f:
-            return f.read()
-    os.makedirs(os.path.dirname(README), exist_ok=True)
-    return (
-        "# Policy\n\n"
-        "**Start here → [Master Bill (compiled)](./bill-text.md)** • [Outline](./outline.md)\n\n"
-        "## Sections\n\n"
-        "<!-- BEGIN:SECTION_INDEX -->\n"
-        "<!-- END:SECTION_INDEX -->\n"
-    )
+      - name: Compile master bill
+        run: python3 tools/compile_master.py
 
-def replace_between_markers(doc: str, new_idx: str) -> str:
-    pattern = re.compile(f"({MARKER_BEGIN})(.*?)({MARKER_END})", re.DOTALL | re.IGNORECASE)
-    if pattern.search(doc):
-        return pattern.sub(rf"\1\n{new_idx}\3", doc)
-    return doc
+      - name: Render policy README
+        run: python3 tools/render_policy_readme.py
 
-def replace_after_heading(doc: str, new_idx: str) -> str:
-    m = re.search(r"(?mi)^\s*##\s*Sections\s*$", doc)
-    if not m:
-        return doc
-    start = m.end()
-    n = re.search(r"(?m)^\s*##\s+|"+MARKER_END, doc[start:], re.IGNORECASE)
-    end = start + n.start() if n else len(doc)
-    return doc[:start] + "\n\n" + new_idx + doc[end:]
+      - name: Update outline
+        run: python3 tools/update_outline.py
+        env:
+          GITHUB_SHA: ${{ github.sha }}
 
-def append_block(doc: str, new_idx: str) -> str:
-    return doc.rstrip() + "\n\n## Sections\n\n<!-- BEGIN:SECTION_INDEX -->\n" + new_idx + "<!-- END:SECTION_INDEX -->\n"
-
-def main():
-    index_md, dbg = build_list()
-    print("[update_index] sections found:", json.dumps(dbg, indent=2))
-    print("[update_index] generated index:\n" + index_md)
-
-    doc = ensure_readme()
-    new_doc = replace_between_markers(doc, index_md)
-    if new_doc == doc:
-        new_doc = replace_after_heading(doc, index_md)
-    if new_doc == doc:
-        new_doc = append_block(doc, index_md)
-
-    if new_doc != doc:
-        with open(README, "w", encoding="utf-8") as f:
-            f.write(new_doc)
-        print("[update_index] Updated policy/README.md")
-    else:
-        print("[update_index] No changes to policy/README.md")
-
-if __name__ == "__main__":
-    # Never fail the job
-    try:
-        main()
-    except Exception as e:
-        print("[update_index] ERROR:", e)
+      - name: Commit outputs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs(policy): rebuild bill + README + outline by @${{ github.actor }} [skip ci]"
+          file_pattern: |
+            policy/bill-text.md
+            policy/README.md
+            policy/outline.md

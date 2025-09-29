@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 import os, re, sys, json
 
-ROOT = os.path.dirname(os.path.dirname(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECTIONS_DIR = os.path.join(ROOT, "policy", "sections")
 README = os.path.join(ROOT, "policy", "README.md")
 
-def sort_key(name: str):
+def sort_key(name):
     m = re.match(r"^(\d+)", name)
     return int(m.group(1)) if m else 9999
 
-def read_h1(path: str, fallback: str) -> str:
+def read_h1(path, fallback):
     try:
         with open(path, "r", encoding="utf-8", errors="replace") as f:
             for line in f:
@@ -31,7 +31,7 @@ def discover():
             m = re.match(r"^(\d+)", d)
             num = f"{int(m.group(1)):02d}" if m else "—"
             rel = f"sections/{d}/README.md"
-            items.append((num, title, rel, os.path.exists(md)))
+            items.append((num, title, rel))
             dbg["items"].append({"folder": d, "num": num, "title": title, "md_exists": os.path.exists(md)})
     items.sort(key=lambda t: (9999 if t[0]=="—" else int(t[0]), t[1].lower()))
     return items, dbg
@@ -39,7 +39,7 @@ def discover():
 def sections_md(items):
     if not items:
         return "_No sections discovered under `policy/sections/`._\n"
-    return "\n".join([f"- {n} — [{t}]({r})" for (n,t,r,_) in items]) + "\n"
+    return "\n".join([f"- {n} — [{t}]({r})" for (n,t,r) in items]) + "\n"
 
 def skeleton_header():
     return (
@@ -63,13 +63,12 @@ def main():
 
     new_doc = top + "## Sections\n\n<!-- BEGIN:SECTION_INDEX -->\n" + block + "<!-- END:SECTION_INDEX -->\n"
 
-    if new_doc != doc:
-        os.makedirs(os.path.dirname(README), exist_ok=True)
-        with open(README, "w", encoding="utf-8") as f:
-            f.write(new_doc)
-        print("[render_policy_readme] wrote policy/README.md")
-    else:
-        print("[render_policy_readme] no change")
+    # ALWAYS WRITE so we never get stuck with stale content
+    os.makedirs(os.path.dirname(README), exist_ok=True)
+    with open(README, "w", encoding="utf-8") as f:
+        f.write(new_doc)
+    print("[render_policy_readme] wrote policy/README.md")
+    print("[render_policy_readme] sections block:\n" + block)
 
 if __name__ == "__main__":
     sys.exit(main())

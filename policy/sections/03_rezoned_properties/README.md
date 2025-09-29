@@ -14,3 +14,9 @@ Rezoned but unbuilt parcels held >24 months incur a **holding surtax** or must a
 
 ## §3.5 Residential vs. Commercial
 Mixed‑use splits pro‑rata by floor area; residential portions follow housing caps; commercial portions follow a parallel wage/repair rule with an NM suited to commercial markets *(Policy Dial)*.
+
+## §3.6 Enforcement
+- **Prohibited:** Uplifts from rezoning without built improvements; failure to remit rezoning dividend; sham “improvements.”
+- **Remedies:** Rollback of unlawful uplift; payment of owed dividend + interest; Tier III penalty; debarment from rezoning petitions up to 3 years for willful schemes.
+- **Records:** Development cost files; CO dates; dividend calc worksheet.
+- **Audits:** Compare pro formas to actuals; permit & CO verification.

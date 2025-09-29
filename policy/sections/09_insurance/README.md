@@ -22,4 +22,6 @@ Opt‑in only; minimal retention; data portable to new carrier upon request.
 Servicers must re‑run escrow and lower payments within 60 days of premium decreases.
 
 ## §9.8 Enforcement
-Order rollbacks; consumer credits; private right with fee‑shifting; whistleblower protections.
+- **Prohibited:** Premiums based on unlawful values; hidden catastrophe surcharges; failure to roll back after value drops.
+- **Remedies:** Premium refunds + interest; clawback of CAT surcharges after sunset; Tier II–III penalties; filing disapproval.
+- **Records:** Rate basis statement; CAT surcharge ledger; escrow recalculation logs.

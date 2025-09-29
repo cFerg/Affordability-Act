@@ -18,3 +18,8 @@ Repair‑adjusted reinspection on request; VRB decision within 45 days; correcti
 
 ## §14.6 Vehicles (if ad valorem)
 Use **AVV** (min(VWIV − depreciation − repairs, RACVV)); registration fees indexed to local wage, not CPI.
+
+## §14.7 Enforcement
+- **Prohibited:** Assessing over min(WIV,RACV); ignoring rollback; withholding circuit-breaker credits.
+- **Remedies:** Refunds with interest; assessment correction; Tier II penalty; public reporting of correction rates.
+- **Records:** Assessment workpapers; wage-index application; circuit-breaker determinations.

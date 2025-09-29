@@ -13,4 +13,6 @@ Municipalities/special districts may not create property‑owner electorates for
 LLC/trust ownership does not create extra electors; consolidate to natural persons and domicile rule applies.
 
 ## §13.5 Enforcement
-Residency verification, roll maintenance, civil penalties for false declarations.
+- **Prohibited:** Multiple-domicile voting; beneficial-owner vote stacking; offering consideration to influence ballots.
+- **Remedies:** Ballot invalidation; Tier II–III penalties; referral to elections authority; disqualification in affected proceedings.
+- **Records:** Domicile verification; beneficial-owner attestations.

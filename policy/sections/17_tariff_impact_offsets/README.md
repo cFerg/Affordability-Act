@@ -14,5 +14,10 @@ Require supplier invoices showing tariff line items and dates. Offsets sunset au
 ## §17.4 Federal Harmonization (Model Resolution)
 Urge Congress/USITC to approve temporary duty-free treatment for designated critical housing components during shortages, with mandatory retail pass-through and clawbacks for non-compliance.
 
-## §17.5 Audit & Enforcement
-Random audits ≥10%. False claims → treble damages; vendors may be barred from public procurement for 3 years.
+## §17.5 Audits
+Random audits ≥10%. False claims → see §17.6
+
+## §17.6 Enforcement
+- **Prohibited:** Claiming TIO without pass-through; using offsets to raise AV.
+- **Remedies:** Repayment with interest; treble damages for false claims; vendor debarment 3 years.
+- **Records:** Supplier invoices showing tariff lines; pass-through workbook.

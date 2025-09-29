@@ -20,3 +20,8 @@ Late/interest caps; no foreclosure for trivial sums; cure rights and required pa
 
 ## §11.7 Owner‑Occupant Safeguard Votes (Optional)
 For key decisions (over‑cap assessments, STR conversion, asset disposal), require majority of **owner‑occupant households**.
+
+## §11.8 Enforcement
+- **Prohibited:** Assessments beyond caps without reserve study; opaque vendor contracts; ignoring rebid rules.
+- **Remedies:** Assessment rollback; restitution; mandatory rebid; Tier II penalty; board training or receiver if chronic.
+- **Records:** Reserve studies; competitive bids; vote logs.

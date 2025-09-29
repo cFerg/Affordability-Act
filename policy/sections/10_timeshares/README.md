@@ -22,4 +22,6 @@ No devaluation without owner vote and approval; conversion table published; exch
 Owner‑elected board majority within 5 years; related‑party contracts rebid every 5 years; privacy and data limits.
 
 ## §10.8 Enforcement
-Refunds, civil penalties, license actions, and whistleblower protections.
+- **Prohibited:** Using RAV after shift to IAV; blocking exits; misallocating maintenance vs wage index.
+- **Remedies:** Refunds; compelled buyback or resale at IAV; Tier II penalty; debarment from marketing in jurisdiction if repeated.
+- **Records:** Owner credits ledger; maintenance audit.

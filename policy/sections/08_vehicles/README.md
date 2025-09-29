@@ -17,5 +17,7 @@ Final price ≤ **min(VWIV − Depreciation − Required Repairs, RACVV) + NMV**
 ## §8.5 Trade‑ins & Auctions
 Disclose trade‑in valuation sheet; disclose auction origin and condition grade upon request.
 
-## §8.6 Enforcement
-Refund + 2× penalty; license suspension for repeat offenders.
+## §8.9 Enforcement
+- **Prohibited:** Selling above caps (MSRP+NMV or used-value formula); fake “doc fees”; packing loans with add-ons presented as mandatory.
+- **Remedies:** Refund of overcharge; out-the-door sheet correction; contract re-formation; Tier II–III penalty; dealer license discipline for repeat.
+- **Records:** Out-the-Door Disclosure (price, NMV, taxes, doc-fee peg, add-ons).

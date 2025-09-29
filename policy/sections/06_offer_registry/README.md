@@ -18,3 +18,8 @@ Tie within rung: **earliest verified timestamp**; if identical, a limited lotter
 
 ## §6.6 Transparency & Penalties
 De‑identified offer logs published; violations (bots, shells, shill bids) → rescission, $50k per‑listing civil penalties *(Policy Dial)*, and registry suspension.
+
+## §6.7 Enforcement
+- **Prohibited:** Bot mass-bidding; sham “other offers”; failure to apply priority ladder; beneficial-owner evasion.
+- **Remedies:** Void tainted offers/contracts; Tier III penalties; brokers/agents knowingly facilitating → joint liability + license discipline.
+- **Records:** De-identified offer log; verification artifacts; time-stamped priority decisions.

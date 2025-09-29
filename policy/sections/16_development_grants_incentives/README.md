@@ -17,3 +17,8 @@ In pro formas, treat grants as **negative basis**; financing models must show a 
 
 ## §16.6 Interaction with §3 Rezoning Dividend
 Public incentives may satisfy part of the rezoning dividend if they are applied to on-site affordability at or below AV; documentation required.
+
+## §16.7 Enforcement
+- **Prohibited:** Double-counting subsidies in WIV; failure to pass through benefits.
+- **Remedies:** Price/rent rollback; restitution; clawback of incentives; 3-year ineligibility for programs; Tier III penalty.
+- **Records:** Unit-level pass-through schedules; grant agreements.

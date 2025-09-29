@@ -14,3 +14,8 @@ Conversions require a tenant **right of first refusal**, relocation aid, and ren
 
 ## §5.5 Common Areas & Capital Plans
 Reserve studies every 3 years; capital plans posted. Special assessments must tie to the plan or emergencies; installment options required.
+
+## §5.6 Enforcement
+- **Prohibited:** Rents above unit share of AV+O&M±RTB; neglect-based rent hikes; ghost-inventory (excess vacancy) to manipulate prices.
+- **Remedies:** Tenant refunds; rent rollback; vacancy surtax; Tier II–III penalties; repeat → rent freeze under admin supervision.
+- **Records:** Rent breakdown sheets (AV share, O&M, reserves), vacancy logs.

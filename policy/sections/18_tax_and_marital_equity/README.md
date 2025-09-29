@@ -17,3 +17,8 @@ Recommend federal tables that eliminate marriage penalties/bonuses at common inc
 
 ## §18.6 Anti-Discrimination
 Vendors, lenders, and tax offices are prohibited from conditioning discounts or priority on marital status, except where mandated by federal law (e.g., surviving-spouse veteran benefits).
+
+## §18.7 Enforcement
+- **Prohibited:** Benefits conditioned on marital status; withholding tables lacking single-neutral option; lenders requiring marriage to combine incomes.
+- **Remedies:** Make-whole relief; policy correction orders; Tier II penalty; program audit.
+- **Records:** Program criteria; determinations; lender program sheets.

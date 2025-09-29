@@ -31,3 +31,8 @@ Post audited Boarding Statements each term. Random audits ≥10% annually (polic
 
 ## §15.8 Habitability & Repairs
 Apply RACV logic: unsafe or substandard units trigger **mandatory credits** until cured; neglect cannot justify higher pricing.
+
+## §15.9 Enforcement
+- **Prohibited:** Boarding above BPC; meal-plan markups beyond cap; ring-fence breaches; forced bundles without kitchens/basic plan.
+- **Remedies:** Refunds; next-term BPC reduction by overcharge rate; Tier II–III penalties; loss of affiliation for P3 repeaters.
+- **Records:** Boarding Statements; audited cost lines; plan usage/refund logs.

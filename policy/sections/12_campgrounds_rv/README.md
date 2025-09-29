@@ -14,3 +14,8 @@ Mandatory “resort/admin” fees rolled into the nightly price. Utilities passe
 
 ## §12.5 Safety
 Sanitary facilities, potable water, electrical hookup standards, fire safety. Violations trigger credits and corrective orders.
+
+## §12.6 Enforcement
+- **Prohibited:** Rates above cost+margin sheet; junk fees; denying tenancy protections ≥30 days.
+- **Remedies:** Refunds; nightly rate rollback; Tier II penalty; STR-style cash bans enforced.
+- **Records:** Rate sheet; wage-indexed adjustments; occupancy logs.

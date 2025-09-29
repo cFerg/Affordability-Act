@@ -12,3 +12,8 @@ Trustee owes a **maintenance duty**; if minors/disabled beneficiaries cannot fun
 
 ## §4.4 Due Process
 Clear notices, cure timelines, right to VRB appeal, and judicial review. Hardship plans available; liens capped at documented repair costs plus modest admin *(Policy Dial)*.
+
+## §4.5 Enforcement
+- **Prohibited:** Chronic neglect past cure timeline; misuse as junkyard; trustee failure to maintain.
+- **Remedies:** Abatement orders; fines per day (Tier I–II); transfer to land bank after due process; trustees personally liable for preventable deterioration against trust corpus (dial).
+- **Protections:** No seizure solely due to minor beneficiary status.

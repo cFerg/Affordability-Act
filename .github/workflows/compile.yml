@@ -6,12 +6,16 @@ on:
     paths:
       - "policy/sections/**"
       - "tools/compile_master.py"
+      - "tools/update_index.py"
       - ".github/workflows/compile.yml"
+      - "policy/README.md"
   pull_request:
     branches: ["**"]
     paths:
       - "policy/sections/**"
       - "tools/compile_master.py"
+      - "tools/update_index.py"
+      - "policy/README.md"
 
 permissions:
   contents: write
@@ -46,6 +50,9 @@ jobs:
       - name: Compile
         run: python3 tools/compile_master.py
 
+      - name: Update policy README index
+        run: python3 tools/update_index.py
+
       - name: Can commit?
         id: can
         shell: bash
@@ -72,7 +79,7 @@ jobs:
             PRNUM=""
           fi
           [ -z "$ACT" ] && ACT="${{ github.actor }}"
-          [ -z "$ID" ] && ID="41898282"  # actions bot id as fallback
+          [ -z "$ID" ] && ID="41898282"  # fallback to actions bot id
           echo "name=$ACT" >> "$GITHUB_OUTPUT"
           echo "email=${ID}+${ACT}@users.noreply.github.com" >> "$GITHUB_OUTPUT"
           echo "prnum=$PRNUM" >> "$GITHUB_OUTPUT"
@@ -86,20 +93,22 @@ jobs:
           PRNUM: ${{ steps.ident.outputs.prnum }}
         run: |
           secs=$(echo "$CHANGED" | tr ' ' '\n' | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p' | tr '\n' ',' | sed 's/,$//')
-          title="Master Bill Update"
+          title="docs(policy): rebuild master bill & update index"
           [ -n "$PRNUM" ] && title="$title (#$PRNUM)"
           [ -n "$ACTOR" ] && title="$title by @$ACTOR"
           [ -n "$secs" ] && title="$title — $secs"
           title="$title [skip ci]"
           echo "title=$title" >> "$GITHUB_OUTPUT"
 
-      - name: Commit compiled bill (if changed)
+      - name: Commit compiled bill + index (if changed)
         id: autocommit
         if: steps.can.outputs.can == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: ${{ steps.msg.outputs.title }}
-          file_pattern: policy/bill-text.md
+          file_pattern: |
+            policy/bill-text.md
+            policy/README.md
           commit_user_name: ${{ steps.ident.outputs.name }}
           commit_user_email: ${{ steps.ident.outputs.email }}
 
@@ -110,38 +119,35 @@ jobs:
           name: bill-text.md
           path: policy/bill-text.md
 
-      # PR comment when we pushed a commit
       - name: Comment on PR (commit pushed)
         if: github.event_name == 'pull_request' && steps.can.outputs.can == 'true' && steps.autocommit.outputs.changes_detected == 'true'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ✅ **Master bill recompiled** and committed.
+            ✅ **Master bill recompiled** and **index updated**.
             - Author: @${{ steps.ident.outputs.name }}
             - Commit: `${{ steps.autocommit.outputs.commit_hash }}`
             - Sections touched: `${{ steps.changed.outputs.all_changed_files }}`
-            - Output: `policy/bill-text.md`
+            - Outputs: `policy/bill-text.md`, `policy/README.md`
 
-      # PR comment when we could push but nothing changed (no diff)
       - name: Comment on PR (no changes)
         if: github.event_name == 'pull_request' && steps.can.outputs.can == 'true' && steps.autocommit.outputs.changes_detected != 'true'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ℹ️ **Compile completed** — no changes to `policy/bill-text.md`.
+            ℹ️ **Compile completed** — no changes to `policy/bill-text.md` or `policy/README.md`.
             - Author: @${{ steps.ident.outputs.name }}
             - Sections touched: `${{ steps.changed.outputs.all_changed_files }}`
 
-      # PR comment for forked PRs (artifact only)
       - name: Comment on PR (artifact uploaded)
         if: github.event_name == 'pull_request' && steps.can.outputs.can != 'true'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            📎 **Compile completed** — cannot push on forked PRs.
+            📎 **Compile completed** (forked PR) — cannot push.
             - Author: @${{ steps.ident.outputs.name }}
             - Sections touched: `${{ steps.changed.outputs.all_changed_files }}`
-            - Download the compiled file from workflow **Artifacts**: `bill-text.md`
+            - Download artifact: `bill-text.md`

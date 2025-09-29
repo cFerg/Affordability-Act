@@ -4,13 +4,16 @@
 
 ## §1.1 Terms
 - **Original Purchase Price (OPP):** Price paid when last acquired at arm’s length (closing statement).  
-- **Wage Index:** The time-weighted ratio of local median wages between the purchase year and now, with a hard cap at the simple wage ratio. *(Policy Dial)*  
+- **Wage Index:** The time-weighted ratio of local median wages between the purchase year and now, with a hard cap at the simple wage ratio. *(Policy Dial)* Where official datasets reflect subminimum tipped wages, the Wage Index is adjusted to the equivalent full minimum-wage baseline so housing caps are not depressed by tip credits (§19.4).
 - **Wage‑Indexed Value (WIV):** OPP × Wage Index + **Documented Improvements** (capital only; no routine maintenance).  
 - **Repair‑Adjusted Current Value (RACV):** As‑is fair value **minus Required Repairs** to meet habitability/code.  
 - **Applicable Value (AV):** **Lesser of WIV and RACV.**  
 - **Permissible Variance (PV):** Narrow, documented leeway applied **after** AV is set:  
   - **Negotiation Margin (NM)** for sales *(Policy Dial: default 3–5%)*  
   - **Rent Tolerance Band (RTB)** for rents *(Policy Dial: default ±3%)*
+- **Student Housing:** On-campus, affiliated, or master-leased housing primarily for enrolled students, including required meal plans when bundled.
+- **Tariff Impact Offset (TIO):** A state/local rebate/credit equal to verified federal tariff charges on essential inputs, conditioned on full pass-through to consumers; treated as **negative basis** in WIV (reduces AV).
+- **Marital Neutrality:** Programs and tax benefits administered without preference or penalty for marital status; applied per household domicile.
 
 ## §1.2 Improvements that count
 Capital items that extend life or capacity: structural, roof, envelope, systems, code-required work, accessibility, energy upgrades. DIY allowed with receipts. Decorative/maintenance (paint, cleaning, landscaping upkeep) do **not** increase WIV.

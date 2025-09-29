@@ -17,3 +17,6 @@ PCI DSS (cards) and NACHA (ACH) compliance; data used only for posting/reconcili
 
 ## §7.6 Enforcement
 Non‑compliant demand = unenforceable “non‑payment” for that cycle; restitution + civil penalties; private right of action with fee‑shifting.
+
+## §7.7 Pay Statement Breakout (Service Establishments)
+Employers in covered service industries must provide itemized statements showing **base wages**, **tips received**, and **service charges distributed** for each pay period. Cross-reference §19.3–§19.5. Failure to provide a compliant breakdown is a recordkeeping violation under §19.5(g).

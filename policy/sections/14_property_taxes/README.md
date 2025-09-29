@@ -8,6 +8,7 @@ When total assessed value rises, millage rolls back so levy growth ≤ **wage in
 
 ## §14.3 Circuit‑Breaker Relief
 Refund/credit taxes above **X% of household income** *(Policy Dial: 5–7%)*. Automatic with annual income verification; renters treated via a deemed‑tax share of rent *(Policy Dial: 15–20%)*.
+Marital-status neutral: circuit-breaker thresholds and benefits are identical regardless of marital status (§18.2).
 
 ## §14.4 Homestead Protections
 Annual cap at wage index; portability within state; senior/disabled deferral with simple interest capped at prime + 2%.

@@ -7,15 +7,19 @@ on:
       - "policy/sections/**"
       - "tools/compile_master.py"
       - "tools/update_index.py"
-      - ".github/workflows/compile.yml"
+      - "tools/update_outline.py"
       - "policy/README.md"
+      - "policy/outline.md"
+      - ".github/workflows/compile.yml"
   pull_request:
     branches: ["**"]
     paths:
       - "policy/sections/**"
       - "tools/compile_master.py"
       - "tools/update_index.py"
+      - "tools/update_outline.py"
       - "policy/README.md"
+      - "policy/outline.md"
 
 permissions:
   contents: write
@@ -53,6 +57,9 @@ jobs:
       - name: Update policy README index
         run: python3 tools/update_index.py
 
+      - name: Update outline date
+        run: python3 tools/update_outline.py
+
       - name: Can commit?
         id: can
         shell: bash
@@ -79,7 +86,7 @@ jobs:
             PRNUM=""
           fi
           [ -z "$ACT" ] && ACT="${{ github.actor }}"
-          [ -z "$ID" ] && ID="41898282"  # fallback to actions bot id
+          [ -z "$ID" ] && ID="41898282"
           echo "name=$ACT" >> "$GITHUB_OUTPUT"
           echo "email=${ID}+${ACT}@users.noreply.github.com" >> "$GITHUB_OUTPUT"
           echo "prnum=$PRNUM" >> "$GITHUB_OUTPUT"
@@ -93,14 +100,14 @@ jobs:
           PRNUM: ${{ steps.ident.outputs.prnum }}
         run: |
           secs=$(echo "$CHANGED" | tr ' ' '\n' | sed -n 's#^policy/sections/\([^/]*\)/README.md#\1#p' | tr '\n' ',' | sed 's/,$//')
-          title="docs(policy): rebuild master bill & update index"
+          title="docs(policy): rebuild bill + update index/outline"
           [ -n "$PRNUM" ] && title="$title (#$PRNUM)"
           [ -n "$ACTOR" ] && title="$title by @$ACTOR"
           [ -n "$secs" ] && title="$title — $secs"
           title="$title [skip ci]"
           echo "title=$title" >> "$GITHUB_OUTPUT"
 
-      - name: Commit compiled bill + index (if changed)
+      - name: Commit compiled outputs (if changed)
         id: autocommit
         if: steps.can.outputs.can == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -109,6 +116,7 @@ jobs:
           file_pattern: |
             policy/bill-text.md
             policy/README.md
+            policy/outline.md
           commit_user_name: ${{ steps.ident.outputs.name }}
           commit_user_email: ${{ steps.ident.outputs.email }}
 
@@ -125,11 +133,11 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ✅ **Master bill recompiled** and **index updated**.
+            ✅ **Compiled bill + updated index/outline.**
             - Author: @${{ steps.ident.outputs.name }}
             - Commit: `${{ steps.autocommit.outputs.commit_hash }}`
             - Sections touched: `${{ steps.changed.outputs.all_changed_files }}`
-            - Outputs: `policy/bill-text.md`, `policy/README.md`
+            - Outputs: `policy/bill-text.md`, `policy/README.md`, `policy/outline.md`
 
       - name: Comment on PR (no changes)
         if: github.event_name == 'pull_request' && steps.can.outputs.can == 'true' && steps.autocommit.outputs.changes_detected != 'true'
@@ -137,7 +145,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            ℹ️ **Compile completed** — no changes to `policy/bill-text.md` or `policy/README.md`.
+            ℹ️ **Compile completed** — no changes to `policy/bill-text.md`, `policy/README.md`, or `policy/outline.md`.
             - Author: @${{ steps.ident.outputs.name }}
             - Sections touched: `${{ steps.changed.outputs.all_changed_files }}`
 

@@ -1,3 +1,6 @@
+# Price Reversion Act — Compiled Master
+_Generated: 2025-09-29_
+
 # Definitions & Valuation (Core Methods)
 
 **Purpose.** Tie prices to wages and real condition so affordability tracks incomes, not hype.
@@ -608,3 +611,5 @@ Works alongside state consumer-protection, wage/hour, insurance, and housing law
 
 ## §20.11 Limitations
 Statute of limitations: **4 years** from discovery; tolled during concealment or missing records.
+
+---

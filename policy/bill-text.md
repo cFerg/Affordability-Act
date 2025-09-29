@@ -1,5 +1,5 @@
 # Price Reversion Act - Compiled Master
-_Generated (UTC): 2025-09-29 17:26 UTC_
+_Generated (UTC): 2025-09-29 17:29 UTC_
 
 # Definitions & Valuation (Core Methods)
 
@@ -70,7 +70,7 @@ Admin/processing/title add‑ons capped; only truly optional services may be ite
 - **Remedies:** Buyer restitution (price − lawful RACV), interest, liquidated damages (§20.2), civil penalty Tier II–III. Contract is voidable; liens may be re-formed to RACV.
 - **Records:** RACV Certificate with base, WIV calc, improvements, repair offsets, NM; keep 4 years.
 - **Audits:** ≥10% of transfers; cross-check permits/receipts. False cert → Tier IV + 5-year limit on owning >1 residential unit (dial).
-- **Private right:** §20.7.
+- **Private right:** See §20.7.
 
 ---
 

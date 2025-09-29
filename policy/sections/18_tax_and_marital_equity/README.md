@@ -1,0 +1,19 @@
+# Tax & Marital-Status Equity (Property & Access)
+
+## §18.1 Marital Neutrality Principle
+All state/local tax benefits and homeowner programs apply **without preference** for marital status. No bonuses or penalties based solely on being single, married, divorced, or widowed.
+
+## §18.2 Circuit Breaker by Income, Not Status
+Property-tax circuit breakers (§14.3) use **household income** thresholds with identical schedules for single and married filers. Benefits are based on income and domicile, not marital status.
+
+## §18.3 Homestead & Credits
+Homestead exemptions, first-time buyer credits, and fee waivers apply per **household domicile**, not marital status. One homestead per household.
+
+## §18.4 Mortgage & Program Access
+Public programs and jurisdiction-backed loans must use **ability-to-repay** metrics neutral to marital status; co-borrowers (related or unrelated) are treated symmetrically. Programs may not require marriage to combine incomes.
+
+## §18.5 Withholding & Refund Guidance (Model Federal Ask)
+Recommend federal tables that eliminate marriage penalties/bonuses at common income bands; until then, state withholding tables should provide a **single-filer neutral** option mirroring married-filer rates at equal income.
+
+## §18.6 Anti-Discrimination
+Vendors, lenders, and tax offices are prohibited from conditioning discounts or priority on marital status, except where mandated by federal law (e.g., surviving-spouse veteran benefits).

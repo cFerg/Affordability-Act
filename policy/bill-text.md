@@ -63,7 +63,11 @@ Pre‑verification, anti‑bot, rate limits, beneficial‑owner consolidation, a
 Admin/processing/title add‑ons capped; only truly optional services may be itemized. Fees pegged to **hours of local minimum wage** *(Policy Dial)*.
 
 ## §2.8 Enforcement
-Overcharge → refund + 2× penalty; repeat → license discipline and suspension from registry.
+- **Prohibited:** Pricing/listing above RACV+NM; misstates base/improvements/repairs; side-payments/bundled goods to evade cap.
+- **Remedies:** Buyer restitution (price − lawful RACV), interest, liquidated damages (§20.2), civil penalty Tier II–III. Contract is voidable; liens may be re-formed to RACV.
+- **Records:** RACV Certificate with base, WIV calc, improvements, repair offsets, NM; keep 4 years.
+- **Audits:** ≥10% of transfers; cross-check permits/receipts. False cert → Tier IV + 5-year limit on owning >1 residential unit (dial).
+- **Private right:** §20.7.
 
 ---
 
@@ -84,6 +88,12 @@ Rezoned but unbuilt parcels held >24 months incur a **holding surtax** or must a
 ## §3.5 Residential vs. Commercial
 Mixed‑use splits pro‑rata by floor area; residential portions follow housing caps; commercial portions follow a parallel wage/repair rule with an NM suited to commercial markets *(Policy Dial)*.
 
+## §3.6 Enforcement
+- **Prohibited:** Uplifts from rezoning without built improvements; failure to remit rezoning dividend; sham “improvements.”
+- **Remedies:** Rollback of unlawful uplift; payment of owed dividend + interest; Tier III penalty; debarment from rezoning petitions up to 3 years for willful schemes.
+- **Records:** Development cost files; CO dates; dividend calc worksheet.
+- **Audits:** Compare pro formas to actuals; permit & CO verification.
+
 ---
 
 # Blight, Neglect, Trusts & Inherited Property
@@ -100,6 +110,11 @@ Trustee owes a **maintenance duty**; if minors/disabled beneficiaries cannot fun
 
 ## §4.4 Due Process
 Clear notices, cure timelines, right to VRB appeal, and judicial review. Hardship plans available; liens capped at documented repair costs plus modest admin *(Policy Dial)*.
+
+## §4.5 Enforcement
+- **Prohibited:** Chronic neglect past cure timeline; misuse as junkyard; trustee failure to maintain.
+- **Remedies:** Abatement orders; fines per day (Tier I–II); transfer to land bank after due process; trustees personally liable for preventable deterioration against trust corpus (dial).
+- **Protections:** No seizure solely due to minor beneficiary status.
 
 ---
 
@@ -119,6 +134,11 @@ Conversions require a tenant **right of first refusal**, relocation aid, and ren
 
 ## §5.5 Common Areas & Capital Plans
 Reserve studies every 3 years; capital plans posted. Special assessments must tie to the plan or emergencies; installment options required.
+
+## §5.6 Enforcement
+- **Prohibited:** Rents above unit share of AV+O&M±RTB; neglect-based rent hikes; ghost-inventory (excess vacancy) to manipulate prices.
+- **Remedies:** Tenant refunds; rent rollback; vacancy surtax; Tier II–III penalties; repeat → rent freeze under admin supervision.
+- **Records:** Rent breakdown sheets (AV share, O&M, reserves), vacancy logs.
 
 ---
 
@@ -143,6 +163,11 @@ Tie within rung: **earliest verified timestamp**; if identical, a limited lotter
 ## §6.6 Transparency & Penalties
 De‑identified offer logs published; violations (bots, shells, shill bids) → rescission, $50k per‑listing civil penalties *(Policy Dial)*, and registry suspension.
 
+## §6.7 Enforcement
+- **Prohibited:** Bot mass-bidding; sham “other offers”; failure to apply priority ladder; beneficial-owner evasion.
+- **Remedies:** Void tainted offers/contracts; Tier III penalties; brokers/agents knowingly facilitating → joint liability + license discipline.
+- **Records:** De-identified offer log; verification artifacts; time-stamped priority decisions.
+
 ---
 
 # Payment Integrity (All Housing/Lodging Contracts)
@@ -163,7 +188,8 @@ Immediate e‑receipt; post payments same/next business day. Missed posting → 
 PCI DSS (cards) and NACHA (ACH) compliance; data used only for posting/reconciliation.
 
 ## §7.6 Enforcement
-Non‑compliant demand = unenforceable “non‑payment” for that cycle; restitution + civil penalties; private right of action with fee‑shifting.
+- **Prohibited:** Cash-only demands; refusing no-fee ACH; misposting; junk surcharges beyond caps.
+- **Remedies:** Payment deemed timely; late fees waived + $10 posting credit; restitution of illegal surcharges; Tier II penalty; private right (§20.7).
 
 ## §7.7 Pay Statement Breakout (Service Establishments)
 Employers in covered service industries must provide itemized statements showing **base wages**, **tips received**, and **service charges distributed** for each pay period. Cross-reference §19.3–§19.5. Failure to provide a compliant breakdown is a recordkeeping violation under §19.5(g).
@@ -189,8 +215,10 @@ Final price ≤ **min(VWIV − Depreciation − Required Repairs, RACVV) + NMV**
 ## §8.5 Trade‑ins & Auctions
 Disclose trade‑in valuation sheet; disclose auction origin and condition grade upon request.
 
-## §8.6 Enforcement
-Refund + 2× penalty; license suspension for repeat offenders.
+## §8.9 Enforcement
+- **Prohibited:** Selling above caps (MSRP+NMV or used-value formula); fake “doc fees”; packing loans with add-ons presented as mandatory.
+- **Remedies:** Refund of overcharge; out-the-door sheet correction; contract re-formation; Tier II–III penalty; dealer license discipline for repeat.
+- **Records:** Out-the-Door Disclosure (price, NMV, taxes, doc-fee peg, add-ons).
 
 ---
 
@@ -218,7 +246,9 @@ Opt‑in only; minimal retention; data portable to new carrier upon request.
 Servicers must re‑run escrow and lower payments within 60 days of premium decreases.
 
 ## §9.8 Enforcement
-Order rollbacks; consumer credits; private right with fee‑shifting; whistleblower protections.
+- **Prohibited:** Premiums based on unlawful values; hidden catastrophe surcharges; failure to roll back after value drops.
+- **Remedies:** Premium refunds + interest; clawback of CAT surcharges after sunset; Tier II–III penalties; filing disapproval.
+- **Records:** Rate basis statement; CAT surcharge ledger; escrow recalculation logs.
 
 ---
 
@@ -246,7 +276,9 @@ No devaluation without owner vote and approval; conversion table published; exch
 Owner‑elected board majority within 5 years; related‑party contracts rebid every 5 years; privacy and data limits.
 
 ## §10.8 Enforcement
-Refunds, civil penalties, license actions, and whistleblower protections.
+- **Prohibited:** Using RAV after shift to IAV; blocking exits; misallocating maintenance vs wage index.
+- **Remedies:** Refunds; compelled buyback or resale at IAV; Tier II penalty; debarment from marketing in jurisdiction if repeated.
+- **Records:** Owner credits ledger; maintenance audit.
 
 ---
 
@@ -273,6 +305,11 @@ Late/interest caps; no foreclosure for trivial sums; cure rights and required pa
 ## §11.7 Owner‑Occupant Safeguard Votes (Optional)
 For key decisions (over‑cap assessments, STR conversion, asset disposal), require majority of **owner‑occupant households**.
 
+## §11.8 Enforcement
+- **Prohibited:** Assessments beyond caps without reserve study; opaque vendor contracts; ignoring rebid rules.
+- **Remedies:** Assessment rollback; restitution; mandatory rebid; Tier II penalty; board training or receiver if chronic.
+- **Records:** Reserve studies; competitive bids; vote logs.
+
 ---
 
 # Campgrounds & RV Parks
@@ -292,6 +329,11 @@ Mandatory “resort/admin” fees rolled into the nightly price. Utilities passe
 ## §12.5 Safety
 Sanitary facilities, potable water, electrical hookup standards, fire safety. Violations trigger credits and corrective orders.
 
+## §12.6 Enforcement
+- **Prohibited:** Rates above cost+margin sheet; junk fees; denying tenancy protections ≥30 days.
+- **Remedies:** Refunds; nightly rate rollback; Tier II penalty; STR-style cash bans enforced.
+- **Records:** Rate sheet; wage-indexed adjustments; occupancy logs.
+
 ---
 
 # Local Voting Integrity (Model Policy)
@@ -309,7 +351,9 @@ Municipalities/special districts may not create property‑owner electorates for
 LLC/trust ownership does not create extra electors; consolidate to natural persons and domicile rule applies.
 
 ## §13.5 Enforcement
-Residency verification, roll maintenance, civil penalties for false declarations.
+- **Prohibited:** Multiple-domicile voting; beneficial-owner vote stacking; offering consideration to influence ballots.
+- **Remedies:** Ballot invalidation; Tier II–III penalties; referral to elections authority; disqualification in affected proceedings.
+- **Records:** Domicile verification; beneficial-owner attestations.
 
 ---
 
@@ -333,6 +377,11 @@ Repair‑adjusted reinspection on request; VRB decision within 45 days; correcti
 
 ## §14.6 Vehicles (if ad valorem)
 Use **AVV** (min(VWIV − depreciation − repairs, RACVV)); registration fees indexed to local wage, not CPI.
+
+## §14.7 Enforcement
+- **Prohibited:** Assessing over min(WIV,RACV); ignoring rollback; withholding circuit-breaker credits.
+- **Remedies:** Refunds with interest; assessment correction; Tier II penalty; public reporting of correction rates.
+- **Records:** Assessment workpapers; wage-index application; circuit-breaker determinations.
 
 ---
 
@@ -370,6 +419,11 @@ Post audited Boarding Statements each term. Random audits ≥10% annually (polic
 ## §15.8 Habitability & Repairs
 Apply RACV logic: unsafe or substandard units trigger **mandatory credits** until cured; neglect cannot justify higher pricing.
 
+## §15.9 Enforcement
+- **Prohibited:** Boarding above BPC; meal-plan markups beyond cap; ring-fence breaches; forced bundles without kitchens/basic plan.
+- **Remedies:** Refunds; next-term BPC reduction by overcharge rate; Tier II–III penalties; loss of affiliation for P3 repeaters.
+- **Records:** Boarding Statements; audited cost lines; plan usage/refund logs.
+
 ---
 
 # Development Grants, Subsidies & Incentives
@@ -392,6 +446,11 @@ In pro formas, treat grants as **negative basis**; financing models must show a 
 ## §16.6 Interaction with §3 Rezoning Dividend
 Public incentives may satisfy part of the rezoning dividend if they are applied to on-site affordability at or below AV; documentation required.
 
+## §16.7 Enforcement
+- **Prohibited:** Double-counting subsidies in WIV; failure to pass through benefits.
+- **Remedies:** Price/rent rollback; restitution; clawback of incentives; 3-year ineligibility for programs; Tier III penalty.
+- **Records:** Unit-level pass-through schedules; grant agreements.
+
 ---
 
 # Tariff Impacts on Housing/Vehicle Materials
@@ -410,8 +469,13 @@ Require supplier invoices showing tariff line items and dates. Offsets sunset au
 ## §17.4 Federal Harmonization (Model Resolution)
 Urge Congress/USITC to approve temporary duty-free treatment for designated critical housing components during shortages, with mandatory retail pass-through and clawbacks for non-compliance.
 
-## §17.5 Audit & Enforcement
-Random audits ≥10%. False claims → treble damages; vendors may be barred from public procurement for 3 years.
+## §17.5 Audits
+Random audits ≥10%. False claims → see §17.6
+
+## §17.6 Enforcement
+- **Prohibited:** Claiming TIO without pass-through; using offsets to raise AV.
+- **Remedies:** Repayment with interest; treble damages for false claims; vendor debarment 3 years.
+- **Records:** Supplier invoices showing tariff lines; pass-through workbook.
 
 ---
 
@@ -434,6 +498,11 @@ Recommend federal tables that eliminate marriage penalties/bonuses at common inc
 
 ## §18.6 Anti-Discrimination
 Vendors, lenders, and tax offices are prohibited from conditioning discounts or priority on marital status, except where mandated by federal law (e.g., surviving-spouse veteran benefits).
+
+## §18.7 Enforcement
+- **Prohibited:** Benefits conditioned on marital status; withholding tables lacking single-neutral option; lenders requiring marriage to combine incomes.
+- **Remedies:** Make-whole relief; policy correction orders; Tier II penalty; program audit.
+- **Records:** Program criteria; determinations; lender program sheets.
 
 ---
 
@@ -492,3 +561,50 @@ First-time, non-willful violations self-reported and paid within 30 days may wai
 
 **(j) Coordination.**
 This section complements (does not diminish) federal/state wage laws. Where other law provides greater relief, the greater relief applies.
+
+---
+
+# Uniform Enforcement, Remedies & Procedure
+
+## §20.1 Applicability
+Applies to all covered activities in §§1–19. Where a section has specific remedies, those add to (and do not limit) this section.
+
+## §20.2 Core remedies
+- **Restitution / rollback** of any unlawful overcharge, fee, or premium, plus **interest** (statutory) from date due.
+- **Liquidated damages** = 1.0× the underpayment/overcharge (Policy Dial: 1.0–2.0×; 2.0× if willful/repeat).
+- **Disgorgement** of ill-gotten gains for schemes involving concealment or repeat violations.
+- **Fee-shifting:** prevailing complainant recovers reasonable attorney’s fees and costs.
+
+## §20.3 Civil penalties (per incident unless stated)
+| Tier | Conduct                         | Penalty (Policy Dial)         |
+|------|---------------------------------|-------------------------------|
+| I    | Record/notice lapses (no harm)  | $100–$250                     |
+| II   | Single overcharge/shortfall     | $250–$1,000                   |
+| III  | Willful or repeat               | $1,000–$5,000                 |
+| IV   | Systemic or deceptive scheme    | $5,000–$20,000 + disgorgement |
+
+## §20.4 Records & transparency
+Maintain relevant records **4 years** (or longer where specified): valuation files, offer logs, rent/O&M breakdowns, payroll/tip statements, invoices (tariffs), subsidy pass-throughs, insurance rate bases. Missing/inadequate records → **burden shifts** to respondent once complainant shows a plausible estimate.
+
+## §20.5 Audits
+Random audits ≥ **10%** annually (dial). Agencies may subpoena, inspect, and cross-check permits, payroll, banking, platform data. Whistleblower tips prioritized.
+
+## §20.6 Procedure & timelines
+- **Intake & notice** within 10 business days.
+- **Cure window (optional)**: for non-willful first violations, 30 days to cure → civil penalties may be waived; **restitution, interest, and reporting still required**.
+- **Valuation Review Board (VRB)**: targeted disputes (valuations, repairs). Hearing in ≤ 45 days; decision in ≤ 15 days; de novo admin appeal available.
+
+## §20.7 Private right of action
+Individuals or classes may sue for remedies in §20.2–§20.3 plus section-specific remedies. No mandatory arbitration or class waivers for covered disputes.
+
+## §20.8 Anti-retaliation & whistleblowers
+Any retaliation → separate Tier III penalty + make-whole relief. Verified whistleblowers may receive up to **10% of collected penalties** (dial).
+
+## §20.9 Licensing & debarment
+Repeat/willful violators may face license suspension/revocation (brokers, contractors, lenders, dealers, insurers) and **3-year debarment** from public programs or affiliations.
+
+## §20.10 Coordination
+Works alongside state consumer-protection, wage/hour, insurance, and housing laws. The greater remedy controls. Agencies may refer criminal fraud.
+
+## §20.11 Limitations
+Statute of limitations: **4 years** from discovery; tolled during concealment or missing records.

@@ -4,13 +4,16 @@
 
 ## §1.1 Terms
 - **Original Purchase Price (OPP):** Price paid when last acquired at arm’s length (closing statement).  
-- **Wage Index:** The time-weighted ratio of local median wages between the purchase year and now, with a hard cap at the simple wage ratio. *(Policy Dial)*  
+- **Wage Index:** The time-weighted ratio of local median wages between the purchase year and now, with a hard cap at the simple wage ratio. *(Policy Dial)* Where official datasets reflect subminimum tipped wages, the Wage Index is adjusted to the equivalent full minimum-wage baseline so housing caps are not depressed by tip credits (§19.4).
 - **Wage‑Indexed Value (WIV):** OPP × Wage Index + **Documented Improvements** (capital only; no routine maintenance).  
 - **Repair‑Adjusted Current Value (RACV):** As‑is fair value **minus Required Repairs** to meet habitability/code.  
 - **Applicable Value (AV):** **Lesser of WIV and RACV.**  
 - **Permissible Variance (PV):** Narrow, documented leeway applied **after** AV is set:  
   - **Negotiation Margin (NM)** for sales *(Policy Dial: default 3–5%)*  
   - **Rent Tolerance Band (RTB)** for rents *(Policy Dial: default ±3%)*
+- **Student Housing:** On-campus, affiliated, or master-leased housing primarily for enrolled students, including required meal plans when bundled.
+- **Tariff Impact Offset (TIO):** A state/local rebate/credit equal to verified federal tariff charges on essential inputs, conditioned on full pass-through to consumers; treated as **negative basis** in WIV (reduces AV).
+- **Marital Neutrality:** Programs and tax benefits administered without preference or penalty for marital status; applied per household domicile.
 
 ## §1.2 Improvements that count
 Capital items that extend life or capacity: structural, roof, envelope, systems, code-required work, accessibility, energy upgrades. DIY allowed with receipts. Decorative/maintenance (paint, cleaning, landscaping upkeep) do **not** increase WIV.
@@ -161,6 +164,9 @@ PCI DSS (cards) and NACHA (ACH) compliance; data used only for posting/reconcili
 
 ## §7.6 Enforcement
 Non‑compliant demand = unenforceable “non‑payment” for that cycle; restitution + civil penalties; private right of action with fee‑shifting.
+
+## §7.7 Pay Statement Breakout (Service Establishments)
+Employers in covered service industries must provide itemized statements showing **base wages**, **tips received**, and **service charges distributed** for each pay period. Cross-reference §19.3–§19.5. Failure to provide a compliant breakdown is a recordkeeping violation under §19.5(g).
 
 ---
 
@@ -317,6 +323,7 @@ When total assessed value rises, millage rolls back so levy growth ≤ **wage in
 
 ## §14.3 Circuit‑Breaker Relief
 Refund/credit taxes above **X% of household income** *(Policy Dial: 5–7%)*. Automatic with annual income verification; renters treated via a deemed‑tax share of rent *(Policy Dial: 15–20%)*.
+Marital-status neutral: circuit-breaker thresholds and benefits are identical regardless of marital status (§18.2).
 
 ## §14.4 Homestead Protections
 Annual cap at wage index; portability within state; senior/disabled deferral with simple interest capped at prime + 2%.
@@ -444,5 +451,44 @@ Employers must provide line-item pay statements (base, tips, fees) and offer no-
 ## §19.4 Wage Index Integrity
 For the Act’s **Wage Index**, the labor department publishes median wages **reflecting full minimums without tip credits**. If federal/state datasets still include subminimums, the index is adjusted upward to neutralize tip-credit artifacts.
 
-## §19.5 Enforcement
-Back pay, double damages for willful violations, and license actions for repeat offenders. Retaliation prohibited.
+## §19.5 Enforcement (Back Pay, Damages, Records)
+
+**(a) Non-waivable right.** The rights in §19 are non-waivable by contract, policy, or private agreement.
+
+**(b) Tips are not an offset.** Tips are the employee’s property and may not be credited toward meeting base wage obligations. Back pay is calculated **without** subtracting tips.
+
+**(c) Back-pay calculation (per pay period).**
+For each pay period p and covered employee i:
+
+- Let `H_i,p` = hours worked.
+- Let `W_paid_i,p` = cash wage rate actually paid (excluding tips/service charges distributed).
+- Let `W_min_p` = applicable local minimum wage for the period (before tips).
+- **Back pay owed** = `max(0, (W_min_p − W_paid_i,p)) × H_i,p`.
+
+If overtime or premium hours apply, calculate at the appropriate premium using `W_min_p` as the base.
+
+**(d) Example.**
+If an employee worked 30 hours at $6.00/hr cash wage while `W_min_p` = $12.00, and received $300 in tips:
+- Back pay = `(12 − 6) × 30 = $180`.
+- Tips do not reduce this amount.
+
+**(e) Misrepresented charges.**
+If a charge was presented as a gratuity, 100% must be distributed to service staff. Any undistributed amount is owed **in addition** to back pay, plus penalties.
+
+**(f) Damages & penalties.**
+- Underpayments: back pay + **liquidated damages** equal to the underpayment *(Policy Dial: 1.0× default; up to 2.0× for willful)*.
+- Civil penalty per employee per pay period *(Policy Dial: e.g., $100; $250 if willful/repeat)*.
+- Interest at statutory rate from date due.
+- Attorney’s fees and costs to prevailing employee.
+
+**(g) Records & burden.**
+Employers must retain accurate time and pay records for 4 years and provide itemized statements (base, tips, service fees distributed). If records are incomplete, a reasonable employee estimate is **prima facie** and the burden shifts to the employer.
+
+**(h) Retaliation.**
+Prohibited. Make-whole relief, civil penalties, and reinstatement available.
+
+**(i) Cure window (optional).**
+First-time, non-willful violations self-reported and paid within 30 days may waive civil penalties (not back pay or interest). *(Policy Dial)*
+
+**(j) Coordination.**
+This section complements (does not diminish) federal/state wage laws. Where other law provides greater relief, the greater relief applies.

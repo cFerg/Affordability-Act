@@ -20,6 +20,7 @@ on:
       - "tools/update_outline.py"
       - "policy/README.md"
       - "policy/outline.md"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -44,6 +45,19 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: List sections (debug)
+        run: |
+          echo "Folders under policy/sections:"
+          ls -la policy/sections || true
+          echo
+          echo "Top lines of section READMEs:"
+          for d in policy/sections/*; do
+            if [ -f "$d/README.md" ]; then
+              echo "---- $d/README.md"
+              head -n1 "$d/README.md" || true
+            fi
+          done || true
+
       - name: Detect changed section files
         id: changed
         uses: tj-actions/changed-files@v44
@@ -51,11 +65,17 @@ jobs:
           files: |
             policy/sections/**/README.md
 
-      - name: Compile
+      - name: Compile master bill
         run: python3 tools/compile_master.py
 
       - name: Update policy README index
         run: python3 tools/update_index.py
+
+      - name: Show policy/README.md (debug)
+        run: |
+          echo "--------- policy/README.md ---------"
+          sed -n '1,200p' policy/README.md || true
+          echo "------------------------------------"
 
       - name: Update outline date
         run: python3 tools/update_outline.py
@@ -86,7 +106,7 @@ jobs:
             PRNUM=""
           fi
           [ -z "$ACT" ] && ACT="${{ github.actor }}"
-          [ -z "$ID" ] && ID="41898282"
+          [ -z "$ID" ] && ID="41898282"  # actions-bot fallback
           echo "name=$ACT" >> "$GITHUB_OUTPUT"
           echo "email=${ID}+${ACT}@users.noreply.github.com" >> "$GITHUB_OUTPUT"
           echo "prnum=$PRNUM" >> "$GITHUB_OUTPUT"
@@ -120,7 +140,7 @@ jobs:
           commit_user_name: ${{ steps.ident.outputs.name }}
           commit_user_email: ${{ steps.ident.outputs.email }}
 
-      - name: Upload compiled bill (artifact)
+      - name: Upload compiled bill (artifact for forks)
         if: steps.can.outputs.can != 'true'
         uses: actions/upload-artifact@v4
         with:

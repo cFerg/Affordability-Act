@@ -1,41 +1,90 @@
 #!/usr/bin/env python3
-import os, re, datetime
+import os, re, sys, json, datetime
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
+SECTIONS_DIR = os.path.join(ROOT, "policy", "sections")
 OUTLINE = os.path.join(ROOT, "policy", "outline.md")
+SHORT_SHA = os.getenv("GITHUB_SHA", "")[:7]
+
+def sort_key(name: str):
+    m = re.match(r"^(\d+)", name)
+    return int(m.group(1)) if m else 9999
+
+def read_h1(path: str, fallback: str) -> str:
+    try:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            for line in f:
+                if line.lstrip().startswith("#"):
+                    return re.sub(r"^#+\s*", "", line).strip()
+    except FileNotFoundError:
+        pass
+    return re.sub(r"_+", " ", fallback).strip()
+
+def discover():
+    items, dbg = [], {"dir": SECTIONS_DIR, "items": []}
+    if os.path.isdir(SECTIONS_DIR):
+        for d in os.listdir(SECTIONS_DIR):
+            p = os.path.join(SECTIONS_DIR, d)
+            if not os.path.isdir(p): 
+                continue
+            md = os.path.join(p, "README.md")
+            title = read_h1(md, d)
+            m = re.match(r"^(\d+)", d)
+            num = f"{int(m.group(1)):02d}" if m else "—"
+            rel = f"sections/{d}/README.md"
+            items.append((num, title, rel, os.path.exists(md)))
+            dbg["items"].append({"folder": d, "num": num, "title": title, "md_exists": os.path.exists(md)})
+    items.sort(key=lambda t: (9999 if t[0]=="—" else int(t[0]), t[1].lower()))
+    return items, dbg
+
+def sections_md(items):
+    if not items:
+        return "_No sections discovered under `policy/sections/`._\n"
+    return "\n".join([f"- {n} — [{t}]({r})" for (n,t,r,_) in items]) + "\n"
+
+def stamp():
+    now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    sha = f" · commit {SHORT_SHA}" if SHORT_SHA else ""
+    return f"_Last updated: {now}{sha}_"
+
+def skeleton():
+    return "# Price Reversion Act — Outline\n\n" + stamp() + "\n\n"
 
 def main():
-    today = datetime.date.today().isoformat()
-    updated_line = f"_Last updated: {today}_"
-    if not os.path.exists(OUTLINE):
-        # create a minimal outline if missing
-        content = "# Price Reversion Act — Outline\n\n" + updated_line + "\n"
-        os.makedirs(os.path.dirname(OUTLINE), exist_ok=True)
-        with open(OUTLINE, "w", encoding="utf-8") as f:
-            f.write(content)
-        print("Created policy/outline.md with date")
-        return
+    items, dbg = discover()
+    print("[update_outline] discovered:", json.dumps(dbg, indent=2))
+    block = sections_md(items)
+    stamp_line = stamp()
 
-    with open(OUTLINE, "r", encoding="utf-8") as f:
-        doc = f.read()
+    if os.path.exists(OUTLINE):
+        with open(OUTLINE, "r", encoding="utf-8", errors="replace") as f:
+            doc = f.read()
+    else:
+        doc = skeleton()
 
-    # Replace an existing date line
-    new = re.sub(r"(?m)^_Last updated:\s*\d{4}-\d{2}-\d{2}_\s*$", updated_line, doc)
-    if new == doc:
-        # If not found, insert after first H1
-        m = re.search(r"^#\s+.*$", doc, flags=re.M)
+    # ensure timestamp line under first H1
+    if re.search(r"(?m)^_Last updated:.*_$", doc):
+        doc = re.sub(r"(?m)^_Last updated:.*_$", stamp_line, doc)
+    else:
+        m = re.search(r"(?m)^#\s+.*$", doc)
         if m:
             pos = m.end()
-            new = doc[:pos] + "\n\n" + updated_line + doc[pos:]
+            doc = doc[:pos] + "\n\n" + stamp_line + doc[pos:]
         else:
-            new = updated_line + "\n\n" + doc
+            doc = stamp_line + "\n\n" + doc
 
-    if new != doc:
+    # replace/append Sections block
+    m = re.search(r"(?mi)^\s*##\s*Sections\s*$", doc)
+    top = (doc[:m.start()].rstrip() + "\n\n") if m else (doc.rstrip() + "\n\n")
+    new_doc = top + "## Sections\n\n<!-- BEGIN:SECTION_INDEX -->\n" + block + "<!-- END:SECTION_INDEX -->\n"
+
+    if new_doc != doc:
+        os.makedirs(os.path.dirname(OUTLINE), exist_ok=True)
         with open(OUTLINE, "w", encoding="utf-8") as f:
-            f.write(new)
-        print("Updated policy/outline.md date")
+            f.write(new_doc)
+        print("[update_outline] wrote policy/outline.md")
     else:
-        print("No changes to policy/outline.md")
+        print("[update_outline] no change")
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

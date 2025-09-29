@@ -1,6 +1,6 @@
 # Price Reversion Act — Outline
 
-_Last updated: 2025-09-29 17:35 UTC · commit 53e0e3f_
+_Last updated: 2025-09-29 17:49 UTC · commit ed128a6_
 
 ## Sections
 

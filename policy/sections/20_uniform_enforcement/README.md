@@ -1,4 +1,8 @@
 # Uniform Enforcement, Remedies & Procedure
+<!-- SUMMARY
+Creates a unified toolbox: audits, subpoenas, and corrective orders; restitution to harmed buyers/tenants takes priority over fines. Graduated penalties for willful overpricing, shill bidding, and appraisal fraud; whistleblower rewards; and public dashboards for transparency.
+-->
+<!-- KEYWORDS: enforcement, remedies, audits, penalties, restitution, transparency -->
 
 ## §20.1 Applicability
 Applies to all covered activities in §§1–19. Where a section has specific remedies, those add to (and do not limit) this section.

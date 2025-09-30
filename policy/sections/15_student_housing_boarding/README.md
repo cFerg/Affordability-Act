@@ -1,4 +1,8 @@
 # Student Housing & Boarding Prices
+<!-- SUMMARY
+Caps room-and-board using campus-housing RACV and published operating costs; requires transparent meal-plan math and forbids cross-subsidies from academics. Provides hardship accommodations and pro-rata refunds for closures/service loss.
+-->
+<!-- KEYWORDS: student housing, boarding, cost transparency, caps, hardship -->
 
 ## §15.1 Scope
 Covers on-campus and university-affiliated housing, master-leased blocks, and third-party (P3) student housing marketed primarily to enrolled students, plus mandatory or bundled **meal plans**.

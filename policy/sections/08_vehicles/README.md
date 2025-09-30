@@ -1,4 +1,8 @@
 # Motor Vehicles — Pricing Reversion & Dealer Practices
+<!-- SUMMARY
+Caps used-vehicle prices by a Normalized Market Value (NMV) from MSRP, age, mileage, and condition tiers; antiques/rarities have higher but defined caps. Bans junk fees, pegs doc fees to local wage hours, and requires itemized add-ons/trade-ins so caps can’t be bypassed.
+-->
+<!-- KEYWORDS: vehicles, nmv, doc fee, condition tiers, add-ons, transparency -->
 
 ## §8.1 Definitions
 - **OTP, VWIV, RACVV, AVV:** Vehicle analogs of OPP/WIV/RACV/AV.  

@@ -1,4 +1,8 @@
 # Single‑Family & Land Reset
+<!-- SUMMARY
+Rebases single-family homes and raw land to RACV and applies a duty-to-use/list for long-vacant parcels. Active-renovation and hardship safe harbors apply; chronic warehousing triggers a graduated vacancy duty (creditable to taxes) and fast-track abatement for hazards.
+-->
+<!-- KEYWORDS: single family, land reset, vacancy duty, hardship waiver, abatement -->
 
 ## §2.1 Sale Price Cap
 Final consideration ≤ **AV + NM** (downward unlimited). No side payments or “key money.” Closing costs cannot be used to exceed cap.

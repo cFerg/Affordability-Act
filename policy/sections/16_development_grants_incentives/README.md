@@ -1,4 +1,8 @@
 # Development Grants, Subsidies & Incentives
+<!-- SUMMARY
+Public support must flow through to end-user prices: award conditions require documented pass-through into RACV/rent reductions. Sets clawbacks for non-compliance, local-hiring goals, and open-book cost audits to prevent windfalls.
+-->
+<!-- KEYWORDS: grants, subsidies, incentives, pass-through, clawbacks, audits -->
 
 ## §16.1 Pass-Through to End Buyers/Renters
 Any public grant, tax credit, land discount, fee waiver, or infrastructure contribution **reduces** the **Wage-Indexed Value (WIV)** dollar-for-dollar for affected units so the benefit lowers the **Applicable Value (AV)** and capped rent/sale price.

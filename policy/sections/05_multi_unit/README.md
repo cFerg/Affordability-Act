@@ -1,4 +1,8 @@
 # Multi‑Unit Properties (Apartments/Condos)
+<!-- SUMMARY
+Derives lawful rent from building RACV allocated by unit size/bedrooms, with transparent adders for standard services and verified upgrades. Requires public occupancy reporting and applies a modest duty on chronically vacant units to deter warehousing.
+-->
+<!-- KEYWORDS: multi-unit, rent formula, allocation, occupancy, vacancy duty -->
 
 ## §5.1 Occupancy Floor & Ghost Inventory
 Vacancy >20% without active renovation triggers a **vacancy surtax** (graduated) and a plan to lease/sell units at capped prices.

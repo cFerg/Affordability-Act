@@ -1,4 +1,8 @@
 # Local Voting Integrity (Model Policy)
+<!-- SUMMARY
+Model rule to prevent multi-property owners from exerting outsized influence: civic voting eligibility and local property-policy referenda are tied to a single primary residence per person. Ensures uniform residency definitions and verification without burdening ordinary voters.
+-->
+<!-- KEYWORDS: voting integrity, primary residence, residency, anti-stacking, model policy -->
 
 ## §13.1 Single‑Domicile Voting
 Vote only where you **live** (domicile). Owning extra property elsewhere does not confer voting rights there.

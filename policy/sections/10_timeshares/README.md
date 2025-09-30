@@ -1,4 +1,8 @@
 # Timeshares & Fractional Interests
+<!-- SUMMARY
+Ties resale ceilings and annual fees to RACV of the underlying property and the real usage right purchased. Outlaws perpetual escalators detached from costs; mandates clear, affordable exit paths and forbids predatory relief schemes.
+-->
+<!-- KEYWORDS: timeshare, fractional, resale caps, fees, exits, consumer protection -->
 
 ## §10.1 RAV → IAV
 Resort Applicable Value (RAV) computed via housing rules; **Interval Applicable Value (IAV)** = pro‑rata share with transparent season/size multipliers.

@@ -1,4 +1,8 @@
 # Insurance — Premium Fairness (Auto/Home/Renters)
+<!-- SUMMARY
+Premiums must track actual loss experience and risk—not generic “inflation.” Requires pass-through credits when severities fall, bans proxy redlining, and mandates public rate filings and audit rights. Insurance costs cannot be used to inflate RACV.
+-->
+<!-- KEYWORDS: insurance, premiums, pass-through, risk rating, filings, audit rights -->
 
 ## §9.1 Align Coverage with Lawful Value
 Homes: Coverage A based on **min(WIV, RACV)** + code‑upgrade cushion *(Policy Dial: 10–15%)* unless waived. Vehicles: physical damage on **VWIV minus depreciation/repairs**. After reset, carriers must re‑rate in 30 days and refund mid‑term overcharges.

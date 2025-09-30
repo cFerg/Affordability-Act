@@ -1,4 +1,8 @@
 # Rezoned Properties & Value Capture
+<!-- SUMMARY
+When upzoning raises development potential, the rezoning increment is captured for public benefit and may not inflate RACV for existing units. Sellers may realize a limited, formulaic share only upon build-out; speculative flips post-rezone cannot exceed RACV + variance.
+-->
+<!-- KEYWORDS: rezoning, value capture, upzoning, speculation, public benefit -->
 
 ## §3.1 Baseline by Original Zoning
 Rezoning alone cannot raise AV. Baseline remains OPP and OPP‑era zoning until physical improvements are constructed and inspected.

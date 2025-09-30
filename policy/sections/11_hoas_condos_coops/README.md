@@ -1,4 +1,8 @@
 # HOAs, Condos & Co‑ops (Common‑Interest Communities)
+<!-- SUMMARY
+Aligns dues/special assessments with documented O&M and reserve studies; bans “amenity inflation” to mimic rent hikes. Sets member-vote thresholds for major projects and offers hardship deferrals that don’t snowball penalties.
+-->
+<!-- KEYWORDS: hoa, co-op, assessments, reserves, hardship, governance -->
 
 ## §11.1 Assessment Caps
 Annual increases ≤ **min(wage index, audited operating‑cost index)**; CPI alone insufficient. Emergency overrides are separate and sunset at completion.

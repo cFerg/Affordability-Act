@@ -1,4 +1,8 @@
 # Property Taxes — Assessment & Levy Alignment
+<!-- SUMMARY
+Assessed values must align with RACV, exclude speculative comps, and recognize verified repair offsets. Levies and caps index to local wages; circuit breakers protect low-income seniors/disabled. Prevents tax bills from rising faster than affordability baselines.
+-->
+<!-- KEYWORDS: property tax, assessment, levy caps, circuit breaker, wage index -->
 
 ## §14.1 Assessed Value
 Homesteads and rentals assessed at **min(WIV, RACV)** with mandatory repair deductions. Assessors may not exceed either input.

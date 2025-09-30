@@ -1,4 +1,8 @@
 # Certified Offer Registry, Anti‑Bot, and Priority Ladder
+<!-- SUMMARY
+All offers are logged in a certified registry (time-stamped, auditable). Bans phantom/shill bids and automated bot sniping. If multiple qualified buyers exist, seller must choose via the priority ladder (owner-occupants, local residents, etc.) and first-come within that rung—never by busting the cap.
+-->
+<!-- KEYWORDS: offer registry, anti-shill, anti-bot, priority ladder, transparency -->
 
 ## §6.1 Pre‑Verification (Human Gate)
 Gov‑ID/ITIN match + selfie liveness + 2FA; proof of funds/pre‑approval; owner‑occupant affidavit, local residency proof if claimed.

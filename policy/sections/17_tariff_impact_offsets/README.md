@@ -1,4 +1,8 @@
 # Tariff Impacts on Housing/Vehicle Materials
+<!-- SUMMARY
+Exempts or rebates critical inputs (e.g., lumber, steel, transformers) when tariffs measurably raise RACV; savings must be passed through. Requires a transparent test for materiality and periodic review to avoid abuse.
+-->
+<!-- KEYWORDS: tariffs, materials, exemption, pass-through, affordability test -->
 
 ## §17.1 Purpose
 Neutralize **federal tariff** shocks on essential inputs (e.g., lumber, steel, transformers, glass) that would otherwise raise consumer prices under this Act.

@@ -1,4 +1,8 @@
 # Blight, Neglect, Trusts & Inherited Property
+<!-- SUMMARY
+Sets a duty to maintain habitability and exterior standards; repair costs reduce RACV until cured to end “profit from neglect.” Trusts/estates receive grace periods and a maintenance-only standard (esp. with minor heirs) while preventing trusts from parking properties vacant.
+-->
+<!-- KEYWORDS: blight, neglect, trusts, estates, heirs, habitability, grace period -->
 
 ## §4.1 Vacancy & Blight
 - **Vacant** >12 months or **unsafe** conditions trigger notices.  

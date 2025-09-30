@@ -1,4 +1,8 @@
 # Tax & Marital-Status Equity (Property & Access)
+<!-- SUMMARY
+Neutralizes marital-status distortions in property access and taxation: credits/deductions are structured so singles and couples face equivalent effective rates at equal income. Bars preferential mortgage scoring based solely on marital status and harmonizes homestead rules.
+-->
+<!-- KEYWORDS: tax equity, marital status, homestead, mortgage access, parity -->
 
 ## §18.1 Marital Neutrality Principle
 All state/local tax benefits and homeowner programs apply **without preference** for marital status. No bonuses or penalties based solely on being single, married, divorced, or widowed.

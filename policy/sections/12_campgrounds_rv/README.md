@@ -1,4 +1,8 @@
 # Campgrounds & RV Parks
+<!-- SUMMARY
+For long-stay sites, prices are cost-based: land RACV + shared-service costs + modest margin. Seasonal and amenity premiums allowed if disclosed and real. Stops surge-gouging while preserving sustainable operations.
+-->
+<!-- KEYWORDS: campgrounds, rv parks, long-stay, amenities, seasonal pricing -->
 
 ## §12.1 Transparent Nightly Rates
 **Campground Rate Sheet (CRS)**: (i) land & improvements recovery (amortized per projected occupied nights), (ii) O&M per night, (iii) modest margin *(Policy Dial: ≤10%)*. Display online and on‑site.

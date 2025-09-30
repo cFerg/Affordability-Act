@@ -1,4 +1,8 @@
 # Definitions & Valuation (Core Methods)
+<!-- SUMMARY
+Defines Real-Affordability-Constrained Value (RACV): start from original build/buy cost, index only by local wage changes, add verifiable capital improvements, subtract documented habitability repairs. Sets uniform inputs, forbids comp-driven inflation, and anchors both sale caps and rent math.
+-->
+<!-- KEYWORDS: racv, valuation, wage index, improvements, repair offsets, ceilings -->
 
 **Purpose.** Tie prices to wages and real condition so affordability tracks incomes, not hype.
 

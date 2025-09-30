@@ -1,4 +1,8 @@
 # Payment Integrity (All Housing/Lodging Contracts)
+<!-- SUMMARY
+Requires at least one low-fee, traceable electronic payment option and itemized receipts; bans “cash-only/money-order-only” mandates except during verified outages. Prohibits junk add-on fees that function as price-cap evasion; mandates clean ledgers for deposits, rent-to-own, STRs, and hotels.
+-->
+<!-- KEYWORDS: payments, receipts, electronic, fee limits, compliance, traceability -->
 
 ## §7.1 Covered Arrangements
 Leases, rent‑to‑own/contract‑for‑deed, mortgages/servicing, HOA/condo/co‑op fees, campgrounds/RV, hotels/motels, STR platforms (Airbnb/VRBO).

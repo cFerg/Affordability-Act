@@ -1,4 +1,8 @@
 # Wage Baselines & Tipped Work (Affordability Link)
+<!-- SUMMARY
+Sets the wage index used for RACV and mandates that employers meet full minimum wage in cash—tips are additive. Codifies back-pay math (without tip offsets), requires pay-statement breakouts, and standardizes service-charge treatment to stop tip theft.
+-->
+<!-- KEYWORDS: wage index, minimum wage, tipped work, back pay, service charges -->
 
 ## §19.1 No Subminimum for Tipped Workers
 Within the jurisdiction, the **cash wage** for tipped occupations must be at least the **full local minimum wage**. Tips are **extra** and may not offset base pay.

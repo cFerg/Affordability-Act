@@ -1,7 +1,11 @@
 # Price Reversion Act - Compiled Master
-_Generated (UTC): 2025-09-29 17:50 UTC_
+_Generated (UTC): 2025-09-30 03:17 UTC_
 
 # Definitions & Valuation (Core Methods)
+<!-- SUMMARY
+Defines Real-Affordability-Constrained Value (RACV): start from original build/buy cost, index only by local wage changes, add verifiable capital improvements, subtract documented habitability repairs. Sets uniform inputs, forbids comp-driven inflation, and anchors both sale caps and rent math.
+-->
+<!-- KEYWORDS: racv, valuation, wage index, improvements, repair offsets, ceilings -->
 
 **Purpose.** Tie prices to wages and real condition so affordability tracks incomes, not hype.
 
@@ -42,6 +46,10 @@ Misstatements or cap evasion → rescission, restitution, and civil penalties; r
 ---
 
 # Single‑Family & Land Reset
+<!-- SUMMARY
+Rebases single-family homes and raw land to RACV and applies a duty-to-use/list for long-vacant parcels. Active-renovation and hardship safe harbors apply; chronic warehousing triggers a graduated vacancy duty (creditable to taxes) and fast-track abatement for hazards.
+-->
+<!-- KEYWORDS: single family, land reset, vacancy duty, hardship waiver, abatement -->
 
 ## §2.1 Sale Price Cap
 Final consideration ≤ **AV + NM** (downward unlimited). No side payments or “key money.” Closing costs cannot be used to exceed cap.
@@ -75,6 +83,10 @@ Admin/processing/title add‑ons capped; only truly optional services may be ite
 ---
 
 # Rezoned Properties & Value Capture
+<!-- SUMMARY
+When upzoning raises development potential, the rezoning increment is captured for public benefit and may not inflate RACV for existing units. Sellers may realize a limited, formulaic share only upon build-out; speculative flips post-rezone cannot exceed RACV + variance.
+-->
+<!-- KEYWORDS: rezoning, value capture, upzoning, speculation, public benefit -->
 
 ## §3.1 Baseline by Original Zoning
 Rezoning alone cannot raise AV. Baseline remains OPP and OPP‑era zoning until physical improvements are constructed and inspected.
@@ -100,6 +112,10 @@ Mixed‑use splits pro‑rata by floor area; residential portions follow housing
 ---
 
 # Blight, Neglect, Trusts & Inherited Property
+<!-- SUMMARY
+Sets a duty to maintain habitability and exterior standards; repair costs reduce RACV until cured to end “profit from neglect.” Trusts/estates receive grace periods and a maintenance-only standard (esp. with minor heirs) while preventing trusts from parking properties vacant.
+-->
+<!-- KEYWORDS: blight, neglect, trusts, estates, heirs, habitability, grace period -->
 
 ## §4.1 Vacancy & Blight
 - **Vacant** >12 months or **unsafe** conditions trigger notices.  
@@ -122,6 +138,10 @@ Clear notices, cure timelines, right to VRB appeal, and judicial review. Hardshi
 ---
 
 # Multi‑Unit Properties (Apartments/Condos)
+<!-- SUMMARY
+Derives lawful rent from building RACV allocated by unit size/bedrooms, with transparent adders for standard services and verified upgrades. Requires public occupancy reporting and applies a modest duty on chronically vacant units to deter warehousing.
+-->
+<!-- KEYWORDS: multi-unit, rent formula, allocation, occupancy, vacancy duty -->
 
 ## §5.1 Occupancy Floor & Ghost Inventory
 Vacancy >20% without active renovation triggers a **vacancy surtax** (graduated) and a plan to lease/sell units at capped prices.
@@ -146,6 +166,10 @@ Reserve studies every 3 years; capital plans posted. Special assessments must ti
 ---
 
 # Certified Offer Registry, Anti‑Bot, and Priority Ladder
+<!-- SUMMARY
+All offers are logged in a certified registry (time-stamped, auditable). Bans phantom/shill bids and automated bot sniping. If multiple qualified buyers exist, seller must choose via the priority ladder (owner-occupants, local residents, etc.) and first-come within that rung—never by busting the cap.
+-->
+<!-- KEYWORDS: offer registry, anti-shill, anti-bot, priority ladder, transparency -->
 
 ## §6.1 Pre‑Verification (Human Gate)
 Gov‑ID/ITIN match + selfie liveness + 2FA; proof of funds/pre‑approval; owner‑occupant affidavit, local residency proof if claimed.
@@ -174,6 +198,10 @@ De‑identified offer logs published; violations (bots, shells, shill bids) → 
 ---
 
 # Payment Integrity (All Housing/Lodging Contracts)
+<!-- SUMMARY
+Requires at least one low-fee, traceable electronic payment option and itemized receipts; bans “cash-only/money-order-only” mandates except during verified outages. Prohibits junk add-on fees that function as price-cap evasion; mandates clean ledgers for deposits, rent-to-own, STRs, and hotels.
+-->
+<!-- KEYWORDS: payments, receipts, electronic, fee limits, compliance, traceability -->
 
 ## §7.1 Covered Arrangements
 Leases, rent‑to‑own/contract‑for‑deed, mortgages/servicing, HOA/condo/co‑op fees, campgrounds/RV, hotels/motels, STR platforms (Airbnb/VRBO).
@@ -200,6 +228,10 @@ Employers in covered service industries must provide itemized statements showing
 ---
 
 # Motor Vehicles — Pricing Reversion & Dealer Practices
+<!-- SUMMARY
+Caps used-vehicle prices by a Normalized Market Value (NMV) from MSRP, age, mileage, and condition tiers; antiques/rarities have higher but defined caps. Bans junk fees, pegs doc fees to local wage hours, and requires itemized add-ons/trade-ins so caps can’t be bypassed.
+-->
+<!-- KEYWORDS: vehicles, nmv, doc fee, condition tiers, add-ons, transparency -->
 
 ## §8.1 Definitions
 - **OTP, VWIV, RACVV, AVV:** Vehicle analogs of OPP/WIV/RACV/AV.  
@@ -226,6 +258,10 @@ Disclose trade‑in valuation sheet; disclose auction origin and condition grade
 ---
 
 # Insurance — Premium Fairness (Auto/Home/Renters)
+<!-- SUMMARY
+Premiums must track actual loss experience and risk—not generic “inflation.” Requires pass-through credits when severities fall, bans proxy redlining, and mandates public rate filings and audit rights. Insurance costs cannot be used to inflate RACV.
+-->
+<!-- KEYWORDS: insurance, premiums, pass-through, risk rating, filings, audit rights -->
 
 ## §9.1 Align Coverage with Lawful Value
 Homes: Coverage A based on **min(WIV, RACV)** + code‑upgrade cushion *(Policy Dial: 10–15%)* unless waived. Vehicles: physical damage on **VWIV minus depreciation/repairs**. After reset, carriers must re‑rate in 30 days and refund mid‑term overcharges.
@@ -256,6 +292,10 @@ Servicers must re‑run escrow and lower payments within 60 days of premium decr
 ---
 
 # Timeshares & Fractional Interests
+<!-- SUMMARY
+Ties resale ceilings and annual fees to RACV of the underlying property and the real usage right purchased. Outlaws perpetual escalators detached from costs; mandates clear, affordable exit paths and forbids predatory relief schemes.
+-->
+<!-- KEYWORDS: timeshare, fractional, resale caps, fees, exits, consumer protection -->
 
 ## §10.1 RAV → IAV
 Resort Applicable Value (RAV) computed via housing rules; **Interval Applicable Value (IAV)** = pro‑rata share with transparent season/size multipliers.
@@ -286,6 +326,10 @@ Owner‑elected board majority within 5 years; related‑party contracts rebid e
 ---
 
 # HOAs, Condos & Co‑ops (Common‑Interest Communities)
+<!-- SUMMARY
+Aligns dues/special assessments with documented O&M and reserve studies; bans “amenity inflation” to mimic rent hikes. Sets member-vote thresholds for major projects and offers hardship deferrals that don’t snowball penalties.
+-->
+<!-- KEYWORDS: hoa, co-op, assessments, reserves, hardship, governance -->
 
 ## §11.1 Assessment Caps
 Annual increases ≤ **min(wage index, audited operating‑cost index)**; CPI alone insufficient. Emergency overrides are separate and sunset at completion.
@@ -316,6 +360,10 @@ For key decisions (over‑cap assessments, STR conversion, asset disposal), requ
 ---
 
 # Campgrounds & RV Parks
+<!-- SUMMARY
+For long-stay sites, prices are cost-based: land RACV + shared-service costs + modest margin. Seasonal and amenity premiums allowed if disclosed and real. Stops surge-gouging while preserving sustainable operations.
+-->
+<!-- KEYWORDS: campgrounds, rv parks, long-stay, amenities, seasonal pricing -->
 
 ## §12.1 Transparent Nightly Rates
 **Campground Rate Sheet (CRS)**: (i) land & improvements recovery (amortized per projected occupied nights), (ii) O&M per night, (iii) modest margin *(Policy Dial: ≤10%)*. Display online and on‑site.
@@ -340,6 +388,10 @@ Sanitary facilities, potable water, electrical hookup standards, fire safety. Vi
 ---
 
 # Local Voting Integrity (Model Policy)
+<!-- SUMMARY
+Model rule to prevent multi-property owners from exerting outsized influence: civic voting eligibility and local property-policy referenda are tied to a single primary residence per person. Ensures uniform residency definitions and verification without burdening ordinary voters.
+-->
+<!-- KEYWORDS: voting integrity, primary residence, residency, anti-stacking, model policy -->
 
 ## §13.1 Single‑Domicile Voting
 Vote only where you **live** (domicile). Owning extra property elsewhere does not confer voting rights there.
@@ -361,6 +413,10 @@ LLC/trust ownership does not create extra electors; consolidate to natural perso
 ---
 
 # Property Taxes — Assessment & Levy Alignment
+<!-- SUMMARY
+Assessed values must align with RACV, exclude speculative comps, and recognize verified repair offsets. Levies and caps index to local wages; circuit breakers protect low-income seniors/disabled. Prevents tax bills from rising faster than affordability baselines.
+-->
+<!-- KEYWORDS: property tax, assessment, levy caps, circuit breaker, wage index -->
 
 ## §14.1 Assessed Value
 Homesteads and rentals assessed at **min(WIV, RACV)** with mandatory repair deductions. Assessors may not exceed either input.
@@ -389,6 +445,10 @@ Use **AVV** (min(VWIV − depreciation − repairs, RACVV)); registration fees i
 ---
 
 # Student Housing & Boarding Prices
+<!-- SUMMARY
+Caps room-and-board using campus-housing RACV and published operating costs; requires transparent meal-plan math and forbids cross-subsidies from academics. Provides hardship accommodations and pro-rata refunds for closures/service loss.
+-->
+<!-- KEYWORDS: student housing, boarding, cost transparency, caps, hardship -->
 
 ## §15.1 Scope
 Covers on-campus and university-affiliated housing, master-leased blocks, and third-party (P3) student housing marketed primarily to enrolled students, plus mandatory or bundled **meal plans**.
@@ -430,6 +490,10 @@ Apply RACV logic: unsafe or substandard units trigger **mandatory credits** unti
 ---
 
 # Development Grants, Subsidies & Incentives
+<!-- SUMMARY
+Public support must flow through to end-user prices: award conditions require documented pass-through into RACV/rent reductions. Sets clawbacks for non-compliance, local-hiring goals, and open-book cost audits to prevent windfalls.
+-->
+<!-- KEYWORDS: grants, subsidies, incentives, pass-through, clawbacks, audits -->
 
 ## §16.1 Pass-Through to End Buyers/Renters
 Any public grant, tax credit, land discount, fee waiver, or infrastructure contribution **reduces** the **Wage-Indexed Value (WIV)** dollar-for-dollar for affected units so the benefit lowers the **Applicable Value (AV)** and capped rent/sale price.
@@ -457,6 +521,10 @@ Public incentives may satisfy part of the rezoning dividend if they are applied 
 ---
 
 # Tariff Impacts on Housing/Vehicle Materials
+<!-- SUMMARY
+Exempts or rebates critical inputs (e.g., lumber, steel, transformers) when tariffs measurably raise RACV; savings must be passed through. Requires a transparent test for materiality and periodic review to avoid abuse.
+-->
+<!-- KEYWORDS: tariffs, materials, exemption, pass-through, affordability test -->
 
 ## §17.1 Purpose
 Neutralize **federal tariff** shocks on essential inputs (e.g., lumber, steel, transformers, glass) that would otherwise raise consumer prices under this Act.
@@ -483,6 +551,10 @@ Random audits ≥10%. False claims → see §17.6
 ---
 
 # Tax & Marital-Status Equity (Property & Access)
+<!-- SUMMARY
+Neutralizes marital-status distortions in property access and taxation: credits/deductions are structured so singles and couples face equivalent effective rates at equal income. Bars preferential mortgage scoring based solely on marital status and harmonizes homestead rules.
+-->
+<!-- KEYWORDS: tax equity, marital status, homestead, mortgage access, parity -->
 
 ## §18.1 Marital Neutrality Principle
 All state/local tax benefits and homeowner programs apply **without preference** for marital status. No bonuses or penalties based solely on being single, married, divorced, or widowed.
@@ -510,6 +582,10 @@ Vendors, lenders, and tax offices are prohibited from conditioning discounts or 
 ---
 
 # Wage Baselines & Tipped Work (Affordability Link)
+<!-- SUMMARY
+Sets the wage index used for RACV and mandates that employers meet full minimum wage in cash—tips are additive. Codifies back-pay math (without tip offsets), requires pay-statement breakouts, and standardizes service-charge treatment to stop tip theft.
+-->
+<!-- KEYWORDS: wage index, minimum wage, tipped work, back pay, service charges -->
 
 ## §19.1 No Subminimum for Tipped Workers
 Within the jurisdiction, the **cash wage** for tipped occupations must be at least the **full local minimum wage**. Tips are **extra** and may not offset base pay.
@@ -568,6 +644,10 @@ This section complements (does not diminish) federal/state wage laws. Where othe
 ---
 
 # Uniform Enforcement, Remedies & Procedure
+<!-- SUMMARY
+Creates a unified toolbox: audits, subpoenas, and corrective orders; restitution to harmed buyers/tenants takes priority over fines. Graduated penalties for willful overpricing, shill bidding, and appraisal fraud; whistleblower rewards; and public dashboards for transparency.
+-->
+<!-- KEYWORDS: enforcement, remedies, audits, penalties, restitution, transparency -->
 
 ## §20.1 Applicability
 Applies to all covered activities in §§1–19. Where a section has specific remedies, those add to (and do not limit) this section.

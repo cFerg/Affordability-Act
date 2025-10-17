@@ -1,4 +1,4 @@
-# Price Reversion Act (Working Draft)
+# Affordability Act (Working Draft)
 
 Per-section folders live under `policy/sections/`. The compiled master bill is `policy/bill-text.md`.
 

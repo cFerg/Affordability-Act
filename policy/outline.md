@@ -1,6 +1,6 @@
 # Affordability Act — Outline
 
-_Last updated: 2025-10-17 19:22 UTC · commit 4ebb534_
+_Last updated: 2025-10-17 19:24 UTC · commit d80f9e8_
 
 This outline summarizes each section at a glance. Click through for full text.
 
@@ -163,3 +163,11 @@ _Keywords:_ wage, index, minimum, tipped, work, back, pay, service
 Creates a unified toolbox: audits, subpoenas, and corrective orders; restitution to harmed buyers/tenants takes priority over fines. Graduated penalties for willful overpricing, shill bidding, and appraisal fraud; whistleblower rewards; and public dashboards for transparency.
 
 _Keywords:_ enforcement, remedies, audits, penalties, restitution, transparency
+
+## 21 — 21 — Fiscal Neutrality & Hold-Harmless (Jobs, Taxes & Fees)
+
+[Open section](sections/21_fiscal_neutrality_and_hold_harmless/README.md)
+
+Prevents employers and governments from offsetting affordability reforms by cutting pay, hours, or benefits, or by raising taxes/fees. Requires fiscal neutrality: savings and new revenues from the Act fund affordability, not general backfill. Strong anti-retaliation, anti-pass-through, and transparency rules ensure workers and residents don’t bear the cost.
+
+_Keywords:_ fiscal, neutrality, hold-harmless, anti-pass-through, anti-retaliation, taxes, fees

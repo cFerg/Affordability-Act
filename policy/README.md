@@ -25,4 +25,5 @@
 - 18 — [Tax & Marital-Status Equity (Property & Access)](sections/18_tax_and_marital_equity/README.md)
 - 19 — [Wage Baselines & Tipped Work (Affordability Link)](sections/19_wages_and_tips/README.md)
 - 20 — [Uniform Enforcement, Remedies & Procedure](sections/20_uniform_enforcement/README.md)
+- 21 — [21 — Fiscal Neutrality & Hold-Harmless (Jobs, Taxes & Fees)](sections/21_fiscal_neutrality_and_hold_harmless/README.md)
 <!-- END:SECTION_INDEX -->

@@ -40,6 +40,7 @@ jobs:
         run: python3 tools/build_docs.py
         env:
           GITHUB_SHA: ${{ github.sha }}
+          ACT_NAME: "Afford Act"
 
       - name: Show outputs (debug)
         run: |

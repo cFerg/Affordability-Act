@@ -1,6 +1,6 @@
-# Afford Act — Outline
+# Affordability Act — Outline
 
-_Last updated: 2025-10-17 16:35 UTC · commit e3e1571_
+_Last updated: 2025-10-17 19:22 UTC · commit 4ebb534_
 
 This outline summarizes each section at a glance. Click through for full text.
 

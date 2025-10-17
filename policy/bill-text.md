@@ -1,5 +1,5 @@
-# Afford Act — Compiled Master
-_Generated (UTC): 2025-10-17 16:35 UTC_
+# Affordability Act — Compiled Master
+_Generated (UTC): 2025-10-17 19:22 UTC_
 
 # Definitions & Valuation (Core Methods)
 <!-- SUMMARY

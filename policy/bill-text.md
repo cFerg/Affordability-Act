@@ -1,5 +1,5 @@
-# Price Reversion Act - Compiled Master
-_Generated (UTC): 2025-09-30 03:17 UTC_
+# Afford Act — Compiled Master
+_Generated (UTC): 2025-10-17 16:34 UTC_
 
 # Definitions & Valuation (Core Methods)
 <!-- SUMMARY

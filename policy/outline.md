@@ -1,6 +1,6 @@
-# Price Reversion Act — Outline
+# Afford Act — Outline
 
-_Last updated: 2025-09-30 03:17 UTC · commit d3b5d78_
+_Last updated: 2025-10-17 16:34 UTC · commit 8ac0c36_
 
 This outline summarizes each section at a glance. Click through for full text.
 

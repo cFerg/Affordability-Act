@@ -7,6 +7,11 @@ BILL_PATH    = os.path.join(ROOT, "policy", "bill-text.md")
 README_PATH  = os.path.join(ROOT, "policy", "README.md")
 OUTLINE_PATH = os.path.join(ROOT, "policy", "outline.md")
 SHORT_SHA    = os.getenv("GITHUB_SHA", "")[:7]
+#Change ACT_NAME if we decide on another name - It will change accordingly
+ACT_NAME = os.getenv("ACT_NAME", "Afford Act")
+OUTLINE_TITLE = f"{ACT_NAME} — Outline"
+BILL_TITLE = f"{ACT_NAME} — Compiled Master"
+POLICY_HUB_TITLE = "Policy"
 
 # ----------------------------- helpers -----------------------------
 
@@ -122,7 +127,7 @@ def list_sections():
 
 def compile_bill(items):
     parts = []
-    parts.append("# Price Reversion Act - Compiled Master\n")
+    parts.append(f"# {BILL_TITLE}\n")
     parts.append("_Generated (UTC): " + datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC") + "_\n\n")
     for it in items:
         if it["md_exists"]:
@@ -144,8 +149,9 @@ def sections_block(items):
 def render_readme(items):
     visible = [it for it in items if not it["hide_readme"]]
     header = (
-        "# Policy\n\n"
-        "**Start here → [Master Bill (compiled)](./bill-text.md)** • [Outline](./outline.md)\n\n"
+        f"# {POLICY_HUB_TITLE}\n\n"
+        f"**Start here → [Master Bill (compiled)](./bill-text.md)** • "
+        f"[Outline](./outline.md)\n\n"
         "## Sections\n\n"
         "<!-- BEGIN:SECTION_INDEX -->\n"
     )
@@ -201,7 +207,7 @@ def render_outline(items):
     else: stamp += "_"
 
     parts = []
-    parts.append("# Price Reversion Act — Outline\n\n")
+    parts.append(f"# {OUTLINE_TITLE}\n\n")
     parts.append(stamp + "\n\n")
     parts.append("This outline summarizes each section at a glance. Click through for full text.\n\n")
 

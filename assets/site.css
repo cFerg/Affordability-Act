@@ -1,0 +1,58 @@
+:root {
+  --bg: #0b1220;
+  --panel: #0f1730;
+  --text: #e8eefc;
+  --muted: #aac0ff;
+  --accent: #ffcc66;
+  --link: #c3d5ff;
+  --border: #203061;
+}
+html.theme-light {
+  --bg: #ffffff;
+  --panel: #f6f8fb;
+  --text: #111827;
+  --muted: #4b5563;
+  --accent: #8a5a00;
+  --link: #1f4acc;
+  --border: #e5e7eb;
+}
+
+html, body {
+  margin:0; padding:0;
+  background:var(--bg); color:var(--text);
+  font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+}
+
+/* Header */
+.aa-header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 18px; background:var(--panel); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:10;
+}
+.aa-brand { color:var(--text); font-weight:800; text-decoration:none; }
+.aa-toggle {
+  border:1px solid var(--border); background:var(--panel); color:var(--text);
+  padding:8px 10px; border-radius:10px; cursor:pointer;
+}
+
+/* Layout */
+.aa-wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
+.aa-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin: 16px 0; }
+@media (max-width: 720px){ .aa-grid { grid-template-columns: 1fr; } }
+
+/* Markdown defaults */
+main img { width:100%; height:auto; border-radius:12px; border:1px solid var(--border); }
+h1, h2, h3 { margin-top: 1.2em; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+details { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin: 14px 0; }
+details summary { cursor:pointer; font-weight:600; }
+blockquote { border-left:4px solid var(--border); margin: 0; padding: .6em 1em; background: var(--panel); }
+code, pre { background: #0d1328; color: #f0f3ff; padding: 2px 6px; border-radius: 6px; }
+html.theme-light code, html.theme-light pre { background: #f3f4f6; color: #111827; }
+
+/* Footer */
+.aa-footer {
+  border-top:1px solid var(--border); margin-top: 24px;
+  padding: 16px 24px; text-align:center; color:var(--muted);
+}

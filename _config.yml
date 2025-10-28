@@ -1,0 +1,19 @@
+# _config.yml
+title: Affordability Act
+url: https://AffordAct.com
+baseurl: ""
+markdown: kramdown
+theme: null
+
+# Apply the default layout to all pages (including Markdown) without needing front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Don’t process vendor folders
+exclude:
+  - node_modules
+  - vendor

@@ -1,0 +1,26 @@
+(function() {
+  const key = 'aa-theme';
+  const btn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  function setTheme(mode) {
+    root.classList.toggle('theme-light', mode === 'light');
+    root.classList.toggle('theme-dark', mode !== 'light');
+    if (btn) btn.textContent = mode === 'light' ? '🌞' : '🌙';
+  }
+
+  const stored = localStorage.getItem(key);
+  if (stored) setTheme(stored);
+  else {
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    setTheme(prefersLight ? 'light' : 'dark');
+  }
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = root.classList.contains('theme-light') ? 'dark' : 'light';
+      localStorage.setItem(key, next);
+      setTheme(next);
+    });
+  }
+})();

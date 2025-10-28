@@ -34,7 +34,14 @@ html, body {
   border:1px solid var(--border); background:var(--panel); color:var(--text);
   padding:8px 10px; border-radius:10px; cursor:pointer;
 }
-.hero { display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--border); pointer-events: none; }
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
 .aa-wrap, main a, .aa-grid, details { position: relative; z-index: 10; }
 /* Layout */
 .aa-wrap { max-width: 960px; margin: 0 auto; padding: 24px; }
@@ -46,7 +53,22 @@ main img { width:100%; height:auto; border-radius:12px; border:1px solid var(--b
 h1, h2, h3 { margin-top: 1.2em; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
-details { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin: 14px 0; }
+details {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 14px 0;
+}
+
+details > summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
 details summary { cursor:pointer; font-weight:600; }
 blockquote { border-left:4px solid var(--border); margin: 0; padding: .6em 1em; background: var(--panel); }
 code, pre { background: #0d1328; color: #f0f3ff; padding: 2px 6px; border-radius: 6px; }
@@ -59,8 +81,16 @@ html.theme-light code, html.theme-light pre { background: #f3f4f6; color: #11182
 }
 
 .btn {
-  display:inline-block; padding:10px 14px; border-radius:10px;
-  background:linear-gradient(180deg, #2847a1, #203b86);
-  border:1px solid #2c4fb5; color:#fff; font-weight:600; text-decoration:none;
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #2847a1, #203b86);
+  border: 1px solid #2c4fb5;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
-.btn:hover { filter: brightness(1.05); }
+
+.btn:hover {
+  filter: brightness(1.05);
+}

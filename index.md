@@ -9,15 +9,15 @@ title: Affordability Act — Official Draft
 
 A citizen-first policy to restore affordability and fair access across housing, wages, utilities, vehicles, and markets.
 
-<div class="aa-grid">
-<div>
+<div class="aa-grid" markdown="1">
+<div markdown="1">
 
 ### Read the Bill
-- **Full Text:** [Click Here for the Full Bill]({{ '/policy/bill-text/' | relative_url }})
+- **Full Text:** [Open the complete bill]({{ '/policy/bill-text/' | relative_url }}){: .btn }
 - **Modular Sections:** expand below
 
 </div>
-<div>
+<div markdown="1">
 
 ### Contribute
 - [GitHub Repository](https://github.com/cFerg/Affordability-Act/)
@@ -26,7 +26,7 @@ A citizen-first policy to restore affordability and fair access across housing, 
 </div>
 </div>
 
-<details>
+<details open markdown="1">
 <summary><strong>Bill Sections (expand/collapse)</strong></summary>
 
 - [01 — Foundations of Ownership]({{ '/policy/sections/01_Foundations_of_Ownership/' | relative_url }})

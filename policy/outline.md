@@ -1,33 +1,35 @@
 # Affordability Act — Outline
 
-_Last updated: 2025-10-24 06:18 UTC · commit 8d95dd8_
+_Last updated: 2025-10-28 05:15 UTC · commit f3301fc_
 
 This outline summarizes each section at a glance. Click through for full text.
 
-## 01 — SECTION 1 — FOUNDATIONS OF OWNERSHIP & HOUSING STABILITY
+## 01 — Section 1 — Foundations of Ownership
 
 [Open section](sections/01_Foundations_of_Ownership/README.md)
 
-## 02 — SECTION 2 — HOUSING ACCESS & ANTI-SPECULATION MEASURES
+## 02 — Section 2 — Housing, Land, and Ownership Protections
 
-[Open section](sections/02_Housing_Access_and_AntiSpeculation/README.md)
+[Open section](sections/02_Housing_Land_and_Ownership_Protections/README.md)
 
-## 03 — SECTION 3 — PAYMENT INTEGRITY, VEHICLES & COMMERCE FAIRNESS
+_Keywords:_ hoa
 
-[Open section](sections/03_Payment_Integrity_and_Commerce/README.md)
+## 03 — Section 3 — Fair Market Participation and Offer Integrity
 
-## 04 — SECTION 4 — COMMUNAL, UTILITY & INFRASTRUCTURE STANDARDS
+[Open section](sections/03_Fair_Market_Participation_and_Offer_Integrity/README.md)
 
-[Open section](sections/04_Communal_Utility_and_Infrastructure/README.md)
+## 04 — Section 4 — Transportation, Vehicles, and Ownership Equity
 
-## 05 — SECTION 5 — ENERGY, TAXES & DEVELOPMENT EQUITY
+[Open section](sections/04_Transportation_Vehicles_and_Ownership_Equity/README.md)
 
-[Open section](sections/05_Taxes_and_Development_Equity/README.md)
+## 05 — Section 5 — Taxation, Labor, and Fiscal Safeguards
 
-## 06 — SECTION 6 — CREDIT, EMPLOYMENT & WORKER EQUITY
+[Open section](sections/05_Taxation_Labor_and_Fiscal_Safeguards/README.md)
 
-[Open section](sections/06_Credit_and_Worker_Equity/README.md)
+## 06 — Section 6 — Enforcement, Compliance, and Appeals
 
-## 07 — SECTION 7 — ENFORCEMENT & REMEDIES
+[Open section](sections/06_Enforcement_Compliance_and_Appeals/README.md)
 
-[Open section](sections/07_Enforcement_and_Remedy/README.md)
+## 07 — Section 7 — Integrity, Accountability, and Global Fairness
+
+[Open section](sections/07_Integrity_Accountability_and_Global_Fairness/README.md)

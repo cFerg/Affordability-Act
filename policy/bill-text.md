@@ -1,239 +1,307 @@
 # Affordability Act — Compiled Master
-_Generated (UTC): 2025-10-24 06:18 UTC_
+_Generated (UTC): 2025-10-28 05:15 UTC_
 
 <!--
 SUMMARY:
-Defines the fundamental rights and responsibilities of property ownership under the Affordability Act.
-Covers valuation, equity, and transparency standards to ensure homes, land, and other assets remain accessible and fairly priced.
-Outlines how regulated assessment values (RACV) are calculated and verified through audit.
+Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.
+Restores balance between property, income, and opportunity by tying valuation to tangible inflation and wage growth rather than speculation.
+Creates an auditable, public framework for calculating and reviewing regulated assessed current value (RACV).
 -->
-# SECTION 1 — FOUNDATIONS OF OWNERSHIP & HOUSING STABILITY
 
-## 1.1 Purpose
-Stabilize residential and land pricing by anchoring values to real inflation and verifiable improvements, not speculative escalation.
+# Section 1 — Foundations of Ownership
 
-## 1.2 Evaluation Standard (Core Method)
-Adjusted Value (RACV) = Base Price + (Cumulative Wage-Indexed Inflation × Eligible Years) + Documented Capital Improvements − Certified Habitability Repairs.
+## Purpose
+To establish fair and measurable standards for how all property and major assets are valued, bought, and sold in the United States.  
+This section prevents artificial inflation by basing value on factual elements: base construction cost, inflation, improvements, and depreciation.  
+It ensures ownership is transparent, enforceable, and immune to speculative abuse.
 
-## 1.3 Assessment Integrity
-Assessors must disclose methodology; use comps filtered for distortion; and apply repair deductions. Peer review every 3 years with citizen auditors. Systematic overstatements trigger penalties and retraining.
+## Core Valuation Formula
+**Base Value + Inflation + Condition Adjustments – Depreciation = Regulated Assessed Current Value (RACV)**
 
-## 1.4 Blight & Neglect
-Properties left derelict or used as unlicensed junkyards are subject to graduated orders, fines, and, if necessary, temporary receivership. If a parcel lies within an HOA, the HOA assumes interim maintenance (lawncare, exterior safety) until individual resale.
+- *Base Value* represents the documented cost of construction or prior purchase.  
+- *Inflation* applies only for the time since the last recorded sale or improvement, using the standardized **Wage-Linked Inflation Index (WLII)** to ensure affordability parity.  
+- *Condition Adjustments* apply for verified upgrades or restorations.  
+- *Depreciation* reflects wear, neglect, or regional decline.
 
-## 1.5 Full-Ownership Guarantee & Safeguard
-Ownership conveys full control **subject to** public-interest, safety, environmental, and affordability laws in this Act. Permits remain required for new structures, major remodels, and utility connections; permitting shall be simplified, capped-cost, and non-discretionary. Anti-monopoly guard: no person or entity may accumulate holdings that materially restrict access or create scarcity in a local market.
+The RACV represents the *maximum allowable baseline* for property listings, insurance assessments, or tax valuation, subject to the **Permissible Variance** (currently capped at 10%).
 
-## 1.6 HOA Accountability & Opt-Out
-Owners may petition to opt out of non-transparent or non-performing HOAs; where <50% of lots are sold/occupied, HOA authority is limited to essential maintenance and financial transparency, subject to municipal oversight.
+## Auditing and Oversight
+- Independent auditors from certified regional authorities must evaluate a randomized minimum of 5% of all assessments annually.  
+- Discrepancies exceeding 10% from verified market parity trigger mandatory reassessment and public notice.  
+- All audit results must be published in the public registry to ensure transparency and maintain trust.  
 
-## 1.7 Fair Advertising Clause
-Listings must appear on public, accessible portals; restricting exposure to private corporate channels violates equal-access and the buyer priority ladder.
+## Valuation Dispute Process
+If a buyer or seller disputes an assessed value:  
+- The property enters a **Temporary Review Hold** before final closing.  
+- Both parties submit documentation to an independent review board.  
+- The final RACV may be adjusted within ±10% if material evidence of error exists.
 
-## 1.8 Title Protection & Anti-Deed Fraud
-Automatic title-lock enrollment at recording; verified owner contact before transfer; criminal penalties for forged deeds; expedited restoration processes for victims.
+## Fairness and Fraud Protection
+- Artificial overvaluation by assessors, brokers, or financial institutions constitutes valuation fraud.  
+- Individuals have the right to audit or appeal RACV assessments without penalty.  
+- Any proven manipulation or suppression of valuation data leads to immediate license suspension and restitution obligations.
 
-## 1.9 Easement & Long-Lease Buyout Safeguards
-Buyouts must disclose lifetime value impact certified by an independent appraiser; include a 7-day cooling-off period; easements >20 years trigger valuation credits for tax/financing.
+## Full Ownership Guarantee
+- Ownership includes the right to occupy, transfer, and modify property—provided all modifications meet regional safety and environmental codes.  
+- Ownership does *not* exempt individuals from community standards, blight laws, or affordability restrictions under this Act.  
+- Property owners must maintain compliance with local and federal affordability standards to retain their ownership rights.
 
 ---
 
 <!--
 SUMMARY:
-Outlines the legal and ethical standards for fair access to housing and land.
-Includes single-family and multi-unit affordability rules, zoning protections, blight enforcement, inheritance clauses, and HOA opt-out provisions.
-Ensures that all housing stock and land remain accessible for residents, not speculative investment.
+Defines residential and land-use protections to ensure all citizens have equal access to housing and property.
+Prevents blight, speculative hoarding, and abusive homeowner association (HOA) control.
+Introduces custodial stewardship for abandoned land, fair rezoning valuation, and resident priority access.
 -->
-# SECTION 2 — HOUSING ACCESS & ANTI-SPECULATION MEASURES
 
-## 2.1 Certified Offer Registry
-All offers are time-stamped in a certified registry; auditable for shill/phantom bids.
+# Section 2 — Housing, Land, and Ownership Protections
 
-## 2.2 Anti-Bot & Auto-Purchase Ban
-Automated mass-purchase systems are prohibited; violations void the sale and trigger penalties.
+## Purpose
+This section preserves residential and land ownership fairness by ensuring that property, whether developed or vacant, is used productively and equitably.  
+It safeguards residents from speculative manipulation, abandonment, or forced displacement through unfair market practices.
 
-## 2.3 Priority Ladder
-Order: (1) local resident ≥2 years; (2) in-state resident; (3) domestic buyer; (4) nonprofit/co-op; (5) corporate buyer. Within a rung, first qualified application prevails.
+## Blight and Neglect Prevention
+- Owners are required to maintain properties to basic habitability and safety standards.  
+- If a property becomes abandoned or uninhabitable, it enters **Custodial Stewardship**, where a certified public authority or local land trust temporarily assumes maintenance until ownership is reestablished.  
+- Failure to maintain a property within 18 months of official notice results in reassignment for redevelopment or rehabilitation.  
+- For HOA-controlled areas, maintenance responsibility remains with the HOA until individual ownership transfer is complete.
 
-## 2.4 Equal Market Exposure
-Sellers must advertise through approved public channels reaching all priority rungs; exclusive corporate funnels are unlawful.
+## Homeowners Association (HOA) Protections
+- Residents must be allowed to **opt out** of HOA jurisdiction when all debts and fees are cleared.  
+- HOAs lose regulatory power if fewer than 60% of lots or homes remain unsold, ensuring they cannot indefinitely control unoccupied areas.  
+- HOA boards must publicly post all budgets and expenditures.  
+- Any HOA or developer that withholds ownership titles, restricts resale, or imposes unfair restrictions is subject to forfeiture of management rights.
 
-## 2.5 Vacancy Accountability (No Tenant Offset)
-Units vacant >12 months incur an idle-asset duty. **Occupied tenants may not** face rent/fee increases to offset vacancy penalties or losses.
+## Rezoning and Land Reclassification
+- When land use is rezoned (e.g., agricultural → commercial → residential), valuation adjustments must reflect the *original* zoning category for any buyback or compensation.  
+- If a property’s zoning upgrade was initiated for speculative resale, the increase in value is reversed during sale or tax evaluation.  
+- Local governments may retain a portion of rezoning profits for public housing development.
+
+## Vacant and Unused Land
+- Vacant land held for over 24 months without active improvement or agricultural use is subject to review and potential reassignment to local development trusts.  
+- Owners must provide intent-to-develop documentation to avoid reassignment.  
+- Parcels intentionally kept idle to restrict housing supply are subject to land-value taxation at up to 200% of their baseline rate.
+
+## Resident Priority Access
+- All for-sale properties must be listed on at least one **public access registry** available to local residents before being marketed to corporations or out-of-region buyers.  
+- Listings must remain publicly available for 30 days before out-of-area offers are accepted.  
+- Advertising only to corporations, private networks, or exclusive investment groups violates the Affordability Act’s equal access clause.
 
 ---
 
 <!--
 SUMMARY:
-Regulates the property and rental market to prevent manipulation, automation abuse, and exclusionary practices.
-Establishes the Certified Offer Registry, anti-bot safeguards, and a resident-priority ladder to protect individuals from being priced out.
-Includes rules for transparent payments, digital records, and equal advertising reach.
+Prevents manipulation in real estate, rental, and asset markets through fair competition, anti-bot policies, and resident-first bidding rules.
+Mandates transparent listings, bans fake “competing offers,” and defines scope for digital markets.
+Establishes the Certified Offer Registry (COR) for equitable market tracking.
 -->
-# SECTION 3 — PAYMENT INTEGRITY, VEHICLES & COMMERCE FAIRNESS
 
-## 3.1 Payment Integrity (All Housing/Lodging Contracts)
-At least one low-fee, traceable electronic method must be accepted; itemized receipts required; cash-only mandates banned except during verified outages.
+# Section 3 — Fair Market Participation and Offer Integrity
 
-### 3.1a Digital & Non-Digital Access Parity
-For notices, payments, registries, and appeals, provide both online and accessible non-digital alternatives.
+## Purpose
+To ensure that every person has equal opportunity to participate in real estate and asset markets without unfair competition or artificial price escalation.
 
-## 3.2 Multi-Payment Contract Oversight
-Lease-to-own, rent-to-own, and financing agreements must issue automated receipts and clear amortization tables; junk fee pass-throughs are void.
+## Certified Offer Registry (COR)
+- All property, rental, or lease offers must be logged in the **Certified Offer Registry**, a publicly accessible database managed by the Office of Affordability Oversight.  
+- Each bid is timestamped and digitally verified to prevent falsified competition.  
+- Bidders may withdraw offers within 48 hours without penalty.  
+- Sellers must confirm final accepted bids through COR before closing.
 
-## 3.3 Dealer Add-On Opt-Out
-Consumers may decline any optional add-on without impact to approval, term, or rate. A base vehicle price must be disclosed before financing.
+## Anti-Bot and Automation Controls
+- Automated bidding, offer-sniping, and AI-based price manipulation tools are strictly prohibited.  
+- Companies using automated investment systems must register their software with the Office of Affordability Oversight.  
+- Violations result in suspension of brokerage or listing privileges for 12 months minimum.
 
-## 3.4 Motor-Vehicle Valuation Reversion
-Resale and insurance valuations derive from MSRP adjusted for age, mileage, and condition tiers. Antiques/rarities may use certified premium tiers with documentation.
+## Digital and Physical Scope
+- The same affordability rules apply to both physical property and digital property (including domain names, digital land parcels, or online rental assets).  
+- Digital assets sold through blockchain or online platforms must follow the same registry, taxation, and verification protocols as physical assets.
 
-## 3.5 Temporary Registration Accountability & Transparency
-Temp tags require scannable public verification (QR/NFC) with issuance/expiry, dealer ID, and basic vehicle data; dealers are capped to inventory-linked issuance and audited. Operating with expired/unverifiable temp tags beyond 10 days is unregistered operation. Cross-state verification required; hardship extensions available where agency delay is documented.
+## Equal Advertising Reach
+- Listings must appear on at least two public registries or one state-certified listing platform accessible by all residents.  
+- Marketing exclusively to corporate or investor entities violates equal access principles.  
+- Private sale exceptions (family transfers, inheritance) are exempt.
 
-## 3.6 Right-to-Repair
-Manufacturers must provide diagnostics, parts, and documentation to independent repairers at fair cost; anti-circumvention of repair is prohibited.
-
-## 3.7 Fair Repossession Practices
-Grace periods, capped repossession fees, and surplus-proceeds refunds are mandatory; buy-here-pay-here schemes face enhanced scrutiny.
-
-## 3.8 Fair Banking Transaction Sequencing
-Reordering transactions to increase overdraft fees is prohibited; default behavior is decline-at-zero with a single transparent fee cap.
+## Fairness in Bidding and Negotiation
+- Sellers may not claim “competing offers” unless documented in the COR.  
+- “Bidding wars” are capped at 10% above the listed RACV; anything higher must be reviewed for legitimacy.  
+- If multiple buyers meet the same offer threshold, priority follows the **Resident Priority Ladder**:
+  1. Local full-time residents  
+  2. In-state residents  
+  3. Domestic buyers  
+  4. International or corporate entities
 
 ---
 
 <!--
 SUMMARY:
-Extends affordability principles to vehicles and transportation assets.
-Covers dealer pricing fairness, insurance parity, tariff exemptions for materials, and standardized valuation of vehicles by condition and class.
-Protects consumers from inflated resale markets, exploitative fees, and speculative vehicle flipping.
+Applies affordability and fair-value principles to vehicle ownership, production, and resale.
+Ensures transparent dealer practices, right-to-repair access, fair valuation by condition, and tariff exemptions for essential materials.
+Protects against price gouging, speculative flipping, and artificial scarcity.
 -->
-# SECTION 4 — COMMUNAL, UTILITY & INFRASTRUCTURE STANDARDS
 
-## 4.1 Timeshares & Fractional Interests
-Resale and annual fees tie to RACV of the underlying asset and the actual usage right; perpetual escalators detached from cost are unlawful; clear exit paths required.
+# Section 4 — Transportation, Vehicles, and Ownership Equity
 
-## 4.2 Campgrounds, RV Parks & Short-Term Lodging
-Long-stay pricing = land RACV + shared-service costs + modest margin; amenity/seasonal premiums allowed if real and disclosed.
+## Purpose
+To extend affordability protections into transportation and automotive markets by ensuring fairness in production, purchase, and maintenance costs.
 
-## 4.3 Fiber-First Infrastructure
-All new construction must install fiber-optic conduit or equivalent high-speed broadband alongside power/water; legacy copper qualifies only where fiber is physically impractical.
+## Fair Vehicle Valuation
+- Vehicle prices must reflect base manufacturer cost, inflation, and condition adjustments.  
+- Used vehicles cannot be priced higher than new equivalent models unless classified as rare or antique.  
+- “Collector” or “heritage” vehicles are exempt but must be transparently labeled as non-essential assets.
 
-## 4.4 Minimum Service Baseline
-Each new dwelling must have broadband sufficient for remote work, education, and telehealth; the local standard is published by the utility board.
+## Dealer Practices
+- All dealership fees must be itemized and disclosed at the point of sale.  
+- “Market adjustment” or “availability surcharge” fees are prohibited for any new production vehicle.  
+- Lease buyouts and used-car valuations must be based on RACV-equivalent calculations.
 
-## 4.5 Utility Volatility Controls
-No more than one rate change per quarter; increases > inflation +2% require verified cost justification and a 60-day notice with appeal rights; seasonal surcharges must be smoothed over the year.
+## Right to Repair
+- Manufacturers must provide diagnostic tools, replacement parts, and repair documentation at reasonable cost to licensed mechanics and owners.  
+- Proprietary software locks that restrict repairability are prohibited under this Act.  
+- Refusal to sell replacement parts constitutes unfair trade practice.
 
-## 4.6 Baseline ISP Plan & Regional Equity
-ISPs must offer a baseline plan (e.g., 25 Mbps or higher, reviewed periodically) at uniform rates across ZIPs in the service region; last-mile subsidies flow from the Affordability Fund, not consumer surcharges.
+## Tariff Exemptions
+- Building materials and components for housing or vehicles may be exempt from tariffs when those tariffs directly raise end-user affordability costs.  
+- The Department of Commerce will maintain a list of **Affordability-Critical Materials** eligible for exemption.
+
+## Registration and Ownership Verification
+- Temporary or paper license plates may not exceed 60 days of validity.  
+- Repeated registration evasion or use of fraudulent plates triggers license suspension and asset seizure.
 
 ---
 
 <!--
 SUMMARY:
-Integrates tax, wage, and fiscal reforms to ensure affordability aligns with income.
-Addresses property tax ceilings, wage baselines, tipped work protections, and equity for single vs. married taxpayers.
-Includes grant transparency, subsidy accountability, and inflation-based wage recalibration mechanisms.
+Redefines livable wages, modernizes healthcare access, and aligns tax and welfare structures with affordability goals.
+Ensures that working full-time provides for essential living costs while discouraging permanent dependence on assistance programs.
+Creates fiscal accountability mechanisms to maintain economic balance and affordability integrity.
 -->
-# SECTION 5 — ENERGY, TAXES & DEVELOPMENT EQUITY
 
-## 5.1 Property-Tax Cap
-Annual increases ≤ 5% or local wage-inflation rate (lower applies). No new/raised taxes to backfill affordability compliance.
+# Section 5 — Taxation, Labor, and Fiscal Safeguards
 
-## 5.2 Realtor & Finder-Fee Limits
-Total compensation ≤ 3% of sale price or $5,000, whichever lower, unless bespoke services are contracted. Hidden commission chains prohibited; all fees disclosed before viewing or deposit.
+## Purpose
+To ensure all citizens can meet basic living needs through fair wages, healthcare continuity, and equitable taxation.
+This section eliminates the paradox where individuals can earn full-time wages yet still fall below the affordability threshold.
 
-## 5.3 Development Grants & Subsidies
-Public support must reduce end prices (RACV/rent) with open-book audits and clawbacks for non-compliance.
+## Livable Minimum Wage (LMW)
+- **Definition:** The minimum wage must equal or exceed the local **Livable Minimum Wage (LMW)**, defined as the income required to afford basic needs in that region.  
+- **Formula:** LMW = (Regional Basic Cost Index ÷ 160), based on a 40-hour week.  
+- **Basic Costs Include:**  
+  - Food and nutrition standards  
+  - Utilities, plumbing, and essential broadband  
+  - Transportation (vehicle or public transit)  
+  - Healthcare premiums or copays  
+  - Average local rent or mortgage  
+  - 10% emergency savings buffer  
+- If a jurisdiction adopts a shorter workweek (e.g., 32 hours), the LMW is recalculated to maintain the same monthly income target.
 
-## 5.4 Tariff Relief for Essential Materials
-Tariffs measurably inflating RACV for housing/vehicles are exempted or rebated with mandatory pass-through to end prices.
+## Wage Auditing and Enforcement
+- The **Federal Office of Affordability Oversight (FOAO)** conducts biannual wage audits using regional income, cost-of-living, and inflation data.  
+- Employers paying below LMW rates face restitution equal to back pay plus 20% penalty.  
+- Tips and commissions cannot count toward minimum wage compliance.
 
-## 5.5 Education & Boarding Costs
-Room/board caps align with campus housing RACV and transparent operating costs; pro-rata refunds for service loss.
+## Health Coverage Continuity
+- Public and private healthcare programs must guarantee **Continuous Eligibility**: no lapse may occur between policy end and new coverage start.  
+- All enrollment systems must synchronize across Medicaid, Medicare, ACA, and employer coverage.  
+- Enrollment must be open quarterly rather than annually.  
+- A **Universal Minimum Coverage Standard** ensures that all residents have at least emergency and primary care access at no cost.
 
-## 5.6 Bankruptcy Integrity & Asset Recapture
-(a) High-net-worth filers (>$5M assets or >$1M income) disclose all domestic/foreign holdings and affiliates for the past 5 years.  
-(b) Transfers or sales <70% of market value or to related parties within 5 years prior to, or during, bankruptcy are presumed fraudulent unless proven otherwise.  
-(c) FAC–IRS Task Force may claw back for up to 10 years upon patterns of evasion or serial filings.  
-(d) Post-bankruptcy net worth >150% of pre-filing within 5 years triggers review and possible restitution.  
-(e) Concealment/undervaluation is fraud (18 U.S.C. § 157) with forfeiture, fines, and up to 10 years imprisonment.
+## Welfare Realignment and Transition
+- SNAP, EBT, and other benefit programs convert to **Work-Integrated Assistance (WIA)** once wage reforms take effect.  
+- Benefits taper gradually as income exceeds the LMW threshold, avoiding sudden drop-offs.  
+- Recipients must either work, actively job-seek, or provide medical exemption proof.  
+- Savings from reduced dependency fund local housing and job training programs.
 
-## 5.7 Offshore Asset & Tax Transparency
-(a) Offshore assets >$500,000 (aggregated under common control/beneficial ownership) must be declared annually to FAC, including digital assets.  
-(b) Undeclared holdings: 40% penalty; repatriation within 12 months.  
-(c) Non-cooperative jurisdictions: escalating tariffs and loss of federal contracting eligibility.  
-(d) Repatriated funds feed the National Affordability Trust Fund.
+## Taxation and Marital Equity
+- Tax brackets apply **per individual**, not per household filing unit.  
+- Dependents reduce taxable income equally for all filers, regardless of marital status.  
+- Joint filing remains optional but cannot result in a higher tax burden than single filing.
 
-## 5.8 Property Insurance Growth Cap
-Primary-residence property insurance premiums may not rise more than 5% per year or wage-inflation rate (lower applies), absent verified claim-cost trends; public rate filings and audits required.
+## Fiscal Safeguards
+- Any affordability-driven tax or wage reform cannot be offset by reducing public funding or raising unrelated taxes.  
+- A **Fiscal Stability Board** monitors government revenue changes to ensure the reforms do not cause downstream inflation.
 
 ---
 
 <!--
 SUMMARY:
-Establishes the enforcement framework, penalties, and appeal processes for violations of the Affordability Act.
-Details inspection authority, restitution, back-pay procedures, and the judicial review structure.
-Guarantees that individuals and entities are equally accountable regardless of status or jurisdiction.
+Creates a clear, enforceable framework for oversight, compliance, and due process under the Affordability Act.
+Defines the Federal Office of Affordability Oversight (FOAO), outlines citizen appeal rights, and standardizes penalty structures for violations.
+Ensures equitable enforcement across individuals, corporations, and governments.
 -->
-# SECTION 6 — CREDIT, EMPLOYMENT & WORKER EQUITY
 
-## 6.1 Credit Inquiry Reform
-No hard pulls without explicit written consent for a specific transaction; unsuccessful applications auto-convert to soft pulls within 7 days; multiple pulls within 30 days count as one.
+# Section 6 — Enforcement, Compliance, and Appeals
 
-## 6.2 Alternative Qualification Standards
-A non-credit pathway using verified income, employment stability (≥6 months), debt-to-income, and bill payment histories. Financial institutions shall maintain a Housing Affordability Verification Desk to compute a maximum sustainable housing allowance. Blanket 3×-rent rules are prohibited; cap is 2× unless documented risk warrants exception.
+## Purpose
+To define enforcement mechanisms and ensure consistent compliance across all sectors affected by the Affordability Act.
 
-## 6.3 Employment Protections
-Minimum 10 hours rest between shifts unless suitable sleep/rest facilities are provided for long shifts; all issued checks must be funded at issuance; all required pre/post-shift tasks are paid time.
+## Federal Office of Affordability Oversight (FOAO)
+- The FOAO is a federally chartered agency responsible for:  
+  - Auditing affordability metrics, valuations, and wage compliance.  
+  - Managing the Certified Offer Registry (COR).  
+  - Conducting investigations and coordinating state-level enforcement.
+- The FOAO must publish an annual **Affordability Report** detailing national progress, identified violations, and recommendations for amendment.
 
-## 6.4 Wage Baseline
-Tipped employees receive full minimum wage **exclusive of tips**; service-charge tip skimming is banned; wage floors tie to regional cost of living where higher than federal.
+## Penalties
+- Civil penalties include fines up to 200% of the profit gained from violations.  
+- Repeat or deliberate offenses may escalate to criminal penalties including imprisonment or forfeiture of assets.  
+- Violators found guilty of manipulating valuations, suppressing listings, or wage evasion may be barred from property ownership or corporate leadership for up to 10 years.
 
-## 6.5 Virtual Public Access
-Public hearings, zoning meetings, and affordability boards must provide real-time virtual participation and accept digital written testimony.
+## Appeals Process
+- Any individual or entity has the right to appeal enforcement actions within 60 days of notice.  
+- Appeals may be filed digitally or by mail through FOAO regional offices.  
+- An independent arbitration panel reviews all appeals, with final recourse through the federal judiciary.
 
-## 6.6 Federal Minimum Baseline Reform
-(a) Federal minimum = mean of state minimums (rounded to $0.05); may not decrease year-over-year.  
-(b) Multi-state work: pay at the highest applicable minimum among states worked or the federal composite, whichever greater.  
-(c) Classification based on where work is performed/managed, not hire location.  
-(d) States may not lower minimums below prior year to affect the composite.  
-(e) Department of Labor publishes the composite by Jan 31 annually.
+## Enforcement of Ownership and Maintenance
+- FOAO and local governments have authority to enforce blight laws, ownership stewardship, and affordability compliance.  
+- Neglected or vacant properties under stewardship must be maintained until resold or reassigned.  
+- Owners must comply with upkeep standards or risk custodial transfer.
 
-## 6.7 Alternative Credit Data Inclusion
-Credit bureaus must accept and score verified rent and utility histories by default; consumers can dispute omissions without charge.
+## Transparency and Whistleblower Protection
+- All FOAO investigations, outcomes, and appeals must be logged publicly except when privacy law prevents disclosure.  
+- Whistleblowers who report violations are legally protected against retaliation and entitled to up to 10% of recovered restitution.
 
 ---
 
 <!--
 SUMMARY:
-Addresses systemic abuses and global financial loopholes undermining affordability and equity.
-Covers bankruptcy transparency, asset clawbacks, offshore holdings, and universal applicability of the Act.
-Ensures that no individual or organization—domestic or foreign—is exempt from compliance.
+Addresses systemic corruption, global loopholes, and market stability related to affordability reforms.
+Includes asset clawbacks, bankruptcy transparency, offshore reporting, and the Affordability Equity Adjustment Mechanism (AEAM) to stabilize shareholder value.
+Ensures no person, company, or nation is exempt from compliance with affordability principles.
 -->
-# SECTION 7 — ENFORCEMENT & REMEDIES
 
-## 7.1 Oversight
-The Federal Affordability Commission (FAC) coordinates audits, inter-agency task forces (IRS/DOJ/DOL), and appeals.
+# Section 7 — Integrity, Accountability, and Global Fairness
 
-### 7.1(b) Universal Applicability
-No person, corporation, trust, foreign entity, or diplomatic body is exempt. Beneficial ownership disclosure required for all property and significant transactions; diplomatic compliance via reciprocity, with U.S. asset freezes for non-cooperation.
+## Purpose
+To preserve the integrity of national and international markets while ensuring affordability protections are applied equally and fairly across all jurisdictions.
 
-## 7.2 Compliance Audits
-Annual sampling of assessments, rents, utilities, insurance, wages, and sales practices; risk-based deep dives where anomalies appear.
+## Bankruptcy Transparency
+- Entities filing bankruptcy must disclose all domestic and foreign assets.  
+- Transfer of ownership to family or shell corporations within 36 months before filing is automatically subject to review and potential clawback.  
+- Executives or board members found abusing bankruptcy protections lose eligibility for corporate registration for 10 years.
 
-## 7.3 Violations & Penalties
-Civil penalties up to $50,000 per violation plus restitution; repeat corporate offenders face license suspension and loss of federal contracting eligibility.
+## Offshore Accounts and Tax Evasion
+- Any individual or corporation with U.S. assets must declare all offshore holdings annually.  
+- Undeclared assets are subject to immediate forfeiture under the **Foreign Affordability Transparency Act (FATA)**.  
+- Financial institutions failing to report holdings face joint liability.
 
-## 7.4 Citizen Petitions & Whistleblowers
-Secure public portal for complaints and evidence; anti-retaliation protections; bounties for material recoveries.
+## Market Stabilization: Affordability Equity Adjustment Mechanism (AEAM)
+- When affordability reforms reduce corporate nominal asset valuations, affected companies may issue **share adjustments** (non-monetary compensation).  
+- Example: if valuation drops by 50%, the company may issue a 2-for-1 split, maintaining total shareholder value.  
+- AEAM transactions must be disclosed to the SEC and shareholders before execution.  
+- This ensures affordability progress without destabilizing retirement funds or public investment portfolios.
 
-## 7.5 Judicial Review
-Federal courts retain jurisdiction over FAC decisions and enforcement actions.
+## International Reciprocity
+- Any foreign entity operating within U.S. property, vehicle, or insurance markets must comply with affordability and transparency standards.  
+- Reciprocal enforcement agreements shall be pursued with partner nations.
 
-## 7.6 Right to Appeal Affordability Impact
-Individuals or small entities may appeal unintended negative affordability impacts of an agency action for expedited review and corrective relief.
+## Penalty Structure
+1. **Tier 1 – Omission or Negligence:** Civil fine up to 200% of hidden value.  
+2. **Tier 2 – Willful Concealment:** Criminal charges and up to 10 years imprisonment.  
+3. **Tier 3 – Systemic Abuse or Repeat Offense:** Asset forfeiture and permanent disqualification from market participation.
 
-## 7.7 Transparency Dashboard
-Public dashboards publish anonymized price vs. RACV metrics, vacancy, audits, appeals outcomes, and enforcement actions.
+## Global Cooperation
+- The FOAO, Treasury, and State Department will coordinate global data sharing on property, asset ownership, and affordability indices.  
+- A biannual **Global Affordability Report** will measure international compliance and recommend global alignment standards.
 
 ---

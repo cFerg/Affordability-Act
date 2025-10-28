@@ -5,6 +5,9 @@ baseurl: ""
 markdown: kramdown
 theme: null
 permalink: pretty
+kramdown:
+  input: GFM
+  parse_block_html: true
 
 # Apply the default layout to all pages (including Markdown) without needing front matter
 defaults:

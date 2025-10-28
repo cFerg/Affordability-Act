@@ -1,3 +1,7 @@
+---
+layout: default
+title: Foundations of Ownership
+---
 <!--
 SUMMARY:
 Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.

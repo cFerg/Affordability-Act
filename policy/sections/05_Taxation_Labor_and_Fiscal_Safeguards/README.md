@@ -1,3 +1,7 @@
+---
+layout: default
+title: Taxation, Labor, and Fiscal Safeguards
+---
 <!--
 SUMMARY:
 Redefines livable wages, modernizes healthcare access, and aligns tax and welfare structures with affordability goals.

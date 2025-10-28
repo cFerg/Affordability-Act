@@ -1,3 +1,7 @@
+---
+layout: default
+title: Transportation, Vehicles, and Ownership Equity
+---
 <!--
 SUMMARY:
 Applies affordability and fair-value principles to vehicle ownership, production, and resale.

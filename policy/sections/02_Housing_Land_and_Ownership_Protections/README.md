@@ -1,3 +1,7 @@
+---
+layout: default
+title: Housing, Land, and Ownership Protections
+---
 <!--
 SUMMARY:
 Defines residential and land-use protections to ensure all citizens have equal access to housing and property.

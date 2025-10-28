@@ -1,3 +1,7 @@
+---
+layout: default
+title: Fair Market Participation and Offer Integrity
+---
 <!--
 SUMMARY:
 Prevents manipulation in real estate, rental, and asset markets through fair competition, anti-bot policies, and resident-first bidding rules.

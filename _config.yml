@@ -4,12 +4,12 @@ url: https://AffordAct.com
 baseurl: ""
 markdown: kramdown
 theme: null
+permalink: pretty
 
 # Apply the default layout to all pages (including Markdown) without needing front matter
 defaults:
   - scope:
       path: ""
-      type: "pages"
     values:
       layout: "default"
 

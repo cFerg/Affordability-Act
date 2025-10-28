@@ -1,3 +1,7 @@
+---
+layout: default
+title: Integrity, Accountability, and Global Fairness
+---
 <!--
 SUMMARY:
 Addresses systemic corruption, global loopholes, and market stability related to affordability reforms.

@@ -1,3 +1,7 @@
+---
+layout: default
+title: Bill Text
+---
 # Affordability Act — Compiled Master
 _Generated (UTC): 2025-10-28 05:15 UTC_
 

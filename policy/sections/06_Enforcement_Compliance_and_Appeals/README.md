@@ -1,3 +1,7 @@
+---
+layout: default
+title: Enforcement, Compliance, and Appeals
+---
 <!--
 SUMMARY:
 Creates a clear, enforceable framework for oversight, compliance, and due process under the Affordability Act.

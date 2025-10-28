@@ -1,34 +1,44 @@
 <!--
 SUMMARY:
-Defines the fundamental rights and responsibilities of property ownership under the Affordability Act.
-Covers valuation, equity, and transparency standards to ensure homes, land, and other assets remain accessible and fairly priced.
-Outlines how regulated assessment values (RACV) are calculated and verified through audit.
+Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.
+Restores balance between property, income, and opportunity by tying valuation to tangible inflation and wage growth rather than speculation.
+Creates an auditable, public framework for calculating and reviewing regulated assessed current value (RACV).
 -->
-# SECTION 1 — FOUNDATIONS OF OWNERSHIP & HOUSING STABILITY
 
-## 1.1 Purpose
-Stabilize residential and land pricing by anchoring values to real inflation and verifiable improvements, not speculative escalation.
+# Section 1 — Foundations of Ownership
 
-## 1.2 Evaluation Standard (Core Method)
-Adjusted Value (RACV) = Base Price + (Cumulative Wage-Indexed Inflation × Eligible Years) + Documented Capital Improvements − Certified Habitability Repairs.
+## Purpose
+To establish fair and measurable standards for how all property and major assets are valued, bought, and sold in the United States.  
+This section prevents artificial inflation by basing value on factual elements: base construction cost, inflation, improvements, and depreciation.  
+It ensures ownership is transparent, enforceable, and immune to speculative abuse.
 
-## 1.3 Assessment Integrity
-Assessors must disclose methodology; use comps filtered for distortion; and apply repair deductions. Peer review every 3 years with citizen auditors. Systematic overstatements trigger penalties and retraining.
+## Core Valuation Formula
+**Base Value + Inflation + Condition Adjustments – Depreciation = Regulated Assessed Current Value (RACV)**
 
-## 1.4 Blight & Neglect
-Properties left derelict or used as unlicensed junkyards are subject to graduated orders, fines, and, if necessary, temporary receivership. If a parcel lies within an HOA, the HOA assumes interim maintenance (lawncare, exterior safety) until individual resale.
+- *Base Value* represents the documented cost of construction or prior purchase.  
+- *Inflation* applies only for the time since the last recorded sale or improvement, using the standardized **Wage-Linked Inflation Index (WLII)** to ensure affordability parity.  
+- *Condition Adjustments* apply for verified upgrades or restorations.  
+- *Depreciation* reflects wear, neglect, or regional decline.
 
-## 1.5 Full-Ownership Guarantee & Safeguard
-Ownership conveys full control **subject to** public-interest, safety, environmental, and affordability laws in this Act. Permits remain required for new structures, major remodels, and utility connections; permitting shall be simplified, capped-cost, and non-discretionary. Anti-monopoly guard: no person or entity may accumulate holdings that materially restrict access or create scarcity in a local market.
+The RACV represents the *maximum allowable baseline* for property listings, insurance assessments, or tax valuation, subject to the **Permissible Variance** (currently capped at 10%).
 
-## 1.6 HOA Accountability & Opt-Out
-Owners may petition to opt out of non-transparent or non-performing HOAs; where <50% of lots are sold/occupied, HOA authority is limited to essential maintenance and financial transparency, subject to municipal oversight.
+## Auditing and Oversight
+- Independent auditors from certified regional authorities must evaluate a randomized minimum of 5% of all assessments annually.  
+- Discrepancies exceeding 10% from verified market parity trigger mandatory reassessment and public notice.  
+- All audit results must be published in the public registry to ensure transparency and maintain trust.  
 
-## 1.7 Fair Advertising Clause
-Listings must appear on public, accessible portals; restricting exposure to private corporate channels violates equal-access and the buyer priority ladder.
+## Valuation Dispute Process
+If a buyer or seller disputes an assessed value:  
+- The property enters a **Temporary Review Hold** before final closing.  
+- Both parties submit documentation to an independent review board.  
+- The final RACV may be adjusted within ±10% if material evidence of error exists.
 
-## 1.8 Title Protection & Anti-Deed Fraud
-Automatic title-lock enrollment at recording; verified owner contact before transfer; criminal penalties for forged deeds; expedited restoration processes for victims.
+## Fairness and Fraud Protection
+- Artificial overvaluation by assessors, brokers, or financial institutions constitutes valuation fraud.  
+- Individuals have the right to audit or appeal RACV assessments without penalty.  
+- Any proven manipulation or suppression of valuation data leads to immediate license suspension and restitution obligations.
 
-## 1.9 Easement & Long-Lease Buyout Safeguards
-Buyouts must disclose lifetime value impact certified by an independent appraiser; include a 7-day cooling-off period; easements >20 years trigger valuation credits for tax/financing.
+## Full Ownership Guarantee
+- Ownership includes the right to occupy, transfer, and modify property—provided all modifications meet regional safety and environmental codes.  
+- Ownership does *not* exempt individuals from community standards, blight laws, or affordability restrictions under this Act.  
+- Property owners must maintain compliance with local and federal affordability standards to retain their ownership rights.

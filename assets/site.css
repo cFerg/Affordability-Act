@@ -57,3 +57,10 @@ html.theme-light code, html.theme-light pre { background: #f3f4f6; color: #11182
   border-top:1px solid var(--border); margin-top: 24px;
   padding: 16px 24px; text-align:center; color:var(--muted);
 }
+
+.btn {
+  display:inline-block; padding:10px 14px; border-radius:10px;
+  background:linear-gradient(180deg, #2847a1, #203b86);
+  border:1px solid #2c4fb5; color:#fff; font-weight:600; text-decoration:none;
+}
+.btn:hover { filter: brightness(1.05); }

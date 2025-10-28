@@ -1,10 +1,10 @@
+# Affordability Act — Compiled Master
+_Generated (UTC): 2025-10-28 07:15 UTC_
+
 ---
 layout: default
-title: Bill Text
+title: Foundations of Ownership
 ---
-# Affordability Act — Compiled Master
-_Generated (UTC): 2025-10-28 05:15 UTC_
-
 <!--
 SUMMARY:
 Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.
@@ -52,6 +52,10 @@ If a buyer or seller disputes an assessed value:
 
 ---
 
+---
+layout: default
+title: Housing, Land, and Ownership Protections
+---
 <!--
 SUMMARY:
 Defines residential and land-use protections to ensure all citizens have equal access to housing and property.
@@ -94,6 +98,10 @@ It safeguards residents from speculative manipulation, abandonment, or forced di
 
 ---
 
+---
+layout: default
+title: Fair Market Participation and Offer Integrity
+---
 <!--
 SUMMARY:
 Prevents manipulation in real estate, rental, and asset markets through fair competition, anti-bot policies, and resident-first bidding rules.
@@ -137,6 +145,10 @@ To ensure that every person has equal opportunity to participate in real estate 
 
 ---
 
+---
+layout: default
+title: Transportation, Vehicles, and Ownership Equity
+---
 <!--
 SUMMARY:
 Applies affordability and fair-value principles to vehicle ownership, production, and resale.
@@ -174,6 +186,10 @@ To extend affordability protections into transportation and automotive markets b
 
 ---
 
+---
+layout: default
+title: Taxation, Labor, and Fiscal Safeguards
+---
 <!--
 SUMMARY:
 Redefines livable wages, modernizes healthcare access, and aligns tax and welfare structures with affordability goals.
@@ -227,6 +243,10 @@ This section eliminates the paradox where individuals can earn full-time wages y
 
 ---
 
+---
+layout: default
+title: Enforcement, Compliance, and Appeals
+---
 <!--
 SUMMARY:
 Creates a clear, enforceable framework for oversight, compliance, and due process under the Affordability Act.
@@ -267,6 +287,10 @@ To define enforcement mechanisms and ensure consistent compliance across all sec
 
 ---
 
+---
+layout: default
+title: Integrity, Accountability, and Global Fairness
+---
 <!--
 SUMMARY:
 Addresses systemic corruption, global loopholes, and market stability related to affordability reforms.

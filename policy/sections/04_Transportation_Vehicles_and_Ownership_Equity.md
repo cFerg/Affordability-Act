@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Transportation, Vehicles, and Ownership Equity
+title: 04 — Transportation Vehicles and Ownership Equity
+permalink: /policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/
 ---
 <!--
 SUMMARY:

@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Fair Market Participation and Offer Integrity
+title: 03 — Fair Market Participation and Offer Integrity
+permalink: /policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/
 ---
 <!--
 SUMMARY:

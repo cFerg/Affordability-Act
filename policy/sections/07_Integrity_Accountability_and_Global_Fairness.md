@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Integrity, Accountability, and Global Fairness
+title: 07 — Integrity Accountability and Global Fairness
+permalink: /policy/sections/07_Integrity_Accountability_and_Global_Fairness/
 ---
 <!--
 SUMMARY:

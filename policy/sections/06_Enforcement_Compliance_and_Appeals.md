@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Enforcement, Compliance, and Appeals
+title: 06 — Enforcement Compliance and Appeals
+permalink: /policy/sections/06_Enforcement_Compliance_and_Appeals/
 ---
 <!--
 SUMMARY:

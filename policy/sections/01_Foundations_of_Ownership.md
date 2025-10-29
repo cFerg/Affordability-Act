@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Foundations of Ownership
+title: 01 — Foundations of Ownership
+permalink: /policy/sections/01_Foundations_of_Ownership/
 ---
 <!--
 SUMMARY:

@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Housing, Land, and Ownership Protections
+title: 02 — Housing Land and Ownership Protections
+permalink: /policy/sections/02_Housing_Land_and_Ownership_Protections/
 ---
 <!--
 SUMMARY:

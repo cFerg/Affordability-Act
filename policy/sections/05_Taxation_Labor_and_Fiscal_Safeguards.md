@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Taxation, Labor, and Fiscal Safeguards
+title: 05 — Taxation Labor and Fiscal Safeguards
+permalink: /policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/
 ---
 <!--
 SUMMARY:

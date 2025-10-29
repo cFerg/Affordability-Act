@@ -25,22 +25,31 @@
   }
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const btn = document.getElementById('toggleSections');
   const list = document.getElementById('sectionsList');
   if (btn && list) {
+    // populate once from search.json (uses the same titles/urls)
+    try {
+      const res = await fetch('/search.json', { cache: 'no-store' });
+      const items = await res.json();
+      // only sections (recognize by URL prefix)
+      const sections = items.filter(x => x.url && x.url.startsWith('/policy/sections/'));
+      list.innerHTML = '<ul>' + sections.map(s =>
+        `<li><a href="${s.url}">${s.title}</a></li>`
+      ).join('') + '</ul>';
+    } catch (e) {
+      list.innerHTML = '<div class="nores">Sections unavailable.</div>';
+    }
+
     btn.addEventListener('click', () => {
-      const open = !list.hasAttribute('hidden');
-      if (open) {
-        list.setAttribute('hidden', '');
-        btn.textContent = '▼ View individual sections';
-      } else {
-        list.removeAttribute('hidden');
-        btn.textContent = '▶ Hide individual sections';
-      }
+      const open = list.style.display === 'block';
+      list.style.display = open ? 'none' : 'block';
+      btn.textContent = open ? '📂 View individual sections' : '📁 Hide individual sections';
     });
   }
 });
+
 
 document.addEventListener('DOMContentLoaded', async () => {
   const box = document.getElementById('searchBox');

@@ -39,12 +39,12 @@ README_PATH = os.path.join(POLICY_DIR, "README.md")
 OUTLINE_PATH = os.path.join(POLICY_DIR, "outline.md")
 BILL_PATH = os.path.join(POLICY_DIR, "bill-text.md")
 
-IDX_BEGIN = r"<!--\s*BEGIN:SECTION_INDEX\s*-->"
-IDX_END   = r"<!--\s*END:SECTION_INDEX\s*-->"
-OUT_BEGIN = r"<!--\s*BEGIN:SECTION_OUTLINE\s*-->"
-OUT_END   = r"<!--\s*END:SECTION_OUTLINE\s*-->"
-BILL_BEGIN = r"<!--\s*BEGIN:BILL_BODY\s*-->"
-BILL_END   = r"<!--\s*END:BILL_BODY\s*-->"
+IDX_BEGIN = "<!-- BEGIN:SECTION_INDEX -->"
+IDX_END   = "<!-- END:SECTION_INDEX -->"
+OUT_BEGIN = "<!-- BEGIN:SECTION_OUTLINE -->"
+OUT_END   = "<!-- END:SECTION_OUTLINE -->"
+BILL_BEGIN = "<!-- BEGIN:BILL_BODY -->"
+BILL_END   = "<!-- END:BILL_BODY -->"
 
 FM_RE = re.compile(r"^---\s*\r?\n(.*?)\r?\n---\s*\r?\n", re.S)     # YAML front matter
 H1_RE = re.compile(r"^\s*#\s+(.+?)\s*$", re.M)            # first H1

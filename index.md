@@ -11,7 +11,7 @@ A citizen-first policy to restore affordability and fair access across housing, 
 
 <p><a class="btn" href="/policy/bill-text/">📜 Click Here to Read the Full Bill</a></p>
 
-<p><button id="toggleSections" class="btn btn-secondary">📂 View individual sections</button></p>
+<p><button id="toggleSections" class="btn btn-secondary">▼ View individual sections</button></p>
 
 <div id="sectionsList" style="display:none;">
   <ul>
@@ -24,18 +24,6 @@ A citizen-first policy to restore affordability and fair access across housing, 
     <li><a href="/policy/sections/07_Integrity_Accountability_and_Global_Fairness/">07 — Integrity, Accountability, & Global Fairness</a></li>
   </ul>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const btn=document.getElementById('toggleSections');
-  const list=document.getElementById('sectionsList');
-  btn.addEventListener('click',()=>{
-    const visible=list.style.display==='block';
-    list.style.display=visible?'none':'block';
-    btn.textContent=visible?'📂 View individual sections':'📁 Hide individual sections';
-  });
-});
-</script>
 
 ## Contribute
 - [GitHub Repository](https://github.com/cFerg/Affordability-Act/)

@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = !list.hasAttribute('hidden');
       if (open) {
         list.setAttribute('hidden', '');
-        btn.textContent = 'View individual sections';
+        btn.textContent = '▼ View individual sections';
       } else {
         list.removeAttribute('hidden');
-        btn.textContent = 'Hide individual sections';
+        btn.textContent = '▶ Hide individual sections';
       }
     });
   }

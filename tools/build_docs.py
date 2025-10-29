@@ -176,40 +176,39 @@ def extract_summary(md_text: str) -> str:
     return m.group(1).strip() if m else "(Summary not provided)"
 
 def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: str):
+    """Safely replace text between markers, removing any prior generated content."""
     if not file_exists(path):
         write_text(path, f"{begin_pat}\n{new_block.strip()}\n{end_pat}\n")
         return
+
     text = read_text(path)
-    begin = re.search(begin_pat, text)
-    end = re.search(end_pat, text)
-    if not begin or not end:
-        # append if markers missing
-        block = f"\n{begin_pat}\n{new_block.strip()}\n{end_pat}\n"
-        write_text(path, text.rstrip() + block)
-        return
-    start = begin.end()
-    stop = end.start()
-    updated = text[:start] + "\n" + new_block.strip() + "\n" + text[stop:]
-    if updated != text:
-        write_text(path, updated)
+
+    # Remove any pre-existing generated block (including nested markers)
+    text = re.sub(
+        f"{begin_pat}[\\s\\S]*?{end_pat}",
+        f"{begin_pat}\n{new_block.strip()}\n{end_pat}",
+        text,
+        flags=re.MULTILINE,
+    )
+
+    write_text(path, text)
 
 def ensure_anchors(md_body: str, section_index: int) -> str:
     sid = f"section-{section_index}"
-    # Always inject a hard HTML anchor first, so #section-n works no matter what
-    injected = f'<a id="{sid}"></a>\n'
 
-    # If there is a first-level heading, append an explicit id if missing
+    # Clean any visible {#section-x} strings from previous generations
+    md_body = re.sub(r"\{#section-\d+\}", "", md_body)
+
+    # Find the first H1 and inject a real HTML anchor above it
     m = H1_RE.search(md_body)
+    anchor = f'<a id="{sid}"></a>\n'
+
     if m:
         h1_line = m.group(0)
-        if "{#section-" not in h1_line and f'id="{sid}"' not in h1_line:
-            # Prefer Markdown-style ID so TOC works in GH/Jekyll
-            new_h1 = h1_line + f" {{#{sid}}}"
-            md_body = md_body.replace(h1_line, new_h1, 1)
-        return injected + md_body.lstrip()
+        return md_body.replace(h1_line, anchor + h1_line, 1)
 
-    # If no H1, synthesize one so the page remains navigable
-    return injected + f"# Section {section_index} {{#{sid}}}\n\n" + md_body.lstrip()
+    # If no H1 exists, synthesize one
+    return f'{anchor}# Section {section_index}\n\n' + md_body.lstrip()
 
 
 def main():

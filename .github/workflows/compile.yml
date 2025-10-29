@@ -1,23 +1,8 @@
-name: Build policy docs
-
+name: compile
 on:
   push:
-    paths:
-      - 'policy/**'
-      - 'tools/**'
-      - '.github/workflows/compile.yml'
-  pull_request:
-    paths:
-      - 'policy/**'
-      - 'tools/**'
+    branches: [ main ]
   workflow_dispatch:
-
-permissions:
-  contents: write
-
-concurrency:
-  group: compile-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -26,37 +11,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-
-      - name: Show repo tree (debug)
-        run: |
-          echo "Tree under policy/:"
-          find policy -maxdepth 3 -type f -print | sort
-
-      - name: Build everything (bill + README + outline)
+          python-version: '3.11'
+      - name: Build docs (index & outline)
         run: python3 tools/build_docs.py
-        env:
-          GITHUB_SHA: ${{ github.sha }}
-          ACT_NAME: "Affordability Act"
-
-      - name: Show outputs (debug)
-        run: |
-          echo "----- policy/README.md -----"
-          sed -n '1,120p' policy/README.md || true
-          echo "----- policy/outline.md -----"
-          sed -n '1,60p' policy/outline.md || true
-
       - name: Commit outputs
         run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
-          git add policy/bill-text.md policy/README.md policy/outline.md
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "docs(policy): rebuild bill + README + outline by @${{ github.actor }} [skip ci]"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(docs): refresh section index & outline"
             git push
+          else
+            echo "No changes to commit."
           fi

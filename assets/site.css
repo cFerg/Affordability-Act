@@ -94,3 +94,8 @@ html.theme-light code, html.theme-light pre { background: #f3f4f6; color: #11182
 .btn:hover {
   filter: brightness(1.05);
 }
+
+.btn-secondary {
+  background:linear-gradient(180deg, #223157, #1b2746);
+  border:1px solid #2a3d72;
+}

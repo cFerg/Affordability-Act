@@ -1,242 +1,222 @@
 #!/usr/bin/env python3
-import os, re, sys, json, datetime
+# -*- coding: utf-8 -*-
+"""
+Builds/refreshes:
+  - policy/README.md  (injects section index between markers)
+  - policy/outline.md (injects section summaries between markers)
+Also normalizes section files and their front-matter so both
+foldered and flat layouts work with pretty permalinks.
+
+Conventions:
+  - Sections live under policy/sections/
+    Either as:
+      A) policy/sections/01_Foo_Bar/README.md
+      B) policy/sections/01_Foo_Bar.md
+  - Each section should contain a one-line summary comment:
+      <!-- SUMMARY: This section covers ... -->
+  - Front-matter is required for Jekyll to render pages:
+      ---
+      layout: default
+      title: 01 — Foo Bar
+      permalink: /policy/sections/01_Foo_Bar/
+      ---
+
+Markers:
+  policy/README.md:
+    <!-- BEGIN:SECTION_INDEX -->
+    ... (generated) ...
+    <!-- END:SECTION_INDEX -->
+
+  policy/outline.md:
+    <!-- BEGIN:SECTION_OUTLINE -->
+    ... (generated) ...
+    <!-- END:SECTION_OUTLINE -->
+"""
+
+import os
+import re
+import io
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECTIONS_DIR = os.path.join(ROOT, "policy", "sections")
-BILL_PATH    = os.path.join(ROOT, "policy", "bill-text.md")
-README_PATH  = os.path.join(ROOT, "policy", "README.md")
-OUTLINE_PATH = os.path.join(ROOT, "policy", "outline.md")
-SHORT_SHA    = os.getenv("GITHUB_SHA", "")[:7]
-#Change ACT_NAME if we decide on another name - It will change accordingly
-ACT_NAME = os.getenv("ACT_NAME", "Afford Act")
-OUTLINE_TITLE = f"{ACT_NAME} — Outline"
-BILL_TITLE = f"{ACT_NAME} — Compiled Master"
-POLICY_HUB_TITLE = "Policy"
+POLICY_DIR = os.path.join(ROOT, "policy")
+SECTIONS_DIR = os.path.join(POLICY_DIR, "sections")
 
-# ----------------------------- helpers -----------------------------
+README_PATH = os.path.join(POLICY_DIR, "README.md")
+OUTLINE_PATH = os.path.join(POLICY_DIR, "outline.md")
 
-def sort_key(name):
-    m = re.match(r"^(\d+)", name)
-    return int(m.group(1)) if m else 9999
+IDX_BEGIN = r"<!--\s*BEGIN:SECTION_INDEX\s*-->"
+IDX_END   = r"<!--\s*END:SECTION_INDEX\s*-->"
+OUT_BEGIN = r"<!--\s*BEGIN:SECTION_OUTLINE\s*-->"
+OUT_END   = r"<!--\s*END:SECTION_OUTLINE\s*-->"
 
-def clean_name(name):
-    return re.sub(r"_+", " ", name).strip()
+FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.S)  # front-matter matcher
+H1_RE = re.compile(r"^\s*#\s+(.+?)\s*$", re.M)
+SUMMARY_RE = re.compile(r"<!--\s*SUMMARY:\s*(.*?)\s*-->", re.S)
 
-# MD cleanup
-H2_RE      = re.compile(r"(?m)^\s*##\s+(.+?)\s*$")
-MD_LINK    = re.compile(r"\[([^\]]+)\]\([^)]+\)")
-MD_CODE    = re.compile(r"`+([^`]+)`+")
-MD_IMAGE   = re.compile(r"!\[[^\]]*\]\([^)]+\)")
+def read_text(path: str) -> str:
+    with io.open(path, "r", encoding="utf-8") as f:
+        return f.read()
 
-# Overrides
-SUM_LINE   = re.compile(r"<!--\s*SUMMARY\s*:\s*(.*?)\s*-->", re.IGNORECASE)
-SUM_BLOCK  = re.compile(r"<!--\s*SUMMARY\s*(?:\r?\n)(.*?)(?:\r?\n)\s*-->", re.IGNORECASE | re.DOTALL)
-KEY_LINE   = re.compile(r"<!--\s*KEYWORDS\s*:\s*(.*?)\s*-->", re.IGNORECASE)
-
-# Visibility flags (verbose + legacy)
-FLAG_LISTS_HIDE   = re.compile(r"<!--\s*(?:LISTS:\s*hide|HIDE_FROM_LISTS)\s*-->", re.IGNORECASE)
-FLAG_OUTLINE_HIDE = re.compile(r"<!--\s*(?:OUTLINE:\s*hide|HIDE_FROM_OUTLINE)\s*-->", re.IGNORECASE)
-FLAG_README_HIDE  = re.compile(r"<!--\s*(?:README:\s*hide|HIDE_FROM_README)\s*-->", re.IGNORECASE)
-
-KEYWORD_ALLOWLIST = {
-    "enforcement","definitions","valuation","formulas","caps","ceiling","floor",
-    "audits","appeals","vacancy","blight","trusts","heirs","priority",
-    "multi-unit","rent","tolerance","vehicles","insurance","fees",
-    "wage index","minimum wage","tips","service charges","doc fee","exemptions",
-    "grants","pass-through","hoa","timeshare","boarding","student housing"
-}
-
-def clean_md_text(s):
-    s = MD_IMAGE.sub("", s)
-    s = MD_LINK.sub(r"\1", s)
-    s = MD_CODE.sub(r"\1", s)
-    return " ".join(s.split())
-
-def parse_keywords(raw):
-    out = []
-    for token in re.split(r"[,\s]+", raw.strip().lower()):
-        token = token.strip()
-        if token and token not in out:
-            out.append(token)
-    return out[:8]
-
-def auto_keywords(text):
-    kws = []
-    for h in [clean_md_text(m.group(1)).lower() for m in H2_RE.finditer(text)]:
-        for token in re.split(r"[^\w\- ]+", h):
-            token = token.strip()
-            if token and (token in KEYWORD_ALLOWLIST) and token not in kws:
-                kws.append(token)
-            if len(kws) >= 6:
-                break
-        if len(kws) >= 6:
-            break
-    return kws
-
-# ------------------------- section discovery -------------------------
+def write_text(path: str, text: str):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with io.open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
 
 def list_sections():
-    """Return list of dicts with metadata & flags for each section folder."""
-    items, dbg = [], {"dir": SECTIONS_DIR, "folders": []}
+    """
+    Return a list of dicts with:
+      name: '01_Foundations_of_Ownership'
+      md_path: absolute path to MD file (either .../name/README.md or .../name.md)
+      url: pretty permalink '/policy/sections/name/'
+    """
+    items = []
     if not os.path.isdir(SECTIONS_DIR):
-        return [], dbg
+        return items
 
-    for d in os.listdir(SECTIONS_DIR):
-        p = os.path.join(SECTIONS_DIR, d)
-        if not os.path.isdir(p):
-            continue
-        md = os.path.join(p, "README.md")
-        md_exists = os.path.isfile(md)
-        title = None
-        text = ""
-        if md_exists:
-            with open(md, "r", encoding="utf-8", errors="replace") as f:
-                text = f.read()
-                # first H1 as title
-                for line in text.splitlines():
-                    if line.lstrip().startswith("#"):
-                        title = re.sub(r"^#+\s*", "", line).strip()
-                        break
-        if not title:
-            title = clean_name(d)
+    entries = sorted(os.listdir(SECTIONS_DIR))
+    for entry in entries:
+        full = os.path.join(SECTIONS_DIR, entry)
+        if os.path.isdir(full):
+            md = os.path.join(full, "README.md")
+            if os.path.isfile(md):
+                items.append({
+                    "name": entry,
+                    "md_path": md,
+                    "url": f"/policy/sections/{entry}/",
+                    "flat": False,
+                })
+        elif entry.lower().endswith(".md"):
+            name = entry[:-3]  # strip .md
+            items.append({
+                "name": name,
+                "md_path": full,
+                "url": f"/policy/sections/{name}/",
+                "flat": True,
+            })
+    # Sort by numeric prefix if present
+    def sort_key(d):
+        m = re.match(r"^(\d+)", d["name"])
+        return int(m.group(1)) if m else 9999
+    items.sort(key=sort_key)
+    return items
 
-        # numbering & link
-        m = re.match(r"^(\d+)", d)
-        num = f"{int(m.group(1)):02d}" if m else "—"
-        rel = f"sections/{d}/README.md"
-
-        # visibility flags
-        hide_lists   = bool(FLAG_LISTS_HIDE.search(text))
-        hide_outline = hide_lists or bool(FLAG_OUTLINE_HIDE.search(text))
-        hide_readme  = hide_lists or bool(FLAG_README_HIDE.search(text))
-
-        items.append({
-            "num": num, "title": title, "rel": rel, "md_exists": md_exists,
-            "folder": d, "text": text,
-            "hide_outline": hide_outline, "hide_readme": hide_readme
-        })
-        dbg["folders"].append({
-            "folder": d, "num": num, "title": title, "md_exists": md_exists,
-            "hide_outline": hide_outline, "hide_readme": hide_readme
-        })
-
-    items.sort(key=lambda t: (9999 if t["num"]=="—" else int(t["num"]), t["title"].lower()))
-    return items, dbg
-
-# ------------------------------ outputs ------------------------------
-
-def compile_bill(items):
-    parts = []
-    parts.append(f"# {BILL_TITLE}\n")
-    parts.append("_Generated (UTC): " + datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC") + "_\n\n")
-    for it in items:
-        if it["md_exists"]:
-            md_path = os.path.join(SECTIONS_DIR, it["folder"], "README.md")
-            with open(md_path, "r", encoding="utf-8", errors="replace") as f:
-                parts.append(f.read().rstrip() + "\n")
-                parts.append("\n---\n\n")
-    text = "".join(parts).rstrip() + "\n"
-    os.makedirs(os.path.dirname(BILL_PATH), exist_ok=True)
-    with open(BILL_PATH, "w", encoding="utf-8") as f:
-        f.write(text)
-    print("[build_docs] wrote", BILL_PATH)
-
-def sections_block(items):
-    if not items:
-        return "_No sections discovered under `policy/sections/`._\n"
-    return "\n".join([f"- {it['num']} — [{it['title']}]({it['rel']})" for it in items]) + "\n"
-
-def render_readme(items):
-    visible = [it for it in items if not it["hide_readme"]]
-    header = (
-        f"# {POLICY_HUB_TITLE}\n\n"
-        f"**Start here → [Master Bill (compiled)](./bill-text.md)** • "
-        f"[Outline](./outline.md)\n\n"
-        "## Sections\n\n"
-        "<!-- BEGIN:SECTION_INDEX -->\n"
-    )
-    body = sections_block(visible) + "<!-- END:SECTION_INDEX -->\n"
-    text = header + body
-    os.makedirs(os.path.dirname(README_PATH), exist_ok=True)
-    with open(README_PATH, "w", encoding="utf-8") as f:
-        f.write(text)
-    print("[build_docs] wrote", README_PATH)
-
-def extract_summary_and_keywords(text):
-    # SUMMARY override
-    m = SUM_BLOCK.search(text)
+def ensure_front_matter(md_path: str, title: str, permalink: str):
+    """
+    Ensure the MD file has front-matter with layout/title/permalink.
+    If front-matter exists, we patch missing keys.
+    """
+    text = read_text(md_path)
+    fm = {}
+    body = text
+    m = FM_RE.match(text)
     if m:
-        summary = clean_md_text(m.group(1).strip())
-    else:
-        m = SUM_LINE.search(text)
-        summary = clean_md_text(m.group(1)) if m else ""
+        # parse existing fm
+        raw = m.group(1)
+        body = text[m.end():]
+        for line in raw.splitlines():
+            if ":" in line:
+                k, v = line.split(":", 1)
+                fm[k.strip()] = v.strip().strip("'\"")
+    # enforce fields
+    changed = False
+    if fm.get("layout") != "default":
+        fm["layout"] = "default"; changed = True
+    if fm.get("title") != title:
+        fm["title"] = title; changed = True
+    if fm.get("permalink") != permalink:
+        fm["permalink"] = permalink; changed = True
 
-    # Fallback to first paragraph after H1
-    if not summary:
-        lines = text.splitlines()
-        i = 0
-        while i < len(lines) and not lines[i].lstrip().startswith("#"):
-            i += 1
-        while i < len(lines) and lines[i].lstrip().startswith("#"):
-            i += 1
-        while i < len(lines) and lines[i].strip() == "":
-            i += 1
-        para = []
-        while i < len(lines):
-            if lines[i].strip() == "" or lines[i].lstrip().startswith("#"):
-                break
-            if not lines[i].lstrip().startswith((">", "-", "*")):
-                para.append(lines[i].rstrip())
-            i += 1
-        summary = clean_md_text(" ".join(para))
-    if len(summary) > 360:
-        summary = summary[:357].rstrip() + "..."
+    if changed or not m:
+        # rebuild front-matter block
+        lines = ["---"]
+        for k in ("layout", "title", "permalink"):
+            lines.append(f"{k}: {fm[k]}")
+        lines.append("---")
+        new_text = "\n".join(lines) + "\n" + body.lstrip("\n")
+        write_text(md_path, new_text)
 
-    # KEYWORDS override or auto
-    m = KEY_LINE.search(text)
+def extract_title(md_path: str, default_title: str) -> str:
+    text = read_text(md_path)
+    # Prefer front-matter title if present
+    m = FM_RE.match(text)
     if m:
-        kws = parse_keywords(m.group(1))
-    else:
-        kws = auto_keywords(text)
-    return summary, kws
+        raw = m.group(1)
+        for line in raw.splitlines():
+            if line.strip().startswith("title:"):
+                return line.split(":",1)[1].strip().strip("'\"")
+    # fallback to first H1
+    m = H1_RE.search(text)
+    if m:
+        return m.group(1).strip()
+    return default_title
 
-def render_outline(items):
-    visible = [it for it in items if not it["hide_outline"]]
-    stamp = "_Last updated: " + datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-    if SHORT_SHA: stamp += f" · commit {SHORT_SHA}_"
-    else: stamp += "_"
+def extract_summary(md_path: str) -> str:
+    text = read_text(md_path)
+    m = SUMMARY_RE.search(text)
+    return m.group(1).strip() if m else "(Summary not provided)"
 
-    parts = []
-    parts.append(f"# {OUTLINE_TITLE}\n\n")
-    parts.append(stamp + "\n\n")
-    parts.append("This outline summarizes each section at a glance. Click through for full text.\n\n")
-
-    for it in visible:
-        parts.append(f"## {it['num']} — {it['title']}\n\n")
-        parts.append(f"[Open section]({it['rel']})\n\n")
-        summary, kws = extract_summary_and_keywords(it["text"])
-        if summary:
-            parts.append(summary + "\n\n")
-        if kws:
-            parts.append("_Keywords:_ " + ", ".join(kws) + "\n\n")
-
-    text = "".join(parts).rstrip() + "\n"
-    os.makedirs(os.path.dirname(OUTLINE_PATH), exist_ok=True)
-    with open(OUTLINE_PATH, "w", encoding="utf-8") as f:
-        f.write(text)
-    print("[build_docs] wrote", OUTLINE_PATH)
-
-# ------------------------------- main -------------------------------
+def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: str):
+    text = read_text(path)
+    begin = re.search(begin_pat, text)
+    end = re.search(end_pat, text)
+    if not begin or not end:
+        # If markers missing, append them at end
+        block = f"\n{begin_pat}\n{new_block}\n{end_pat}\n"
+        write_text(path, text.rstrip() + block)
+        return
+    start = begin.end()
+    stop = end.start()
+    updated = text[:start] + "\n" + new_block.strip() + "\n" + text[stop:]
+    if updated != text:
+        write_text(path, updated)
 
 def main():
-    items, dbg = list_sections()
-    print("[build_docs] discovered sections:", json.dumps(dbg, indent=2))
-    compile_bill(items)
-    render_readme(items)
-    render_outline(items)
-    with open(OUTLINE_PATH, "r", encoding="utf-8") as f:
-        head = "".join(f.readlines()[:60])
-    print("----- outline preview -----\n" + head)
+    sections = list_sections()
+    if not sections:
+        print("No sections found under policy/sections/")
+        return
+
+    # Normalize front-matter and build lists
+    idx_lines = []
+    out_lines = []
+    for s in sections:
+        name = s["name"]
+        md_path = s["md_path"]
+        url = s["url"]
+
+        # Derive a friendly title from the filename if needed
+        # e.g., '01_Foundations_of_Ownership' -> '01 — Foundations of Ownership'
+        m = re.match(r"^(\d+)[ _-]+(.+)$", name)
+        if m:
+            num = m.group(1)
+            label = m.group(2).replace("_", " ").replace("-", " ")
+            title_guess = f"{num} — {label}"
+        else:
+            title_guess = name.replace("_", " ").replace("-", " ")
+
+        # Ensure front-matter so flat files render at pretty URLs
+        ensure_front_matter(md_path, title_guess, url)
+
+        # Extract title & summary for index/outline
+        title = extract_title(md_path, title_guess)
+        summary = extract_summary(md_path)
+
+        # Build index item (short)
+        idx_lines.append(f"- **[{title}]({{{{ '{url}' | relative_url }}}})** — {summary}".format(url=url))
+
+        # Build outline item (longer format if you want)
+        out_lines.append(f"### [{title}]({{{{ '{url}' | relative_url }}}})\n\n{summary}\n")
+
+    # Inject into policy/README.md
+    idx_md = "\n".join(idx_lines)
+    patch_between_markers(README_PATH, IDX_BEGIN, IDX_END, idx_md)
+
+    # Inject into policy/outline.md
+    out_md = "\n\n".join(out_lines)
+    patch_between_markers(OUTLINE_PATH, OUT_BEGIN, OUT_END, out_md)
+
+    print(f"Updated index with {len(sections)} sections.")
+    print("Done.")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

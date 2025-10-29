@@ -24,3 +24,20 @@
     });
   }
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('toggleSections');
+  const list = document.getElementById('sectionsList');
+  if (btn && list) {
+    btn.addEventListener('click', () => {
+      const open = !list.hasAttribute('hidden');
+      if (open) {
+        list.setAttribute('hidden', '');
+        btn.textContent = 'Show individual sections';
+      } else {
+        list.removeAttribute('hidden');
+        btn.textContent = 'Hide individual sections';
+      }
+    });
+  }
+});

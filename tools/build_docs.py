@@ -176,17 +176,26 @@ def extract_summary(md_text: str) -> str:
     return m.group(1).strip() if m else "(Summary not provided)"
 
 def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: str):
-    """Safely replace text between markers, removing any prior generated content."""
+    """Safely replace text between markers, removing any prior generated content.
+    Tolerates extra spaces after the colon in the markers and is case-insensitive.
+    """
+
     if not file_exists(path):
         write_text(path, f"{begin_pat}\n{new_block.strip()}\n{end_pat}\n")
         return
 
     text = read_text(path)
 
-    # Escape backslashes in the regex pattern safely
-    pattern = re.escape(begin_pat) + r"[\s\S]*?" + re.escape(end_pat)
+    def relaxed_marker_regex(marker: str) -> str:
+        # Escape the literal marker but allow flexible spacing after ':'
+        escaped = re.escape(marker).replace(r"\:", r"\:\s*")
+        # Allow both uppercase and lowercase matching for BEGIN/END and the label itself
+        return escaped.replace("BEGIN", "[Bb][Ee][Gg][Ii][Nn]").replace(
+            "END", "[Ee][Nn][Dd]"
+        )
 
-    # Use lambda to return the literal replacement (so re doesn’t interpret '\n')
+    pattern = relaxed_marker_regex(begin_pat) + r"[\s\S]*?" + relaxed_marker_regex(end_pat)
+
     text = re.sub(
         pattern,
         lambda _: f"{begin_pat}\n{new_block.strip()}\n{end_pat}",
@@ -195,6 +204,7 @@ def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: st
     )
 
     write_text(path, text)
+
 
 def ensure_anchors(md_body: str, section_index: int) -> str:
     sid = f"section-{section_index}"

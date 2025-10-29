@@ -33,11 +33,55 @@ document.addEventListener('DOMContentLoaded', () => {
       const open = !list.hasAttribute('hidden');
       if (open) {
         list.setAttribute('hidden', '');
-        btn.textContent = 'Show individual sections';
+        btn.textContent = 'View individual sections';
       } else {
         list.removeAttribute('hidden');
         btn.textContent = 'Hide individual sections';
       }
     });
   }
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const box = document.getElementById('searchBox');
+  const results = document.getElementById('searchResults');
+  if (!box || !results) return;
+
+  let index = [];
+  try {
+    const res = await fetch('/search.json', { cache: 'no-store' });
+    index = await res.json();
+  } catch (e) { /* ignore */ }
+
+  function render(q){
+    const qq = q.trim().toLowerCase();
+    if (!qq) { results.hidden = true; results.innerHTML = ''; return; }
+    const hits = index.filter(it =>
+      it.title.toLowerCase().includes(qq) ||
+      it.summary.toLowerCase().includes(qq)
+    ).slice(0, 10);
+
+    results.innerHTML = hits.map(h => `
+      <a href="${h.url}"><strong>${h.title}</strong><br><span>${h.summary}</span></a>
+    `).join('') || '<div class="nores">No results</div>';
+    results.hidden = false;
+  }
+
+  box.addEventListener('input', () => render(box.value));
+  box.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // If there is exactly one result, go to it; else keep the list open.
+      const first = results.querySelector('a');
+      if (first) window.location.href = first.href;
+    } else if (e.key === 'Escape') {
+      results.hidden = true;
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!results.contains(e.target) && e.target !== box) {
+      results.hidden = true;
+    }
+  });
 });

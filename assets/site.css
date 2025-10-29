@@ -146,3 +146,16 @@ details > summary::-webkit-details-marker { display: none; }
   text-align: center;
   color: var(--muted);
 }
+
+/* Search Bar */
+.aa-search-results {
+  position: absolute; top: 48px; right: 18px; width: 360px;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px; max-height: 60vh; overflow: auto; z-index: 70;
+}
+.aa-search-results a {
+  display: block; padding: 6px 8px; border-radius: 8px;
+  color: var(--text); text-decoration: none;
+}
+.aa-search-results a:hover { background: rgba(255,255,255,0.06); }
+.aa-search-results .nores { padding: 6px 8px; color: var(--muted); }

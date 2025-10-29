@@ -30,6 +30,7 @@ Markers expected:
 import os
 import re
 import io
+import json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POLICY_DIR = os.path.join(ROOT, "policy")
@@ -45,7 +46,7 @@ OUT_END   = r"<!--\s*END:SECTION_OUTLINE\s*-->"
 BILL_BEGIN = r"<!--\s*BEGIN:BILL_BODY\s*-->"
 BILL_END   = r"<!--\s*END:BILL_BODY\s*-->"
 
-FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.S)     # YAML front matter
+FM_RE = re.compile(r"^---\s*\r?\n(.*?)\r?\n---\s*\r?\n", re.S)     # YAML front matter
 H1_RE = re.compile(r"^\s*#\s+(.+?)\s*$", re.M)            # first H1
 SUMMARY_RE = re.compile(r"<!--\s*SUMMARY:\s*(.*?)\s*-->", re.S)
 
@@ -137,8 +138,17 @@ def ensure_front_matter(md_path: str, title: str, permalink: str):
         write_text(md_path, new_text)
 
 def strip_front_matter(text: str) -> str:
+    # Remove a front-matter block if present at the very beginning
     m = FM_RE.match(text)
-    return text[m.end():] if m else text
+    if m:
+        return text[m.end():]
+    # Fallback: strip any leading '--- ... ---' block even if formatting was odd
+    if text.lstrip().startswith('---'):
+        parts = text.split('---')
+        if len(parts) >= 3:
+            # drop first two '---' segments: ['', '\nfm\n', '\nbody...']
+            return '---'.join(parts[2:]).lstrip('\r\n')
+    return text
 
 def extract_title_from_filename(name: str) -> str:
     # '01_Foundations_of_Ownership' -> '01 — Foundations of Ownership'
@@ -184,21 +194,23 @@ def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: st
         write_text(path, updated)
 
 def ensure_anchors(md_body: str, section_index: int) -> str:
-    """
-    Ensure the first H1 of this section has a stable id="#section-{n}".
-    If no H1 exists, synthesize one.
-    """
     sid = f"section-{section_index}"
-    # If there is an H1, add {#section-n} if missing.
+    # Always inject a hard HTML anchor first, so #section-n works no matter what
+    injected = f'<a id="{sid}"></a>\n'
+
+    # If there is a first-level heading, append an explicit id if missing
     m = H1_RE.search(md_body)
     if m:
         h1_line = m.group(0)
-        if "{#section-" not in h1_line:
+        if "{#section-" not in h1_line and f'id="{sid}"' not in h1_line:
+            # Prefer Markdown-style ID so TOC works in GH/Jekyll
             new_h1 = h1_line + f" {{#{sid}}}"
             md_body = md_body.replace(h1_line, new_h1, 1)
-        return md_body
-    # synthesize heading if none present
-    return f"# Section {section_index} {{#{sid}}}\n\n" + md_body.lstrip()
+        return injected + md_body.lstrip()
+
+    # If no H1, synthesize one so the page remains navigable
+    return injected + f"# Section {section_index} {{#{sid}}}\n\n" + md_body.lstrip()
+
 
 def main():
     sections = list_sections()
@@ -233,6 +245,8 @@ def main():
         # remove SUMMARY comment blocks before compiling
         body = re.sub(r'<!--\s*SUMMARY:.*?-->\s*', '', body, flags=re.S)
         body = ensure_anchors(body, idx)
+        # final guard: strip any accidental front-matter-like lines from the top of body
+        body = re.sub(r"^---[\s\S]*?---\s*\r?\n", "", body, flags=re.M)
         # separate sections with a horizontal rule for readability
         if idx > 1:
             bill_lines.append("\n---\n")
@@ -247,6 +261,16 @@ def main():
     # Write compiled bill into policy/bill-text.md between markers
     bill_block = "\n".join(bill_lines).strip() + "\n"
     patch_between_markers(BILL_PATH, BILL_BEGIN, BILL_END, bill_block)
+
+    search_items = []
+    for idx, s in enumerate(sections, start=1):
+        name = s["name"]; url = s["url"]
+        raw = read_text(s["md_path"])
+        title = extract_title_from_md(raw, extract_title_from_filename(name))
+        summary = extract_summary(raw)
+        search_items.append({"title": title, "url": url, "summary": summary})
+    write_text(os.path.join(ROOT, "search.json"), json.dumps(search_items, ensure_ascii=False, indent=2))
+
 
     print(f"Updated: index ({len(sections)}), outline, and compiled bill.")
 

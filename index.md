@@ -9,7 +9,7 @@ title: Affordability Act — Official Draft
 
 A citizen-first policy to restore affordability and fair access across housing, wages, utilities, vehicles, and markets.
 
-<p><a class="btn" href="/policy/bill-text/README/">📜 Click Here to Read the Full Bill</a></p>
+<p><a class="btn" href="/policy/bill-text/">📜 Click Here to Read the Full Bill</a></p>
 
 <p><button id="toggleSections" class="btn btn-secondary">📂 View individual sections</button></p>
 

@@ -33,9 +33,8 @@
     <header class="aa-header">
       <a class="aa-brand" href="{{ '/' | relative_url }}">Affordability Act</a>
       <!-- Search option -->
-      <form class="aa-search" action="{{ '/' | relative_url }}" role="search">
-        <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off">
-      </form>
+      <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off" aria-label="Search the Act">
+      <div id="searchResults" class="aa-search-results" hidden></div>
       <!-- Toggle button for themes-->
       <button id="themeToggle" class="aa-toggle" aria-label="Toggle theme">🌙</button>
     </header>

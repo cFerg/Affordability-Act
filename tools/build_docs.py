@@ -202,10 +202,11 @@ def main():
         summary = extract_summary(md_path)
 
         # Build index item (short)
-        idx_lines.append(f"- **[{title}]({{{{ '{url}' | relative_url }}}})** — {summary}".format(url=url))
+        idx_lines.append(f"- **[{title}]({url})** — {summary}")
 
-        # Build outline item (longer format if you want)
-        out_lines.append(f"### [{title}]({{{{ '{url}' | relative_url }}}})\n\n{summary}\n")
+        # Build outline item (longer)
+        out_lines.append(f"### [{title}]({url})\n\n{summary}\n")
+
 
     # Inject into policy/README.md
     idx_md = "\n".join(idx_lines)

@@ -1,6 +1,11 @@
+---
+layout: default
+title: Full Bill Text
+sidebar: bill
+---
 # Affordability Act — Compiled Master
 _Generated (UTC): 2025-10-28 07:15 UTC_
-
+<!-- BEGIN: BILL_BODY -->
 ---
 layout: default
 title: Foundations of Ownership
@@ -333,3 +338,4 @@ To preserve the integrity of national and international markets while ensuring a
 - A biannual **Global Affordability Report** will measure international compliance and recommend global alignment standards.
 
 ---
+<!-- END:BILL_BODY -->

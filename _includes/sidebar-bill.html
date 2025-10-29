@@ -1,0 +1,55 @@
+<div class="sidebar-bill">
+  <h3>Sections</h3>
+  <ol id="billNav">
+    <li><a href="#section-1">Foundations of Ownership</a></li>
+    <li><a href="#section-2">Housing, Land, and Ownership Protections</a></li>
+    <li><a href="#section-3">Fair Market Participation & Offer Integrity</a></li>
+    <li><a href="#section-4">Transportation, Vehicles, & Ownership Equity</a></li>
+    <li><a href="#section-5">Taxation, Labor, & Fiscal Safeguards</a></li>
+    <li><a href="#section-6">Enforcement, Compliance, & Appeals</a></li>
+    <li><a href="#section-7">Integrity, Accountability, & Global Fairness</a></li>
+  </ol>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // highlight current section while scrolling
+  const navLinks = document.querySelectorAll("#billNav a");
+  const headings = [...document.querySelectorAll("h1, h2")];
+  const backTop = document.createElement("a");
+  backTop.href = "#top";
+  backTop.className = "back-top";
+  backTop.textContent = "↑ Back to top";
+  document.body.appendChild(backTop);
+
+  function onScroll() {
+    const fromTop = window.scrollY + 120;
+    let active = null;
+    for (const link of navLinks) {
+      const section = document.querySelector(link.getAttribute("href"));
+      if (section && section.offsetTop <= fromTop) active = link;
+    }
+    navLinks.forEach(a => a.classList.remove("active"));
+    if (active) active.classList.add("active");
+    backTop.style.display = window.scrollY > 400 ? "block" : "none";
+  }
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+});
+</script>
+
+<style>
+.sidebar-bill {
+  position: sticky; top: 80px; float: left; width: 260px;
+  background: var(--panel,#f9fafc); border:1px solid #ccc; border-radius:10px;
+  padding:10px 16px; margin:0 24px 24px 0; font-size:14px;
+}
+.sidebar-bill a { text-decoration:none; color:#2847a1; display:block; padding:3px 0; }
+.sidebar-bill a.active { font-weight:600; color:#1a2f63; }
+.back-top {
+  position:fixed; right:20px; bottom:20px;
+  background:#2847a1; color:#fff; padding:6px 10px; border-radius:6px;
+  text-decoration:none; display:none;
+}
+@media (max-width:960px){ .sidebar-bill{float:none;width:auto;position:static;margin:10px 0;} }
+</style>

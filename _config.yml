@@ -8,6 +8,12 @@ permalink: pretty
 kramdown:
   input: GFM
   parse_block_html: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jekyll-json
 
 # Apply the default layout to all pages (including Markdown) without needing front matter
 defaults:

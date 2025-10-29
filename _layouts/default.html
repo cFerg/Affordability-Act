@@ -32,8 +32,17 @@
   <body>
     <header class="aa-header">
       <a class="aa-brand" href="{{ '/' | relative_url }}">Affordability Act</a>
+      <!-- Search option -->
+      <form class="aa-search" action="{{ '/' | relative_url }}" role="search">
+        <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off">
+      </form>
+      <!-- Toggle button for themes-->
       <button id="themeToggle" class="aa-toggle" aria-label="Toggle theme">🌙</button>
     </header>
+
+    {% if page.sidebar == 'bill' %}
+      {% include sidebar-bill.html %}
+    {% endif %}
 
     <main class="aa-wrap">
       {{ content }}

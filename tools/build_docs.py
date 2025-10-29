@@ -183,10 +183,13 @@ def patch_between_markers(path: str, begin_pat: str, end_pat: str, new_block: st
 
     text = read_text(path)
 
-    # Remove any pre-existing generated block (including nested markers)
+    # Escape backslashes in the regex pattern safely
+    pattern = re.escape(begin_pat) + r"[\s\S]*?" + re.escape(end_pat)
+
+    # Use lambda to return the literal replacement (so re doesn’t interpret '\n')
     text = re.sub(
-        f"{begin_pat}[\\s\\S]*?{end_pat}",
-        f"{begin_pat}\n{new_block.strip()}\n{end_pat}",
+        pattern,
+        lambda _: f"{begin_pat}\n{new_block.strip()}\n{end_pat}",
         text,
         flags=re.MULTILINE,
     )

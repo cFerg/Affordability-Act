@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   btn.addEventListener('click',()=>{
     const visible=list.style.display==='block';
     list.style.display=visible?'none':'block';
-    btn.textContent=visible?'📂 Show individual sections':'📁 Hide individual sections';
+    btn.textContent=visible?'📂 View individual sections':'📁 Hide individual sections';
   });
 });
 </script>

@@ -1,4 +1,8 @@
-<div class="sidebar-bill">
+<div class="sidebar-bill" data-collapsible>
+  <button class="sb-toggle" type="button" aria-expanded="false" aria-controls="billNav">
+    ☰ Sections
+  </button>
+
   <h3>Sections</h3>
   <ol id="billNav">
     <li><a href="#section-1">Foundations of Ownership</a></li>
@@ -10,24 +14,3 @@
     <li><a href="#section-7">Integrity, Accountability, &amp; Global Fairness</a></li>
   </ol>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = Array.from(document.querySelectorAll("#billNav a"));
-  const targets = navLinks
-    .map(a => document.querySelector(a.getAttribute("href")))
-    .filter(Boolean);
-
-  function onScroll(){
-    const y = window.scrollY + 140; // header offset
-    let active = 0;
-    for (let i=0; i<targets.length; i++){
-      if (targets[i].offsetTop <= y) active = i;
-    }
-    navLinks.forEach(a => a.classList.remove("active"));
-    navLinks[active]?.classList.add("active");
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-});
-</script>

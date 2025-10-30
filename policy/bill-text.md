@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Full Bill Text
+permalink: /policy/bill-text/
 sidebar: bill
 ---
 # Affordability Act — Compiled Master

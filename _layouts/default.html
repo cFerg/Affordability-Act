@@ -1,54 +1,66 @@
 <!doctype html>
-<html lang="en" class="theme-dark">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>{{ page.title | default: site.title }}</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="A practical framework to restore affordability and fair access across housing, wages, utilities, vehicles, and markets in the U.S." />
+    <meta name="description" content="{{ site.description | default: 'The Affordability Act — a citizen-driven proposal to ensure fair housing, wages, and ownership protections.' }}">
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}" />
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/favicon-192.png' | relative_url }}" />
-    <meta name="theme-color" content="#0b3d91" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/favicon-apple.png' | relative_url }}">
+    <meta name="theme-color" content="#0b1220">
 
-    <!-- Open Graph / Discord / Slack -->
-    <meta property="og:title" content="Affordability Act — Official Draft" />
-    <meta property="og:description" content="A citizen-first policy to restore affordability across core living costs." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    <meta property="og:image" content="{{ site.url }}/assets/header-1280x640.png" />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="640" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url | default: 'https://affordact.com' }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ site.description | default: 'A citizen-driven policy framework to restore affordability across housing, wages, and daily life.' }}">
+    <meta property="og:image" content="{{ site.url | default: 'https://affordact.com' }}/assets/header.png">
 
-    <!-- Twitter card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Affordability Act — Official Draft" />
-    <meta name="twitter:description" content="A citizen-first policy to restore affordability across core living costs." />
-    <meta name="twitter:image" content="{{ site.url }}/assets/header-1280x640.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta name="twitter:description" content="{{ site.description | default: 'A citizen-driven policy framework to restore affordability across housing, wages, and daily life.' }}">
+    <meta name="twitter:image" content="{{ site.url | default: 'https://affordact.com' }}/assets/header.png">
 
-    <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
-    <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
+    <link href="{{ '/assets/site.css' | relative_url }}" rel="stylesheet">
   </head>
-  <body>
+  <body id="top">
     <header class="aa-header">
-      <a class="aa-brand" href="{{ '/' | relative_url }}">Affordability Act</a>
-      <!-- Search option -->
-      <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off" aria-label="Search the Act">
-      <div id="searchResults" class="aa-search-results" hidden></div>
-      <!-- Toggle button for themes-->
+      <a class="aa-brand" href="{{ '/' | relative_url }}">{{ site.title | default: "Affordability Act" }}</a>
+
+      <!-- Search + theme toggle -->
+      <div style="position:relative;">
+        <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off" aria-label="Search the Act">
+        <div id="searchResults" class="aa-search-results" hidden></div>
+      </div>
+
       <button id="themeToggle" class="aa-toggle" aria-label="Toggle theme">🌙</button>
     </header>
 
-    {% if page.sidebar == 'bill' %}
-      {% include sidebar-bill.html %}
-    {% endif %}
-
     <main class="aa-wrap">
+      {%- if page.sidebar == 'bill' -%}
+        {% include sidebar-bill.html %}
+      {%- endif -%}
+
+      {%- if page.url and page.url contains '/policy/sections/' -%}
+        {% include section-nav.html %}
+      {%- endif -%}
+
       {{ content }}
     </main>
 
     <footer class="aa-footer">
-      <p>© Affordability Act Draft — public policy discussion draft. <a href="{{ '/' | relative_url }}">Home</a></p>
+      © {{ "now" | date: "%Y" }} Affordability Act — Built with GitHub Pages
     </footer>
+
+    <!-- global back-to-top chip -->
+    <a id="backTop" class="back-top" href="#top" aria-label="Back to top">↑ Back to top</a>
+
+    <!-- JS bundle -->
+    <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
   </body>
 </html>

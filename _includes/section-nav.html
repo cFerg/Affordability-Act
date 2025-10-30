@@ -1,0 +1,38 @@
+<div class="section-nav" data-current="{{ page.url }}">
+  <div class="row">
+    <a class="btn sm" id="prevSec" href="#" hidden>← Prev</a>
+    <select id="secJump"></select>
+    <a class="btn sm" id="nextSec" href="#" hidden>Next →</a>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const wrap = document.querySelector('.section-nav');
+  if (!wrap) return;
+  const currentUrl = wrap.getAttribute('data-current') || '';
+  const sel = document.getElementById('secJump');
+  const prev = document.getElementById('prevSec');
+  const next = document.getElementById('nextSec');
+
+  let list = [];
+  try {
+    const res = await fetch('/sections.json', { cache: 'no-store' });
+    list = await res.json();
+  } catch {}
+
+  if (!Array.isArray(list) || !list.length) return;
+
+  // populate dropdown
+  sel.innerHTML = list.map(s =>
+    `<option value="${s.url}" ${s.url===currentUrl?'selected':''}>${s.title}</option>`
+  ).join('');
+
+  // find current index
+  let i = Math.max(0, list.findIndex(s => s.url === currentUrl));
+  if (i > 0) { prev.hidden = false; prev.href = list[i-1].url; }
+  if (i < list.length-1) { next.hidden = false; next.href = list[i+1].url; }
+
+  sel.addEventListener('change', () => { window.location.href = sel.value; });
+});
+</script>

@@ -1,22 +1,18 @@
 ---
 layout: default
-title: Affordability Act — Official Draft
+title: Affordability Act
 ---
 
-![Affordability Act cover](/assets/header-1280x640.png){: .hero }
+![Cover](/assets/header.png){: .hero }
 
-# Affordability Act — Official Draft
+<p>
+  <a class="btn" href="/policy/bill-text/">📜 Read the full bill</a>
+</p>
 
-A citizen-first policy to restore affordability and fair access across housing, wages, utilities, vehicles, and markets.
+<p>
+  <button id="toggleSections" class="btn btn-secondary" type="button">📂 View individual sections</button>
+</p>
 
-<p><a class="btn" href="/policy/bill-text/">📜 Click Here to Read the Full Bill</a></p>
+<div id="sectionsList" style="display:none;"><!-- populated by site.js --></div>
 
-<p><button id="toggleSections" class="btn btn-secondary" type="button">📂 View individual sections</button></p>
-
-<div id="sectionsList" style="display:none;"><!-- will be filled by JS --></div>
-
-## Contribute
-- [GitHub Repository](https://github.com/cFerg/Affordability-Act/)
-- [Discussions](https://github.com/cFerg/Affordability-Act/discussions)
-
-> Content licensed per repository LICENSE files.
+> The Affordability Act is a citizen-driven proposal to restore fairness in housing, wages, and everyday life costs through transparent valuation, anti-gouging rules, and modernized labor & taxation safeguards.

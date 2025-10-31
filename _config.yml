@@ -1,5 +1,6 @@
 # _config.yml
 title: Affordability Act
+description: The Affordability Act — a citizen-driven proposal to ensure fair housing, wages, and ownership protections.
 url: https://AffordAct.com
 baseurl: ""
 markdown: kramdown

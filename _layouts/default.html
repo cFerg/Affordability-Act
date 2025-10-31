@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="{{ '/assets/favicon-apple.png' | relative_url }}">
     <meta name="theme-color" content="#0b1220">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url | default: 'https://affordact.com' }}{{ page.url }}">
     <meta property="og:title" content="{{ page.title | default: site.title }}">
@@ -28,39 +28,43 @@
 
     <link href="{{ '/assets/site.css' | relative_url }}" rel="stylesheet">
   </head>
-  <body id="top">
+  <body id="top" {% if page.sidebar == 'bill' %}data-bill="1"{% endif %}>
     <header class="aa-header">
       <a class="aa-brand" href="{{ '/' | relative_url }}">{{ site.title | default: "Affordability Act" }}</a>
 
-      <!-- Search + theme toggle -->
-      <div style="position:relative;">
+      <!-- search -->
+      <div class="aa-search-wrap">
         <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off" aria-label="Search the Act">
         <div id="searchResults" class="aa-search-results" hidden></div>
       </div>
 
+      <!-- header sections slot (bill page only) -->
+      {% if page.sidebar == 'bill' %}
+        <div id="headerSections" class="header-sections"></div>
+      {% endif %}
+
       <button id="themeToggle" class="aa-toggle" aria-label="Toggle theme">🌙</button>
     </header>
 
-    <main class="aa-wrap">
-      {%- if page.sidebar == 'bill' -%}
+    <main class="aa-wrap {% if page.sidebar == 'bill' %}bill-grid{% endif %}">
+      {% if page.sidebar == 'bill' %}
         {% include sidebar-bill.html %}
-      {%- endif -%}
+      {% endif %}
 
-      {%- if page.url and page.url contains '/policy/sections/' -%}
+      {% if page.url and page.url contains '/policy/sections/' %}
         {% include section-nav.html %}
-      {%- endif -%}
+      {% endif %}
 
-      {{ content }}
+      <article class="aa-content">
+        {{ content }}
+      </article>
     </main>
 
     <footer class="aa-footer">
       © {{ "now" | date: "%Y" }} Affordability Act — Built with GitHub Pages
     </footer>
 
-    <!-- global back-to-top chip -->
     <a id="backTop" class="back-top" href="#top" aria-label="Back to top">↑ Back to top</a>
-
-    <!-- JS bundle -->
     <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
   </body>
 </html>

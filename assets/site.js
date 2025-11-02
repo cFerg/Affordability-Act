@@ -109,4 +109,64 @@ document.addEventListener('DOMContentLoaded', () => {
       }catch{}
     })();
   }
+
+  /* ------------------------
+     Sidebar toggle (sections) + Active highlight
+  -------------------------*/
+  (function initSidebar(){
+    const wrap = document.querySelector('[data-collapsible]');
+    if (!wrap) return;
+    const btn = wrap.querySelector('.sb-toggle');
+    const list = wrap.querySelector('#billNav');
+    if (btn && list) {
+      const setState = (open)=>{
+        list.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        wrap.classList.toggle('open', open);
+      };
+      setState(false);
+      btn.addEventListener('click', ()=> setState(list.hidden));
+    }
+    const links = Array.from(wrap.querySelectorAll('#billNav a[href^="#section-"]'));
+    if (links.length) {
+      const map = new Map();
+      links.forEach(a=>{ const id=a.getAttribute('href'); const el=document.querySelector(id); if(el) map.set(el,a); });
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          const a = map.get(e.target);
+          if (!a) return;
+          if (e.isIntersecting) {
+            links.forEach(x=>x.classList.remove('active'));
+            a.classList.add('active');
+          }
+        });
+      }, {rootMargin:'0px 0px -60% 0px', threshold:0.25});
+      map.forEach((_, el)=>io.observe(el));
+    }
+  })();
+
+  /* ------------------------
+     Header sections dropdown (single-page scroll if available)
+  -------------------------*/
+  (function headerSections(){
+    const slot = document.getElementById('headerSections');
+    if (!slot) return;
+    (async()=>{
+      try{
+        const res = await fetch('/sections.json',{cache:'no-store'});
+        const list = await res.json();
+        if(!Array.isArray(list)||!list.length) return;
+        const sel = document.createElement('select');
+        sel.className = 'sec-jump';
+        sel.innerHTML = list.map((s,i)=>`<option value="#section-${s.n||i+1}">${s.title}</option>`).join('');
+        sel.addEventListener('change', ()=>{
+          const el = document.querySelector(sel.value);
+          if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
+          else { window.location.href = `/policy/bill-text/${sel.value}`; }
+        });
+        slot.appendChild(sel);
+      }catch{}
+    })();
+  })();
+
 });

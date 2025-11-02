@@ -15,24 +15,54 @@ document.addEventListener('DOMContentLoaded', async () => {
   const prev = document.getElementById('prevSec');
   const next = document.getElementById('nextSec');
 
-  let list = [];
-  try {
-    const res = await fetch('/sections.json', { cache: 'no-store' });
-    list = await res.json();
-  } catch {}
+  async function getSections() {
+    try {
+      const res = await fetch('/sections.json', { cache: 'no-store' });
+      return await res.json();
+    } catch { return []; }
+  }
 
+  const list = await getSections();
   if (!Array.isArray(list) || !list.length) return;
 
+  const onBillText = location.pathname.includes('/policy/bill-text');
+
+  function valueFor(item, i) {
+    // Prefer in-page anchor when on the compiled bill page
+    if (onBillText) {
+      const n = item.n || (i+1);
+      return `#section-${n}`;
+    }
+    return item.url;
+  }
+
   // populate dropdown
-  sel.innerHTML = list.map(s =>
-    `<option value="${s.url}" ${s.url===currentUrl?'selected':''}>${s.title}</option>`
-  ).join('');
+  sel.innerHTML = list.map((s, i) => {
+    const value = valueFor(s, i);
+    const selected = (s.url === currentUrl) || (onBillText && location.hash === value);
+    return `<option value="${value}" ${selected ? 'selected' : ''}>${s.title}</option>`;
+  }).join('');
 
   // find current index
   let i = Math.max(0, list.findIndex(s => s.url === currentUrl));
-  if (i > 0) { prev.hidden = false; prev.href = list[i-1].url; }
-  if (i < list.length-1) { next.hidden = false; next.href = list[i+1].url; }
+  if (onBillText && location.hash.startsWith('#section-')) {
+    const n = parseInt(location.hash.replace('#section-',''), 10);
+    if (!Number.isNaN(n) && n>=1 && n<=list.length) i = n-1;
+  }
 
-  sel.addEventListener('change', () => { window.location.href = sel.value; });
+  const prevHref = valueFor(list[Math.max(0, i-1)], Math.max(0, i-1));
+  const nextHref = valueFor(list[Math.min(list.length-1, i+1)], Math.min(list.length-1, i+1));
+
+  if (i > 0) { prev.hidden = false; prev.href = prevHref; }
+  if (i < list.length-1) { next.hidden = false; next.href = nextHref; }
+
+  sel.addEventListener('change', () => {
+    const v = sel.value;
+    if (v.startsWith('#')) {
+      const el = document.querySelector(v);
+      if (el) { el.scrollIntoView({ behavior:'smooth', block:'start' }); return; }
+    }
+    window.location.href = v;
+  });
 });
 </script>

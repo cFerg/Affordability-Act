@@ -7,6 +7,7 @@ title: Affordability Act
 
 > The Affordability Act is a citizen-driven proposal to restore fairness in housing, wages, and everyday costs through transparent valuation, anti-gouging rules, and modernized labor & taxation safeguards.
 
+<div class=\"home-actions\">
 <p>
   <a class="btn" href="/policy/bill-text/">Click here to read the full bill</a>
 </p>
@@ -16,3 +17,4 @@ title: Affordability Act
 </p>
 
 <div id="sectionsList" style="display:none;"><!-- populated by site.js --></div>
+</div>

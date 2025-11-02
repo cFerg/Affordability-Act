@@ -250,3 +250,15 @@ h1,h2,h3,h4 { line-height: 1.3; font-weight: 600; }
 /* --- Home page actions centered (buttons + dropdown) --- */
 .home-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
 .home-actions .btn, .home-actions select { margin: 0; }
+
+/* (updated header-sections rules appended) */
+
+/* --- Responsive header sections vs sidebar list --- */
+.header-sections { display:none; }
+@media(max-width:980px){
+  .header-sections { display:block; }
+  .bill-grid #billNav { display:none; } /* rely on header dropdown instead */
+}
+@media(min-width:981px){
+  .header-sections { display:none !important; } /* remove top dropdown on wide screens */
+}

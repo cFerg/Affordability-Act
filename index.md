@@ -29,8 +29,20 @@ title: Affordability Act
         <a class="btn" href="{{ '/policy/sections/' | append: slug | append: '/' | relative_url }}"><span>Open</span></a>
       </div>
     {% endfor %}
+  {% else %}
+    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+    {% assign sect_pages = sect_pages | sort: 'path' %}
+    {% for p in sect_pages %}
+      {% assign slug = p.url | split: '/' | last | default: p.name | replace: '.html','' %}
+      {% assign pretty = slug | replace: '_',' ' | replace: '-',' ' | replace_regex: '^[0-9]+\\s*','' %}
+      <div class="section-card">
+        <div class="section-card__title">{{ pretty }}</div>
+        <a class="btn" href="{{ p.url | relative_url }}"><span>Open</span></a>
+      </div>
+    {% endfor %}
   {% endif %}
 </div>
+
 
 <noscript>
   <p class="mono" style="margin-top:12px;color:#a9b4c0">

@@ -21,7 +21,7 @@
   <meta property="og:url" content="{{ site.url }}">
 </head>
 {% assign is_section = page.path | slice: 0, 16 %}
-<body{% if is_section == 'policy/sections' %} data-section-file="{{ page.path | split: '/' | last }}"{% endif %}>
+<body{% if page.path contains 'policy/sections/' %} data-section-file="{{ page.name }}"{% endif %}>
   <div class="site-wrap">
     <header class="header">
       <div class="brand">

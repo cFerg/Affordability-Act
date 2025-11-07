@@ -5,20 +5,12 @@ _Auto-generated from `policy/sections/*.md`._
 
 # Section 1 — Foundations of Ownership
 
----
-layout: default
-title: 01 — Foundations of Ownership
-permalink: /policy/sections/01_Foundations_of_Ownership/
----
 <!--
 SUMMARY:
 Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.
 Restores balance between property, income, and opportunity by tying valuation to tangible inflation and wage growth rather than speculation.
 Creates an auditable, public framework for calculating and reviewing regulated assessed current value (RACV).
 -->
-
-# Section 1 — Foundations of Ownership
-
 ## Purpose
 To establish fair and measurable standards for how all property and major assets are valued, bought, and sold in the United States.  
 This section prevents artificial inflation by basing value on factual elements: base construction cost, inflation, improvements, and depreciation.  
@@ -55,23 +47,14 @@ If a buyer or seller disputes an assessed value:
 - Ownership does *not* exempt individuals from community standards, blight laws, or affordability restrictions under this Act.  
 - Property owners must maintain compliance with local and federal affordability standards to retain their ownership rights.
 
-
 # Section 2 — Housing, Land, and Ownership Protections
 
----
-layout: default
-title: 02 — Housing Land and Ownership Protections
-permalink: /policy/sections/02_Housing_Land_and_Ownership_Protections/
----
 <!--
 SUMMARY:
 Defines residential and land-use protections to ensure all citizens have equal access to housing and property.
 Prevents blight, speculative hoarding, and abusive homeowner association (HOA) control.
 Introduces custodial stewardship for abandoned land, fair rezoning valuation, and resident priority access.
 -->
-
-# Section 2 — Housing, Land, and Ownership Protections
-
 ## Purpose
 This section preserves residential and land ownership fairness by ensuring that property, whether developed or vacant, is used productively and equitably.  
 It safeguards residents from speculative manipulation, abandonment, or forced displacement through unfair market practices.
@@ -103,23 +86,14 @@ It safeguards residents from speculative manipulation, abandonment, or forced di
 - Listings must remain publicly available for 30 days before out-of-area offers are accepted.  
 - Advertising only to corporations, private networks, or exclusive investment groups violates the Affordability Act’s equal access clause.
 
-
 # Section 3 — Fair Market Participation and Offer Integrity
 
----
-layout: default
-title: 03 — Fair Market Participation and Offer Integrity
-permalink: /policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/
----
 <!--
 SUMMARY:
 Prevents manipulation in real estate, rental, and asset markets through fair competition, anti-bot policies, and resident-first bidding rules.
 Mandates transparent listings, bans fake “competing offers,” and defines scope for digital markets.
 Establishes the Certified Offer Registry (COR) for equitable market tracking.
 -->
-
-# Section 3 — Fair Market Participation and Offer Integrity
-
 ## Purpose
 To ensure that every person has equal opportunity to participate in real estate and asset markets without unfair competition or artificial price escalation.
 
@@ -152,23 +126,14 @@ To ensure that every person has equal opportunity to participate in real estate 
   3. Domestic buyers  
   4. International or corporate entities
 
-
 # Section 4 — Transportation, Vehicles, and Ownership Equity
 
----
-layout: default
-title: 04 — Transportation Vehicles and Ownership Equity
-permalink: /policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/
----
 <!--
 SUMMARY:
 Applies affordability and fair-value principles to vehicle ownership, production, and resale.
 Ensures transparent dealer practices, right-to-repair access, fair valuation by condition, and tariff exemptions for essential materials.
 Protects against price gouging, speculative flipping, and artificial scarcity.
 -->
-
-# Section 4 — Transportation, Vehicles, and Ownership Equity
-
 ## Purpose
 To extend affordability protections into transportation and automotive markets by ensuring fairness in production, purchase, and maintenance costs.
 
@@ -195,23 +160,14 @@ To extend affordability protections into transportation and automotive markets b
 - Temporary or paper license plates may not exceed 60 days of validity.  
 - Repeated registration evasion or use of fraudulent plates triggers license suspension and asset seizure.
 
-
 # Section 5 — Taxation, Labor, and Fiscal Safeguards
 
----
-layout: default
-title: 05 — Taxation Labor and Fiscal Safeguards
-permalink: /policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/
----
 <!--
 SUMMARY:
 Redefines livable wages, modernizes healthcare access, and aligns tax and welfare structures with affordability goals.
 Ensures that working full-time provides for essential living costs while discouraging permanent dependence on assistance programs.
 Creates fiscal accountability mechanisms to maintain economic balance and affordability integrity.
 -->
-
-# Section 5 — Taxation, Labor, and Fiscal Safeguards
-
 ## Purpose
 To ensure all citizens can meet basic living needs through fair wages, healthcare continuity, and equitable taxation.
 This section eliminates the paradox where individuals can earn full-time wages yet still fall below the affordability threshold.
@@ -254,23 +210,14 @@ This section eliminates the paradox where individuals can earn full-time wages y
 - Any affordability-driven tax or wage reform cannot be offset by reducing public funding or raising unrelated taxes.  
 - A **Fiscal Stability Board** monitors government revenue changes to ensure the reforms do not cause downstream inflation.
 
-
 # Section 6 — Enforcement, Compliance, and Appeals
 
----
-layout: default
-title: 06 — Enforcement Compliance and Appeals
-permalink: /policy/sections/06_Enforcement_Compliance_and_Appeals/
----
 <!--
 SUMMARY:
 Creates a clear, enforceable framework for oversight, compliance, and due process under the Affordability Act.
 Defines the Federal Office of Affordability Oversight (FOAO), outlines citizen appeal rights, and standardizes penalty structures for violations.
 Ensures equitable enforcement across individuals, corporations, and governments.
 -->
-
-# Section 6 — Enforcement, Compliance, and Appeals
-
 ## Purpose
 To define enforcement mechanisms and ensure consistent compliance across all sectors affected by the Affordability Act.
 
@@ -300,23 +247,14 @@ To define enforcement mechanisms and ensure consistent compliance across all sec
 - All FOAO investigations, outcomes, and appeals must be logged publicly except when privacy law prevents disclosure.  
 - Whistleblowers who report violations are legally protected against retaliation and entitled to up to 10% of recovered restitution.
 
-
 # Section 7 — Integrity, Accountability, and Global Fairness
 
----
-layout: default
-title: 07 — Integrity Accountability and Global Fairness
-permalink: /policy/sections/07_Integrity_Accountability_and_Global_Fairness/
----
 <!--
 SUMMARY:
 Addresses systemic corruption, global loopholes, and market stability related to affordability reforms.
 Includes asset clawbacks, bankruptcy transparency, offshore reporting, and the Affordability Equity Adjustment Mechanism (AEAM) to stabilize shareholder value.
 Ensures no person, company, or nation is exempt from compliance with affordability principles.
 -->
-
-# Section 7 — Integrity, Accountability, and Global Fairness
-
 ## Purpose
 To preserve the integrity of national and international markets while ensuring affordability protections are applied equally and fairly across all jurisdictions.
 

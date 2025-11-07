@@ -30,13 +30,13 @@
 
     <main class="main{% if page.url contains '/policy/sections/' %} has-sidebar{% endif %}">
       {% if page.url contains '/policy/sections/' %}
-        {% include section-nav %}
+        {% include section-nav.html %}
       {% endif %}
 
       {{ content }}
 
       {% if page.url contains '/policy/sections/' %}
-        {% include sidebar-bill %}
+        {% include sidebar-bill.html %}
       {% endif %}
 
       <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>

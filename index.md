@@ -19,7 +19,7 @@ title: Affordability Act
 </div>
 
 <!-- Server-side fallback list from _data/sections.json -->
-<div class="section-grid" hidden aria-live="polite" aria-busy="true">
+<div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
   {% if site.data.sections and site.data.sections.size > 0 %}
     {% for f in site.data.sections %}
       {% assign slug = f | replace: '.md','' %}

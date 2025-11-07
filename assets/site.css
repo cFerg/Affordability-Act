@@ -124,19 +124,9 @@ a:hover { text-decoration: underline; }
 .bill-sidebar a { color: var(--ink); text-decoration: none; }
 .bill-sidebar a:hover { color: var(--accent); }
 
-/* Section layout only when .has-sidebar is present */
-@media (min-width: 1100px) {
-  .main.has-sidebar {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 30px;
-    align-items: start;
-  }
-  .main.has-sidebar .bill-sidebar { grid-column: 2; position: sticky; top: 80px; }
-  /* Make the top nav compact and span content column only */
-  .main.has-sidebar > .section-pager:first-of-type { grid-column: 1; }
-  /* Content (markdown) sits in column 1 by default; pager at bottom also in column 1 */
-}
+/* Content width for comfortable reading */
+.content { max-width: 75ch; }
+@media (min-width: 1100px) { .content { max-width: 80ch; } }
 
 /* Footer */
 .footer { display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 36px 8px; }
@@ -155,4 +145,35 @@ a:hover { text-decoration: underline; }
   .brand__title { font-size: 1rem; }
   .main { display: block; }
   .bill-sidebar { margin-top: 32px; }
+}
+
+/* Force single-column flow for sections/bill, no grid splitting */
+.main { display: block; }
+.main.is-section, .main.is-bill { display: block; }
+
+/* Compact top bar at the top */
+.section-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+/* Keep controls tidy on desktop */
+.section-topbar select,
+.section-topbar input[type="search"] {
+  min-height: 38px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #0b0e12;
+  color: #e9edf1;
+}
+
+/* Highlight style */
+mark.aa-hit {
+  background: #ffd54f;
+  color: #000;
+  border-radius: 3px;
+  padding: 0 .05em;
 }

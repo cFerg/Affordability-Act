@@ -28,19 +28,20 @@
       <nav class="nav"></nav>
     </header>
 
-    <main class="main{% if page.url contains '/policy/sections/' %} has-sidebar{% endif %}">
-      {% if page.url contains '/policy/sections/' %}
-        {% include section-nav.html %}
+    <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
+      {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
+        <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
       {% endif %}
 
-      {{ content }}
+      <article class="content">
+        {{ content }}
+      </article>
 
       {% if page.url contains '/policy/sections/' %}
-        {% include sidebar-bill.html %}
+        <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
       {% endif %}
-
-      <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
     </main>
+
 
     <footer class="footer">
       <p>© {{ "now" | date: "%Y" }} Affordability Act • <a href="#" data-scroll-top>↑ Back to top</a></p>

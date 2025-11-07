@@ -1,172 +1,125 @@
-document.addEventListener('DOMContentLoaded', () => {
-  /* ------------------------
-     Theme toggle
-  -------------------------*/
-  const toggle = document.getElementById('themeToggle');
-  const current = localStorage.getItem('theme');
-  if (current === 'dark') document.documentElement.setAttribute('data-theme','dark');
-
-  toggle?.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme')==='dark';
-    document.documentElement.setAttribute('data-theme', isDark?'':'dark');
-    localStorage.setItem('theme', isDark?'light':'dark');
-  });
-
-  /* ------------------------
-     Back to top button
-  -------------------------*/
-  const backTop = document.getElementById('backTop');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) backTop.classList.add('show');
-    else backTop.classList.remove('show');
-  });
-
-  /* ------------------------
-     Toggle sections dropdown (home)
-  -------------------------*/
-  const toggleBtn = document.getElementById('toggleSections');
-  const listDiv = document.getElementById('sectionsList');
-  if (toggleBtn && listDiv) {
-    toggleBtn.addEventListener('click', async () => {
-      listDiv.style.display = listDiv.style.display==='none'?'block':'none';
-      if (!listDiv.dataset.loaded) {
-        try {
-          const res = await fetch('/sections.json',{cache:'no-store'});
-          const sections = await res.json();
-          listDiv.innerHTML = '<ul>' + sections.map(s=>`<li><a href="${s.url}">${s.title}</a></li>`).join('') + '</ul>';
-          listDiv.dataset.loaded = '1';
-        } catch { listDiv.textContent='Unable to load sections.'; }
-      }
+// Base behaviors
+(function(){
+  // Smooth-scroll to top
+  const toTop = document.querySelector('[data-scroll-top]');
+  if (toTop){
+    toTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ------------------------
-     Search functionality
-  -------------------------*/
-  const searchBox = document.getElementById('searchBox');
-  const results = document.getElementById('searchResults');
-  let searchIndex = [];
+  // Expand all sections if ?open=all
+  const params = new URLSearchParams(location.search);
+  if (params.get('open') === 'all'){
+    document.querySelectorAll('details.section').forEach(d => d.open = true);
+  }
 
-  async function loadSearch() {
+  // Button baseline hardening
+  document.querySelectorAll('.btn').forEach(btn => { btn.style.lineHeight = '1'; });
+})();
+
+// Section pager
+(function(){
+  const pager = document.getElementById('section-pager');
+  const currentFile = document.body.getAttribute('data-section-file'); // e.g., "02_Housing_and_Land_Use.md"
+  if (!pager || !currentFile) return;
+
+  const root = document.documentElement.getAttribute('data-site-root') || '';
+
+  // Strip extension
+  const toSlug = (fname) => fname.replace(/\.md$/i, '');
+
+  // Pretty permalink paths
+  const sectionUrl = (slug) => `${root}/policy/sections/${slug}/`;
+  const billUrl = () => `${root}/policy/bill-text/`;
+
+  const loadSections = async () => {
     try {
-      const res = await fetch('/search.json',{cache:'no-store'});
-      searchIndex = await res.json();
-    } catch(e){ console.error(e); }
-  }
-  if (searchBox) loadSearch();
+      const res = await fetch(`${root}/sections.json`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const arr = await res.json();
+      if (Array.isArray(arr) && arr.length) return arr;
+    } catch (_) {}
+    // Fallback: infer from links on the page
+    const guesses = Array.from(document.querySelectorAll('a[href*="/policy/sections/"]'))
+      .map(a => a.getAttribute('href'))
+      .filter(Boolean)
+      .map(href => href.split('/').filter(Boolean).pop())
+      .map(seg => seg.endsWith('/') ? seg.slice(0,-1) : seg)
+      .map(seg => `${seg}.md`);
+    const dedup = [...new Set(guesses)];
+    return dedup.sort((a,b)=>{
+      const A = a.toLowerCase().match(/\d+|[a-z]+/g) || [a];
+      const B = b.toLowerCase().match(/\d+|[a-z]+/g) || [b];
+      for (let i=0;i<Math.max(A.length, B.length);i++){
+        const x = A[i], y = B[i];
+        if (x===undefined) return -1;
+        if (y===undefined) return 1;
+        const xi = +x, yi = +y;
+        if (!Number.isNaN(xi) && !Number.isNaN(yi) && xi!==yi) return xi-yi;
+        if (x!==y) return x.localeCompare(y);
+      }
+      return 0;
+    });
+  };
 
-  searchBox?.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase().trim();
-    if (!q) { results.hidden = true; return; }
-    const matches = searchIndex.filter(i=>i.text.toLowerCase().includes(q));
-    results.innerHTML = matches.slice(0,10).map(m=>`<a href="${m.url}">${m.title}</a>`).join('');
-    results.hidden = matches.length===0;
+  loadSections().then(files => {
+    if (!files || !files.length) return;
+
+    const idx = files.indexOf(currentFile);
+    const prev = idx > 0 ? files[idx-1] : null;
+    const next = idx >= 0 && idx < files.length-1 ? files[idx+1] : null;
+
+    const frag = document.createDocumentFragment();
+
+    const backBtn = document.createElement('a');
+    backBtn.className = 'btn btn--ghost';
+    backBtn.href = billUrl();
+    backBtn.innerHTML = '<span>← Back to Full Bill</span>';
+    frag.appendChild(backBtn);
+
+    if (prev){
+      const a = document.createElement('a');
+      a.className = 'btn';
+      a.href = sectionUrl(toSlug(prev));
+      a.innerHTML = '<span>← Previous</span>';
+      a.setAttribute('data-dir','prev');
+      frag.appendChild(a);
+    }
+
+    if (next){
+      const a = document.createElement('a');
+      a.className = 'btn';
+      a.href = sectionUrl(toSlug(next));
+      a.innerHTML = '<span>Next →</span>';
+      a.setAttribute('data-dir','next');
+      frag.appendChild(a);
+    }
+
+    pager.appendChild(frag);
+    pager.hidden = false;
   });
-  searchBox?.addEventListener('blur', ()=> setTimeout(()=>results.hidden=true,150));
+})();
 
-  /* ------------------------
-     Header sections dropdown (bill-text page)
-  -------------------------*/
-  const headerSlot = document.getElementById('headerSections');
-  if (headerSlot) {
-    (async()=>{
-      try{
-        const res=await fetch('/sections.json',{cache:'no-store'});
-        const list=await res.json();
-        if(Array.isArray(list)&&list.length){
-          const sel=document.createElement('select');
-          sel.innerHTML=list.map(s=>`<option value="${s.url}">${s.title}</option>`).join('');
-          const cur=location.pathname.replace(/\/index\.html$/,'');
-          const found=list.find(s=>s.url===cur);
-          if(found) sel.value=found.url;
-          sel.addEventListener('change',()=>window.location.href=sel.value);
-          headerSlot.appendChild(sel);
-        }
-      }catch{}
-    })();
-  }
+// Floating mini-pager (mobile)
+(function(){
+  const pager = document.getElementById('section-pager');
+  if (!pager) return;
+  const mini = pager.cloneNode(true);
+  mini.id = 'mini-pager';
+  mini.classList.add('mini-pager');
+  mini.hidden = true;
+  document.body.appendChild(mini);
 
-  /* ------------------------
-     Section nav (Prev/Next/Jump)
-  -------------------------*/
-  const sectionNav = document.querySelector('.section-nav');
-  if (sectionNav) {
-    (async()=>{
-      try{
-        const res=await fetch('/sections.json',{cache:'no-store'});
-        const list=await res.json();
-        const sel=document.getElementById('secJump');
-        const prev=document.getElementById('prevSec');
-        const next=document.getElementById('nextSec');
-        const cur=location.pathname.replace(/\/index\.html$/,'');
-        if(Array.isArray(list)&&list.length){
-          sel.innerHTML=list.map(s=>`<option value="${s.url}" ${s.url===cur?'selected':''}>${s.title}</option>`).join('');
-          const i=Math.max(0,list.findIndex(s=>s.url===cur));
-          if(i>0){prev.hidden=false;prev.href=list[i-1].url;}
-          if(i<list.length-1){next.hidden=false;next.href=list[i+1].url;}
-          sel.addEventListener('change',()=>window.location.href=sel.value);
-        }
-      }catch{}
-    })();
-  }
-
-  /* ------------------------
-     Sidebar toggle (sections) + Active highlight
-  -------------------------*/
-  (function initSidebar(){
-    const wrap = document.querySelector('[data-collapsible]');
-    if (!wrap) return;
-    const btn = wrap.querySelector('.sb-toggle');
-    const list = wrap.querySelector('#billNav');
-    if (btn && list) {
-      const setState = (open)=>{
-        list.hidden = !open;
-        btn.setAttribute('aria-expanded', String(open));
-        wrap.classList.toggle('open', open);
-      };
-      setState(false);
-      btn.addEventListener('click', ()=> setState(list.hidden));
+  let visible = false;
+  const toggle = () => {
+    const y = window.scrollY;
+    const shouldShow = y > 400;
+    if (shouldShow !== visible) {
+      visible = shouldShow;
+      mini.hidden = !shouldShow;
     }
-    const links = Array.from(wrap.querySelectorAll('#billNav a[href^="#section-"]'));
-    if (links.length) {
-      const map = new Map();
-      links.forEach(a=>{ const id=a.getAttribute('href'); const el=document.querySelector(id); if(el) map.set(el,a); });
-      const io = new IntersectionObserver(entries=>{
-        entries.forEach(e=>{
-          const a = map.get(e.target);
-          if (!a) return;
-          if (e.isIntersecting) {
-            links.forEach(x=>x.classList.remove('active'));
-            a.classList.add('active');
-          }
-        });
-      }, {rootMargin:'0px 0px -60% 0px', threshold:0.25});
-      map.forEach((_, el)=>io.observe(el));
-    }
-  })();
-
-  /* ------------------------
-     Header sections dropdown (single-page scroll if available)
-  -------------------------*/
-  (function headerSections(){
-    const slot = document.getElementById('headerSections');
-    if (!slot) return;
-    (async()=>{
-      try{
-        const res = await fetch('/sections.json',{cache:'no-store'});
-        const list = await res.json();
-        if(!Array.isArray(list)||!list.length) return;
-        const sel = document.createElement('select');
-        sel.className = 'sec-jump';
-        sel.innerHTML = list.map((s,i)=>`<option value="#section-${s.n||i+1}">${s.title}</option>`).join('');
-        sel.addEventListener('change', ()=>{
-          const el = document.querySelector(sel.value);
-          if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
-          else { window.location.href = `/policy/bill-text/${sel.value}`; }
-        });
-        slot.appendChild(sel);
-      }catch{}
-    })();
-  })();
-
-});
+  };
+  window.addEventListener('scroll', toggle);
+})();

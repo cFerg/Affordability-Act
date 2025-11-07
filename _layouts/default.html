@@ -1,70 +1,49 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" data-site-root="{{ site.baseurl | default: '' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
 
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="description" content="{{ site.description | default: 'The Affordability Act — a citizen-driven proposal to ensure fair housing, wages, and ownership protections.' }}">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
-    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/favicon-apple.png' | relative_url }}">
-    <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}">
+  <meta name="theme-color" content="#0b0e12">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url | default: 'https://affordact.com' }}{{ page.url }}">
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ site.description | default: 'A citizen-driven policy framework to restore affordability across housing, wages, and daily life.' }}">
-    <meta property="og:image" content="{{ site.url | default: 'https://affordact.com' }}/assets/header.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ site.description | default: 'A citizen-driven policy framework to restore affordability across housing, wages, and daily life.' }}">
-    <meta name="twitter:image" content="{{ site.url | default: 'https://affordact.com' }}/assets/header.png">
-
-    <link href="{{ '/assets/site.css' | relative_url }}" rel="stylesheet">
-  </head>
-  <body id="top" {% if page.sidebar == 'bill' %}data-bill="1"{% endif %}>
-    <header class="aa-header">
-      <a class="aa-brand" href="{{ '/' | relative_url }}">{{ site.title | default: "Affordability Act" }}</a>
-
-      <!-- search -->
-      <div class="aa-search-wrap">
-        <input id="searchBox" type="search" placeholder="Search the Act…" autocomplete="off" aria-label="Search the Act">
-        <div id="searchResults" class="aa-search-results" hidden></div>
+  <meta property="og:title" content="Affordability Act">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}">
+</head>
+<body
+  {% assign is_section = page.path | slice: 0, 16 %}
+  {% if is_section == 'policy/sections' %}
+    data-section-file="{{ page.path | split: '/' | last }}"
+  {% endif %}
+>
+  <div class="site-wrap">
+    <header class="header">
+      <div class="brand">
+        <img class="brand__logo" src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo" width="36" height="36">
+        <div class="brand__title">{{ site.title }}</div>
       </div>
-
-      <!-- header sections slot (bill page only) -->
-      {% if page.sidebar == 'bill' %}
-        <div id="headerSections" class="header-sections"></div>
-      {% endif %}
-
-      <button id="themeToggle" class="aa-toggle" aria-label="Toggle theme">🌙</button>
+      <nav class="nav"></nav>
     </header>
 
-    <main class="aa-wrap {% if page.sidebar == 'bill' %}bill-grid{% endif %}">
-      {% if page.sidebar == 'bill' %}
-        {% include sidebar-bill.html %}
-      {% endif %}
+    <main class="main">
+      {{ content }}
 
-      {% if page.url and page.url contains '/policy/sections/' %}
-        {% include section-nav.html %}
-      {% endif %}
-
-      <article class="aa-content">
-        {{ content }}
-      </article>
+      <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
     </main>
 
-    <footer class="aa-footer">
-      © {{ "now" | date: "%Y" }} Affordability Act — Built with GitHub Pages
+    <footer class="footer">
+      <p>© {{ "now" | date: "%Y" }} Affordability Act — Built with GitHub Pages • <a href="#" data-scroll-top>↑ Back to top</a></p>
     </footer>
-
-    <a id="backTop" class="back-top" href="#top" aria-label="Back to top">↑ Back to top</a>
-    <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
-  </body>
+  </div>
+</body>
 </html>

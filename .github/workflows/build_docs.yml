@@ -1,0 +1,33 @@
+name: Build Bill Text
+
+on:
+  push:
+    paths:
+      - 'policy/**'
+      - 'sections.json'
+      - 'tools/build_docs.py'
+  workflow_dispatch: {}
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build compiled bill
+        run: python3 tools/build_docs.py
+
+      - name: Commit compiled bill if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add policy/bill-text.md
+          git diff --cached --quiet || git commit -m "chore(build): update compiled bill [skip ci]"
+          git push

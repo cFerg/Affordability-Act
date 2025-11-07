@@ -1,0 +1,66 @@
+name: Build & Deploy (Auto-generate sections.json)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'policy/**'
+      - 'tools/**'
+      - 'sections.json'
+      - '_config.yml'
+      - '_layouts/**'
+      - '_includes/**'
+      - 'assets/**'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate sections.json from policy/sections/*.md
+        run: |
+          python3 tools/gen_sections_json.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sections.json || true
+          git diff --cached --quiet || git commit -m "chore: update sections.json [skip ci]" || true
+          git push || true
+
+      - name: Build compiled bill
+        run: python3 tools/build_docs.py || true
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

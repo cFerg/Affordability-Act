@@ -1,29 +1,41 @@
-# _config.yml
-title: Affordability Act
-description: The Affordability Act — a citizen-driven proposal to ensure fair housing, wages, and ownership protections.
-url: https://AffordAct.com
+title: "Affordability Act"
+description: "Community-drafted model-law to tie housing, land, vehicle & insurance pricing to wages and real conditions."
+url: "https://www.affordact.com"
 baseurl: ""
+
 markdown: kramdown
-theme: null
-permalink: pretty
 kramdown:
   input: GFM
-  parse_block_html: true
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-titles-from-headings
-  - jekyll-json
+permalink: pretty
+timezone: America/New_York
 
-# Apply the default layout to all pages (including Markdown) without needing front matter
+include:
+  - assets
+  - policy
+  - tools
+  - sections.json
+
+exclude:
+  - README.md
+  - LICENSE
+  - LICENSE-CODE
+  - .github
+  - .gitignore
+  - .gitattributes
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+
 defaults:
   - scope:
       path: ""
     values:
-      layout: "default"
+      layout: default
+  - scope:
+      path: "policy/sections"
+    values:
+      layout: default
 
-# Don’t process vendor folders
-exclude:
-  - node_modules
-  - vendor
+plugins: []

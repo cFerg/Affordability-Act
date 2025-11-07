@@ -3,7 +3,7 @@
 
 _Auto-generated from `policy/sections/*.md`._
 
-# Section 1 — Foundations of Ownership
+___# Section 1 — Foundations of Ownership
 
 <!--
 SUMMARY:

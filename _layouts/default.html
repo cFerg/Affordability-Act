@@ -20,30 +20,27 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}">
 </head>
-<body
-  {% assign is_section = page.path | slice: 0, 16 %}
-  {% if is_section == 'policy/sections' %}
-    data-section-file="{{ page.path | split: '/' | last }}"
-  {% endif %}
->
+{% assign is_section = page.path | slice: 0, 16 %}
+<body{% if is_section == 'policy/sections' %} data-section-file="{{ page.path | split: '/' | last }}"{% endif %}>
   <div class="site-wrap">
-    <header class="header">
-      <div class="brand">
-        <img class="brand__logo" src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo" width="36" height="36">
-        <div class="brand__title">{{ site.title }}</div>
-      </div>
-      <nav class="nav"></nav>
-    </header>
+    <header class="header">…</header>
 
     <main class="main">
+      {% if is_section == 'policy/sections' %}
+        {% include section-nav.html %}
+      {% endif %}
+
       {{ content }}
 
+      {% if is_section == 'policy/sections' %}
+        {% include sidebar-bill.html %}
+      {% endif %}
+
+      <!-- Our inline pager is still here: -->
       <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
     </main>
 
-    <footer class="footer">
-      <p>© {{ "now" | date: "%Y" }} Affordability Act — Built with GitHub Pages • <a href="#" data-scroll-top>↑ Back to top</a></p>
-    </footer>
+    <footer class="footer">…</footer>
   </div>
 </body>
 </html>

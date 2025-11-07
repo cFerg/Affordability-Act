@@ -3,10 +3,7 @@ const AA = (() => {
   const root = document.documentElement.getAttribute('data-site-root') || '';
   const toSlug = (fname) => fname.replace(/\.md$/i,'');
   const prettyTitle = (slug) =>
-    slug
-      .replace(/^\d+_?/, '')   // drop leading numbers like "01_"
-      .replace(/_/g, ' ')      // underscores -> spaces
-      .trim();
+    slug.replace(/^\d+_?/, '').replace(/_/g, ' ').trim();
 
   const urls = {
     bill: () => `${root}/policy/bill-text/`,
@@ -34,7 +31,9 @@ const AA = (() => {
       if (!r.ok) throw new Error(String(r.status));
       const arr = await r.json();
       if (Array.isArray(arr)) return arr;
-    }catch(_){}
+    }catch(e){
+      console.warn('sections.json fetch failed:', e);
+    }
     return [];
   }
 
@@ -43,7 +42,6 @@ const AA = (() => {
 
 // Base behaviors
 (function(){
-  // Smooth scroll to top
   const toTop = document.querySelector('[data-scroll-top]');
   if (toTop){
     toTop.addEventListener('click', (e) => {
@@ -52,17 +50,15 @@ const AA = (() => {
     });
   }
 
-  // Expand all <details> if ?open=all
   const params = new URLSearchParams(location.search);
   if (params.get('open') === 'all'){
     document.querySelectorAll('details.section').forEach(d => d.open = true);
   }
 
-  // Button baseline hardening
   document.querySelectorAll('.btn').forEach(btn => { btn.style.lineHeight = '1'; });
 })();
 
-// LANDING: toggle + auto-build section cards from sections.json
+// LANDING: toggle + fill section cards
 (function(){
   const toggleBtn = document.getElementById('toggle-sections');
   const grid = document.querySelector('.section-grid');
@@ -76,50 +72,37 @@ const AA = (() => {
       if (span) span.textContent = hidden ? 'Hide sections' : 'Show individual sections';
     });
 
-    // Build cards
     AA.getSections().then(files => {
       grid.setAttribute('aria-busy', 'false');
       if (!files.length) return;
 
-      // Keep input order (sections.json) for UX predictability
       const frag = document.createDocumentFragment();
-
       files.forEach(fname => {
         const slug = AA.toSlug(fname);
         const title = AA.prettyTitle(slug);
-
         const card = document.createElement('div');
         card.className = 'section-card';
-
         const h = document.createElement('div');
         h.className = 'section-card__title';
         h.textContent = title;
-
         const a = document.createElement('a');
         a.className = 'btn';
         a.href = AA.urls.section(slug);
         a.innerHTML = '<span>Open</span>';
-
-        card.appendChild(h);
-        card.appendChild(a);
+        card.appendChild(h); card.appendChild(a);
         frag.appendChild(card);
       });
-
       grid.innerHTML = '';
       grid.appendChild(frag);
     });
   }
 })();
 
-// SECTIONS: inline pager + mini-pager + sidebar + simple in-section search
+// SECTIONS: pager + mini-pager + sidebar + search
 (function(){
-  const currentFile = document.body.getAttribute('data-section-file'); // e.g. "02_Housing_and_Land_Use.md"
+  const currentFile = document.body.getAttribute('data-section-file');
   const pager = document.getElementById('section-pager');
-
-  // Sidebar hook (optional include)
   const sectionsList = document.getElementById('sections-list');
-
-  // Search inside current section (optional include)
   const searchInput = document.getElementById('section-search');
 
   if (!currentFile && !pager && !sectionsList && !searchInput) return;
@@ -134,7 +117,6 @@ const AA = (() => {
   AA.getSections().then(files => {
     if (!files.length) return;
 
-    // Optional sidebar list (alphabetical within numeric groups for readability)
     if (sectionsList){
       sectionsList.innerHTML = '';
       const ordered = files.slice().sort(AA.naturalSort);
@@ -149,10 +131,8 @@ const AA = (() => {
       }
     }
 
-    // Inline pager on section pages
     if (currentFile && pager){
       const { prev, next } = hydratePrevNext(files);
-
       const frag = document.createDocumentFragment();
 
       const backBtn = document.createElement('a');
@@ -182,7 +162,7 @@ const AA = (() => {
       pager.appendChild(frag);
       pager.hidden = false;
 
-      // Floating mini-pager (mobile)
+      // Floating mini-pager
       const mini = pager.cloneNode(true);
       mini.id = 'mini-pager';
       mini.classList.add('mini-pager');
@@ -202,7 +182,7 @@ const AA = (() => {
     }
   });
 
-  // In-section quick filter (super lightweight)
+  // Simple in-section search
   if (searchInput){
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();

@@ -18,9 +18,18 @@ title: Affordability Act
   <a class="btn btn--ghost" id="toggle-sections" aria-expanded="false"><span>Show individual sections</span></a>
 </div>
 
-<!-- This grid is auto-populated by assets/site.js from sections.json -->
+<!-- Server-side fallback list from _data/sections.json -->
 <div class="section-grid" hidden aria-live="polite" aria-busy="true">
-  <!-- JS will insert cards here -->
+  {% if site.data.sections and site.data.sections.size > 0 %}
+    {% for f in site.data.sections %}
+      {% assign slug = f | replace: '.md','' %}
+      {% assign pretty = slug | replace: '_',' ' | replace: '-',' ' %}
+      <div class="section-card">
+        <div class="section-card__title">{{ pretty | replace_regex: '^[0-9]+\\s*','' }}</div>
+        <a class="btn" href="{{ '/policy/sections/' | append: slug | append: '/' | relative_url }}"><span>Open</span></a>
+      </div>
+    {% endfor %}
+  {% endif %}
 </div>
 
 <noscript>

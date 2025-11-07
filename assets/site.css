@@ -203,18 +203,14 @@ details.section .content { padding: 14px 16px; color: var(--ink); }
 .bill-sidebar a { color: var(--ink); text-decoration: none; }
 .bill-sidebar a:hover { color: var(--accent); }
 
-/* Sidebar layout on desktop */
+/* Sidebar layout on desktop — only when .main.has-sidebar */
 @media (min-width: 1000px) {
-  .main {
+  .main.has-sidebar {
     display: grid;
-    grid-template-columns: 1fr 280px; /* main content + sidebar */
+    grid-template-columns: 1fr 280px;
     gap: 30px;
   }
-  .bill-sidebar {
-    position: sticky;
-    top: 80px;
-    align-self: start;
-  }
+  .bill-sidebar { position: sticky; top: 80px; align-self: start; }
 }
 
 /* Utilities */

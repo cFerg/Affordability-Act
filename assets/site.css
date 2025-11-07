@@ -1,3 +1,4 @@
+/* ---------- Theme variables ---------- */
 :root {
   --bg: #0b0e12;
   --panel: #12161c;
@@ -10,48 +11,50 @@
   --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
+/* ---------- Base ---------- */
 * { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg); color: var(--ink);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
-    Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  line-height: 1.6;
-}
-
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); line-height: 1.6; }
+body { overflow-x: hidden; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
-/* Respect [hidden] */
 [hidden] { display: none !important; }
 
-/* Layout shell */
-.site-wrap { max-width: 1200px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; }
+/* ---------- Shell & header ---------- */
+.site-wrap {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto !important;         /* force center */
+  padding-inline: 24px;               /* even L/R padding */
+  position: relative;
+}
 .header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
 .brand__logo { width: 36px; height: 36px; border-radius: 8px; box-shadow: var(--shadow); }
 .brand__title { font-weight: 700; font-size: 1.15rem; letter-spacing: .3px; }
 
-/* Cover / hero */
+/* ---------- Hero / cover ---------- */
 .cover {
   background: linear-gradient(135deg, rgba(124,77,255,.18), rgba(79,209,197,.18));
   border: 1px solid rgba(255,255,255,.06);
-  border-radius: 16px; padding: 28px; box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow);
 }
 .cover h1 { margin: 0 0 8px; font-size: 1.7rem; }
 .cover p { margin: 0; color: var(--muted); }
 
-/* Intro block */
+/* ---------- Intro callout ---------- */
 .act-intro {
-  margin: 16px 0 8px; color: var(--muted);
+  margin: 16px 0 8px;
+  color: var(--muted);
   border-left: 3px solid var(--accent);
-  padding: 10px 12px; background: rgba(79,209,197,.06);
+  padding: 10px 12px;
+  background: rgba(79,209,197,.06);
   border-radius: 8px;
 }
 
-/* Buttons */
+/* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 16px; min-height: 44px; gap: 10px;
@@ -59,107 +62,51 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(180deg, var(--accent), var(--accent-2));
   color: #0b0e12; border: none; border-radius: 12px;
   box-shadow: 0 6px 18px rgba(124,77,255,.35);
-  transform: translateZ(0); transition: transform .06s ease, box-shadow .2s ease;
+  transform: translateZ(0);
+  transition: transform .06s ease, box-shadow .2s ease;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn--ghost { background: transparent; color: var(--ink); border: 1px solid rgba(255,255,255,.12); }
 .btn > span { display: inline-block; line-height: 1; }
 
-/* Landing actions */
+/* ---------- Landing actions ---------- */
 .home-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0 8px; }
 
-/* Section grid */
+/* ---------- Section grid (home) ---------- */
 .section-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 10px; margin: 12px 0 0;
+  gap: 10px;
+  margin: 12px 0 0;
 }
 .section-card {
   background: var(--panel);
   border: 1px solid rgba(255,255,255,.07);
-  border-radius: 12px; padding: 14px 16px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   min-height: 56px;
 }
 .section-card__title { font-weight: 600; }
 .section-card .btn { min-height: 36px; padding: 8px 12px; border-radius: 10px; }
 
-/* Pager (top + bottom) */
-.section-pager {
-  display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0 0;
-}
-.section-pager .btn { min-height: 38px; padding: 8px 12px; border-radius: 10px; }
-.section-pager .btn[data-dir="prev"] { order: 1; }
-.section-pager .btn[data-dir="next"] { order: 2; }
-.section-pager .btn.btn--ghost { order: 0; }
-
-/* Floating mini-pager (mobile) */
-.mini-pager {
-  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px;
-  background: rgba(18,22,28,.92); backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px; padding: 8px 10px; box-shadow: 0 6px 20px rgba(0,0,0,.4);
-  z-index: 1000;
-}
-.mini-pager .btn { min-height: 32px; padding: 6px 10px; font-size: .85rem; border-radius: 8px; box-shadow: none; }
-@media (min-width: 900px) { .mini-pager { display: none !important; } }
-
-/* Keep footer visible when mini-pager shows */
-.body--mini-pager { padding-bottom: 88px; }
-
-/* Sidebar (desktop) + layout on section pages */
-.bill-sidebar {
-  background: var(--panel);
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: 12px; padding: 16px 18px; margin: 20px 0; box-shadow: var(--shadow);
-}
-.bill-sidebar .badge {
-  font-weight: 600; background: rgba(124,77,255,.18);
-  border: 1px solid rgba(124,77,255,.35); padding: 6px 10px; border-radius: 999px; display: inline-block;
-}
-.bill-sidebar ul { margin: 16px 0 0; padding: 0; list-style: none; }
-.bill-sidebar li + li { margin-top: 6px; }
-.bill-sidebar a { color: var(--ink); text-decoration: none; }
-.bill-sidebar a:hover { color: var(--accent); }
-
-/* Content width for comfortable reading */
+/* ---------- Page content ---------- */
+.main { display: block; }                /* single-column everywhere */
+.main.is-section, .main.is-bill { display: block; }
 .content { max-width: 75ch; }
 @media (min-width: 1100px) { .content { max-width: 80ch; } }
 
-/* Footer */
-.footer { display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); padding: 36px 8px; }
-.footer a { color: var(--muted); text-decoration: underline; }
-
-/* Utilities */
-.mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-  .header { flex-direction: column; align-items: flex-start; }
-  .home-actions { flex-direction: column; }
-  .brand__title { font-size: 1rem; }
-  .main { display: block; }
-  .bill-sidebar { margin-top: 32px; }
-}
-
-/* Force single-column flow for sections/bill, no grid splitting */
-.main { display: block; }
-.main.is-section, .main.is-bill { display: block; }
-
-/* Compact top bar at the top */
+/* ---------- Top bar (jump + search) ---------- */
 .section-topbar {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin: 12px 0 16px;
 }
-
-/* Keep controls tidy on desktop */
 .section-topbar select,
 .section-topbar input[type="search"] {
   min-height: 38px;
@@ -170,10 +117,53 @@ a:hover { text-decoration: underline; }
   color: #e9edf1;
 }
 
-/* Highlight style */
+/* ---------- Pager (bottom) ---------- */
+.section-pager {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0 0;
+}
+.section-pager .btn { min-height: 38px; padding: 8px 12px; border-radius: 10px; }
+
+/* ---------- Floating mini-pager ---------- */
+.mini-pager {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  background: rgba(18,22,28,.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 1000;
+}
+.mini-pager .btn { min-height: 32px; padding: 6px 10px; font-size: .85rem; border-radius: 8px; box-shadow: none; }
+/* keep footer tap-able when mini-pager shows */
+.body--mini-pager { padding-bottom: 88px; }
+
+/* ---------- Highlights ---------- */
 mark.aa-hit {
   background: #ffd54f;
   color: #000;
   border-radius: 3px;
   padding: 0 .05em;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; color: var(--muted); padding: 36px 8px;
+}
+.footer a { color: var(--muted); text-decoration: underline; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 720px) {
+  .header { flex-direction: column; align-items: flex-start; }
+  .home-actions { flex-direction: column; }
+  .brand__title { font-size: 1rem; }
 }

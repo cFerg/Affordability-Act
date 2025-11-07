@@ -3,6 +3,11 @@ description: "Community-drafted model-law to tie housing, land, vehicle & insura
 url: "https://www.affordact.com"
 baseurl: ""
 
+author:
+  name: Caleb “Elite” Ferguson
+  url: https://github.com/cFerg
+  email: mrcalebf@gmail.com
+
 markdown: kramdown
 kramdown:
   input: GFM

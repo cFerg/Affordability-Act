@@ -43,6 +43,19 @@ title: Affordability Act
   {% endif %}
 </div>
 
+<hr style="border:none; border-top:1px solid rgba(255,255,255,.12); margin:24px 0">
+
+<div class="cover" id="contribute">
+  <h2 style="margin-top:0">Contribute</h2>
+  <p class="muted">Have feedback, corrections, or ideas? Pick what fits you best:</p>
+  <div class="home-actions">
+    <a class="btn" href="https://github.com/cFerg/Affordability-Act/issues/new/choose"><span>Open an Issue</span></a>
+    <a class="btn btn--ghost" href="https://github.com/cFerg/Affordability-Act/discussions"><span>Start a Discussion</span></a>
+    <a class="btn btn--ghost" href="{{ '/submit/' | relative_url }}"><span>Submit via Form</span></a>
+    <a class="btn" href="https://github.com/sponsors/cFerg"><span>Donate / Sponsor</span></a>
+  </div>
+  <p class="muted" style="margin-top:10px">No GitHub account? Use the form — we’ll triage and attribute contributions as “community submissions.”</p>
+</div>
 
 <noscript>
   <p class="mono" style="margin-top:12px;color:#a9b4c0">

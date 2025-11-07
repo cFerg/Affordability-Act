@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Submit feedback without a GitHub account
+    url: https://affordact.com/submit/
+    about: Use the website form if you don’t want to sign in to GitHub.

@@ -1,0 +1,27 @@
+name: Feedback / Suggestion
+description: Share a correction, suggestion, or general feedback on the Affordability Act site or text
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Correction
+        - Suggestion
+        - Question
+        - General feedback
+  - type: input
+    id: section
+    attributes:
+      label: Section filename (optional)
+      placeholder: e.g., 02_Housing_and_Land_Use.md
+  - type: textarea
+    id: message
+    attributes:
+      label: Message
+      description: What should we add/change? Include context or sources if helpful.
+      placeholder: Describe your idea…
+    validations:
+      required: true

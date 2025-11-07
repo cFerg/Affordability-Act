@@ -6,41 +6,36 @@
   <title>{{ page.title | default: site.title }}</title>
   <meta name="description" content="{{ site.description }}">
 
-  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
-  <script defer src="{{ '/assets/site.js' | relative_url }}"></script>
+  <!-- Cache-bust to avoid stale JS/CSS -->
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <script defer src="{{ '/assets/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 
-  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
   <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
   <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}">
   <meta name="theme-color" content="#0b0e12">
-
-  <meta property="og:title" content="Affordability Act">
-  <meta property="og:description" content="{{ site.description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ site.url }}">
 </head>
-{% assign is_section = page.path | slice: 0, 16 %}
-<body{% if page.path contains 'policy/sections/' %} data-section-file="{{ page.name }}"{% endif %}>
+
+<!-- SIMPLE & BULLETPROOF: mark section pages using page.url -->
+<body{% if page.url contains '/policy/sections/' %} data-section-file="{{ page.name }}"{% endif %}>
   <div class="site-wrap">
     <header class="header">
-      <div class="brand">
-        <a href="{{ '/' | relative_url }}" class="brand" style="text-decoration:none; color:inherit">
-          <img class="brand__logo" src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo" width="36" height="36">
-          <div class="brand__title">{{ site.title }}</div>
-        </a>
-      </div>
+      <a href="{{ '/' | relative_url }}" class="brand" style="text-decoration:none; color:inherit">
+        <img class="brand__logo" src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo" width="36" height="36">
+        <div class="brand__title">{{ site.title }}</div>
+      </a>
       <nav class="nav"></nav>
     </header>
 
-    <main class="main{% if is_section == 'policy/sections' %} has-sidebar{% endif %}">
-      {% if is_section == 'policy/sections' %}
+    <main class="main{% if page.url contains '/policy/sections/' %} has-sidebar{% endif %}">
+      {% if page.url contains '/policy/sections/' %}
         {% include section-nav %}
       {% endif %}
 
       {{ content }}
 
-      {% if is_section == 'policy/sections' %}
+      {% if page.url contains '/policy/sections/' %}
         {% include sidebar-bill %}
       {% endif %}
 

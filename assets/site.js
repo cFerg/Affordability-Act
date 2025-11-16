@@ -1,242 +1,177 @@
-(function(){
-  const ready = (fn) =>
-    (document.readyState !== 'loading')
-      ? fn()
-      : document.addEventListener('DOMContentLoaded', fn, { once: true });
+// AffordAct site JS
+// Handles: section grid toggle on home, page search highlighting, pager/nav helpers
 
-  // ---------- Helpers ----------
-  const AA = (() => {
-    const root = document.documentElement.getAttribute('data-site-root') || '';
-    const toSlug = (fname) => fname.replace(/\.md$/i,'');
-    const nice = (slug) => slug.replace(/^\d+_?/, '').replace(/_/g, ' ').trim();
-    const urls = {
-      bill: () => `${root}/policy/bill-text/`,
-      section: (slug) => `${root}/policy/sections/${slug}/`,
-      sectionsJson: () => `${root}/sections.json`,
-    };
-    const nsort = (a,b)=>{
-      const A=(a.toLowerCase().match(/\d+|[a-z]+/g))||[a],
-            B=(b.toLowerCase().match(/\d+|[a-z]+/g))||[b];
-      for(let i=0;i<Math.max(A.length,B.length);i++){
-        const x=A[i], y=B[i];
-        if(x===undefined) return -1;
-        if(y===undefined) return 1;
-        const xi=+x, yi=+y;
-        if(!Number.isNaN(xi)&&!Number.isNaN(yi)&&xi!==yi) return xi-yi;
-        if(x!==y) return x.localeCompare(y);
-      }
-      return 0;
-    };
-    async function getSections(){
-      try{
-        const r = await fetch(urls.sectionsJson(), { cache: 'no-store' });
-        if (r.ok){
-          const arr = await r.json();
-          if (Array.isArray(arr) && arr.length) return arr;
-        }
-      }catch(_) {}
-      // Fallback: scrape links on the page
-      const anchors = Array.from(document.querySelectorAll('a[href*="/policy/sections/"]'));
-      const md = anchors.map(a=>{
-        const parts = (a.getAttribute('href')||'').split('/').filter(Boolean);
-        const last = parts.pop() || '';
-        const slug = last || parts.pop() || '';
-        return slug.replace(/\/$/,'') + '.md';
-      }).filter(Boolean);
-      return [...new Set(md)].sort(nsort);
-    }
-    return { toSlug, nice, urls, getSections, nsort };
-  })();
+document.addEventListener("DOMContentLoaded", () => {
+  initSectionToggle();   // home page sections show/hide
+  initPageSearch();      // in-page search highlighting
+  initPagerNav();        // prev/next/full bill + arrow keys
+  initSectionJump();     // "jump to section" dropdown, if present
+});
 
-  // ---------- Smooth “back to top” ----------
-  ready(() => {
-    const toTop = document.querySelector('[data-scroll-top]');
-    if (toTop){
-      toTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+/* -----------------------------
+ * Home: show/hide section grid
+ * --------------------------- */
+
+function initSectionToggle() {
+  const toggleBtn = document.querySelector("#toggle-sections");
+  const grid = document.querySelector("#sections-grid");
+  if (!toggleBtn || !grid) return;
+
+  const updateLabel = () => {
+    const isHidden = grid.hasAttribute("hidden");
+    toggleBtn.querySelector("span")?.textContent &&
+      (toggleBtn.querySelector("span").textContent =
+        isHidden ? "Show individual sections" : "Hide individual sections");
+    toggleBtn.setAttribute(
+      "aria-expanded",
+      isHidden ? "false" : "true"
+    );
+  };
+
+  toggleBtn.addEventListener("click", () => {
+    if (grid.hasAttribute("hidden")) {
+      grid.removeAttribute("hidden");
+      grid.setAttribute("aria-busy", "false");
+    } else {
+      grid.setAttribute("hidden", "");
     }
-    document.querySelectorAll('.btn').forEach(b=>b.style.lineHeight='1');
+    updateLabel();
   });
 
-  // ---------- Landing: toggle + fill grid ----------
-  ready(() => {
-    const btn  = document.getElementById('toggle-sections');
-    const grid = document.getElementById('sections-grid') || document.querySelector('.section-grid');
-    if (!btn || !grid) return;
+  updateLabel();
+}
 
-    btn.addEventListener('click', () => {
-      const hidden = grid.hasAttribute('hidden');
-      if (hidden) grid.removeAttribute('hidden'); else grid.setAttribute('hidden','');
-      btn.setAttribute('aria-expanded', String(hidden));
-      const span = btn.querySelector('span');
-      if (span) span.textContent = hidden ? 'Hide sections' : 'Show individual sections';
+/* -----------------------------------
+ * In-page search + highlighting logic
+ * --------------------------------- */
+
+function initPageSearch() {
+  // Any input/field with data-page-search will drive in-page highlight
+  const searchInputs = document.querySelectorAll("[data-page-search]");
+  if (!searchInputs.length) return;
+
+  // Content root: where bill/section markdown lives
+  // You can change this if your content container differs.
+  const searchRoot =
+    document.querySelector(".content") ||
+    document.querySelector("[data-search-root]");
+  if (!searchRoot) return;
+
+  searchInputs.forEach((input) => {
+    input.addEventListener("input", (e) => {
+      const term = e.target.value || "";
+      highlightTerm(searchRoot, term);
     });
 
-    // Fill from sections.json if empty (server fallback already covers many cases)
-    if (!grid.querySelector('.section-card')){
-      AA.getSections().then(files=>{
-        if (!files.length) return;
-        const frag = document.createDocumentFragment();
-        for (const f of files){
-          const slug = AA.toSlug(f);
-          const card = document.createElement('div'); card.className='section-card';
-          const title = document.createElement('div'); title.className='section-card__title'; title.textContent = AA.nice(slug);
-          const a = document.createElement('a'); a.className='btn'; a.href = AA.urls.section(slug); a.innerHTML = '<span>Open</span>';
-          card.append(title, a); frag.append(card);
-        }
-        grid.innerHTML=''; grid.append(frag);
-      });
-    }
+    // Optional: clear button if using type="search"
+    input.addEventListener("search", (e) => {
+      const term = e.target.value || "";
+      highlightTerm(searchRoot, term);
+    });
   });
+}
 
-  // ---------- Highlighter (multi-term, debounced) ----------
-  function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }
-  function clearHighlights(root){
-    root.querySelectorAll('mark.aa-hit').forEach(m=>{
-      m.replaceWith(document.createTextNode(m.textContent));
-    });
-  }
-  function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-  function highlightAll(root, query){
-    clearHighlights(root);
-    const q = (query || '').trim();
-    if (!q) return;
+function clearHighlights(root) {
+  root.querySelectorAll(".search-hit").forEach((span) => {
+    const parent = span.parentNode;
+    if (!parent) return;
+    parent.replaceChild(document.createTextNode(span.textContent), span);
+    parent.normalize(); // merge adjacent text nodes
+  });
+}
 
-    // Support multi-word; ignore single-letter terms
-    const terms = q.split(/\s+/).filter(w => w.length > 1).map(escapeRe);
-    if (!terms.length) return;
-    const re = new RegExp(`(${terms.join('|')})`, 'gi');
+function highlightTerm(root, term) {
+  clearHighlights(root);
+  term = term.trim();
+  if (!term) return;
 
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode(n){
-        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-        const p = n.parentElement;
-        if (!p || p.closest('code,pre,script,style,nav,aside,button,input,textarea')) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
+  const lowerTerm = term.toLowerCase();
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
 
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-
-    for (const node of nodes){
-      const text = node.nodeValue;
-      if (!re.test(text)) continue;
-
-      const frag = document.createDocumentFragment();
-      let idx = 0;
-      text.replace(re, (m, _g1, offset) => {
-        frag.appendChild(document.createTextNode(text.slice(idx, offset)));
-        const mark = document.createElement('mark');
-        mark.className = 'aa-hit';
-        mark.textContent = m;
-        frag.appendChild(mark);
-        idx = offset + m.length;
-        return m;
-      });
-      frag.appendChild(document.createTextNode(text.slice(idx)));
-      node.parentNode.replaceChild(frag, node);
+  const hits = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    if (!node.nodeValue.trim()) continue;
+    if (node.parentNode.closest(".search-hit")) continue; // don't re-highlight
+    const idx = node.nodeValue.toLowerCase().indexOf(lowerTerm);
+    if (idx !== -1) {
+      hits.push({ node, idx });
     }
   }
 
-  // ---------- Sections + Full bill: topbar + pager (no sidebar) ----------
-  ready(() => {
-    const isSection = document.body.hasAttribute('data-section-file');
-    const isBill = /\/policy\/bill-text\/?$/.test(location.pathname);
-    if (!isSection && !isBill) return;
+  hits.forEach(({ node, idx }) => {
+    const text = node.nodeValue;
+    const before = text.slice(0, idx);
+    const match = text.slice(idx, idx + term.length);
+    const after = text.slice(idx + term.length);
 
-    const main = document.querySelector('.main') || document.body;
+    const frag = document.createDocumentFragment();
+    if (before) frag.appendChild(document.createTextNode(before));
 
-    // Ensure topbar exists at the top
-    const topbar = document.getElementById('section-topbar') || (() => {
-      const n = document.createElement('nav');
-      n.id = 'section-topbar';
-      n.className = 'section-topbar';
-      main.prepend(n);
-      return n;
-    })();
+    const mark = document.createElement("span");
+    mark.className = "search-hit";
+    mark.textContent = match;
+    frag.appendChild(mark);
 
-    // Jump dropdown
-    let jump = document.getElementById('sections-dropdown');
-    if (!jump){
-      jump = document.createElement('select');
-      jump.id = 'sections-dropdown';
-      jump.style.cssText = 'min-height:38px;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b0e12;color:#e9edf1;';
-      topbar.appendChild(jump);
-      jump.addEventListener('change', ()=>{ const v = jump.value; if (v) location.href = AA.urls.section(v); });
-    }
+    if (after) frag.appendChild(document.createTextNode(after));
 
-    // Search input (sections & bill)
-    let search = document.getElementById('section-search');
-    if (!search){
-      search = document.createElement('input');
-      search.id = 'section-search';
-      search.type = 'search';
-      search.placeholder = isBill ? 'Search in full bill…' : 'Search within this section…';
-      search.style.cssText = 'flex:1;min-width:200px;margin-left:8px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b0e12;color:#e9edf1;';
-      topbar.appendChild(search);
-      const contentRoot = document.querySelector('.content') || main;
-      search.addEventListener('input', debounce(()=>highlightAll(contentRoot, search.value), 120));
-    }
-
-    // Populate dropdown + build pager for sections
-    AA.getSections().then(files=>{
-      if (!files.length) return;
-
-      // Populate dropdown
-      jump.innerHTML = '<option value="">Jump to section…</option>';
-      const ordered = files.slice().sort(AA.nsort);
-      for (const f of ordered){
-        const slug = AA.toSlug(f);
-        const opt = document.createElement('option');
-        opt.value = slug; opt.textContent = AA.nice(slug);
-        jump.appendChild(opt);
-      }
-
-      if (isSection){
-        const current = document.body.getAttribute('data-section-file');
-        const idx = files.indexOf(current);
-        const prev = idx>0 ? files[idx-1] : null;
-        const next = (idx>=0 && idx<files.length-1) ? files[idx+1] : null;
-
-        // Bottom pager
-        let pager = document.getElementById('section-pager');
-        if (!pager){
-          pager = document.createElement('nav');
-          pager.id = 'section-pager';
-          pager.className = 'section-pager';
-          pager.setAttribute('aria-label','Section pagination');
-          main.appendChild(pager);
-        }
-        const frag = document.createDocumentFragment();
-        const back = document.createElement('a'); back.className='btn btn--ghost'; back.href=AA.urls.bill(); back.innerHTML='<span>← Back to Full Bill</span>'; frag.appendChild(back);
-        if (prev){ const a=document.createElement('a'); a.className='btn'; a.href=AA.urls.section(prev.replace(/\.md$/,'')); a.innerHTML='<span>← Previous</span>'; frag.appendChild(a); }
-        if (next){ const a=document.createElement('a'); a.className='btn'; a.href=AA.urls.section(next.replace(/\.md$/,'')); a.innerHTML='<span>Next →</span>'; frag.appendChild(a); }
-        pager.innerHTML=''; pager.appendChild(frag);
-
-        // Floating mini-pager
-        const old = document.getElementById('mini-pager'); if (old) old.remove();
-        const mini = pager.cloneNode(true);
-        mini.id = 'mini-pager';
-        mini.classList.add('mini-pager');
-        mini.hidden = true;
-        document.body.appendChild(mini);
-
-        // Appear earlier; always show on desktop
-        const mqDesktop = window.matchMedia('(min-width: 1100px)');
-        const updateMini = () => {
-          const showEarly = window.scrollY > 150;
-          const forceDesktop = mqDesktop.matches;
-          const show = forceDesktop ? true : showEarly;
-          mini.hidden = !show;
-          document.body.classList.toggle('body--mini-pager', show);
-        };
-        updateMini();
-        window.addEventListener('scroll', updateMini);
-        mqDesktop.addEventListener?.('change', updateMini);
-      }
-    });
+    node.parentNode.replaceChild(frag, node);
   });
-})();
+}
+
+/* --------------------------------
+ * Pager: prev/next + arrow keys
+ * ------------------------------ */
+
+function initPagerNav() {
+  // Any link with these data attributes will be considered for keyboard nav
+  const prevLink = document.querySelector("[data-nav-prev]");
+  const nextLink = document.querySelector("[data-nav-next]");
+
+  // Floating pager visibility on scroll (if present)
+  const floatingPager = document.querySelector("[data-floating-pager]");
+  if (floatingPager) {
+    const onScroll = () => {
+      const threshold = 350; // px down before showing
+      if (window.scrollY > threshold) {
+        floatingPager.classList.add("is-visible");
+      } else {
+        floatingPager.classList.remove("is-visible");
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Arrow-key navigation: left = prev, right = next
+  document.addEventListener("keydown", (e) => {
+    // ignore if typing in form fields
+    const tag = e.target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+    if (e.key === "ArrowLeft" && prevLink && prevLink.href) {
+      e.preventDefault();
+      window.location.href = prevLink.href;
+    } else if (e.key === "ArrowRight" && nextLink && nextLink.href) {
+      e.preventDefault();
+      window.location.href = nextLink.href;
+    }
+  });
+}
+
+/* -----------------------------------------
+ * Section "jump to" dropdown (if present)
+ * --------------------------------------- */
+
+function initSectionJump() {
+  // e.g. a <select data-section-jump> with <option value="/policy/sections/01_.../">
+  const jump = document.querySelector("[data-section-jump]");
+  if (!jump) return;
+
+  jump.addEventListener("change", (e) => {
+    const url = e.target.value;
+    if (url) {
+      window.location.href = url;
+    }
+  });
+}

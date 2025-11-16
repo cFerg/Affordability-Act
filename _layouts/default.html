@@ -44,7 +44,27 @@
 
     <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
       {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
-        <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
+        <nav class="section-topbar" id="section-topbar" aria-label="Jump & search">
+          <div class="section-topbar__inner">
+            <div class="section-topbar__search">
+              <label class="mono" for="page-search">Search this page</label>
+              <input
+                type="search"
+                id="page-search"
+                data-page-search
+                placeholder="Search this page…"
+                autocomplete="off"
+              >
+            </div>
+            {# optional space for future "jump to section" dropdown #}
+            {# <div class="section-topbar__jump">
+                <select data-section-jump>
+                  <option value="">Jump to another section…</option>
+                  ...
+                </select>
+              </div> #}
+          </div>
+        </nav>
       {% endif %}
 
       <article class="content">

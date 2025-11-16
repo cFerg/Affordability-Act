@@ -97,8 +97,28 @@ a:hover { text-decoration: underline; }
 /* ---------- Page content ---------- */
 .main { display: block; }                /* single-column everywhere */
 .main.is-section, .main.is-bill { display: block; }
-.content { max-width: 75ch; }
-@media (min-width: 1100px) { .content { max-width: 80ch; } }
+/* Layout / content width */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* Keep nice reading width, but center it within .main */
+.content {
+  max-width: 75ch;
+  margin: 0 auto;
+}
+
+@media (min-width: 1100px) {
+  .main {
+    max-width: 1100px;
+  }
+  .content {
+    max-width: 80ch;
+  }
+}
+
 
 /* ---------- Top bar (jump + search) ---------- */
 .section-topbar {
@@ -152,6 +172,12 @@ mark.aa-hit {
   color: #000;
   border-radius: 3px;
   padding: 0 .05em;
+}
+.search-hit {
+  background: #ffeaa7;
+  color: #111;
+  padding: 0 2px;
+  border-radius: 2px;
 }
 
 /* ---------- Footer ---------- */

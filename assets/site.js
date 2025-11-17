@@ -132,7 +132,7 @@ function initPagerNav() {
   const floatingPager = document.querySelector("[data-floating-pager]");
   if (floatingPager) {
     const onScroll = () => {
-      const threshold = 350; // px down before showing
+      const threshold = 250; // px down before showing
       if (window.scrollY > threshold) {
         floatingPager.classList.add("is-visible");
       } else {

@@ -56,13 +56,6 @@
                 autocomplete="off"
               >
             </div>
-            {# optional space for future "jump to section" dropdown #}
-            {# <div class="section-topbar__jump">
-                <select data-section-jump>
-                  <option value="">Jump to another section…</option>
-                  ...
-                </select>
-              </div> #}
           </div>
         </nav>
       {% endif %}
@@ -72,10 +65,40 @@
       </article>
 
       {% if page.url contains '/policy/sections/' %}
-        <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
+        {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+        {% assign sect_pages = sect_pages | sort: 'path' %}
+        {% assign current_index = -1 %}
+        {% for p in sect_pages %}
+          {% if p.url == page.url %}
+            {% assign current_index = forloop.index0 %}
+          {% endif %}
+        {% endfor %}
+        {% assign prev_index = current_index | minus: 1 %}
+        {% assign next_index = current_index | plus: 1 %}
+
+        <nav id="section-pager" class="section-pager" aria-label="Section pagination">
+          <a class="pager-link" href="{{ '/policy/bill-text/' | relative_url }}">Back to full bill</a>
+          {% if prev_index >= 0 %}
+            {% assign prev_page = sect_pages[prev_index] %}
+            <a class="pager-link" data-nav-prev href="{{ prev_page.url | relative_url }}">Previous section</a>
+          {% endif %}
+          {% if next_index < sect_pages.size %}
+            {% assign next_page = sect_pages[next_index] %}
+            <a class="pager-link" data-nav-next href="{{ next_page.url | relative_url }}">Next section</a>
+          {% endif %}
+        </nav>
+
+        <nav class="section-pager section-pager--floating" aria-label="Section pagination" data-floating-pager>
+          <a class="pager-link" href="{{ '/policy/bill-text/' | relative_url }}">Full bill</a>
+          {% if prev_index >= 0 %}
+            <a class="pager-link" data-nav-prev href="{{ prev_page.url | relative_url }}">Prev</a>
+          {% endif %}
+          {% if next_index < sect_pages.size %}
+            <a class="pager-link" data-nav-next href="{{ next_page.url | relative_url }}">Next</a>
+          {% endif %}
+        </nav>
       {% endif %}
     </main>
-
 
     <footer class="footer">
       <p>© {{ "now" | date: "%Y" }} Affordability Act • <a href="#" data-scroll-top>↑ Back to top</a></p>

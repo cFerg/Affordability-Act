@@ -15,7 +15,7 @@ body {
 }
 
 body {
-  background: #05070b;
+  background: #0b0e12;
   color: #e9edf1;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
@@ -40,6 +40,18 @@ a:hover {
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+}
+
+/* Visually hidden (for labels) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* Layout shells */
@@ -76,7 +88,7 @@ a:hover {
 
 .site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: radial-gradient(circle at top, #111827 0, #05070b 60%);
+  background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
 }
 
 .site-header__inner {
@@ -104,14 +116,15 @@ a:hover {
 .brand-mark {
   width: 32px;
   height: 32px;
-  border-radius: 12px;
-  background: radial-gradient(circle at 30% 30%, #4f9cff, #2563eb 60%, #111827);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
-  color: #e9edf1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.brand-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .brand-title {
@@ -128,16 +141,11 @@ a:hover {
   gap: 4px;
 }
 
-.header-search label {
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
 .header-search input[type="search"] {
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #05070b;
+  background: #020617;
   color: #e9edf1;
   min-width: 220px;
 }
@@ -271,7 +279,7 @@ form textarea {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #0b0e12;
+  background: #020617;
   color: #e9edf1;
   font: inherit;
 }
@@ -293,7 +301,7 @@ form textarea::placeholder {
 }
 
 /* --------------------------------------------------
-   Floating pager (sections)
+   Floating pager (sections + bill)
 -------------------------------------------------- */
 
 .section-pager--floating {
@@ -301,19 +309,13 @@ form textarea::placeholder {
   inset: 0;
   pointer-events: none;
   z-index: 40;
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
 }
 
-/* JS adds this when scroll threshold is passed */
-.section-pager--floating.is-visible {
-  opacity: 1;
-}
-
+/* Buttons always visible for prev/next; home gated by class */
 .pager-btn {
   position: absolute;
   pointer-events: auto;
-  background: rgba(8, 12, 18, 0.92);
+  background: rgba(8, 12, 18, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
   width: 40px;
@@ -344,6 +346,13 @@ form textarea::placeholder {
     bottom: 24px;
     transform: translateX(-50%);
     width: 46px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+  }
+  .pager-btn--home.is-visible-home {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -358,6 +367,15 @@ form textarea::placeholder {
   .pager-btn {
     position: static;
     margin: 0 6px;
+  }
+  .pager-btn--home {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+  }
+  .pager-btn--home.is-visible-home {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

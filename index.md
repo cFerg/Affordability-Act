@@ -14,11 +14,12 @@ title: Affordability Act
 </div>
 
 <div class="home-actions">
-  <a class="btn" href="{{ '/policy/bill-text/' | relative_url }}"><span>Click here to read the full bill</span></a>
-  <a class="btn btn--ghost" id="toggle-sections" aria-expanded="false"><span>Show individual sections</span></a>
+  <a class="btn" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
+  <button class="btn" type="button" id="toggle-sections" aria-expanded="false">
+    <span>Show individual sections</span>
+  </button>
 </div>
 
-<!-- Server-side fallback list from _data/sections.json -->
 <div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
   {% if site.data.sections and site.data.sections.size > 0 %}
     {% for f in site.data.sections %}
@@ -29,19 +30,9 @@ title: Affordability Act
         <a class="btn" href="{{ '/policy/sections/' | append: slug | append: '/' | relative_url }}"><span>Open</span></a>
       </div>
     {% endfor %}
-  {% else %}
-    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-    {% assign sect_pages = sect_pages | sort: 'path' %}
-    {% for p in sect_pages %}
-      {% assign slug = p.url | split: '/' | last | default: p.name | replace: '.html','' %}
-      {% assign pretty = slug | replace: '_',' ' | replace: '-',' ' | replace_regex: '^[0-9]+\\s*','' %}
-      <div class="section-card">
-        <div class="section-card__title">{{ pretty }}</div>
-        <a class="btn" href="{{ p.url | relative_url }}"><span>Open</span></a>
-      </div>
-    {% endfor %}
   {% endif %}
 </div>
+
 
 <hr style="border:none; border-top:1px solid rgba(255,255,255,.12); margin:24px 0">
 

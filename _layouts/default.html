@@ -38,13 +38,15 @@
       <div class="shell">
         <div class="site-header__inner">
           <a class="brand" href="{{ '/' | relative_url }}">
-            <span class="brand-mark">A</span>
+            <span class="brand-mark">
+              <img src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo">
+            </span>
             <span class="brand-title">{{ site.title }}</span>
           </a>
 
           {% if page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
             <div class="header-search">
-              <label class="mono" for="page-search">Search this page</label>
+              <label class="mono sr-only" for="page-search">Search this page</label>
               <input
                 type="search"
                 id="page-search"
@@ -62,6 +64,12 @@
       <article class="content">
         {{ content }}
       </article>
+
+      {%- comment -%}
+      Floating navigation:
+      - On section pages: prev / top / next
+      - On bill-text page: only top
+      {%- endcomment -%}
 
       {% if page.url contains '/policy/sections/' %}
         {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
@@ -89,8 +97,8 @@
           {% endif %}
 
           <a class="pager-btn pager-btn--home"
-            href="{{ '/policy/bill-text/' | relative_url }}"
-            aria-label="Back to full bill">
+            href="#top"
+            aria-label="Back to top">
             &#8962;
           </a>
 
@@ -103,6 +111,16 @@
               &#8594;
             </a>
           {% endif %}
+        </nav>
+      {% elsif page.url contains '/policy/bill-text' %}
+        <nav class="section-pager section-pager--floating"
+            aria-label="Bill navigation"
+            data-floating-pager>
+          <a class="pager-btn pager-btn--home"
+            href="#top"
+            aria-label="Back to top">
+            &#8962;
+          </a>
         </nav>
       {% endif %}
     </main>

@@ -1,11 +1,10 @@
 // AffordAct site JS
-// Handles: section grid toggle on home, page search highlighting, pager/nav helpers
+// Handles: home section toggle, in-page search highlighting, pager nav, section jump
 
 document.addEventListener("DOMContentLoaded", () => {
-  initSectionToggle();   // home page sections show/hide
-  initPageSearch();      // in-page search highlighting
-  initPagerNav();        // prev/next/full bill + arrow keys
-  initSectionJump();     // "jump to section" dropdown, if present
+  initSectionToggle();   // home page: show/hide individual sections
+  initPageSearch();      // bill / section pages: highlight text as you type
+  initPagerNav();        // prev/next + arrow keys + back-to-top visibility
 });
 
 /* -----------------------------
@@ -19,13 +18,13 @@ function initSectionToggle() {
 
   const updateLabel = () => {
     const isHidden = grid.hasAttribute("hidden");
-    toggleBtn.querySelector("span")?.textContent &&
-      (toggleBtn.querySelector("span").textContent =
-        isHidden ? "Show individual sections" : "Hide individual sections");
-    toggleBtn.setAttribute(
-      "aria-expanded",
-      isHidden ? "false" : "true"
-    );
+    const span = toggleBtn.querySelector("span");
+    if (span) {
+      span.textContent = isHidden
+        ? "Show individual sections"
+        : "Hide individual sections";
+    }
+    toggleBtn.setAttribute("aria-expanded", isHidden ? "false" : "true");
   };
 
   toggleBtn.addEventListener("click", () => {
@@ -46,12 +45,9 @@ function initSectionToggle() {
  * --------------------------------- */
 
 function initPageSearch() {
-  // Any input/field with data-page-search will drive in-page highlight
   const searchInputs = document.querySelectorAll("[data-page-search]");
   if (!searchInputs.length) return;
 
-  // Content root: where bill/section markdown lives
-  // You can change this if your content container differs.
   const searchRoot =
     document.querySelector(".content") ||
     document.querySelector("[data-search-root]");
@@ -63,7 +59,6 @@ function initPageSearch() {
       highlightTerm(searchRoot, term);
     });
 
-    // Optional: clear button if using type="search"
     input.addEventListener("search", (e) => {
       const term = e.target.value || "";
       highlightTerm(searchRoot, term);
@@ -76,7 +71,7 @@ function clearHighlights(root) {
     const parent = span.parentNode;
     if (!parent) return;
     parent.replaceChild(document.createTextNode(span.textContent), span);
-    parent.normalize(); // merge adjacent text nodes
+    parent.normalize();
   });
 }
 
@@ -92,7 +87,7 @@ function highlightTerm(root, term) {
   let node;
   while ((node = walker.nextNode())) {
     if (!node.nodeValue.trim()) continue;
-    if (node.parentNode.closest(".search-hit")) continue; // don't re-highlight
+    if (node.parentNode.closest(".search-hit")) continue;
     const idx = node.nodeValue.toLowerCase().indexOf(lowerTerm);
     if (idx !== -1) {
       hits.push({ node, idx });
@@ -102,7 +97,7 @@ function highlightTerm(root, term) {
   hits.forEach(({ node, idx }) => {
     const text = node.nodeValue;
     const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + term.length);
+    const match = text.slice(idx + 0, idx + term.length);
     const after = text.slice(idx + term.length);
 
     const frag = document.createDocumentFragment();
@@ -124,28 +119,29 @@ function highlightTerm(root, term) {
  * ------------------------------ */
 
 function initPagerNav() {
-  // Any link with these data attributes will be considered for keyboard nav
   const prevLink = document.querySelector("[data-nav-prev]");
   const nextLink = document.querySelector("[data-nav-next]");
-
-  // Floating pager visibility on scroll (if present)
   const floatingPager = document.querySelector("[data-floating-pager]");
+
+  // Always show arrows if present
   if (floatingPager) {
-    const onScroll = () => {
-      const threshold = 250; // px down before showing
-      if (window.scrollY > threshold) {
-        floatingPager.classList.add("is-visible");
-      } else {
-        floatingPager.classList.remove("is-visible");
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    const homeBtn = floatingPager.querySelector(".pager-btn--home");
+
+    if (homeBtn) {
+      const onScroll = () => {
+        if (window.scrollY > 180) {
+          homeBtn.classList.add("is-visible-home");
+        } else {
+          homeBtn.classList.remove("is-visible-home");
+        }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
   }
 
   // Arrow-key navigation: left = prev, right = next
   document.addEventListener("keydown", (e) => {
-    // ignore if typing in form fields
     const tag = e.target.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
 
@@ -155,23 +151,6 @@ function initPagerNav() {
     } else if (e.key === "ArrowRight" && nextLink && nextLink.href) {
       e.preventDefault();
       window.location.href = nextLink.href;
-    }
-  });
-}
-
-/* -----------------------------------------
- * Section "jump to" dropdown (if present)
- * --------------------------------------- */
-
-function initSectionJump() {
-  // e.g. a <select data-section-jump> with <option value="/policy/sections/01_.../">
-  const jump = document.querySelector("[data-section-jump]");
-  if (!jump) return;
-
-  jump.addEventListener("change", (e) => {
-    const url = e.target.value;
-    if (url) {
-      window.location.href = url;
     }
   });
 }

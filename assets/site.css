@@ -580,12 +580,7 @@ body.theme-light .site-footer {
   color: rgba(15, 23, 42, 0.7);
 }
 
-/* Global multi-page search (home) */
-
-.global-search {
-  max-width: 75ch;
-  margin: 32px auto 0;
-}
+/* Global search results list (inside modal) */
 
 .global-search__results {
   margin-top: 8px;
@@ -615,13 +610,91 @@ body.theme-light .site-footer {
   font-size: 0.9rem;
 }
 
-/* Light theme tweaks for global search */
-
 body.theme-light .global-search-result {
   background: #ffffff;
   border-color: rgba(15, 23, 42, 0.12);
 }
-
 body.theme-light .global-search-result__snippet {
   color: rgba(15, 23, 42, 0.75);
+}
+
+/* Modal layout */
+
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.search-modal__dialog {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  width: calc(100% - 32px);
+  max-height: calc(100% - 80px);
+  background: #020617;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-modal__header {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-modal__header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.search-modal__close {
+  border: none;
+  background: transparent;
+  color: #e9edf1;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-modal__body {
+  padding: 10px 14px 12px;
+  overflow: auto;
+}
+
+/* Prevent background scroll when modal open */
+body.search-modal-open {
+  overflow: hidden;
+}
+
+/* Light theme modal */
+
+body.theme-light .search-modal__dialog {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+body.theme-light .search-modal__header {
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .search-modal__close {
+  color: #111827;
+}
+
+body.theme-light .search-modal__backdrop {
+  background: rgba(15, 23, 42, 0.35);
 }

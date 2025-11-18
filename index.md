@@ -36,36 +36,6 @@ title: Affordability Act
 
 <hr class="home-divider">
 
-<section class="global-search">
-  <h2>Search across the bill</h2>
-  <p class="muted">
-    Find where a topic appears in the full bill and all sections.
-  </p>
-
-  <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
-
-  <script id="global-search-index" type="application/json">
-    {
-      "documents": [
-        {
-          "id": "bill",
-          "title": "Full compiled bill",
-          "url": "{{ '/policy/bill-text/' | relative_url }}"
-        }
-        {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-        {% assign sect_pages = sect_pages | sort: 'path' %}
-        {% for p in sect_pages %}
-        ,{
-          "id": "section-{{ forloop.index }}",
-          "title": "{{ p.title | default: p.url | escape }}",
-          "url": "{{ p.url | relative_url }}"
-        }
-        {% endfor %}
-      ]
-    }
-  </script>
-</section>
-
 <div class="cover" id="contribute">
   <h2 style="margin-top:0">Contribute</h2>
   <p class="muted">Have feedback, corrections, or ideas? Pick what fits you best:</p>

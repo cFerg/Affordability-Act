@@ -1,12 +1,12 @@
 // AffordAct site JS
-// Handles: theme toggle, home section toggle, in-page search, global search, pager nav
+// Handles: theme toggle, home section toggle, in-page search, global modal search, pager nav
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();           // load saved theme
   initThemeToggle();     // header theme switch
   initSectionToggle();   // home: show/hide individual sections
-  initPageSearch();      // bill / section pages: highlight text as you type
-  initGlobalSearch();    // home: multi-page bill search
+  initPageSearch();      // bill / section pages: highlight text as you type + from ?q=
+  initGlobalSearch();    // home: multi-page bill search (modal)
   initPagerNav();        // prev/next + arrow keys + back-to-top visibility
 });
 
@@ -81,24 +81,44 @@ function initSectionToggle() {
 
 function initPageSearch() {
   const searchInputs = document.querySelectorAll("[data-page-search]");
-  if (!searchInputs.length) return;
-
   const searchRoot =
     document.querySelector(".content") ||
     document.querySelector("[data-search-root]");
-  if (!searchRoot) return;
 
-  searchInputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      const term = e.target.value || "";
-      highlightTerm(searchRoot, term);
-    });
+  if (searchInputs.length && searchRoot) {
+    searchInputs.forEach((input) => {
+      input.addEventListener("input", (e) => {
+        const term = e.target.value || "";
+        highlightTerm(searchRoot, term);
+      });
 
-    input.addEventListener("search", (e) => {
-      const term = e.target.value || "";
-      highlightTerm(searchRoot, term);
+      input.addEventListener("search", (e) => {
+        const term = e.target.value || "";
+        highlightTerm(searchRoot, term);
+      });
     });
-  });
+  }
+
+  // If arriving at bill/section page with ?q=term, auto-highlight and scroll
+  if (searchRoot && searchInputs.length) {
+    try {
+      const url = new URL(window.location.href);
+      const q = url.searchParams.get("q");
+      if (q && q.trim()) {
+        const term = q.trim();
+        searchInputs.forEach((input) => {
+          input.value = term;
+        });
+        highlightTerm(searchRoot, term);
+        const firstHit = searchRoot.querySelector(".search-hit");
+        if (firstHit) {
+          firstHit.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+    } catch (e) {
+      // ignore URL parsing errors
+    }
+  }
 }
 
 function clearHighlights(root) {
@@ -150,14 +170,39 @@ function highlightTerm(root, term) {
 }
 
 /* -----------------------------------
- * Global search (home: multi-page)
+ * Global search (home: multi-page, modal)
  * --------------------------------- */
 
 function initGlobalSearch() {
   const input = document.querySelector("[data-global-search]");
+  const modal = document.getElementById("global-search-modal");
   const resultsEl = document.getElementById("global-search-results");
   const indexScript = document.getElementById("global-search-index");
-  if (!input || !resultsEl || !indexScript) return;
+  if (!input || !resultsEl || !indexScript || !modal) return;
+
+  // Modal controls
+  const openModal = () => {
+    modal.removeAttribute("hidden");
+    document.body.classList.add("search-modal-open");
+  };
+
+  const closeModal = () => {
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("search-modal-open");
+  };
+
+  modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hasAttribute("hidden")) {
+      closeModal();
+    }
+  });
 
   let index;
   try {
@@ -201,7 +246,10 @@ function initGlobalSearch() {
     resultsEl.innerHTML = "";
     resultsEl.classList.remove("has-results");
 
-    if (!term) return;
+    if (!term) {
+      closeModal();
+      return;
+    }
 
     const lowerTerm = term.toLowerCase();
     const regex = new RegExp(escapeRegExp(term), "gi");
@@ -226,9 +274,13 @@ function initGlobalSearch() {
         return `<mark class="search-hit">${m}</mark>`;
       });
 
+      // Include ?q=term so target page auto-highlights and scrolls
+      const urlWithQuery =
+        doc.url + (doc.url.includes("?") ? "&" : "?") + "q=" + encodeURIComponent(term);
+
       found.push({
         title: doc.title,
-        url: doc.url,
+        url: urlWithQuery,
         snippetHtml,
       });
     }
@@ -254,6 +306,7 @@ function initGlobalSearch() {
 
     resultsEl.appendChild(frag);
     resultsEl.classList.add("has-results");
+    openModal();
   };
 
   let loadedAll = false;
@@ -263,6 +316,7 @@ function initGlobalSearch() {
     if (!trimmed) {
       resultsEl.innerHTML = "";
       resultsEl.classList.remove("has-results");
+      closeModal();
       return;
     }
 

@@ -5,7 +5,7 @@ title: Affordability Act
 
 <div class="cover">
   <h1>Affordability Act</h1>
-  <p>A model framework to align prices with wages and real conditions — built in public.</p>
+  <p class="muted">A model framework to align prices with wages and real conditions — built in public.</p>
 </div>
 
 <div class="act-intro">
@@ -20,6 +20,7 @@ title: Affordability Act
   </button>
 </div>
 
+<!-- Server-side fallback list from _data/sections.json -->
 <div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
   {% if site.data.sections and site.data.sections.size > 0 %}
     {% for f in site.data.sections %}

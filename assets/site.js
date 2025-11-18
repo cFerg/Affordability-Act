@@ -1,11 +1,45 @@
 // AffordAct site JS
-// Handles: home section toggle, in-page search highlighting, pager nav, section jump
+// Handles: home section toggle, in-page search highlighting, pager nav, theme toggle
 
 document.addEventListener("DOMContentLoaded", () => {
-  initSectionToggle();   // home page: show/hide individual sections
-  initPageSearch();      // bill / section pages: highlight text as you type
-  initPagerNav();        // prev/next + arrow keys + back-to-top visibility
+  initTheme();         // load saved theme
+  initThemeToggle();   // header theme switch
+  initSectionToggle(); // home: show/hide individual sections
+  initPageSearch();    // bill / section pages: highlight text as you type
+  initPagerNav();      // prev/next + arrow keys + back-to-top visibility
 });
+
+/* -----------------------------
+ * Theme handling
+ * --------------------------- */
+
+function initTheme() {
+  const saved = localStorage.getItem("aa-theme");
+  if (saved === "light") {
+    document.body.classList.add("theme-light");
+  } else {
+    document.body.classList.remove("theme-light");
+  }
+}
+
+function initThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+
+  const apply = (mode) => {
+    if (mode === "light") {
+      document.body.classList.add("theme-light");
+    } else {
+      document.body.classList.remove("theme-light");
+    }
+    localStorage.setItem("aa-theme", mode);
+  };
+
+  btn.addEventListener("click", () => {
+    const isLight = document.body.classList.contains("theme-light");
+    apply(isLight ? "dark" : "light");
+  });
+}
 
 /* -----------------------------
  * Home: show/hide section grid
@@ -97,7 +131,7 @@ function highlightTerm(root, term) {
   hits.forEach(({ node, idx }) => {
     const text = node.nodeValue;
     const before = text.slice(0, idx);
-    const match = text.slice(idx + 0, idx + term.length);
+    const match = text.slice(idx, idx + term.length);
     const after = text.slice(idx + term.length);
 
     const frag = document.createDocumentFragment();
@@ -123,10 +157,10 @@ function initPagerNav() {
   const nextLink = document.querySelector("[data-nav-next]");
   const floatingPager = document.querySelector("[data-floating-pager]");
 
-  // Always show arrows if present
   if (floatingPager) {
     const homeBtn = floatingPager.querySelector(".pager-btn--home");
 
+    // Only control home visibility; arrows are always visible via CSS
     if (homeBtn) {
       const onScroll = () => {
         if (window.scrollY > 180) {
@@ -137,6 +171,12 @@ function initPagerNav() {
       };
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
+
+      // Smooth scroll for back-to-top
+      homeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
   }
 

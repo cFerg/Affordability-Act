@@ -34,19 +34,16 @@
 <!-- SIMPLE & BULLETPROOF: mark section pages using page.url -->
 <body{% if page.url contains '/policy/sections/' %} data-section-file="{{ page.name }}"{% endif %}>
   <div class="site-wrap">
-    <header class="header">
-      <a href="{{ '/' | relative_url }}" class="brand" style="text-decoration:none; color:inherit">
-        <img class="brand__logo" src="{{ '/assets/favicon.svg' | relative_url }}" alt="Affordability Act logo" width="36" height="36">
-        <div class="brand__title">{{ site.title }}</div>
-      </a>
-      <nav class="nav"></nav>
-    </header>
+    <header class="site-header">
+      <div class="shell">
+        <div class="site-header__inner">
+          <a class="brand" href="{{ '/' | relative_url }}">
+            <span class="brand-mark">A</span>
+            <span class="brand-title">{{ site.title }}</span>
+          </a>
 
-    <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
-      {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
-        <nav class="section-topbar" id="section-topbar" aria-label="Jump & search">
-          <div class="section-topbar__inner">
-            <div class="section-topbar__search">
+          {% if page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
+            <div class="header-search">
               <label class="mono" for="page-search">Search this page</label>
               <input
                 type="search"
@@ -56,10 +53,12 @@
                 autocomplete="off"
               >
             </div>
-          </div>
-        </nav>
-      {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </header>
 
+    <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
       <article class="content">
         {{ content }}
       </article>
@@ -76,25 +75,33 @@
         {% assign prev_index = current_index | minus: 1 %}
         {% assign next_index = current_index | plus: 1 %}
 
-        <nav id="section-pager" class="section-pager" aria-label="Section pagination">
-          <a class="pager-link" href="{{ '/policy/bill-text/' | relative_url }}">Back to full bill</a>
+        <nav class="section-pager section-pager--floating"
+            aria-label="Section pagination"
+            data-floating-pager>
           {% if prev_index >= 0 %}
             {% assign prev_page = sect_pages[prev_index] %}
-            <a class="pager-link" data-nav-prev href="{{ prev_page.url | relative_url }}">Previous section</a>
+            <a class="pager-btn pager-btn--prev"
+              data-nav-prev
+              href="{{ prev_page.url | relative_url }}"
+              aria-label="Previous section">
+              &#8592;
+            </a>
           {% endif %}
+
+          <a class="pager-btn pager-btn--home"
+            href="{{ '/policy/bill-text/' | relative_url }}"
+            aria-label="Back to full bill">
+            &#8962;
+          </a>
+
           {% if next_index < sect_pages.size %}
             {% assign next_page = sect_pages[next_index] %}
-            <a class="pager-link" data-nav-next href="{{ next_page.url | relative_url }}">Next section</a>
-          {% endif %}
-        </nav>
-
-        <nav class="section-pager section-pager--floating" aria-label="Section pagination" data-floating-pager>
-          <a class="pager-link" href="{{ '/policy/bill-text/' | relative_url }}">Full bill</a>
-          {% if prev_index >= 0 %}
-            <a class="pager-link" data-nav-prev href="{{ prev_page.url | relative_url }}">Prev</a>
-          {% endif %}
-          {% if next_index < sect_pages.size %}
-            <a class="pager-link" data-nav-next href="{{ next_page.url | relative_url }}">Next</a>
+            <a class="pager-btn pager-btn--next"
+              data-nav-next
+              href="{{ next_page.url | relative_url }}"
+              aria-label="Next section">
+              &#8594;
+            </a>
           {% endif %}
         </nav>
       {% endif %}

@@ -277,6 +277,17 @@ body.theme-light .theme-toggle__icon--light {
   margin: 4px 0;
 }
 
+.home-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 24px 0;
+}
+
+/* Light theme: softer dark line */
+body.theme-light .home-divider {
+  border-top-color: rgba(15, 23, 42, 0.12);
+}
+
 /* Intro text under the cover on home */
 
 .act-intro {
@@ -567,4 +578,50 @@ body.theme-light .pager-btn {
 body.theme-light .site-footer {
   border-top-color: rgba(15, 23, 42, 0.12);
   color: rgba(15, 23, 42, 0.7);
+}
+
+/* Global multi-page search (home) */
+
+.global-search {
+  max-width: 75ch;
+  margin: 32px auto 0;
+}
+
+.global-search__results {
+  margin-top: 8px;
+  display: none;
+}
+
+.global-search__results.has-results {
+  display: grid;
+  gap: 10px;
+}
+
+.global-search-result {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle at 0 0, #111827, #020617 60%);
+  padding: 10px 12px;
+}
+
+.global-search-result__title {
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.global-search-result__snippet {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Light theme tweaks for global search */
+
+body.theme-light .global-search-result {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .global-search-result__snippet {
+  color: rgba(15, 23, 42, 0.75);
 }

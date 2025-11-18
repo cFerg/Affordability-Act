@@ -1,12 +1,13 @@
 // AffordAct site JS
-// Handles: home section toggle, in-page search highlighting, pager nav, theme toggle
+// Handles: theme toggle, home section toggle, in-page search, global search, pager nav
 
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();         // load saved theme
-  initThemeToggle();   // header theme switch
-  initSectionToggle(); // home: show/hide individual sections
-  initPageSearch();    // bill / section pages: highlight text as you type
-  initPagerNav();      // prev/next + arrow keys + back-to-top visibility
+  initTheme();           // load saved theme
+  initThemeToggle();     // header theme switch
+  initSectionToggle();   // home: show/hide individual sections
+  initPageSearch();      // bill / section pages: highlight text as you type
+  initGlobalSearch();    // home: multi-page bill search
+  initPagerNav();        // prev/next + arrow keys + back-to-top visibility
 });
 
 /* -----------------------------
@@ -148,6 +149,159 @@ function highlightTerm(root, term) {
   });
 }
 
+/* -----------------------------------
+ * Global search (home: multi-page)
+ * --------------------------------- */
+
+function initGlobalSearch() {
+  const input = document.querySelector("[data-global-search]");
+  const resultsEl = document.getElementById("global-search-results");
+  const indexScript = document.getElementById("global-search-index");
+  if (!input || !resultsEl || !indexScript) return;
+
+  let index;
+  try {
+    index = JSON.parse(indexScript.textContent);
+  } catch (e) {
+    console.error("Failed to parse global search index", e);
+    return;
+  }
+
+  const docs = index && Array.isArray(index.documents) ? index.documents : [];
+  if (!docs.length) return;
+
+  const cache = {}; // url -> text content
+
+  const loadDocText = async (doc) => {
+    if (cache[doc.url]) return cache[doc.url];
+
+    try {
+      const res = await fetch(doc.url, { credentials: "same-origin" });
+      if (!res.ok) return "";
+      const html = await res.text();
+
+      const parser = new DOMParser();
+      const parsed = parser.parseFromString(html, "text/html");
+      const contentEl = parsed.querySelector(".content") || parsed.body;
+      const text = (contentEl.textContent || "").replace(/\s+/g, " ").trim();
+      cache[doc.url] = text;
+      return text;
+    } catch (err) {
+      console.error("Error fetching doc for search", doc.url, err);
+      cache[doc.url] = "";
+      return "";
+    }
+  };
+
+  const escapeRegExp = (s) =>
+    s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  const renderResults = async (term) => {
+    term = term.trim();
+    resultsEl.innerHTML = "";
+    resultsEl.classList.remove("has-results");
+
+    if (!term) return;
+
+    const lowerTerm = term.toLowerCase();
+    const regex = new RegExp(escapeRegExp(term), "gi");
+
+    const found = [];
+
+    for (const doc of docs) {
+      const text = cache[doc.url];
+      if (!text) continue;
+      const lower = text.toLowerCase();
+      const idx = lower.indexOf(lowerTerm);
+      if (idx === -1) continue;
+
+      const context = 90;
+      let start = Math.max(0, idx - context);
+      let end = Math.min(text.length, idx + term.length + context);
+      let snippet = text.slice(start, end).trim();
+
+      snippet = snippet.replace(/\s+/g, " ");
+
+      const snippetHtml = snippet.replace(regex, (m) => {
+        return `<mark class="search-hit">${m}</mark>`;
+      });
+
+      found.push({
+        title: doc.title,
+        url: doc.url,
+        snippetHtml,
+      });
+    }
+
+    if (!found.length) {
+      resultsEl.innerHTML =
+        `<p class="muted">No matches found for "<strong>${escapeHtml(term)}</strong>".</p>`;
+      return;
+    }
+
+    const frag = document.createDocumentFragment();
+    found.forEach((hit) => {
+      const div = document.createElement("div");
+      div.className = "global-search-result";
+      div.innerHTML = `
+        <a class="global-search-result__title" href="${hit.url}">
+          ${escapeHtml(hit.title)}
+        </a>
+        <p class="global-search-result__snippet">${hit.snippetHtml}</p>
+      `;
+      frag.appendChild(div);
+    });
+
+    resultsEl.appendChild(frag);
+    resultsEl.classList.add("has-results");
+  };
+
+  let loadedAll = false;
+
+  const runSearch = async (term) => {
+    const trimmed = term.trim();
+    if (!trimmed) {
+      resultsEl.innerHTML = "";
+      resultsEl.classList.remove("has-results");
+      return;
+    }
+
+    if (!loadedAll) {
+      loadedAll = true;
+      await Promise.all(docs.map(loadDocText));
+    }
+
+    renderResults(trimmed);
+  };
+
+  const debounced = debounce((term) => {
+    runSearch(term);
+  }, 250);
+
+  input.addEventListener("input", (e) => {
+    debounced(e.target.value || "");
+  });
+
+  input.addEventListener("search", (e) => {
+    debounced(e.target.value || "");
+  });
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function debounce(fn, delay) {
+  let t = null;
+  return function (...args) {
+    clearTimeout(t);
+    t = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
 /* --------------------------------
  * Pager: prev/next + arrow keys
  * ------------------------------ */
@@ -160,7 +314,6 @@ function initPagerNav() {
   if (floatingPager) {
     const homeBtn = floatingPager.querySelector(".pager-btn--home");
 
-    // Only control home visibility; arrows are always visible via CSS
     if (homeBtn) {
       const onScroll = () => {
         if (window.scrollY > 180) {
@@ -172,7 +325,6 @@ function initPagerNav() {
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
 
-      // Smooth scroll for back-to-top
       homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -180,7 +332,6 @@ function initPagerNav() {
     }
   }
 
-  // Arrow-key navigation: left = prev, right = next
   document.addEventListener("keydown", (e) => {
     const tag = e.target.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;

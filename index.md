@@ -4,7 +4,7 @@ title: Affordability Act
 ---
 
 <div class="cover">
-  <h1>Affordability Act</h1>
+  <h1>{{ site.title }}</h1>
   <p class="muted">A model framework to align prices with wages and real conditions — built in public.</p>
 </div>
 
@@ -34,8 +34,37 @@ title: Affordability Act
   {% endif %}
 </div>
 
+<hr class="home-divider">
 
-<hr style="border:none; border-top:1px solid rgba(255,255,255,.12); margin:24px 0">
+<section class="global-search">
+  <h2>Search across the bill</h2>
+  <p class="muted">
+    Find where a topic appears in the full bill and all sections.
+  </p>
+
+  <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
+
+  <script id="global-search-index" type="application/json">
+    {
+      "documents": [
+        {
+          "id": "bill",
+          "title": "Full compiled bill",
+          "url": "{{ '/policy/bill-text/' | relative_url }}"
+        }
+        {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+        {% assign sect_pages = sect_pages | sort: 'path' %}
+        {% for p in sect_pages %}
+        ,{
+          "id": "section-{{ forloop.index }}",
+          "title": "{{ p.title | default: p.url | escape }}",
+          "url": "{{ p.url | relative_url }}"
+        }
+        {% endfor %}
+      ]
+    }
+  </script>
+</section>
 
 <div class="cover" id="contribute">
   <h2 style="margin-top:0">Contribute</h2>

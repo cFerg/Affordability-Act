@@ -277,6 +277,19 @@ body.theme-light .theme-toggle__icon--light {
   margin: 4px 0;
 }
 
+/* Intro text under the cover on home */
+
+.act-intro {
+  max-width: 75ch;
+  margin: 8px auto 0;
+  font-size: 0.95rem;
+  color: rgba(233, 237, 241, 0.78);
+}
+
+body.theme-light .act-intro {
+  color: rgba(15, 23, 42, 0.8);
+}
+
 /* Home actions */
 
 .home-actions {
@@ -489,10 +502,19 @@ body.theme-light .header-search input[type="search"] {
   color: #111827;
 }
 
+body.theme-light .header-search input[type="search"]::placeholder {
+  color: rgba(15, 23, 42, 0.6);
+}
+
 body.theme-light .theme-toggle {
   background: #ffffff;
   border-color: rgba(15, 23, 42, 0.16);
   color: #111827;
+}
+
+/* Any muted copy (hero, contribute, etc.) */
+body.theme-light .muted {
+  color: rgba(15, 23, 42, 0.7);
 }
 
 /* Buttons */

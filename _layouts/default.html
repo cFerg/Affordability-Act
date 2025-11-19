@@ -152,19 +152,22 @@
 
       {% if page.url == '/' %}
       <!-- Global search modal -->
-      <div class="search-modal" id="global-search-modal" hidden>
-        <div class="search-modal__backdrop" data-search-modal-close></div>
-        <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
-          <header class="search-modal__header">
-            <h2 id="global-search-title">Search results</h2>
-            <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">
-              ×
-            </button>
-          </header>
-          <div class="search-modal__body">
-            <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
-          </div>
+      <header class="search-modal__header">
+        <h2 id="global-search-title">Search across the bill</h2>
+        <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">
+          ×
+        </button>
+      </header>
+      <div class="search-modal__body">
+        <div class="search-modal__search-row">
+          <input
+            type="search"
+            id="global-search-modal-input"
+            placeholder="Search across the bill…"
+            autocomplete="off"
+          >
         </div>
+        <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
       </div>
 
       <!-- Global search index (bill + sections) -->

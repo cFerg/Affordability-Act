@@ -174,16 +174,28 @@ function highlightTerm(root, term) {
  * --------------------------------- */
 
 function initGlobalSearch() {
-  const input = document.querySelector("[data-global-search]");
+  const headerInput = document.querySelector("[data-global-search]");
   const modal = document.getElementById("global-search-modal");
   const resultsEl = document.getElementById("global-search-results");
   const indexScript = document.getElementById("global-search-index");
-  if (!input || !resultsEl || !indexScript || !modal) return;
+  const modalInput = document.getElementById("global-search-modal-input");
+
+  if (!headerInput || !resultsEl || !indexScript || !modal || !modalInput) return;
 
   // Modal controls
-  const openModal = () => {
+    const openModal = () => {
     modal.removeAttribute("hidden");
     document.body.classList.add("search-modal-open");
+    // Sync header value and focus modal input
+    modalInput.value = headerInput.value || "";
+    modalInput.focus();
+    // Trigger search if there's already text
+    if (modalInput.value.trim()) {
+      runSearch(modalInput.value);
+    } else {
+      resultsEl.innerHTML = "";
+      resultsEl.classList.remove("has-results");
+    }
   };
 
   const closeModal = () => {
@@ -332,11 +344,24 @@ function initGlobalSearch() {
     runSearch(term);
   }, 250);
 
-  input.addEventListener("input", (e) => {
+  // Header input: focusing or pressing Enter opens modal, then you type in modal input
+  headerInput.addEventListener("focus", () => {
+    openModal();
+  });
+
+  headerInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      openModal();
+    }
+  });
+
+  // Actual search happens from the modal input
+  modalInput.addEventListener("input", (e) => {
     debounced(e.target.value || "");
   });
 
-  input.addEventListener("search", (e) => {
+  modalInput.addEventListener("search", (e) => {
     debounced(e.target.value || "");
   });
 }
@@ -369,16 +394,6 @@ function initPagerNav() {
     const homeBtn = floatingPager.querySelector(".pager-btn--home");
 
     if (homeBtn) {
-      const onScroll = () => {
-        if (window.scrollY > 180) {
-          homeBtn.classList.add("is-visible-home");
-        } else {
-          homeBtn.classList.remove("is-visible-home");
-        }
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-
       homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });

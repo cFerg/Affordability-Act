@@ -137,13 +137,35 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
-/* Header right side: theme toggle + search */
+/* Header right side: search + theme toggle */
 
 .site-header__right {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Header search (home: global, bill/sections: in-page) */
+
+.header-search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.header-search input[type="search"] {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #020617;
+  color: #e9edf1;
+  min-width: 220px;
+}
+
+.header-search input[type="search"]::placeholder {
+  color: rgba(233, 237, 241, 0.6);
 }
 
 /* Theme toggle button */
@@ -175,28 +197,6 @@ body:not(.theme-light) .theme-toggle__icon--dark {
 
 body.theme-light .theme-toggle__icon--light {
   display: inline;
-}
-
-/* Header search (bill/sections pages) */
-
-.header-search {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-.header-search input[type="search"] {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #020617;
-  color: #e9edf1;
-  min-width: 220px;
-}
-
-.header-search input[type="search"]::placeholder {
-  color: rgba(233, 237, 241, 0.6);
 }
 
 /* Responsive header */
@@ -277,18 +277,7 @@ body.theme-light .theme-toggle__icon--light {
   margin: 4px 0;
 }
 
-.home-divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  margin: 24px 0;
-}
-
-/* Light theme: softer dark line */
-body.theme-light .home-divider {
-  border-top-color: rgba(15, 23, 42, 0.12);
-}
-
-/* Intro text under the cover on home */
+/* Intro text under cover */
 
 .act-intro {
   max-width: 75ch;
@@ -297,8 +286,12 @@ body.theme-light .home-divider {
   color: rgba(233, 237, 241, 0.78);
 }
 
-body.theme-light .act-intro {
-  color: rgba(15, 23, 42, 0.8);
+/* Divider on home */
+
+.home-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 24px 0;
 }
 
 /* Home actions */
@@ -342,7 +335,7 @@ body.theme-light .act-intro {
   margin-bottom: 6px;
 }
 
-/* Ensure extra space is above the button, not below */
+/* Extra space above button, not below */
 .section-card .btn {
   margin-top: auto;
 }
@@ -398,7 +391,6 @@ form textarea::placeholder {
   z-index: 40;
 }
 
-/* Buttons always visible for prev/next; home gated by class */
 .pager-btn {
   position: absolute;
   pointer-events: auto;
@@ -416,32 +408,25 @@ form textarea::placeholder {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
 
-/* Desktop: side arrows + bottom home */
-@media (min-width: 900px) {
-  .pager-btn--prev {
-    left: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .pager-btn--next {
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .pager-btn--home {
-    left: 50%;
-    bottom: 24px;
-    transform: translateX(-50%);
-    width: 46px;
-  }
+/* Same positions on all screen sizes */
+
+.pager-btn--prev {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Mobile: three buttons in a row at bottom center */
-@media (max-width: 899px) {
-  /* Use same absolute layout as desktop; just reduce bottom padding a bit if needed */
-  .pager-btn--home {
-    bottom: 16px;
-  }
+.pager-btn--next {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pager-btn--home {
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: 46px;
 }
 
 /* --------------------------------------------------
@@ -464,101 +449,8 @@ form textarea::placeholder {
 }
 
 /* --------------------------------------------------
-   Light theme overrides
+   Global search results (used inside modal)
 -------------------------------------------------- */
-
-body.theme-light {
-  background: #f5f5f7;
-  color: #111827;
-}
-
-/* Header */
-
-body.theme-light .site-header {
-  background: linear-gradient(180deg, #ffffff, #e5e7eb);
-  border-bottom-color: rgba(15, 23, 42, 0.12);
-}
-
-body.theme-light .brand-title {
-  color: #111827;
-}
-
-/* Header search & toggle */
-
-body.theme-light .header-search input[type="search"] {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.16);
-  color: #111827;
-}
-
-body.theme-light .header-search input[type="search"]::placeholder {
-  color: rgba(15, 23, 42, 0.6);
-}
-
-body.theme-light .theme-toggle {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.16);
-  color: #111827;
-}
-
-/* Any muted copy (hero, contribute, etc.) */
-body.theme-light .muted {
-  color: rgba(15, 23, 42, 0.7);
-}
-
-/* Buttons */
-
-body.theme-light .btn {
-  background: linear-gradient(135deg, #ffffff, #e5e7eb);
-  color: #111827;
-  border-color: rgba(15, 23, 42, 0.16);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
-}
-
-body.theme-light .btn:hover {
-  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
-}
-
-/* Cover, cards */
-
-body.theme-light .cover {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.12);
-}
-
-body.theme-light .section-card {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.12);
-}
-
-/* Forms */
-
-body.theme-light form input[type="text"],
-body.theme-light form input[type="email"],
-body.theme-light form input[type="search"],
-body.theme-light form select,
-body.theme-light form textarea {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.12);
-  color: #111827;
-}
-
-/* Floating pager */
-
-body.theme-light .pager-btn {
-  background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(15, 23, 42, 0.16);
-  color: #111827;
-}
-
-/* Footer */
-
-body.theme-light .site-footer {
-  border-top-color: rgba(15, 23, 42, 0.12);
-  color: rgba(15, 23, 42, 0.7);
-}
-
-/* Global search results list (inside modal) */
 
 .global-search__results {
   margin-top: 8px;
@@ -588,15 +480,9 @@ body.theme-light .site-footer {
   font-size: 0.9rem;
 }
 
-body.theme-light .global-search-result {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.12);
-}
-body.theme-light .global-search-result__snippet {
-  color: rgba(15, 23, 42, 0.75);
-}
-
-/* Modal layout */
+/* --------------------------------------------------
+   Global search modal
+-------------------------------------------------- */
 
 .search-modal {
   position: fixed;
@@ -670,23 +556,122 @@ body.theme-light .global-search-result__snippet {
   color: rgba(233, 237, 241, 0.65);
 }
 
-body.theme-light .search-modal__search-row input[type="search"] {
-  background: #ffffff;
-  border-color: rgba(15, 23, 42, 0.16);
-  color: #111827;
-}
-
-body.theme-light .search-modal__search-row input[type="search"]::placeholder {
-  color: rgba(15, 23, 42, 0.6);
-}
-
-
 /* Prevent background scroll when modal open */
 body.search-modal-open {
   overflow: hidden;
 }
 
-/* Light theme modal */
+/* --------------------------------------------------
+   Light theme overrides
+-------------------------------------------------- */
+
+body.theme-light {
+  background: #f5f5f7;
+  color: #111827;
+}
+
+/* Header */
+
+body.theme-light .site-header {
+  background: linear-gradient(180deg, #ffffff, #e5e7eb);
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .brand-title {
+  color: #111827;
+}
+
+/* Header search & toggle */
+
+body.theme-light .header-search input[type="search"] {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+  color: #111827;
+}
+
+body.theme-light .header-search input[type="search"]::placeholder {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+body.theme-light .theme-toggle {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+  color: #111827;
+}
+
+/* Buttons */
+
+body.theme-light .btn {
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  color: #111827;
+  border-color: rgba(15, 23, 42, 0.16);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+body.theme-light .btn:hover {
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+}
+
+/* Cover, cards, intro */
+
+body.theme-light .cover {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .section-card {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .act-intro {
+  color: rgba(15, 23, 42, 0.8);
+}
+
+/* Muted text */
+
+body.theme-light .muted {
+  color: rgba(15, 23, 42, 0.7);
+}
+
+/* Divider */
+
+body.theme-light .home-divider {
+  border-top-color: rgba(15, 23, 42, 0.12);
+}
+
+/* Forms */
+
+body.theme-light form input[type="text"],
+body.theme-light form input[type="email"],
+body.theme-light form input[type="search"],
+body.theme-light form select,
+body.theme-light form textarea {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+  color: #111827;
+}
+
+/* Floating pager */
+
+body.theme-light .pager-btn {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(15, 23, 42, 0.16);
+  color: #111827;
+}
+
+/* Global search results */
+
+body.theme-light .global-search-result {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .global-search-result__snippet {
+  color: rgba(15, 23, 42, 0.75);
+}
+
+/* Modal (light) */
 
 body.theme-light .search-modal__dialog {
   background: #ffffff;
@@ -703,4 +688,21 @@ body.theme-light .search-modal__close {
 
 body.theme-light .search-modal__backdrop {
   background: rgba(15, 23, 42, 0.35);
+}
+
+body.theme-light .search-modal__search-row input[type="search"] {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.16);
+  color: #111827;
+}
+
+body.theme-light .search-modal__search-row input[type="search"]::placeholder {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+/* Footer */
+
+body.theme-light .site-footer {
+  border-top-color: rgba(15, 23, 42, 0.12);
+  color: rgba(15, 23, 42, 0.7);
 }

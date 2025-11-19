@@ -23,7 +23,7 @@ title: Affordability Act
 <!-- Server-side fallback list from _data/sections.json -->
 <div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
   {% if site.data.sections and site.data.sections.size > 0 %}
-    {%- comment -%} Use precomputed list from _data/sections.json {%- endcomment -%}
+    {% comment %}Use precomputed list from _data/sections.json{% endcomment %}
     {% for f in site.data.sections %}
       {% assign slug = f | replace: '.md','' %}
       {% assign pretty = slug | replace: '_',' ' | replace: '-',' ' %}
@@ -37,7 +37,7 @@ title: Affordability Act
       </div>
     {% endfor %}
   {% else %}
-    {%- comment -%} Fallback: discover section pages from site.pages {%- endcomment -%}
+    {% comment %}Fallback: discover section pages from site.pages{% endcomment %}
     {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
     {% assign sect_pages = sect_pages | sort: 'path' %}
     {% for p in sect_pages %}

@@ -182,40 +182,6 @@ function initGlobalSearch() {
 
   if (!headerInput || !resultsEl || !indexScript || !modal || !modalInput) return;
 
-  // Modal controls
-    const openModal = () => {
-    modal.removeAttribute("hidden");
-    document.body.classList.add("search-modal-open");
-    // Sync header value and focus modal input
-    modalInput.value = headerInput.value || "";
-    modalInput.focus();
-    // Trigger search if there's already text
-    if (modalInput.value.trim()) {
-      runSearch(modalInput.value);
-    } else {
-      resultsEl.innerHTML = "";
-      resultsEl.classList.remove("has-results");
-    }
-  };
-
-  const closeModal = () => {
-    modal.setAttribute("hidden", "");
-    document.body.classList.remove("search-modal-open");
-  };
-
-  modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      closeModal();
-    });
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.hasAttribute("hidden")) {
-      closeModal();
-    }
-  });
-
   let index;
   try {
     index = JSON.parse(indexScript.textContent);
@@ -258,10 +224,7 @@ function initGlobalSearch() {
     resultsEl.innerHTML = "";
     resultsEl.classList.remove("has-results");
 
-    if (!term) {
-      closeModal();
-      return;
-    }
+    if (!term) return;
 
     const lowerTerm = term.toLowerCase();
     const regex = new RegExp(escapeRegExp(term), "gi");
@@ -286,7 +249,6 @@ function initGlobalSearch() {
         return `<mark class="search-hit">${m}</mark>`;
       });
 
-      // Include ?q=term so target page auto-highlights and scrolls
       const urlWithQuery =
         doc.url + (doc.url.includes("?") ? "&" : "?") + "q=" + encodeURIComponent(term);
 
@@ -318,7 +280,6 @@ function initGlobalSearch() {
 
     resultsEl.appendChild(frag);
     resultsEl.classList.add("has-results");
-    openModal();
   };
 
   let loadedAll = false;
@@ -328,7 +289,6 @@ function initGlobalSearch() {
     if (!trimmed) {
       resultsEl.innerHTML = "";
       resultsEl.classList.remove("has-results");
-      closeModal();
       return;
     }
 
@@ -344,7 +304,40 @@ function initGlobalSearch() {
     runSearch(term);
   }, 250);
 
-  // Header input: focusing or pressing Enter opens modal, then you type in modal input
+  // Modal open/close
+
+  const openModal = () => {
+    modal.removeAttribute("hidden");
+    document.body.classList.add("search-modal-open");
+    modalInput.value = headerInput.value || "";
+    modalInput.focus();
+    if (modalInput.value.trim()) {
+      debounced(modalInput.value);
+    } else {
+      resultsEl.innerHTML = "";
+      resultsEl.classList.remove("has-results");
+    }
+  };
+
+  const closeModal = () => {
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("search-modal-open");
+  };
+
+  modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hasAttribute("hidden")) {
+      closeModal();
+    }
+  });
+
+  // Header input: focus or Enter opens modal
   headerInput.addEventListener("focus", () => {
     openModal();
   });
@@ -356,7 +349,7 @@ function initGlobalSearch() {
     }
   });
 
-  // Actual search happens from the modal input
+  // Actual search is driven by the modal input
   modalInput.addEventListener("input", (e) => {
     debounced(e.target.value || "");
   });

@@ -438,15 +438,9 @@ form textarea::placeholder {
 
 /* Mobile: three buttons in a row at bottom center */
 @media (max-width: 899px) {
-  .section-pager--floating {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 16px;
-  }
-  .pager-btn {
-    position: static;
-    margin: 0 6px;
+  /* Use same absolute layout as desktop; just reduce bottom padding a bit if needed */
+  .pager-btn--home {
+    bottom: 16px;
   }
 }
 

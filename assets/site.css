@@ -417,17 +417,17 @@ form textarea::placeholder {
   }
 }
 
-/* Same positions on all screen sizes */
+/* Same positions on all screen sizes, slightly above center */
 
 .pager-btn--prev {
   left: 16px;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
 }
 
 .pager-btn--next {
   right: 16px;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
 }
 
@@ -498,8 +498,9 @@ form textarea::placeholder {
   inset: 0;
   z-index: 60;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 48px;
 }
 
 .search-modal__backdrop {
@@ -513,6 +514,7 @@ form textarea::placeholder {
   z-index: 1;
   max-width: 720px;
   width: calc(100% - 32px);
+  min-height: 220px;
   max-height: calc(100% - 80px);
   background: #020617;
   border-radius: 14px;
@@ -546,6 +548,7 @@ form textarea::placeholder {
 .search-modal__body {
   padding: 10px 14px 12px;
   overflow: auto;
+  max-height: 60vh;
 }
 
 .search-modal__search-row {

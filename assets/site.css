@@ -438,6 +438,15 @@ form textarea::placeholder {
   width: 46px;
 }
 
+/* Mobile: anchor arrows at a fixed pixel offset from the top */
+@media (max-width: 899px) {
+  .pager-btn--prev,
+  .pager-btn--next {
+    top: 220px; 
+    transform: none; 
+  }
+}
+
 /* --------------------------------------------------
    Footer
 -------------------------------------------------- */
@@ -514,8 +523,8 @@ form textarea::placeholder {
   z-index: 1;
   max-width: 720px;
   width: calc(100% - 32px);
+  max-height: calc(100% - 32px); 
   min-height: 220px;
-  max-height: calc(100% - 80px);
   background: #020617;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -548,7 +557,7 @@ form textarea::placeholder {
 .search-modal__body {
   padding: 10px 14px 12px;
   overflow: auto;
-  max-height: 60vh;
+  max-height: 70vh;
 }
 
 .search-modal__search-row {

@@ -23,6 +23,22 @@ body {
   transition: background 0.25s ease-out, color 0.25s ease-out;
 }
 
+/* Mobile: lock layout height, scroll inside body to avoid URL bar jumps */
+@media (max-width: 899px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    position: fixed;
+    width: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Elements with [hidden] are always hidden */
 [hidden] {
   display: none !important;
@@ -417,17 +433,17 @@ form textarea::placeholder {
   }
 }
 
-/* Same positions on all screen sizes, slightly above center */
+/* Default (desktop / large): arrows centered vertically, up at bottom center */
 
 .pager-btn--prev {
   left: 16px;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
 }
 
 .pager-btn--next {
   right: 16px;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
 }
 

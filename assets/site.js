@@ -195,6 +195,18 @@ function initGlobalSearch() {
 
   const cache = {}; // url -> text content
 
+  // Prevent background scroll on mobile when modal is open
+  const preventScroll = (e) => {
+    const dialog = modal.querySelector(".search-modal__dialog");
+    if (!dialog) return;
+
+    // If the touch is inside the dialog, let it scroll normally
+    if (dialog.contains(e.target)) return;
+
+    // Otherwise, prevent scrolling the underlying page
+    e.preventDefault();
+  };
+
   const loadDocText = async (doc) => {
     if (cache[doc.url]) return cache[doc.url];
 
@@ -309,6 +321,10 @@ function initGlobalSearch() {
   const openModal = () => {
     modal.removeAttribute("hidden");
     document.body.classList.add("search-modal-open");
+
+    // lock background scroll on touch devices
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+
     modalInput.value = headerInput.value || "";
     modalInput.focus();
     if (modalInput.value.trim()) {
@@ -322,6 +338,9 @@ function initGlobalSearch() {
   const closeModal = () => {
     modal.setAttribute("hidden", "");
     document.body.classList.remove("search-modal-open");
+
+    // unlock scroll
+    document.removeEventListener("touchmove", preventScroll);
   };
 
   modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {

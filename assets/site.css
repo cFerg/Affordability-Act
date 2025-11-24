@@ -438,12 +438,25 @@ form textarea::placeholder {
   width: 46px;
 }
 
-/* Mobile: anchor arrows at a fixed pixel offset from the top */
+/* Mobile: anchor arrows near the bottom so they move together if the URL bar hides */
 @media (max-width: 899px) {
   .pager-btn--prev,
   .pager-btn--next {
-    top: 220px; 
-    transform: none; 
+    top: auto;
+    bottom: 72px;   /* just above the up arrow */
+    transform: none;
+  }
+
+  .pager-btn--prev {
+    left: 16px;
+  }
+
+  .pager-btn--next {
+    right: 16px;
+  }
+
+  .pager-btn--home {
+    bottom: 16px;   /* keep as-is, just explicit for clarity */
   }
 }
 

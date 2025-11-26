@@ -401,6 +401,15 @@ function initPagerNav() {
   const prevLink = document.querySelector("[data-nav-prev]");
   const nextLink = document.querySelector("[data-nav-next]");
   const floatingPager = document.querySelector("[data-floating-pager]");
+  const scrollContainer =
+    document.querySelector(".page-root") ||
+    document.scrollingElement ||
+    document.documentElement ||
+    document.body;
+
+  const scrollToTopSmooth = () => {
+    scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (floatingPager) {
     const homeBtn = floatingPager.querySelector(".pager-btn--home");
@@ -408,11 +417,12 @@ function initPagerNav() {
     if (homeBtn) {
       homeBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        scrollToTopSmooth();
       });
     }
   }
 
+  // Arrow keys still navigate prev/next sections
   document.addEventListener("keydown", (e) => {
     const tag = e.target.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;

@@ -12,6 +12,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%
 }
 
 body {
@@ -23,20 +24,12 @@ body {
   transition: background 0.25s ease-out, color 0.25s ease-out;
 }
 
-/* Mobile: lock layout height, scroll inside body to avoid URL bar jumps */
-@media (max-width: 899px) {
-  html,
-  body {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  body {
-    position: fixed;
-    width: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+/* Scrollable app container: everything scrolls inside .page-root */
+.page-root {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Elements with [hidden] are always hidden */

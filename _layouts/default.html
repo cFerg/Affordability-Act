@@ -31,9 +31,8 @@
   <meta name="theme-color" content="#0b0e12">
 </head>
 
-  <!-- SIMPLE & BULLETPROOF: mark section pages using page.url -->
-  <body{% if page.url contains '/policy/sections/' %} data-section-file="{{ page.name }}"{% endif %}>
-    <div class="site-wrap">
+  <body>
+    <div class="page-root">
       <header class="site-header">
         <div class="shell">
           <div class="site-header__inner">
@@ -86,123 +85,92 @@
       </header>
 
       <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
+        {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
+          <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
+        {% endif %}
+
         <article class="content">
           {{ content }}
         </article>
 
-        {%- comment -%}
-        Floating navigation:
-        - On section pages: prev / top / next
-        - On bill-text page: only top
-        {%- endcomment -%}
-
         {% if page.url contains '/policy/sections/' %}
-          {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-          {% assign sect_pages = sect_pages | sort: 'path' %}
-          {% assign current_index = -1 %}
-          {% for p in sect_pages %}
-            {% if p.url == page.url %}
-              {% assign current_index = forloop.index0 %}
-            {% endif %}
-          {% endfor %}
-          {% assign prev_index = current_index | minus: 1 %}
-          {% assign next_index = current_index | plus: 1 %}
-
-          <nav class="section-pager section-pager--floating"
-              aria-label="Section pagination"
-              data-floating-pager>
-            {% if prev_index >= 0 %}
-              {% assign prev_page = sect_pages[prev_index] %}
-              <a class="pager-btn pager-btn--prev"
-                data-nav-prev
-                href="{{ prev_page.url | relative_url }}"
-                aria-label="Previous section">
-                &#8592;
-              </a>
-            {% endif %}
-
-            <a class="pager-btn pager-btn--home"
-              href="#top"
-              aria-label="Back to top">
-              &#8593;
-            </a>
-
-            {% if next_index < sect_pages.size %}
-              {% assign next_page = sect_pages[next_index] %}
-              <a class="pager-btn pager-btn--next"
-                data-nav-next
-                href="{{ next_page.url | relative_url }}"
-                aria-label="Next section">
-                &#8594;
-              </a>
-            {% endif %}
-          </nav>
-        {% elsif page.url contains '/policy/bill-text' %}
-          <nav class="section-pager section-pager--floating"
-              aria-label="Bill navigation"
-              data-floating-pager>
-            <a class="pager-btn pager-btn--home"
-              href="#top"
-              aria-label="Back to top">
-              &#8593;
-            </a>
-          </nav>
+          <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
         {% endif %}
       </main>
 
-      {% if page.url == '/' %}
-        <!-- Global search modal -->
-        <div class="search-modal" id="global-search-modal" hidden>
-          <div class="search-modal__backdrop" data-search-modal-close></div>
-          <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
-            <header class="search-modal__header">
-              <h2 id="global-search-title">Search across the bill</h2>
-              <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">
-                ×
-              </button>
-            </header>
-            <div class="search-modal__body">
-              <div class="search-modal__search-row">
-                <input
-                  type="search"
-                  id="global-search-modal-input"
-                  placeholder="Search across the bill…"
-                  autocomplete="off"
-                >
-              </div>
-              <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
-            </div>
-          </div>
+      {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
+        <div class="section-pager section-pager--floating" data-floating-pager>
+          {% if page.prev %}
+            <a class="pager-btn pager-btn--prev" data-nav-prev href="{{ page.prev.url | relative_url }}" aria-label="Previous section">
+              ←
+            </a>
+          {% endif %}
+          <a class="pager-btn pager-btn--home" href="#" aria-label="Back to top">
+            ↑
+          </a>
+          {% if page.next %}
+            <a class="pager-btn pager-btn--next" data-nav-next href="{{ page.next.url | relative_url }}" aria-label="Next section">
+              →
+            </a>
+          {% endif %}
         </div>
-
-        <!-- Global search index (bill + sections) -->
-        <script id="global-search-index" type="application/json">
-          {
-            "documents": [
-              {
-                "id": "bill",
-                "title": "Full compiled bill",
-                "url": "{{ '/policy/bill-text/' | relative_url }}"
-              }
-              {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-              {% assign sect_pages = sect_pages | sort: 'path' %}
-              {% for p in sect_pages %}
-              ,{
-                "id": "section-{{ forloop.index }}",
-                "title": "{{ p.title | default: p.url | escape }}",
-                "url": "{{ p.url | relative_url }}"
-              }
-              {% endfor %}
-            ]
-          }
-        </script>
       {% endif %}
 
       <footer class="site-footer">
         <div class="shell">
-          <p>© {{ "now" | date: "%Y" }} Affordability Act - built in public • <a href="https://github.com/cFerg/Affordability-Act">View on GitHub</a></p>
+          <div>© {{ site.title }} — Built in public.</div>
         </div>
       </footer>
-    </div>
+    </div> <!-- /.page-root -->
+
+    {% if page.url == '/' %}
+      <!-- Global search modal -->
+      <div class="search-modal" id="global-search-modal" hidden>
+        <div class="search-modal__backdrop" data-search-modal-close></div>
+        <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
+          <header class="search-modal__header">
+            <h2 id="global-search-title">Search across the bill</h2>
+            <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">
+              ×
+            </button>
+          </header>
+          <div class="search-modal__body">
+            <div class="search-modal__search-row">
+              <input
+                type="search"
+                id="global-search-modal-input"
+                placeholder="Search across the bill…"
+                autocomplete="off"
+              >
+            </div>
+            <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global search index (bill + sections) -->
+      <script id="global-search-index" type="application/json">
+        {
+          "documents": [
+            {
+              "id": "bill",
+              "title": "Full compiled bill",
+              "url": "{{ '/policy/bill-text/' | relative_url }}"
+            }
+            {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+            {% assign sect_pages = sect_pages | sort: 'path' %}
+            {% for p in sect_pages %}
+            ,{
+              "id": "section-{{ forloop.index }}",
+              "title": "{{ p.title | default: p.url | escape }}",
+              "url": "{{ p.url | relative_url }}"
+            }
+            {% endfor %}
+          ]
+        }
+      </script>
+    {% endif %}
+
+    <script src="{{ '/assets/site.js' | relative_url }}"></script>
   </body>
 </html>

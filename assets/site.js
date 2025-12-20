@@ -1,6 +1,3 @@
-// AffordAct site JS
-// Theme toggle, home sections toggle, in-page search, global modal search, sticky nav
-
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initThemeToggle();
@@ -11,10 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initVisualViewportBottomFix();
 });
 
-/* -----------------------------
- * Theme
- * --------------------------- */
-
 function initTheme() {
   const saved = localStorage.getItem("aa-theme");
   if (saved === "light") document.body.classList.add("theme-light");
@@ -24,17 +17,12 @@ function initTheme() {
 function initThemeToggle() {
   const btn = document.getElementById("theme-toggle");
   if (!btn) return;
-
   btn.addEventListener("click", () => {
     const isLight = document.body.classList.contains("theme-light");
     document.body.classList.toggle("theme-light", !isLight);
     localStorage.setItem("aa-theme", isLight ? "dark" : "light");
   });
 }
-
-/* -----------------------------
- * Home: show/hide sections list
- * --------------------------- */
 
 function initSectionToggle() {
   const toggleBtn = document.querySelector("#toggle-sections");
@@ -61,10 +49,6 @@ function initSectionToggle() {
   updateLabel();
 }
 
-/* -----------------------------------
- * In-page search + highlighting
- * --------------------------------- */
-
 function initPageSearch() {
   const searchInputs = document.querySelectorAll("[data-page-search]");
   const searchRoot = document.querySelector(".content") || document.querySelector("[data-search-root]");
@@ -75,7 +59,6 @@ function initPageSearch() {
     input.addEventListener("search", (e) => highlightTerm(searchRoot, e.target.value || ""));
   });
 
-  // Auto highlight on ?q=
   try {
     const url = new URL(window.location.href);
     const q = url.searchParams.get("q");
@@ -86,9 +69,7 @@ function initPageSearch() {
       const firstHit = searchRoot.querySelector(".search-hit");
       if (firstHit) firstHit.scrollIntoView({ behavior: "smooth", block: "center" });
     }
-  } catch {
-    // ignore
-  }
+  } catch {}
 }
 
 function clearHighlights(root) {
@@ -113,7 +94,6 @@ function highlightTerm(root, term) {
   while ((node = walker.nextNode())) {
     if (!node.nodeValue.trim()) continue;
     if (node.parentNode.closest(".search-hit")) continue;
-
     const idx = node.nodeValue.toLowerCase().indexOf(lowerTerm);
     if (idx !== -1) hits.push({ node, idx });
   }
@@ -131,14 +111,9 @@ function highlightTerm(root, term) {
     mark.textContent = match;
     frag.appendChild(mark);
     if (after) frag.appendChild(document.createTextNode(after));
-
     node.parentNode.replaceChild(frag, node);
   });
 }
-
-/* -----------------------------------
- * Global search (home) in modal
- * --------------------------------- */
 
 function initGlobalSearch() {
   const headerInput = document.querySelector("[data-global-search]");
@@ -149,15 +124,11 @@ function initGlobalSearch() {
   if (!headerInput || !modal || !resultsEl || !indexScript || !modalInput) return;
 
   let index;
-  try {
-    index = JSON.parse(indexScript.textContent);
-  } catch (e) {
-    console.error("Failed to parse global search index", e);
-    return;
-  }
+  try { index = JSON.parse(indexScript.textContent); }
+  catch (e) { console.error("Failed to parse global search index", e); return; }
 
   const docs = index && Array.isArray(index.documents) ? index.documents : [];
-  const cache = {}; // url->text
+  const cache = {};
 
   const preventScroll = (e) => {
     const dialog = modal.querySelector(".search-modal__dialog");
@@ -180,10 +151,7 @@ function initGlobalSearch() {
   };
 
   modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      closeModal();
-    });
+    el.addEventListener("click", (e) => { e.preventDefault(); closeModal(); });
   });
 
   document.addEventListener("keydown", (e) => {
@@ -192,10 +160,7 @@ function initGlobalSearch() {
 
   headerInput.addEventListener("focus", openModal);
   headerInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      openModal();
-    }
+    if (e.key === "Enter") { e.preventDefault(); openModal(); }
   });
 
   const loadDocText = async (doc) => {
@@ -240,7 +205,6 @@ function initGlobalSearch() {
 
       const snippetHtml = snippet.replace(regex, (m) => `<mark class="search-hit">${m}</mark>`);
       const urlWithQuery = doc.url + (doc.url.includes("?") ? "&" : "?") + "q=" + encodeURIComponent(term);
-
       found.push({ title: doc.title, url: urlWithQuery, snippetHtml });
     }
 
@@ -268,20 +232,12 @@ function initGlobalSearch() {
 
   const runSearch = async (term) => {
     const t = term.trim();
-    if (!t) {
-      resultsEl.innerHTML = "";
-      resultsEl.classList.remove("has-results");
-      return;
-    }
-    if (!loadedAll) {
-      loadedAll = true;
-      await Promise.all(docs.map(loadDocText));
-    }
+    if (!t) { resultsEl.innerHTML = ""; resultsEl.classList.remove("has-results"); return; }
+    if (!loadedAll) { loadedAll = true; await Promise.all(docs.map(loadDocText)); }
     renderResults(t);
   };
 
   const debounced = debounce(runSearch, 250);
-
   modalInput.addEventListener("input", (e) => debounced(e.target.value || ""));
   modalInput.addEventListener("search", (e) => debounced(e.target.value || ""));
 }
@@ -292,15 +248,8 @@ function escapeHtml(str) {
 
 function debounce(fn, delay) {
   let t = null;
-  return (...args) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn(...args), delay);
-  };
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
 }
-
-/* -----------------------------------
- * Sticky footer nav (bill/sections)
- * --------------------------------- */
 
 function initStickyNav() {
   const nav = document.querySelector("[data-sticky-nav]");
@@ -309,10 +258,8 @@ function initStickyNav() {
   const prev = nav.querySelector("[data-nav-prev]");
   const next = nav.querySelector("[data-nav-next]");
   const topBtn = nav.querySelector("[data-nav-top]");
-  const homeBtn = nav.querySelector("[data-nav-home]");
   const searchBtn = nav.querySelector("[data-nav-search]");
 
-  // Smooth top
   if (topBtn) {
     topBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -321,35 +268,40 @@ function initStickyNav() {
     });
   }
 
-  // Home is a normal link; no special JS needed (but keep click from doing weird things if "#")
-  if (homeBtn && homeBtn.getAttribute("href") === "#") {
-    homeBtn.addEventListener("click", (e) => e.preventDefault());
-  }
-
-  // Search button: focus the in-page search input (bill page)
+  // Bill "Search": focus + select the header search input reliably (desktop + mobile)
   if (searchBtn) {
     searchBtn.addEventListener("click", (e) => {
       e.preventDefault();
+
       const input = document.getElementById("page-search");
-      if (input) {
-        input.focus();
-        input.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
+      if (!input) return;
+
+      // Smoothly bring it into view first (helps on desktop small windows too)
+      input.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      // Some browsers need a tiny delay after scrollIntoView
+      setTimeout(() => {
+        try {
+          input.focus({ preventScroll: true });
+        } catch {
+          input.focus();
+        }
+        // select existing text so it "feels focused"
+        if (typeof input.select === "function") input.select();
+      }, 80);
     });
   }
 
   // Prevent clicking disabled placeholders
   [prev, next].forEach((a) => {
     if (!a) return;
-    if (a.classList.contains("is-disabled")) {
-      a.addEventListener("click", (e) => e.preventDefault());
-    }
+    if (a.classList.contains("is-disabled")) a.addEventListener("click", (e) => e.preventDefault());
   });
 
-  // Bill-only: allow the bar to auto-hide on mobile until scroll
+  // Bill-only: hide until scroll on mobile
   const isBill = nav.classList.contains("sticky-nav--bill");
   const updateBillVisibility = () => {
-    if (!isBill) return; // sections always visible
+    if (!isBill) return;
     if (window.innerWidth > 899) {
       nav.classList.add("is-visible");
       return;
@@ -379,17 +331,11 @@ function initStickyNav() {
   });
 }
 
-/* -----------------------------------
- * visualViewport bottom pin fix
- * --------------------------------- */
-
 function initVisualViewportBottomFix() {
   if (!window.visualViewport) return;
-
   const vv = window.visualViewport;
 
   const update = () => {
-    // Bottom inset in px between layout viewport and visual viewport
     const bottom = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
     document.documentElement.style.setProperty("--vv-bottom", `${bottom}px`);
   };

@@ -91,12 +91,7 @@
             </div>
           {% endif %}
 
-          <button
-            class="theme-toggle"
-            type="button"
-            id="theme-toggle"
-            aria-label="Toggle color theme"
-          >
+          <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Toggle color theme">
             <span class="theme-toggle__icon theme-toggle__icon--dark">☾</span>
             <span class="theme-toggle__icon theme-toggle__icon--light">☀</span>
           </button>
@@ -138,23 +133,26 @@
     <nav class="sticky-nav sticky-nav--sections" data-sticky-nav aria-label="Section navigation">
       <a class="sticky-nav__btn{% if prev_index < 0 %} is-disabled{% endif %}"
          {% if prev_index >= 0 %}href="{{ prev_page.url | relative_url }}"{% else %}href="#"{% endif %}
-         data-nav-prev
-         aria-label="Previous section">
-        ←
+         data-nav-prev aria-label="Previous section">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14.5 5.5a1 1 0 0 1 0 1.4L10.4 11l4.1 4.1a1 1 0 1 1-1.4 1.4l-4.8-4.8a1 1 0 0 1 0-1.4l4.8-4.8a1 1 0 0 1 1.4 0z"/>
+        </svg>
       </a>
 
       <a class="sticky-nav__btn sticky-nav__btn--home"
          href="#"
-         data-nav-top
-         aria-label="Back to top">
-        ↑
+         data-nav-top aria-label="Back to top">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5.5a1 1 0 0 1 .7.3l5.5 5.5a1 1 0 0 1-1.4 1.4L13 8.9V18a1 1 0 1 1-2 0V8.9l-3.8 3.8a1 1 0 1 1-1.4-1.4l5.5-5.5a1 1 0 0 1 .7-.3z"/>
+        </svg>
       </a>
 
       <a class="sticky-nav__btn{% if next_index >= sect_pages.size %} is-disabled{% endif %}"
          {% if next_index < sect_pages.size %}href="{{ next_page.url | relative_url }}"{% else %}href="#"{% endif %}
-         data-nav-next
-         aria-label="Next section">
-        →
+         data-nav-next aria-label="Next section">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9.5 5.5a1 1 0 0 1 1.4 0l4.8 4.8a1 1 0 0 1 0 1.4l-4.8 4.8a1 1 0 1 1-1.4-1.4l4.1-4.1-4.1-4.1a1 1 0 0 1 0-1.4z"/>
+        </svg>
       </a>
     </nav>
 
@@ -162,23 +160,27 @@
     <nav class="sticky-nav sticky-nav--bill" data-sticky-nav aria-label="Bill navigation">
       <a class="sticky-nav__btn"
          href="{{ '/' | relative_url }}"
-         data-nav-home
-         aria-label="Back to home">
-        ⌂
+         data-nav-home aria-label="Back to home">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3.5a1 1 0 0 1 .7.3l8 7.2a1 1 0 1 1-1.4 1.5L19 12.1V19a2 2 0 0 1-2 2h-3.5a.5.5 0 0 1-.5-.5V16a1 1 0 0 0-2 0v4.5a.5.5 0 0 1-.5.5H7a2 2 0 0 1-2-2v-6.9l-.3.4a1 1 0 1 1-1.4-1.5l8-7.2a1 1 0 0 1 .7-.3z"/>
+        </svg>
       </a>
 
       <a class="sticky-nav__btn sticky-nav__btn--home"
          href="#"
-         data-nav-top
-         aria-label="Back to top">
-        ↑
+         data-nav-top aria-label="Back to top">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5.5a1 1 0 0 1 .7.3l5.5 5.5a1 1 0 0 1-1.4 1.4L13 8.9V18a1 1 0 1 1-2 0V8.9l-3.8 3.8a1 1 0 1 1-1.4-1.4l5.5-5.5a1 1 0 0 1 .7-.3z"/>
+        </svg>
       </a>
 
       <a class="sticky-nav__btn"
          href="#"
-         data-nav-search
-         aria-label="Search this page">
-        🔎
+         data-nav-search aria-label="Search this page">
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zm0 2a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z"/>
+          <path d="M15.7 15.7a1 1 0 0 1 1.4 0l3.4 3.4a1 1 0 1 1-1.4 1.4l-3.4-3.4a1 1 0 0 1 0-1.4z"/>
+        </svg>
       </a>
     </nav>
   {% endif %}
@@ -203,12 +205,7 @@
 
         <div class="search-modal__body">
           <div class="search-modal__search-row">
-            <input
-              type="search"
-              id="global-search-modal-input"
-              placeholder="Search across the bill…"
-              autocomplete="off"
-            />
+            <input type="search" id="global-search-modal-input" placeholder="Search across the bill…" autocomplete="off" />
           </div>
 
           <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
@@ -219,19 +216,11 @@
     <script id="global-search-index" type="application/json">
       {
         "documents": [
-          {
-            "id": "bill",
-            "title": "Full compiled bill",
-            "url": "{{ '/policy/bill-text/' | relative_url }}"
-          }
+          { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
           {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
           {% assign sect_pages = sect_pages | sort: 'path' %}
           {% for p in sect_pages %}
-          ,{
-            "id": "section-{{ forloop.index }}",
-            "title": "{{ p.title | default: p.url | escape }}",
-            "url": "{{ p.url | relative_url }}"
-          }
+          ,{ "id": "section-{{ forloop.index }}", "title": "{{ p.title | default: p.url | escape }}", "url": "{{ p.url | relative_url }}" }
           {% endfor %}
         ]
       }

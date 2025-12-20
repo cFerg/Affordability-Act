@@ -1,176 +1,242 @@
 <!doctype html>
-<html lang="en" data-site-root="{{ site.baseurl | default: '' }}">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <meta name="author" content="{{ page.author | default: site.author.name }}">
-  <!-- This will use individual authors under policy/sections "author" description -->
-  <meta property="article:author" content="{{ page.author | default: site.author.name }}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Affordability Act">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ site.description }}">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ '/assets/og-1200x630.png' | relative_url }}">
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-  <meta name="twitter:description" content="{{ site.description }}">
-  <meta name="twitter:image" content="{{ '/assets/og-1200x630.png' | relative_url }}">
+  <!-- Title / description -->
+  <title>
+    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
+  </title>
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}{{ site.title }}{% endif %}" />
 
-  <!-- Cache-bust to avoid stale JS/CSS -->
-  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-  <script defer src="{{ '/assets/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
-  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}">
-  <meta name="theme-color" content="#0b0e12">
+  <!-- Theme color (optional) -->
+  <meta name="theme-color" content="#020617" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml" />
+  <link rel="icon" href="{{ '/assets/favicon-32.png' | relative_url }}" sizes="32x32" type="image/png" />
+  <link rel="icon" href="{{ '/assets/favicon-16.png' | relative_url }}" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}" sizes="180x180" />
+  <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}" />
+
+  <!-- Social embeds -->
+  {% assign og_title = site.title %}
+  {% if page.title %}
+    {% assign og_title = page.title | append: " · " | append: site.title %}
+  {% endif %}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{{ og_title | escape }}" />
+  <meta property="og:description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  {% if site.social_image %}
+    <meta property="og:image" content="{{ site.social_image | absolute_url }}" />
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ og_title | escape }}" />
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
+  {% if site.social_image %}
+    <meta name="twitter:image" content="{{ site.social_image | absolute_url }}" />
+  {% endif %}
+
+  <!-- Optional author -->
+  {% if site.author %}
+    <meta name="author" content="{{ site.author | escape }}" />
+  {% endif %}
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
 </head>
 
-  <body>
-    <div class="page-root">
-      <header class="site-header">
-        <div class="shell">
-          <div class="site-header__inner">
-            <a class="brand" href="{{ '/' | relative_url }}">
-              <span class="brand-mark">
-                <img src="{{ '/assets/favicon.svg' | relative_url }}" alt="{{ site.title }} logo">
-              </span>
-              <span class="brand-title">{{ site.title }}</span>
-            </a>
+<body
+  {% assign is_section = page.path | slice: 0, 16 %}
+  {% if is_section == 'policy/sections' %}
+    data-section-file="{{ page.path | split: '/' | last }}"
+  {% endif %}
+>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="shell">
+      <div class="site-header__inner">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-mark">
+            <img src="{{ '/assets/favicon.svg' | relative_url }}" alt="{{ site.title }} logo" />
+          </span>
+          <span class="brand-title">{{ site.title }}</span>
+        </a>
 
-            <div class="site-header__right">
-              {% if page.url == '/' %}
-                {% comment %} Home page: global multi-page search {% endcomment %}
-                <div class="header-search">
-                  <label class="mono sr-only" for="global-search-input">Search across the bill</label>
-                  <input
-                    type="search"
-                    id="global-search-input"
-                    data-global-search
-                    placeholder="Search across the bill…"
-                    autocomplete="off"
-                  >
-                </div>
-              {% elsif page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
-                {% comment %} Bill / section pages: in-page search {% endcomment %}
-                <div class="header-search">
-                  <label class="mono sr-only" for="page-search">Search this page</label>
-                  <input
-                    type="search"
-                    id="page-search"
-                    data-page-search
-                    placeholder="Search this page…"
-                    autocomplete="off"
-                  >
-                </div>
-              {% endif %}
-
-              <button
-                class="theme-toggle"
-                type="button"
-                id="theme-toggle"
-                aria-label="Toggle color theme"
-              >
-                <span class="theme-toggle__icon theme-toggle__icon--dark">☾</span>
-                <span class="theme-toggle__icon theme-toggle__icon--light">☀</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
-        {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
-          <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
-        {% endif %}
-
-        <article class="content">
-          {{ content }}
-        </article>
-
-        {% if page.url contains '/policy/sections/' %}
-          <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
-        {% endif %}
-      </main>
-
-      {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
-        <div class="section-pager section-pager--floating" data-floating-pager>
-          {% if page.prev %}
-            <a class="pager-btn pager-btn--prev" data-nav-prev href="{{ page.prev.url | relative_url }}" aria-label="Previous section">
-              ←
-            </a>
-          {% endif %}
-          <a class="pager-btn pager-btn--home" href="#" aria-label="Back to top">
-            ↑
-          </a>
-          {% if page.next %}
-            <a class="pager-btn pager-btn--next" data-nav-next href="{{ page.next.url | relative_url }}" aria-label="Next section">
-              →
-            </a>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      <footer class="site-footer">
-        <div class="shell">
-          <div>© {{ site.title }} — Built in public.</div>
-        </div>
-      </footer>
-    </div> <!-- /.page-root -->
-
-    {% if page.url == '/' %}
-      <!-- Global search modal -->
-      <div class="search-modal" id="global-search-modal" hidden>
-        <div class="search-modal__backdrop" data-search-modal-close></div>
-        <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
-          <header class="search-modal__header">
-            <h2 id="global-search-title">Search across the bill</h2>
-            <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">
-              ×
-            </button>
-          </header>
-          <div class="search-modal__body">
-            <div class="search-modal__search-row">
+        <div class="site-header__right">
+          {% if page.url == '/' %}
+            {% comment %}Home page: global search (opens modal){% endcomment %}
+            <div class="header-search">
+              <label class="mono sr-only" for="global-search-input">Search across the bill</label>
               <input
                 type="search"
-                id="global-search-modal-input"
+                id="global-search-input"
+                data-global-search
                 placeholder="Search across the bill…"
                 autocomplete="off"
-              >
+              />
             </div>
-            <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
-          </div>
+          {% elsif page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
+            {% comment %}Bill/sections: in-page highlight search{% endcomment %}
+            <div class="header-search">
+              <label class="mono sr-only" for="page-search">Search this page</label>
+              <input
+                type="search"
+                id="page-search"
+                data-page-search
+                placeholder="Search this page…"
+                autocomplete="off"
+              />
+            </div>
+          {% endif %}
+
+          <button
+            class="theme-toggle"
+            type="button"
+            id="theme-toggle"
+            aria-label="Toggle color theme"
+          >
+            <span class="theme-toggle__icon theme-toggle__icon--dark">☾</span>
+            <span class="theme-toggle__icon theme-toggle__icon--light">☀</span>
+          </button>
         </div>
       </div>
+    </div>
+  </header>
 
-      <!-- Global search index (bill + sections) -->
-      <script id="global-search-index" type="application/json">
-        {
-          "documents": [
-            {
-              "id": "bill",
-              "title": "Full compiled bill",
-              "url": "{{ '/policy/bill-text/' | relative_url }}"
-            }
-            {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-            {% assign sect_pages = sect_pages | sort: 'path' %}
-            {% for p in sect_pages %}
-            ,{
-              "id": "section-{{ forloop.index }}",
-              "title": "{{ p.title | default: p.url | escape }}",
-              "url": "{{ p.url | relative_url }}"
-            }
-            {% endfor %}
-          ]
-        }
-      </script>
+  <!-- Main -->
+  <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
+    {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
+      <!-- Reserved slot if you later add "Jump to section" or other tools -->
+      <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
     {% endif %}
 
-    <script src="{{ '/assets/site.js' | relative_url }}"></script>
-  </body>
+    <article class="content">
+      {{ content }}
+    </article>
+
+    {% if page.url contains '/policy/sections/' %}
+      <!-- Reserved slot if you later re-add a static pager -->
+      <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
+    {% endif %}
+  </main>
+
+  <!-- Sticky footer nav (bill/sections only) -->
+  {% if page.url contains '/policy/sections/' %}
+    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+    {% assign sect_pages = sect_pages | sort: 'path' %}
+    {% assign current_index = -1 %}
+    {% for p in sect_pages %}
+      {% if p.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+    {% assign prev_index = current_index | minus: 1 %}
+    {% assign next_index = current_index | plus: 1 %}
+    {% assign prev_page = sect_pages[prev_index] %}
+    {% assign next_page = sect_pages[next_index] %}
+
+    <nav class="sticky-nav" data-sticky-nav aria-label="Section navigation">
+      <a class="sticky-nav__btn{% if prev_index < 0 %} is-disabled{% endif %}"
+         {% if prev_index >= 0 %}href="{{ prev_page.url | relative_url }}"{% else %}href="#"{% endif %}
+         data-nav-prev
+         aria-label="Previous section">
+        ←
+      </a>
+
+      <a class="sticky-nav__btn sticky-nav__btn--home"
+         href="#"
+         data-nav-top
+         aria-label="Back to top">
+        ↑
+      </a>
+
+      <a class="sticky-nav__btn{% if next_index >= sect_pages.size %} is-disabled{% endif %}"
+         {% if next_index < sect_pages.size %}href="{{ next_page.url | relative_url }}"{% else %}href="#"{% endif %}
+         data-nav-next
+         aria-label="Next section">
+        →
+      </a>
+    </nav>
+
+  {% elsif page.url contains '/policy/bill-text' %}
+    <nav class="sticky-nav" data-sticky-nav aria-label="Bill navigation">
+      <span class="sticky-nav__spacer"></span>
+
+      <a class="sticky-nav__btn sticky-nav__btn--home"
+         href="#"
+         data-nav-top
+         aria-label="Back to top">
+        ↑
+      </a>
+
+      <span class="sticky-nav__spacer"></span>
+    </nav>
+  {% endif %}
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div>© {{ site.title }} — Built in public.</div>
+    </div>
+  </footer>
+
+  <!-- Home-only: global search modal + index -->
+  {% if page.url == '/' %}
+    <div class="search-modal" id="global-search-modal" hidden>
+      <div class="search-modal__backdrop" data-search-modal-close></div>
+
+      <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="global-search-title">
+        <header class="search-modal__header">
+          <h2 id="global-search-title">Search across the bill</h2>
+          <button type="button" class="search-modal__close" data-search-modal-close aria-label="Close search results">×</button>
+        </header>
+
+        <div class="search-modal__body">
+          <div class="search-modal__search-row">
+            <input
+              type="search"
+              id="global-search-modal-input"
+              placeholder="Search across the bill…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div id="global-search-results" class="global-search__results" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <script id="global-search-index" type="application/json">
+      {
+        "documents": [
+          {
+            "id": "bill",
+            "title": "Full compiled bill",
+            "url": "{{ '/policy/bill-text/' | relative_url }}"
+          }
+          {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+          {% assign sect_pages = sect_pages | sort: 'path' %}
+          {% for p in sect_pages %}
+          ,{
+            "id": "section-{{ forloop.index }}",
+            "title": "{{ p.title | default: p.url | escape }}",
+            "url": "{{ p.url | relative_url }}"
+          }
+          {% endfor %}
+        ]
+      }
+    </script>
+  {% endif %}
+
+  <!-- JS -->
+  <script src="{{ '/assets/site.js' | relative_url }}"></script>
+</body>
 </html>

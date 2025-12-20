@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPageSearch();
   initGlobalSearch();
   initStickyNav();
+  initVisualViewportBottomFix();
 });
 
 /* -----------------------------
@@ -308,6 +309,8 @@ function initStickyNav() {
   const prev = nav.querySelector("[data-nav-prev]");
   const next = nav.querySelector("[data-nav-next]");
   const topBtn = nav.querySelector("[data-nav-top]");
+  const homeBtn = nav.querySelector("[data-nav-home]");
+  const searchBtn = nav.querySelector("[data-nav-search]");
 
   // Smooth top
   if (topBtn) {
@@ -318,6 +321,23 @@ function initStickyNav() {
     });
   }
 
+  // Home is a normal link; no special JS needed (but keep click from doing weird things if "#")
+  if (homeBtn && homeBtn.getAttribute("href") === "#") {
+    homeBtn.addEventListener("click", (e) => e.preventDefault());
+  }
+
+  // Search button: focus the in-page search input (bill page)
+  if (searchBtn) {
+    searchBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("page-search");
+      if (input) {
+        input.focus();
+        input.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  }
+
   // Prevent clicking disabled placeholders
   [prev, next].forEach((a) => {
     if (!a) return;
@@ -325,6 +345,24 @@ function initStickyNav() {
       a.addEventListener("click", (e) => e.preventDefault());
     }
   });
+
+  // Bill-only: allow the bar to auto-hide on mobile until scroll
+  const isBill = nav.classList.contains("sticky-nav--bill");
+  const updateBillVisibility = () => {
+    if (!isBill) return; // sections always visible
+    if (window.innerWidth > 899) {
+      nav.classList.add("is-visible");
+      return;
+    }
+    const y = (document.scrollingElement || document.documentElement).scrollTop || 0;
+    nav.classList.toggle("is-visible", y > 120);
+  };
+
+  if (isBill) {
+    window.addEventListener("scroll", updateBillVisibility, { passive: true });
+    window.addEventListener("resize", updateBillVisibility);
+    updateBillVisibility();
+  }
 
   // Arrow keys navigate (avoid when typing)
   document.addEventListener("keydown", (e) => {
@@ -339,4 +377,25 @@ function initStickyNav() {
       window.location.href = next.href;
     }
   });
+}
+
+/* -----------------------------------
+ * visualViewport bottom pin fix
+ * --------------------------------- */
+
+function initVisualViewportBottomFix() {
+  if (!window.visualViewport) return;
+
+  const vv = window.visualViewport;
+
+  const update = () => {
+    // Bottom inset in px between layout viewport and visual viewport
+    const bottom = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
+    document.documentElement.style.setProperty("--vv-bottom", `${bottom}px`);
+  };
+
+  vv.addEventListener("resize", update);
+  vv.addEventListener("scroll", update);
+  window.addEventListener("orientationchange", update);
+  update();
 }

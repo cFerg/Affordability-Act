@@ -5,16 +5,12 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Title / description -->
   <title>
     {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
   </title>
   <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}{{ site.title }}{% endif %}" />
-
-  <!-- Canonical -->
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-  <!-- Theme color (optional) -->
   <meta name="theme-color" content="#020617" />
 
   <!-- Favicons -->
@@ -44,12 +40,10 @@
     <meta name="twitter:image" content="{{ site.social_image | absolute_url }}" />
   {% endif %}
 
-  <!-- Optional author -->
   {% if site.author %}
     <meta name="author" content="{{ site.author | escape }}" />
   {% endif %}
 
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
 </head>
 
@@ -72,7 +66,7 @@
 
         <div class="site-header__right">
           {% if page.url == '/' %}
-            {% comment %}Home page: global search (opens modal){% endcomment %}
+            {% comment %} Home page: global search (opens modal) {% endcomment %}
             <div class="header-search">
               <label class="mono sr-only" for="global-search-input">Search across the bill</label>
               <input
@@ -84,7 +78,7 @@
               />
             </div>
           {% elsif page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
-            {% comment %}Bill/sections: in-page highlight search{% endcomment %}
+            {% comment %} Bill/sections: in-page highlight search {% endcomment %}
             <div class="header-search">
               <label class="mono sr-only" for="page-search">Search this page</label>
               <input
@@ -114,7 +108,6 @@
   <!-- Main -->
   <main class="main{% if page.url contains '/policy/sections/' %} is-section{% endif %}{% if page.url contains '/policy/bill-text' %} is-bill{% endif %}">
     {% if page.url contains '/policy/sections/' or page.url contains '/policy/bill-text' %}
-      <!-- Reserved slot if you later add "Jump to section" or other tools -->
       <nav class="section-topbar" id="section-topbar" aria-label="Jump & search"></nav>
     {% endif %}
 
@@ -123,7 +116,6 @@
     </article>
 
     {% if page.url contains '/policy/sections/' %}
-      <!-- Reserved slot if you later re-add a static pager -->
       <nav id="section-pager" class="section-pager" aria-label="Section pagination"></nav>
     {% endif %}
   </main>
@@ -143,7 +135,7 @@
     {% assign prev_page = sect_pages[prev_index] %}
     {% assign next_page = sect_pages[next_index] %}
 
-    <nav class="sticky-nav" data-sticky-nav aria-label="Section navigation">
+    <nav class="sticky-nav sticky-nav--sections" data-sticky-nav aria-label="Section navigation">
       <a class="sticky-nav__btn{% if prev_index < 0 %} is-disabled{% endif %}"
          {% if prev_index >= 0 %}href="{{ prev_page.url | relative_url }}"{% else %}href="#"{% endif %}
          data-nav-prev
@@ -167,8 +159,13 @@
     </nav>
 
   {% elsif page.url contains '/policy/bill-text' %}
-    <nav class="sticky-nav" data-sticky-nav aria-label="Bill navigation">
-      <span class="sticky-nav__spacer"></span>
+    <nav class="sticky-nav sticky-nav--bill" data-sticky-nav aria-label="Bill navigation">
+      <a class="sticky-nav__btn"
+         href="{{ '/' | relative_url }}"
+         data-nav-home
+         aria-label="Back to home">
+        ⌂
+      </a>
 
       <a class="sticky-nav__btn sticky-nav__btn--home"
          href="#"
@@ -177,7 +174,12 @@
         ↑
       </a>
 
-      <span class="sticky-nav__spacer"></span>
+      <a class="sticky-nav__btn"
+         href="#"
+         data-nav-search
+         aria-label="Search this page">
+        🔎
+      </a>
     </nav>
   {% endif %}
 
@@ -236,7 +238,6 @@
     </script>
   {% endif %}
 
-  <!-- JS -->
   <script src="{{ '/assets/site.js' | relative_url }}"></script>
 </body>
 </html>

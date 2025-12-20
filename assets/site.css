@@ -232,15 +232,15 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
 :root {
   --sticky-nav-h: 56px;
   --sticky-nav-gap: 12px;
+  --vv-bottom: 0px; /* set by JS via visualViewport when available */
 }
 
-/* give content breathing room above sticky bar (already in .main padding-bottom) */
-
+/* Sticky nav */
 .sticky-nav {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: calc(var(--sticky-nav-gap) + env(safe-area-inset-bottom, 0px));
+  bottom: calc(var(--sticky-nav-gap) + env(safe-area-inset-bottom, 0px) + var(--vv-bottom));
   height: var(--sticky-nav-h);
   width: min(520px, calc(100% - 24px));
   z-index: 50;
@@ -258,14 +258,7 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   padding: 8px 10px;
 }
 
-/* On mobile, make it barely-there */
-@media (max-width: 899px) {
-  .sticky-nav {
-    background: rgba(8, 12, 18, 0.42);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.35);
-  }
-}
-
+/* Buttons inside bar */
 .sticky-nav__btn {
   justify-self: center;
   width: 44px;
@@ -292,9 +285,27 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   pointer-events: none;
 }
 
-.sticky-nav__spacer {
-  width: 44px;
-  height: 44px;
+/* On mobile, make it barely-there */
+@media (max-width: 899px) {
+  .sticky-nav {
+    background: rgba(8, 12, 18, 0.42);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.35);
+  }
+}
+
+/* Bill-only: hide until scroll on mobile (sections always visible) */
+@media (max-width: 899px) {
+  .sticky-nav--bill {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(10px);
+    transition: opacity 0.18s ease-out, transform 0.18s ease-out;
+  }
+  .sticky-nav--bill.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* --------------------------------------------------
@@ -308,6 +319,9 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   font-size: 0.85rem;
   color: rgba(233,237,241,0.7);
   text-align: center;
+
+  /* keep footer text above sticky nav */
+  padding-bottom: calc(20px + var(--sticky-nav-h) + env(safe-area-inset-bottom, 0px) + var(--vv-bottom));
 }
 .site-footer .shell { display: flex; justify-content: center; }
 

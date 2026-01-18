@@ -5,38 +5,44 @@ import re
 from pathlib import Path
 from typing import Optional, Tuple, List, Dict
 
-RE_CATEGORY = re.compile(r"^\#\s+(.+?)\s*$")                 # first H1
-RE_SECTION_H2 = re.compile(r"^\#\#\s*(Section\b.*)\s*$", re.I)  # first H2 starting with "Section"
-RE_ANY_H2 = re.compile(r"^\#\#\s+(.+?)\s*$")                # fallback: first H2
-RE_LEADING_NUM = re.compile(r"^\s*(\d+)[\-_ ]")             # order from filename like 01_ or 8- etc
+RE_CATEGORY = re.compile(r"^\#\s+(.+?)\s*$")                      # first H1
+RE_SECTION_H2 = re.compile(r"^\#\#\s*(Section\b.*)\s*$", re.I)    # first H2 starting with "Section"
+RE_ANY_H2 = re.compile(r"^\#\#\s+(.+?)\s*$")                      # fallback: first H2
+RE_LEADING_NUM = re.compile(r"^\s*(\d+)[\-_ ]")                   # order from filename like 01_ or 8- etc
+
+def find_repo_root(start: Path) -> Path:
+    """
+    Try to find the repository root that contains policy/sections.
+    Priority:
+      1) GITHUB_WORKSPACE (GitHub Actions)
+      2) Walk upwards from start until policy/sections exists
+    """
+    ws = os.environ.get("GITHUB_WORKSPACE")
+    if ws:
+        p = Path(ws).resolve()
+        if (p / "policy" / "sections").exists():
+            return p
+
+    cur = start.resolve()
+    for _ in range(8):  # plenty for your structure
+        if (cur / "policy" / "sections").exists():
+            return cur
+        cur = cur.parent
+
+    raise SystemExit(f"[build_docs] Could not find repo root containing policy/sections starting from {start}")
 
 def strip_front_matter(text: str) -> str:
-    """
-    Remove YAML front matter if present.
-    Front matter is assumed to be:
-      ---\n ... \n---\n
-    at the start of the file.
-    """
     if not text.startswith("---"):
         return text
-    # Find the second --- delimiter
-    parts = text.split("\n")
-    if len(parts) < 3:
+    lines = text.split("\n")
+    if not lines or lines[0].strip() != "---":
         return text
-    if parts[0].strip() != "---":
-        return text
-    for i in range(1, len(parts)):
-        if parts[i].strip() == "---":
-            return "\n".join(parts[i + 1 :]).lstrip("\n")
+    for i in range(1, len(lines)):
+        if lines[i].strip() == "---":
+            return "\n".join(lines[i + 1 :]).lstrip("\n")
     return text
 
 def extract_category_and_title(md: str) -> Tuple[Optional[str], Optional[str]]:
-    """
-    md is content WITHOUT front matter.
-    Returns (category, section_title).
-    Category = first H1 (# ...)
-    Section title = first H2 that starts with "Section", else first H2.
-    """
     category = None
     section_title = None
     first_h2 = None
@@ -59,7 +65,6 @@ def extract_category_and_title(md: str) -> Tuple[Optional[str], Optional[str]]:
             ms = RE_SECTION_H2.match(line)
             if ms:
                 section_title = ms.group(1).strip()
-                # don't break; we still want to find category if it was later (rare)
 
         if category is not None and section_title is not None:
             break
@@ -70,14 +75,7 @@ def extract_category_and_title(md: str) -> Tuple[Optional[str], Optional[str]]:
     return (category, section_title)
 
 def infer_order_from_filename(name: str) -> int:
-    """
-    Use leading digits in filename to determine order. Falls back to a large number.
-    Example: '01_Foo.md' => 1
-             '8_Bar.md'  => 8
-    """
-    base = name
-    if base.lower().endswith(".md"):
-        base = base[:-3]
+    base = name[:-3] if name.lower().endswith(".md") else name
     m = RE_LEADING_NUM.match(base)
     if m:
         try:
@@ -87,17 +85,20 @@ def infer_order_from_filename(name: str) -> int:
     return 10**9
 
 def main() -> None:
-    repo_root = Path(__file__).resolve().parent
+    script_dir = Path(__file__).resolve().parent
+    repo_root = find_repo_root(script_dir)
+
     sections_dir = repo_root / "policy" / "sections"
     out_dir = repo_root / "_data"
     out_path = out_dir / "sections.json"
 
-    if not sections_dir.exists():
-        raise SystemExit(f"[build_docs] Missing sections dir: {sections_dir}")
-
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    section_files = sorted(sections_dir.glob("*.md"), key=lambda p: (infer_order_from_filename(p.name), p.name.lower()))
+    section_files = sorted(
+        sections_dir.glob("*.md"),
+        key=lambda p: (infer_order_from_filename(p.name), p.name.lower())
+    )
+
     items: List[Dict] = []
 
     for p in section_files:
@@ -106,9 +107,8 @@ def main() -> None:
 
         category, section_title = extract_category_and_title(body)
 
-        slug = p.stem  # filename without .md
+        slug = p.stem
         url = f"/policy/sections/{slug}/"
-
         order = infer_order_from_filename(p.name)
 
         items.append({
@@ -120,10 +120,11 @@ def main() -> None:
             "sectionTitle": section_title or slug.replace("_", " ").replace("-", " "),
         })
 
-    # Secondary sort: category then order then title (optional, keeps output stable)
+    # stable ordering in the JSON output
     items.sort(key=lambda x: (x["category"].lower(), x["order"], x["sectionTitle"].lower(), x["slug"].lower()))
 
     out_path.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"[build_docs] Repo root: {repo_root}")
     print(f"[build_docs] Wrote {out_path} ({len(items)} sections)")
 
 if __name__ == "__main__":

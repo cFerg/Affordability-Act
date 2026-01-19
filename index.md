@@ -19,10 +19,9 @@ description: A model framework to align prices with wages and real conditions â€
 
 <div class="home-actions home-actions--primary">
   <a class="btn btn-primary-cta" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
-  <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Send feedback</span></a>
 </div>
 
-<div class="home-actions">
+<div class="home-actions home-actions--center">
   <button class="btn" id="toggle-sections" type="button" aria-expanded="false">
     <span>Show individual sections</span>
   </button>
@@ -34,19 +33,38 @@ description: A model framework to align prices with wages and real conditions â€
   {% assign sections_data = site.data.sections %}
 
   {% if sections_data and sections_data.size > 0 %}
+
     {%- comment -%}
-      Robust numeric ordering (prevents 10/11 appearing before 1..9):
-      Build padded keys: 0001, 0010, 0011 ...
-      Then stream and open/close category grids as category changes.
+      Support BOTH formats:
+      A) Rich objects: { order, category, sectionTitle, url }
+      B) Legacy strings: "01_Foo_Bar.md"
     {%- endcomment -%}
 
     {%- assign keyed = "" | split: "" -%}
+
     {%- for s in sections_data -%}
-      {%- assign ord = s.order | plus: 0 -%}
-      {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
-      {%- assign key = ord_key | append: "||" | append: s.category | append: "||" | append: s.sectionTitle | append: "||" | append: s.url -%}
+      {%- if s.slug or s.url or s.sectionTitle -%}
+        {%- assign ord = s.order | default: 9999 | plus: 0 -%}
+        {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
+        {%- assign cat = s.category | default: "Sections" -%}
+        {%- assign title = s.sectionTitle | default: s.slug | default: "Section" -%}
+        {%- assign url = s.url | default: "/policy/sections/" | append: s.slug | append: "/" -%}
+        {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
+      {%- else -%}
+        {%- comment -%}Legacy string like "01_Name.md"{%- endcomment -%}
+        {%- assign filename = s -%}
+        {%- assign slug = filename | replace: ".md", "" -%}
+        {%- assign ord = slug | slice: 0, 2 | plus: 0 -%}
+        {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
+        {%- assign cat = "Sections" -%}
+        {%- assign title = slug | replace: "_", " " | replace: "-", " " -%}
+        {%- assign url = "/policy/sections/" | append: slug | append: "/" -%}
+        {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
+      {%- endif -%}
+
       {%- assign keyed = keyed | push: key -%}
     {%- endfor -%}
+
     {%- assign keyed = keyed | sort -%}
 
     {%- assign current_cat = "" -%}
@@ -72,20 +90,7 @@ description: A model framework to align prices with wages and real conditions â€
     {%- if current_cat != "" -%}</div>{%- endif -%}
 
   {% else %}
-    <!-- Fallback: build list from pages if _data/sections.json isn't available -->
-    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-    {% assign sect_pages = sect_pages | sort: "path" %}
-
-    <h3 class="category-title">Sections</h3>
-    <div class="section-grid">
-      {% for p in sect_pages %}
-        {% assign slug = p.url | split: '/' | last | default: p.name | replace: '.html','' %}
-        <div class="section-card">
-          <div class="section-card__title">{{ p.title | default: slug | replace: "_"," " | replace: "-"," " }}</div>
-          <a class="btn" href="{{ p.url | relative_url }}"><span>Open</span></a>
-        </div>
-      {% endfor %}
-    </div>
+    <p class="muted" style="max-width:75ch;margin:12px auto;">No sections found.</p>
   {% endif %}
 
 </div>
@@ -97,7 +102,7 @@ description: A model framework to align prices with wages and real conditions â€
   <p class="muted">
     Help keep the project online and accessible. Donations can support domain costs, hosting, outreach materials, and future submission tooling.
   </p>
-  <div class="home-actions" style="margin: 12px auto 0;">
+  <div class="home-actions home-actions--center" style="margin: 12px auto 0;">
     <a class="btn" href="{{ '/donate/' | relative_url }}"><span>Donate</span></a>
     <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Send feedback</span></a>
     <a class="btn" href="{{ site.github.repository_url | default: 'https://github.com/cFerg/Affordability-Act' }}"><span>View GitHub repo</span></a>

@@ -164,8 +164,11 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 .btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
 
 /* Big CTA */
-.home-actions--primary { align-items: center; }
+.home-actions--primary { justify-content: center; }
+.home-actions--center { justify-content: center; }
 .btn-primary-cta {
+  min-width: min(620px, 100%);
+  justify-content: center;
   position: relative;
   padding: 11px 18px;
   font-size: 1.05rem;

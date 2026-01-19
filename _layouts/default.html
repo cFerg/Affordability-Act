@@ -210,18 +210,30 @@
     </div>
 
     <script id="global-search-index" type="application/json">
-{
-  "documents": [
-    { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
-    {% for s in site.data.sections %}
-    ,{ "id": "section-{{ forloop.index }}",
-       "title": {{ s.sectionTitle | jsonify }},
-       "url": "{{ s.url | relative_url }}",
-       "category": {{ s.category | jsonify }} }
-    {% endfor %}
-  ]
-}
+    {
+      "documents": [
+        { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
+        {% assign sections_data = site.data.sections %}
+        {% if sections_data and sections_data.size > 0 %}
+          {% for s in sections_data %}
+            {% if s.slug or s.url or s.sectionTitle %}
+              ,{ "id": "section-{{ forloop.index }}",
+                "title": {{ (s.sectionTitle | default: s.slug | default: "Section") | jsonify }},
+                "url": "{{ (s.url | default: '/policy/sections/' | append: s.slug | append: '/') | relative_url }}",
+                "category": {{ (s.category | default: "Sections") | jsonify }} }
+            {% else %}
+              {% assign slug = s | replace: '.md','' %}
+              ,{ "id": "section-{{ forloop.index }}",
+                "title": {{ slug | replace: "_"," " | replace: "-"," " | jsonify }},
+                "url": "{{ '/policy/sections/' | append: slug | append: '/' | relative_url }}",
+                "category": {{ "Sections" | jsonify }} }
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      ]
+    }
     </script>
+
   {% endif %}
 
   <script src="{{ '/assets/site.js' | relative_url }}"></script>

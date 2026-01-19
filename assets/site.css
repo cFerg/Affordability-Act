@@ -121,6 +121,13 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 .btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
 
+.category-title{
+  max-width: 75ch;
+  margin: 18px auto 8px;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
 /* Home/Cover */
 .cover {
   max-width: 75ch;

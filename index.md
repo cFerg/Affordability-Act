@@ -20,23 +20,45 @@ title: Affordability Act
   </button>
 </div>
 
-<!-- Server-side fallback list from _data/sections.json -->
-<div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
-{% assign grouped = site.data.sections | group_by: "category" %}
+<!-- Individual sections (hidden by default, revealed by JS) -->
+<div id="sections-grid" hidden aria-live="polite" aria-busy="false">
+  {% assign sections_data = site.data.sections %}
 
-{% for g in grouped %}
-  <h3 class="category-title">{{ g.name }}</h3>
+  {% if sections_data and sections_data.size > 0 %}
+    {% assign grouped = sections_data | group_by: "category" %}
 
-  <div class="section-grid">
-    {% for s in g.items %}
-      <div class="section-card">
-        <div class="section-card__title">{{ s.sectionTitle }}</div>
-        <a class="btn" href="{{ s.url | relative_url }}"><span>Open</span></a>
+    {% for g in grouped %}
+      <h3 class="category-title">{{ g.name }}</h3>
+
+      <div class="section-grid">
+        {% for s in g.items %}
+          <div class="section-card">
+            <div class="section-card__title">{{ s.sectionTitle }}</div>
+            <a class="btn" href="{{ s.url | relative_url }}"><span>Open</span></a>
+          </div>
+        {% endfor %}
       </div>
     {% endfor %}
-  </div>
-{% endfor %}
+
+  {% else %}
+    <!-- Fallback: no _data/sections.json available at build time -->
+    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
+    {% assign sect_pages = sect_pages | sort: "path" %}
+
+    <h3 class="category-title">Sections</h3>
+    <div class="section-grid">
+      {% for p in sect_pages %}
+        {% assign slug = p.url | split: '/' | last | default: p.name | replace: '.html','' %}
+        <div class="section-card">
+          <div class="section-card__title">{{ p.title | default: slug | replace: "_"," " | replace: "-"," " }}</div>
+          <a class="btn" href="{{ p.url | relative_url }}"><span>Open</span></a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </div>
+
+<!-- DEBUG: sections count = {{ site.data.sections.size }} -->
 
 <hr class="home-divider">
 

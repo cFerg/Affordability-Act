@@ -1,1 +1,79 @@
-[]
+[
+  {
+    "slug": "01_Ownership_Property_Rights_and_Limits",
+    "order": 1,
+    "category": "🏠 Housing & Land",
+    "sectionTitle": "Section 1 — Ownership, Property Rights & Limits",
+    "url": "/policy/sections/01_Ownership_Property_Rights_and_Limits/"
+  },
+  {
+    "slug": "02_Housing_Land_and_Valuation_Protections",
+    "order": 2,
+    "category": "🏠 Housing & Land",
+    "sectionTitle": "Section 2 — Housing, Land & Valuation Protections",
+    "url": "/policy/sections/02_Housing_Land_and_Valuation_Protections/"
+  },
+  {
+    "slug": "03_Multi_Unit_Properties_and_Rental_Fairness",
+    "order": 3,
+    "category": "🏠 Housing & Land",
+    "sectionTitle": "Section 3 — Rentals, Multi-Unit Housing & Lodging",
+    "url": "/policy/sections/03_Multi_Unit_Properties_and_Rental_Fairness/"
+  },
+  {
+    "slug": "04_Vehicles_and_Transportation_Fairness",
+    "order": 4,
+    "category": "🚗 Vehicles & Transportation",
+    "sectionTitle": "Section 4 — Vehicles, Registration & Transportation Costs",
+    "url": "/policy/sections/04_Vehicles_and_Transportation_Fairness/"
+  },
+  {
+    "slug": "05_Jobs_Wages_and_Worker_Protections",
+    "order": 5,
+    "category": "💼 Jobs, Wages & Worker Rights",
+    "sectionTitle": "Section 5 — Employment, Wage Baselines & Worker Protections",
+    "url": "/policy/sections/05_Jobs_Wages_and_Worker_Protections/"
+  },
+  {
+    "slug": "06_Medical_and_Healthcare_Access",
+    "order": 6,
+    "category": "🏥 Medical & Healthcare",
+    "sectionTitle": "Section 6 — Healthcare Access, Coverage & Medical Necessities",
+    "url": "/policy/sections/06_Medical_and_Healthcare_Access/"
+  },
+  {
+    "slug": "07_Utilities_Infrastructure_and_Broadband_Access",
+    "order": 7,
+    "category": "💡 Utilities & Internet",
+    "sectionTitle": "Section 7 — Utilities, Infrastructure & Broadband Access",
+    "url": "/policy/sections/07_Utilities_Infrastructure_and_Broadband_Access/"
+  },
+  {
+    "slug": "08_Taxes_Fees_Tariffs_and_Public_Investment",
+    "order": 8,
+    "category": "🧾 Taxes, Fees, Tariffs & Public Investment",
+    "sectionTitle": "Section 8 — Taxes, Fees, Tariffs & Public Investment",
+    "url": "/policy/sections/08_Taxes_Fees_Tariffs_and_Public_Investment/"
+  },
+  {
+    "slug": "09_Consumer_Responsibility_and_Fraud",
+    "order": 9,
+    "category": "🛒 Consumer Responsibility & Fraud",
+    "sectionTitle": "Section 9 — Consumer Responsibility, Waste Prevention & Anti-Fraud Protections",
+    "url": "/policy/sections/09_Consumer_Responsibility_and_Fraud/"
+  },
+  {
+    "slug": "10_Education_Access_Credit_Mobility_and_Student_Protections",
+    "order": 10,
+    "category": "🎓 Education Access, Credit Mobility & Student Protections",
+    "sectionTitle": "Section 10 — Education Access, Credit Mobility & Student Protections",
+    "url": "/policy/sections/10_Education_Access_Credit_Mobility_and_Student_Protections/"
+  },
+  {
+    "slug": "11_Enforcement_Remedies_and_Accountability",
+    "order": 11,
+    "category": "⚖️ Enforcement & Accountability",
+    "sectionTitle": "Section 11 — Enforcement, Remedies & Accountability",
+    "url": "/policy/sections/11_Enforcement_Remedies_and_Accountability/"
+  }
+]

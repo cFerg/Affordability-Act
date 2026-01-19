@@ -1,8 +1,4 @@
----
-layout: default
-title: Full Bill Text
-permalink: /policy/bill-text/
----
+# Full Compiled Bill
 
 <!--
 SUMMARY:
@@ -139,9 +135,7 @@ Without clear limits:
 
 This section ensures ownership remains **meaningful, fair, and socially compatible**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -266,9 +260,7 @@ Unregulated housing markets:
 
 This section restores **price realism, local access, and accountability**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -398,9 +390,7 @@ Rent inflation driven by vacancy, speculation, and unequal pricing:
 
 This section restores **fairness, transparency, and cost realism** to rental housing.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -522,9 +512,7 @@ Unchecked pricing and insurance abuse:
 
 This section restores **fair value, transparency, and accountability** to transportation.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -655,9 +643,7 @@ Wage suppression and job instability:
 
 This section ensures **work provides stability**, not precarity.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -773,9 +759,7 @@ Healthcare insecurity:
 
 This section ensures **healthcare access is continuous, humane, and affordable**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -879,9 +863,7 @@ Utilities and internet access are prerequisites for:
 
 This section ensures **access is stable, modern, and fairly priced**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -1009,9 +991,7 @@ When taxes and public funding are misaligned:
 
 This section ensures **public costs reduce future burdens instead of creating them**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -1123,9 +1103,7 @@ Unchecked abuse and waste:
 
 This section restores **fairness, accountability, and shared responsibility** in the affordability ecosystem.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -1247,9 +1225,7 @@ Education should expand opportunity — not become a financial snare.
 
 This section ensures **learning progress is preserved, mobility is protected, and students are not punished for system failures**.
 
-
 ---
-
 
 <!--
 SUMMARY:
@@ -1409,6 +1385,3 @@ Without enforcement:
 - and violations become profitable.
 
 This section ensures **the Act is real, enforceable, and durable**.
-
-
----

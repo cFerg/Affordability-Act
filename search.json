@@ -1,396 +1,75 @@
-[
-  {
-    "title": "01 — Foundations of Ownership",
-    "url": "/policy/sections/01_Foundations_of_Ownership/",
-    "section": 1,
-    "summary": "Defines the core ownership principles, valuation methods, and fairness guarantees under the Affordability Act.\nRestores balance between property, income, and opportunity by tying valuation to tangible inflation and wage growth rather than speculation.\nCreates an auditable, public framework for calculating and reviewing regulated assessed current value (RACV)."
-  },
-  {
-    "title": "01 — Foundations of Ownership — Purpose",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#purpose",
-    "section": 1,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To establish fair and measurable standards for how all property and major assets are valued, bought, and sold in the United States. This section prevents artificial inflation by basing value on factual element…"
-  },
-  {
-    "title": "01 — Foundations of Ownership — Core Valuation Formula",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#core-valuation-formula",
-    "section": 1,
-    "heading": "Core Valuation Formula",
-    "anchor": "core-valuation-formula",
-    "summary": "## Core Valuation Formula **Base Value + Inflation + Condition Adjustments – Depreciation = Regulated Assessed Current Value (RACV)** - *Base Value* represents the documented cost of construction or prior purchase. - *In…"
-  },
-  {
-    "title": "01 — Foundations of Ownership — Auditing and Oversight",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#auditing-and-oversight",
-    "section": 1,
-    "heading": "Auditing and Oversight",
-    "anchor": "auditing-and-oversight",
-    "summary": "## Auditing and Oversight - Independent auditors from certified regional authorities must evaluate a randomized minimum of 5% of all assessments annually. - Discrepancies exceeding 10% from verified market parity trigger…"
-  },
-  {
-    "title": "01 — Foundations of Ownership — Valuation Dispute Process",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#valuation-dispute-process",
-    "section": 1,
-    "heading": "Valuation Dispute Process",
-    "anchor": "valuation-dispute-process",
-    "summary": "## Valuation Dispute Process If a buyer or seller disputes an assessed value: - The property enters a **Temporary Review Hold** before final closing. - Both parties submit documentation to an independent review board. - …"
-  },
-  {
-    "title": "01 — Foundations of Ownership — Fairness and Fraud Protection",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#fairness-and-fraud-protection",
-    "section": 1,
-    "heading": "Fairness and Fraud Protection",
-    "anchor": "fairness-and-fraud-protection",
-    "summary": "## Fairness and Fraud Protection - Artificial overvaluation by assessors, brokers, or financial institutions constitutes valuation fraud. - Individuals have the right to audit or appeal RACV assessments without penalty. …"
-  },
-  {
-    "title": "01 — Foundations of Ownership — Full Ownership Guarantee",
-    "url": "/policy/sections/01_Foundations_of_Ownership/#full-ownership-guarantee",
-    "section": 1,
-    "heading": "Full Ownership Guarantee",
-    "anchor": "full-ownership-guarantee",
-    "summary": "## Full Ownership Guarantee - Ownership includes the right to occupy, transfer, and modify property—provided all modifications meet regional safety and environmental codes. - Ownership does *not* exempt individuals from …"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/",
-    "section": 2,
-    "summary": "Defines residential and land-use protections to ensure all citizens have equal access to housing and property.\nPrevents blight, speculative hoarding, and abusive homeowner association (HOA) control.\nIntroduces custodial stewardship for abandoned land, fair rezoning valuation, and resident priority access."
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Purpose",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#purpose",
-    "section": 2,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose This section preserves residential and land ownership fairness by ensuring that property, whether developed or vacant, is used productively and equitably. It safeguards residents from speculative manipulation,…"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Blight and Neglect Prevention",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#blight-and-neglect-prevention",
-    "section": 2,
-    "heading": "Blight and Neglect Prevention",
-    "anchor": "blight-and-neglect-prevention",
-    "summary": "## Blight and Neglect Prevention - Owners are required to maintain properties to basic habitability and safety standards. - If a property becomes abandoned or uninhabitable, it enters **Custodial Stewardship**, where a c…"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Homeowners Association (HOA) Protections",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#homeowners-association-hoa-protections",
-    "section": 2,
-    "heading": "Homeowners Association (HOA) Protections",
-    "anchor": "homeowners-association-hoa-protections",
-    "summary": "## Homeowners Association (HOA) Protections - Residents must be allowed to **opt out** of HOA jurisdiction when all debts and fees are cleared. - HOAs lose regulatory power if fewer than 60% of lots or homes remain unsol…"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Rezoning and Land Reclassification",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#rezoning-and-land-reclassification",
-    "section": 2,
-    "heading": "Rezoning and Land Reclassification",
-    "anchor": "rezoning-and-land-reclassification",
-    "summary": "## Rezoning and Land Reclassification - When land use is rezoned (e.g., agricultural → commercial → residential), valuation adjustments must reflect the *original* zoning category for any buyback or compensation. - If a …"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Vacant and Unused Land",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#vacant-and-unused-land",
-    "section": 2,
-    "heading": "Vacant and Unused Land",
-    "anchor": "vacant-and-unused-land",
-    "summary": "## Vacant and Unused Land - Vacant land held for over 24 months without active improvement or agricultural use is subject to review and potential reassignment to local development trusts. - Owners must provide intent-to-…"
-  },
-  {
-    "title": "02 — Housing Land and Ownership Protections — Resident Priority Access",
-    "url": "/policy/sections/02_Housing_Land_and_Ownership_Protections/#resident-priority-access",
-    "section": 2,
-    "heading": "Resident Priority Access",
-    "anchor": "resident-priority-access",
-    "summary": "## Resident Priority Access - All for-sale properties must be listed on at least one **public access registry** available to local residents before being marketed to corporations or out-of-region buyers. - Listings must …"
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/",
-    "section": 3,
-    "summary": "Prevents manipulation in real estate, rental, and asset markets through fair competition, anti-bot policies, and resident-first bidding rules.\nMandates transparent listings, bans fake “competing offers,” and defines scope for digital markets.\nEstablishes the Certified Offer Registry (COR) for equitable market tracking."
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Purpose",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#purpose",
-    "section": 3,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To ensure that every person has equal opportunity to participate in real estate and asset markets without unfair competition or artificial price escalation."
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Certified Offer Registry (COR)",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#certified-offer-registry-cor",
-    "section": 3,
-    "heading": "Certified Offer Registry (COR)",
-    "anchor": "certified-offer-registry-cor",
-    "summary": "## Certified Offer Registry (COR) - All property, rental, or lease offers must be logged in the **Certified Offer Registry**, a publicly accessible database managed by the Office of Affordability Oversight. - Each bid is…"
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Anti-Bot and Automation Controls",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#anti-bot-and-automation-controls",
-    "section": 3,
-    "heading": "Anti-Bot and Automation Controls",
-    "anchor": "anti-bot-and-automation-controls",
-    "summary": "## Anti-Bot and Automation Controls - Automated bidding, offer-sniping, and AI-based price manipulation tools are strictly prohibited. - Companies using automated investment systems must register their software with the …"
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Digital and Physical Scope",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#digital-and-physical-scope",
-    "section": 3,
-    "heading": "Digital and Physical Scope",
-    "anchor": "digital-and-physical-scope",
-    "summary": "## Digital and Physical Scope - The same affordability rules apply to both physical property and digital property (including domain names, digital land parcels, or online rental assets). - Digital assets sold through blo…"
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Equal Advertising Reach",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#equal-advertising-reach",
-    "section": 3,
-    "heading": "Equal Advertising Reach",
-    "anchor": "equal-advertising-reach",
-    "summary": "## Equal Advertising Reach - Listings must appear on at least two public registries or one state-certified listing platform accessible by all residents. - Marketing exclusively to corporate or investor entities violates …"
-  },
-  {
-    "title": "03 — Fair Market Participation and Offer Integrity — Fairness in Bidding and Negotiation",
-    "url": "/policy/sections/03_Fair_Market_Participation_and_Offer_Integrity/#fairness-in-bidding-and-negotiation",
-    "section": 3,
-    "heading": "Fairness in Bidding and Negotiation",
-    "anchor": "fairness-in-bidding-and-negotiation",
-    "summary": "## Fairness in Bidding and Negotiation - Sellers may not claim “competing offers” unless documented in the COR. - “Bidding wars” are capped at 10% above the listed RACV; anything higher must be reviewed for legitimacy. -…"
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/",
-    "section": 4,
-    "summary": "Applies affordability and fair-value principles to vehicle ownership, production, and resale.\nEnsures transparent dealer practices, right-to-repair access, fair valuation by condition, and tariff exemptions for essential materials.\nProtects against price gouging, speculative flipping, and artificial scarcity."
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Purpose",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#purpose",
-    "section": 4,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To extend affordability protections into transportation and automotive markets by ensuring fairness in production, purchase, and maintenance costs."
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Fair Vehicle Valuation",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#fair-vehicle-valuation",
-    "section": 4,
-    "heading": "Fair Vehicle Valuation",
-    "anchor": "fair-vehicle-valuation",
-    "summary": "## Fair Vehicle Valuation - Vehicle prices must reflect base manufacturer cost, inflation, and condition adjustments. - Used vehicles cannot be priced higher than new equivalent models unless classified as rare or antiqu…"
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Dealer Practices",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#dealer-practices",
-    "section": 4,
-    "heading": "Dealer Practices",
-    "anchor": "dealer-practices",
-    "summary": "## Dealer Practices - All dealership fees must be itemized and disclosed at the point of sale. - “Market adjustment” or “availability surcharge” fees are prohibited for any new production vehicle. - Lease buyouts and use…"
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Right to Repair",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#right-to-repair",
-    "section": 4,
-    "heading": "Right to Repair",
-    "anchor": "right-to-repair",
-    "summary": "## Right to Repair - Manufacturers must provide diagnostic tools, replacement parts, and repair documentation at reasonable cost to licensed mechanics and owners. - Proprietary software locks that restrict repairability …"
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Tariff Exemptions",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#tariff-exemptions",
-    "section": 4,
-    "heading": "Tariff Exemptions",
-    "anchor": "tariff-exemptions",
-    "summary": "## Tariff Exemptions - Building materials and components for housing or vehicles may be exempt from tariffs when those tariffs directly raise end-user affordability costs. - The Department of Commerce will maintain a lis…"
-  },
-  {
-    "title": "04 — Transportation Vehicles and Ownership Equity — Registration and Ownership Verification",
-    "url": "/policy/sections/04_Transportation_Vehicles_and_Ownership_Equity/#registration-and-ownership-verification",
-    "section": 4,
-    "heading": "Registration and Ownership Verification",
-    "anchor": "registration-and-ownership-verification",
-    "summary": "## Registration and Ownership Verification - Temporary or paper license plates may not exceed 60 days of validity. - Repeated registration evasion or use of fraudulent plates triggers license suspension and asset seizure…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/",
-    "section": 5,
-    "summary": "Redefines livable wages, modernizes healthcare access, and aligns tax and welfare structures with affordability goals.\nEnsures that working full-time provides for essential living costs while discouraging permanent dependence on assistance programs.\nCreates fiscal accountability mechanisms to maintain economic balance and affordability integrity."
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Purpose",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#purpose",
-    "section": 5,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To ensure all citizens can meet basic living needs through fair wages, healthcare continuity, and equitable taxation. This section eliminates the paradox where individuals can earn full-time wages yet still fa…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Livable Minimum Wage (LMW)",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#livable-minimum-wage-lmw",
-    "section": 5,
-    "heading": "Livable Minimum Wage (LMW)",
-    "anchor": "livable-minimum-wage-lmw",
-    "summary": "## Livable Minimum Wage (LMW) - **Definition:** The minimum wage must equal or exceed the local **Livable Minimum Wage (LMW)**, defined as the income required to afford basic needs in that region. - **Formula:** LMW = (R…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Wage Auditing and Enforcement",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#wage-auditing-and-enforcement",
-    "section": 5,
-    "heading": "Wage Auditing and Enforcement",
-    "anchor": "wage-auditing-and-enforcement",
-    "summary": "## Wage Auditing and Enforcement - The **Federal Office of Affordability Oversight (FOAO)** conducts biannual wage audits using regional income, cost-of-living, and inflation data. - Employers paying below LMW rates face…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Health Coverage Continuity",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#health-coverage-continuity",
-    "section": 5,
-    "heading": "Health Coverage Continuity",
-    "anchor": "health-coverage-continuity",
-    "summary": "## Health Coverage Continuity - Public and private healthcare programs must guarantee **Continuous Eligibility**: no lapse may occur between policy end and new coverage start. - All enrollment systems must synchronize ac…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Welfare Realignment and Transition",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#welfare-realignment-and-transition",
-    "section": 5,
-    "heading": "Welfare Realignment and Transition",
-    "anchor": "welfare-realignment-and-transition",
-    "summary": "## Welfare Realignment and Transition - SNAP, EBT, and other benefit programs convert to **Work-Integrated Assistance (WIA)** once wage reforms take effect. - Benefits taper gradually as income exceeds the LMW threshold,…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Taxation and Marital Equity",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#taxation-and-marital-equity",
-    "section": 5,
-    "heading": "Taxation and Marital Equity",
-    "anchor": "taxation-and-marital-equity",
-    "summary": "## Taxation and Marital Equity - Tax brackets apply **per individual**, not per household filing unit. - Dependents reduce taxable income equally for all filers, regardless of marital status. - Joint filing remains optio…"
-  },
-  {
-    "title": "05 — Taxation Labor and Fiscal Safeguards — Fiscal Safeguards",
-    "url": "/policy/sections/05_Taxation_Labor_and_Fiscal_Safeguards/#fiscal-safeguards",
-    "section": 5,
-    "heading": "Fiscal Safeguards",
-    "anchor": "fiscal-safeguards",
-    "summary": "## Fiscal Safeguards - Any affordability-driven tax or wage reform cannot be offset by reducing public funding or raising unrelated taxes. - A **Fiscal Stability Board** monitors government revenue changes to ensure the …"
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/",
-    "section": 6,
-    "summary": "Creates a clear, enforceable framework for oversight, compliance, and due process under the Affordability Act.\nDefines the Federal Office of Affordability Oversight (FOAO), outlines citizen appeal rights, and standardizes penalty structures for violations.\nEnsures equitable enforcement across individuals, corporations, and governments."
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Purpose",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#purpose",
-    "section": 6,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To define enforcement mechanisms and ensure consistent compliance across all sectors affected by the Affordability Act."
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Federal Office of Affordability Oversight (FOAO)",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#federal-office-of-affordability-oversight-foao",
-    "section": 6,
-    "heading": "Federal Office of Affordability Oversight (FOAO)",
-    "anchor": "federal-office-of-affordability-oversight-foao",
-    "summary": "## Federal Office of Affordability Oversight (FOAO) - The FOAO is a federally chartered agency responsible for: - Auditing affordability metrics, valuations, and wage compliance. - Managing the Certified Offer Registry (…"
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Penalties",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#penalties",
-    "section": 6,
-    "heading": "Penalties",
-    "anchor": "penalties",
-    "summary": "## Penalties - Civil penalties include fines up to 200% of the profit gained from violations. - Repeat or deliberate offenses may escalate to criminal penalties including imprisonment or forfeiture of assets. - Violators…"
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Appeals Process",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#appeals-process",
-    "section": 6,
-    "heading": "Appeals Process",
-    "anchor": "appeals-process",
-    "summary": "## Appeals Process - Any individual or entity has the right to appeal enforcement actions within 60 days of notice. - Appeals may be filed digitally or by mail through FOAO regional offices. - An independent arbitration …"
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Enforcement of Ownership and Maintenance",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#enforcement-of-ownership-and-maintenance",
-    "section": 6,
-    "heading": "Enforcement of Ownership and Maintenance",
-    "anchor": "enforcement-of-ownership-and-maintenance",
-    "summary": "## Enforcement of Ownership and Maintenance - FOAO and local governments have authority to enforce blight laws, ownership stewardship, and affordability compliance. - Neglected or vacant properties under stewardship must…"
-  },
-  {
-    "title": "06 — Enforcement Compliance and Appeals — Transparency and Whistleblower Protection",
-    "url": "/policy/sections/06_Enforcement_Compliance_and_Appeals/#transparency-and-whistleblower-protection",
-    "section": 6,
-    "heading": "Transparency and Whistleblower Protection",
-    "anchor": "transparency-and-whistleblower-protection",
-    "summary": "## Transparency and Whistleblower Protection - All FOAO investigations, outcomes, and appeals must be logged publicly except when privacy law prevents disclosure. - Whistleblowers who report violations are legally protec…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/",
-    "section": 7,
-    "summary": "Addresses systemic corruption, global loopholes, and market stability related to affordability reforms.\nIncludes asset clawbacks, bankruptcy transparency, offshore reporting, and the Affordability Equity Adjustment Mechanism (AEAM) to stabilize shareholder value.\nEnsures no person, company, or nation is exempt from compliance with affordability principles."
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Purpose",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#purpose",
-    "section": 7,
-    "heading": "Purpose",
-    "anchor": "purpose",
-    "summary": "## Purpose To preserve the integrity of national and international markets while ensuring affordability protections are applied equally and fairly across all jurisdictions."
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Bankruptcy Transparency",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#bankruptcy-transparency",
-    "section": 7,
-    "heading": "Bankruptcy Transparency",
-    "anchor": "bankruptcy-transparency",
-    "summary": "## Bankruptcy Transparency - Entities filing bankruptcy must disclose all domestic and foreign assets. - Transfer of ownership to family or shell corporations within 36 months before filing is automatically subject to re…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Offshore Accounts and Tax Evasion",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#offshore-accounts-and-tax-evasion",
-    "section": 7,
-    "heading": "Offshore Accounts and Tax Evasion",
-    "anchor": "offshore-accounts-and-tax-evasion",
-    "summary": "## Offshore Accounts and Tax Evasion - Any individual or corporation with U.S. assets must declare all offshore holdings annually. - Undeclared assets are subject to immediate forfeiture under the **Foreign Affordability…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Market Stabilization: Affordability Equity Adjustment Mechanism (AEAM)",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#market-stabilization-affordability-equity-adjustment-mechanism-aeam",
-    "section": 7,
-    "heading": "Market Stabilization: Affordability Equity Adjustment Mechanism (AEAM)",
-    "anchor": "market-stabilization-affordability-equity-adjustment-mechanism-aeam",
-    "summary": "## Market Stabilization: Affordability Equity Adjustment Mechanism (AEAM) - When affordability reforms reduce corporate nominal asset valuations, affected companies may issue **share adjustments** (non-monetary compensat…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — International Reciprocity",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#international-reciprocity",
-    "section": 7,
-    "heading": "International Reciprocity",
-    "anchor": "international-reciprocity",
-    "summary": "## International Reciprocity - Any foreign entity operating within U.S. property, vehicle, or insurance markets must comply with affordability and transparency standards. - Reciprocal enforcement agreements shall be purs…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Penalty Structure",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#penalty-structure",
-    "section": 7,
-    "heading": "Penalty Structure",
-    "anchor": "penalty-structure",
-    "summary": "## Penalty Structure 1. **Tier 1 – Omission or Negligence:** Civil fine up to 200% of hidden value. 2. **Tier 2 – Willful Concealment:** Criminal charges and up to 10 years imprisonment. 3. **Tier 3 – Systemic Abuse or R…"
-  },
-  {
-    "title": "07 — Integrity Accountability and Global Fairness — Global Cooperation",
-    "url": "/policy/sections/07_Integrity_Accountability_and_Global_Fairness/#global-cooperation",
-    "section": 7,
-    "heading": "Global Cooperation",
-    "anchor": "global-cooperation",
-    "summary": "## Global Cooperation - The FOAO, Treasury, and State Department will coordinate global data sharing on property, asset ownership, and affordability indices. - A biannual **Global Affordability Report** will measure inte…"
-  }
-]
+{
+  "documents": [
+    {
+      "id": "bill",
+      "title": "Full compiled bill",
+      "url": "/policy/bill-text/"
+    },
+    {
+      "id": "01_Ownership_Property_Rights_and_Limits",
+      "title": "Section 1 — Ownership, Property Rights & Limits",
+      "url": "/policy/sections/01_Ownership_Property_Rights_and_Limits/",
+      "category": "🏠 Housing & Land"
+    },
+    {
+      "id": "02_Housing_Land_and_Valuation_Protections",
+      "title": "Section 2 — Housing, Land & Valuation Protections",
+      "url": "/policy/sections/02_Housing_Land_and_Valuation_Protections/",
+      "category": "🏠 Housing & Land"
+    },
+    {
+      "id": "03_Multi_Unit_Properties_and_Rental_Fairness",
+      "title": "Section 3 — Rentals, Multi-Unit Housing & Lodging",
+      "url": "/policy/sections/03_Multi_Unit_Properties_and_Rental_Fairness/",
+      "category": "🏠 Housing & Land"
+    },
+    {
+      "id": "04_Vehicles_and_Transportation_Fairness",
+      "title": "Section 4 — Vehicles, Registration & Transportation Costs",
+      "url": "/policy/sections/04_Vehicles_and_Transportation_Fairness/",
+      "category": "🚗 Vehicles & Transportation"
+    },
+    {
+      "id": "05_Jobs_Wages_and_Worker_Protections",
+      "title": "Section 5 — Employment, Wage Baselines & Worker Protections",
+      "url": "/policy/sections/05_Jobs_Wages_and_Worker_Protections/",
+      "category": "💼 Jobs, Wages & Worker Rights"
+    },
+    {
+      "id": "06_Medical_and_Healthcare_Access",
+      "title": "Section 6 — Healthcare Access, Coverage & Medical Necessities",
+      "url": "/policy/sections/06_Medical_and_Healthcare_Access/",
+      "category": "🏥 Medical & Healthcare"
+    },
+    {
+      "id": "07_Utilities_Infrastructure_and_Broadband_Access",
+      "title": "Section 7 — Utilities, Infrastructure & Broadband Access",
+      "url": "/policy/sections/07_Utilities_Infrastructure_and_Broadband_Access/",
+      "category": "💡 Utilities & Internet"
+    },
+    {
+      "id": "08_Taxes_Fees_Tariffs_and_Public_Investment",
+      "title": "Section 8 — Taxes, Fees, Tariffs & Public Investment",
+      "url": "/policy/sections/08_Taxes_Fees_Tariffs_and_Public_Investment/",
+      "category": "🧾 Taxes, Fees, Tariffs & Public Investment"
+    },
+    {
+      "id": "09_Consumer_Responsibility_and_Fraud",
+      "title": "Section 9 — Consumer Responsibility, Waste Prevention & Anti-Fraud Protections",
+      "url": "/policy/sections/09_Consumer_Responsibility_and_Fraud/",
+      "category": "🛒 Consumer Responsibility & Fraud"
+    },
+    {
+      "id": "10_Education_Access_Credit_Mobility_and_Student_Protections",
+      "title": "Section 10 — Education Access, Credit Mobility & Student Protections",
+      "url": "/policy/sections/10_Education_Access_Credit_Mobility_and_Student_Protections/",
+      "category": "🎓 Education Access, Credit Mobility & Student Protections"
+    },
+    {
+      "id": "11_Enforcement_Remedies_and_Accountability",
+      "title": "Section 11 — Enforcement, Remedies & Accountability",
+      "url": "/policy/sections/11_Enforcement_Remedies_and_Accountability/",
+      "category": "⚖️ Enforcement & Accountability"
+    }
+  ]
+}

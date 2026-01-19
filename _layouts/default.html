@@ -218,7 +218,7 @@
       "documents": [
         { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
         {% for s in site.data.sections %}
-        ,{ "id": "section-{{ forloop.index }}", "title": "{{ s.sectionTitle | escape }}", "url": "{{ s.url | relative_url }}", "category": "{{ s.category | escape }}" }
+        ,{ "id": "section-{{ forloop.index }}", "title": "{{ s.sectionTitle | jsonify }}", "url": "{{ s.url | relative_url }}", "category": "{{ s.category | jsonify }}" }
         {% endfor %}
       ]
     }

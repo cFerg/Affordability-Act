@@ -41,7 +41,7 @@ a:hover { text-decoration: underline; }
 :root{
   --sticky-nav-h: 56px;
   --sticky-nav-gap: 12px;
-  --vv-bottom: 0px; /* set by JS via visualViewport (if enabled) */
+  --vv-bottom: 0px; /* optionally set by JS via visualViewport */
   --sticky-space: calc(var(--sticky-nav-h) + var(--sticky-nav-gap) + 18px + env(safe-area-inset-bottom, 0px) + var(--vv-bottom));
 }
 
@@ -152,7 +152,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   text-decoration: none;
   white-space: nowrap;
   box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-  transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out;
+  transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out, filter .15s ease-out;
 }
 .btn span { pointer-events: none; }
 .btn:hover {
@@ -163,20 +163,37 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 .btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
 
-/* Big CTA */
-.home-actions--primary { justify-content: center; }
-.home-actions--center { justify-content: center; }
+/* Primary CTA: bigger + electric glow */
+.home-actions--primary { align-items: center; justify-content: center; }
+
 .btn-primary-cta {
-  min-width: min(620px, 100%);
-  justify-content: center;
   position: relative;
+  isolation: isolate;
   padding: 11px 18px;
   font-size: 1.05rem;
+  min-width: min(560px, 100%);
+  justify-content: center;
   border-color: rgba(123, 180, 255, 0.45);
   box-shadow: 0 10px 34px rgba(0,0,0,0.45);
   background: radial-gradient(circle at 20% 0, rgba(29,78,216,0.55), rgba(2,6,23,1) 60%);
   overflow: hidden;
 }
+
+/* Outer “emission” aura */
+.btn-primary-cta::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(123,180,255,0.35), rgba(123,180,255,0.0) 60%);
+  filter: blur(10px);
+  opacity: 0.85;
+  z-index: -1;
+  pointer-events: none;
+  animation: cta-pulse 1.8s ease-in-out infinite;
+}
+
+/* Spinning ring */
 .btn-primary-cta::after {
   content: "";
   position: absolute;
@@ -188,7 +205,19 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   animation: cta-spark 2.4s linear infinite;
   pointer-events: none;
 }
+
 @keyframes cta-spark { to { transform: rotate(360deg); } }
+@keyframes cta-pulse {
+  0%, 100% { transform: scale(0.98); opacity: 0.65; }
+  50% { transform: scale(1.02); opacity: 0.95; }
+}
+
+/* Toggle button: noticeable but smaller than CTA */
+#toggle-sections {
+  min-width: min(420px, 100%);
+  justify-content: center;
+  padding: 10px 16px;
+}
 
 /* --------------------------------------------------
    Home / Cover
@@ -228,17 +257,28 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   gap: 12px;
 }
 
+.home-actions--center { justify-content: center; }
+
 /* Category headers */
 .category-title{
   max-width: 860px;
   margin: 18px auto 10px;
-  font-size: 1.05rem;
-  font-weight: 650;
+  font-size: 1.08rem;
+  font-weight: 700;
   letter-spacing: 0.01em;
   opacity: 0.95;
+  text-align: center;
 }
 
-/* Section grid (wider + centered to avoid “offset” look) */
+@media (min-width: 1100px) {
+  .category-title {
+    font-size: 1.2rem;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Section grid (wider + centered) */
 .section-grid {
   max-width: 860px;
   margin: 0 auto 6px;
@@ -254,13 +294,20 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 @media (min-width: 1100px) {
-  .section-grid { max-width: 900px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: auto; margin-right: auto; }
-  .section-card { padding: 14px 16px; }
-  .category-title {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 22px;
-    margin-bottom: 14px;
+  .section-grid { max-width: 900px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Center small category groups in desktop 3-col grid (modern browsers) */
+@media (min-width: 1100px) {
+  .section-grid:has(> .section-card:nth-child(1):last-child) > .section-card {
+    grid-column: 2;
+  }
+
+  .section-grid:has(> .section-card:nth-child(2):last-child) > .section-card:nth-child(1) {
+    grid-column: 2;
+  }
+  .section-grid:has(> .section-card:nth-child(2):last-child) > .section-card:nth-child(2) {
+    grid-column: 3;
   }
 }
 
@@ -273,8 +320,11 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   flex-direction: column;
 }
 
-.section-card__title { font-weight: 600; margin-bottom: 8px; }
+@media (min-width: 1100px) {
+  .section-card { padding: 14px 16px; }
+}
 
+.section-card__title { font-weight: 600; margin-bottom: 8px; }
 .section-card .btn { margin-top: auto; }
 
 /* --------------------------------------------------

@@ -1,36 +1,38 @@
-name: Build Bill Text
+name: Build policy artifacts
 
 on:
   push:
+    branches: [ main ]
     paths:
-      - 'policy/**'
-      - 'sections.json'
-      - 'tools/build_docs.py'
-  workflow_dispatch: {}
+      - "policy/**"
+      - "tools/build_docs.py"
+
+permissions:
+  contents: write
 
 jobs:
-  build-docs:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
-      - name: Build compiled bill
-        run: python3 tools/build_docs.py
-
-      - name: Commit compiled bill if changed
+      - name: Generate docs
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add policy/bill-text.md
-          git diff --cached --quiet || git commit -m "chore(build): update compiled bill [skip ci]"
-          git push
+          python tools/build_docs.py
 
-      - name: Inspect generated outputs
-        run: echo "PWD=$(pwd)" && ls -la && ls -la _data || true
+      - name: Commit generated files
+        run: |
+          git config user.name "AffordAct Bot"
+          git config user.email "bot@affordact.com"
+          git add _data/sections.json policy/bill-text.md search.json
+          git diff --cached --quiet || git commit -m "Auto-generate bill and section data"
+
+      - name: Push changes
+        run: git push

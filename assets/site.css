@@ -254,7 +254,14 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 @media (min-width: 1100px) {
-  .section-grid { max-width: 1040px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .section-grid { max-width: 900px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-left: auto; margin-right: auto; }
+  .section-card { padding: 14px 16px; }
+  .category-title {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
 }
 
 .section-card {

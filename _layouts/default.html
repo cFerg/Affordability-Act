@@ -222,7 +222,10 @@
               {%- assign ord = s.order | default: 9999 | plus: 0 -%}
               {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
               {%- assign title = (s.sectionTitle | default: s.slug | default: "Section") -%}
-              {%- assign url = (s.url | default: "/policy/sections/" | append: s.slug | append: "/") -%}
+              {%- assign url = s.url | default: "" -%}
+                {%- if url == "" -%}
+                  {%- assign url = "/policy/sections/" | append: s.slug | append: "/" -%}
+                {%- endif -%}
               {%- assign cat = (s.category | default: "Sections") -%}
               {%- assign key = ord_key | append: "||" | append: title | append: "||" | append: url | append: "||" | append: cat -%}
             {%- else -%}

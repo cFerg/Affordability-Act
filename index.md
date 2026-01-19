@@ -41,7 +41,10 @@ description: A model framework to align prices with wages and real conditions â€
         {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
         {%- assign cat = s.category | default: "Sections" -%}
         {%- assign title = s.sectionTitle | default: s.slug | default: "Section" -%}
-        {%- assign url = s.url | default: "/policy/sections/" | append: s.slug | append: "/" -%}
+        {%- assign url = s.url | default: "" -%}
+          {%- if url == "" -%}
+            {%- assign url = "/policy/sections/" | append: s.slug | append: "/" -%}
+          {%- endif -%}
         {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
       {%- else -%}
         {%- assign filename = s -%}

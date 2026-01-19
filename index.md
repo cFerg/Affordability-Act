@@ -29,16 +29,9 @@ description: A model framework to align prices with wages and real conditions â€
 
 <!-- Individual sections (hidden by default; toggled by JS) -->
 <div id="sections-grid" hidden aria-live="polite" aria-busy="false">
-
   {% assign sections_data = site.data.sections %}
 
   {% if sections_data and sections_data.size > 0 %}
-
-    {%- comment -%}
-      Support BOTH formats:
-      A) Rich objects: { order, category, sectionTitle, url }
-      B) Legacy strings: "01_Foo_Bar.md"
-    {%- endcomment -%}
 
     {%- assign keyed = "" | split: "" -%}
 
@@ -51,7 +44,6 @@ description: A model framework to align prices with wages and real conditions â€
         {%- assign url = s.url | default: "/policy/sections/" | append: s.slug | append: "/" -%}
         {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
       {%- else -%}
-        {%- comment -%}Legacy string like "01_Name.md"{%- endcomment -%}
         {%- assign filename = s -%}
         {%- assign slug = filename | replace: ".md", "" -%}
         {%- assign ord = slug | slice: 0, 2 | plus: 0 -%}
@@ -89,10 +81,7 @@ description: A model framework to align prices with wages and real conditions â€
     {%- endfor -%}
     {%- if current_cat != "" -%}</div>{%- endif -%}
 
-  {% else %}
-    <p class="muted" style="max-width:75ch;margin:12px auto;">No sections found.</p>
   {% endif %}
-
 </div>
 
 <hr class="home-divider">

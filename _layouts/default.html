@@ -5,9 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>
-    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
-  </title>
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif site.description %}{{ site.description | escape }}{% else %}{{ site.title }}{% endif %}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
@@ -66,7 +64,6 @@
 
         <div class="site-header__right">
           {% if page.url == '/' %}
-            {% comment %} Home page: global search (opens modal) {% endcomment %}
             <div class="header-search">
               <label class="mono sr-only" for="global-search-input">Search across the bill</label>
               <input
@@ -78,7 +75,6 @@
               />
             </div>
           {% elsif page.url contains '/policy/bill-text' or page.url contains '/policy/sections/' %}
-            {% comment %} Bill/sections: in-page highlight search {% endcomment %}
             <div class="header-search">
               <label class="mono sr-only" for="page-search">Search this page</label>
               <input
@@ -214,14 +210,17 @@
     </div>
 
     <script id="global-search-index" type="application/json">
-    {
-      "documents": [
-        { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
-        {% for s in site.data.sections %}
-        ,{ "id": "section-{{ forloop.index }}", "title": "{{ s.sectionTitle | jsonify }}", "url": "{{ s.url | relative_url }}", "category": "{{ s.category | jsonify }}" }
-        {% endfor %}
-      ]
-    }
+{
+  "documents": [
+    { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
+    {% for s in site.data.sections %}
+    ,{ "id": "section-{{ forloop.index }}",
+       "title": {{ s.sectionTitle | jsonify }},
+       "url": "{{ s.url | relative_url }}",
+       "category": {{ s.category | jsonify }} }
+    {% endfor %}
+  ]
+}
     </script>
   {% endif %}
 

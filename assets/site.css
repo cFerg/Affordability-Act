@@ -163,6 +163,30 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 .btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
 
+/* Big CTA */
+.home-actions--primary { align-items: center; }
+.btn-primary-cta {
+  position: relative;
+  padding: 11px 18px;
+  font-size: 1.05rem;
+  border-color: rgba(123, 180, 255, 0.45);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.45);
+  background: radial-gradient(circle at 20% 0, rgba(29,78,216,0.55), rgba(2,6,23,1) 60%);
+  overflow: hidden;
+}
+.btn-primary-cta::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, rgba(123,180,255,0.0), rgba(123,180,255,0.75), rgba(123,180,255,0.0));
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: cta-spark 2.4s linear infinite;
+  pointer-events: none;
+}
+@keyframes cta-spark { to { transform: rotate(360deg); } }
+
 /* --------------------------------------------------
    Home / Cover
 -------------------------------------------------- */
@@ -203,7 +227,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 
 /* Category headers */
 .category-title{
-  max-width: 75ch;
+  max-width: 860px;
   margin: 18px auto 10px;
   font-size: 1.05rem;
   font-weight: 650;
@@ -211,16 +235,15 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   opacity: 0.95;
 }
 
-/* Section grid */
+/* Section grid (wider + centered to avoid “offset” look) */
 .section-grid {
-  max-width: 75ch;
+  max-width: 860px;
   margin: 0 auto 6px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 12px;
-
-  /* Fix “dangling card” look: center each cell */
-  justify-items: center;
+  justify-content: center;
+  justify-items: stretch;
 }
 
 @media (min-width: 700px) {
@@ -228,13 +251,10 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 @media (min-width: 1100px) {
-  /* Optional: 3 columns on very wide screens looks great and reduces “offset” perception */
-  .section-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .section-grid { max-width: 1040px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 .section-card {
-  width: 100%;
-  max-width: 360px;
   border-radius: 12px;
   background: radial-gradient(circle at 0 0, #111827, #020617 60%);
   border: 1px solid rgba(255,255,255,0.09);
@@ -280,7 +300,7 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
 }
 
 /* --------------------------------------------------
-   Sticky footer navigation (bill/sections)
+   Sticky footer navigation
 -------------------------------------------------- */
 
 .sticky-nav {
@@ -327,33 +347,11 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   display: block;
 }
 
-.sticky-nav__btn:hover {
-  text-decoration: none;
-  background: rgba(29, 78, 216, 0.25);
-}
-
+.sticky-nav__btn:hover { text-decoration: none; background: rgba(29, 78, 216, 0.25); }
 .sticky-nav__btn.is-disabled { opacity: 0.35; pointer-events: none; }
 
 @media (max-width: 899px) {
-  .sticky-nav {
-    background: rgba(8, 12, 18, 0.42);
-    box-shadow: 0 6px 22px rgba(0,0,0,0.35);
-  }
-}
-
-@media (max-width: 899px) {
-  /* Bill-only hide-until-scroll support (if enabled in your JS) */
-  .sticky-nav--bill {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-50%) translateY(10px);
-    transition: opacity 0.18s ease-out, transform 0.18s ease-out;
-  }
-  .sticky-nav--bill.is-visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-  }
+  .sticky-nav { background: rgba(8, 12, 18, 0.42); box-shadow: 0 6px 22px rgba(0,0,0,0.35); }
 }
 
 /* --------------------------------------------------
@@ -368,7 +366,6 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   color: rgba(233,237,241,0.7);
   text-align: center;
 }
-
 .site-footer .shell { display: flex; justify-content: center; }
 
 /* --------------------------------------------------
@@ -425,7 +422,6 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   align-items: center;
   justify-content: space-between;
 }
-
 .search-modal__header h2 { margin: 0; font-size: 1rem; }
 
 .search-modal__close {
@@ -453,10 +449,7 @@ form input::placeholder, form textarea::placeholder { color: rgba(233,237,241,0.
   background: #020617;
   color: #e9edf1;
 }
-
-.search-modal__search-row input[type="search"]::placeholder {
-  color: rgba(233,237,241,0.65);
-}
+.search-modal__search-row input[type="search"]::placeholder { color: rgba(233,237,241,0.65); }
 
 body.search-modal-open { overflow: hidden; }
 
@@ -464,10 +457,7 @@ body.search-modal-open { overflow: hidden; }
    Light theme overrides
 -------------------------------------------------- */
 
-body.theme-light {
-  background: #f5f5f7;
-  color: #111827;
-}
+body.theme-light { background: #f5f5f7; color: #111827; }
 
 body.theme-light .site-header {
   background: linear-gradient(180deg, #ffffff, #e5e7eb);
@@ -545,11 +535,6 @@ body.theme-light .sticky-nav {
   background: rgba(255,255,255,0.58);
   box-shadow: 0 10px 30px rgba(15,23,42,0.18);
 }
-
-@media (max-width: 899px) {
-  body.theme-light .sticky-nav { background: rgba(255,255,255,0.42); }
-}
-
 body.theme-light .sticky-nav__btn {
   border-color: rgba(15,23,42,0.16);
   background: rgba(255,255,255,0.55);

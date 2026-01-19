@@ -17,11 +17,12 @@ description: A model framework to align prices with wages and real conditions â€
 
 <hr class="home-divider">
 
+<div class="home-actions home-actions--primary">
+  <a class="btn btn-primary-cta" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
+  <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Send feedback</span></a>
+</div>
+
 <div class="home-actions">
-  <a class="btn" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
-
-  <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Submit feedback</span></a>
-
   <button class="btn" id="toggle-sections" type="button" aria-expanded="false">
     <span>Show individual sections</span>
   </button>
@@ -34,40 +35,41 @@ description: A model framework to align prices with wages and real conditions â€
 
   {% if sections_data and sections_data.size > 0 %}
     {%- comment -%}
-      Order goal:
-      - Sections ordered by numeric "order"
-      - Categories ordered by the first section number in that category
+      Robust numeric ordering (prevents 10/11 appearing before 1..9):
+      Build padded keys: 0001, 0010, 0011 ...
+      Then stream and open/close category grids as category changes.
     {%- endcomment -%}
 
-    {% assign ordered = sections_data | sort: "order" %}
-    {% assign grouped = ordered | group_by: "category" %}
-
-    {%- assign group_keys = "" | split: "" -%}
-    {%- for g in grouped -%}
-      {%- assign first_item = g.items | sort: "order" | first -%}
-      {%- assign key = first_item.order | append: "||" | append: g.name -%}
-      {%- assign group_keys = group_keys | push: key -%}
+    {%- assign keyed = "" | split: "" -%}
+    {%- for s in sections_data -%}
+      {%- assign ord = s.order | plus: 0 -%}
+      {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
+      {%- assign key = ord_key | append: "||" | append: s.category | append: "||" | append: s.sectionTitle | append: "||" | append: s.url -%}
+      {%- assign keyed = keyed | push: key -%}
     {%- endfor -%}
+    {%- assign keyed = keyed | sort -%}
 
-    {%- assign group_keys = group_keys | sort -%}
-
-    {%- for key in group_keys -%}
-      {%- assign parts = key | split: "||" -%}
+    {%- assign current_cat = "" -%}
+    {%- for row in keyed -%}
+      {%- assign parts = row | split: "||" -%}
       {%- assign cat = parts[1] -%}
-      {%- assign g = grouped | where: "name", cat | first -%}
+      {%- assign title = parts[2] -%}
+      {%- assign url = parts[3] -%}
 
-      <h3 class="category-title">{{ g.name }}</h3>
+      {%- if cat != current_cat -%}
+        {%- if current_cat != "" -%}</div>{%- endif -%}
+        <h3 class="category-title">{{ cat }}</h3>
+        <div class="section-grid">
+        {%- assign current_cat = cat -%}
+      {%- endif -%}
 
-      <div class="section-grid">
-        {% assign items_sorted = g.items | sort: "order" %}
-        {% for s in items_sorted %}
-          <div class="section-card">
-            <div class="section-card__title">{{ s.sectionTitle }}</div>
-            <a class="btn" href="{{ s.url | relative_url }}"><span>Open</span></a>
-          </div>
-        {% endfor %}
+      <div class="section-card">
+        <div class="section-card__title">{{ title }}</div>
+        <a class="btn" href="{{ url | relative_url }}"><span>Open</span></a>
       </div>
+
     {%- endfor -%}
+    {%- if current_cat != "" -%}</div>{%- endif -%}
 
   {% else %}
     <!-- Fallback: build list from pages if _data/sections.json isn't available -->
@@ -93,10 +95,11 @@ description: A model framework to align prices with wages and real conditions â€
 <div class="cover">
   <h2>Contribute</h2>
   <p class="muted">
-    Have a proposal, correction, or example to add? Use the submission page to send feedback without needing an account.
+    Help keep the project online and accessible. Donations can support domain costs, hosting, outreach materials, and future submission tooling.
   </p>
   <div class="home-actions" style="margin: 12px auto 0;">
-    <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Open submission form</span></a>
+    <a class="btn" href="{{ '/donate/' | relative_url }}"><span>Donate</span></a>
+    <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Send feedback</span></a>
     <a class="btn" href="{{ site.github.repository_url | default: 'https://github.com/cFerg/Affordability-Act' }}"><span>View GitHub repo</span></a>
   </div>
 </div>

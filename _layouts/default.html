@@ -214,16 +214,14 @@
     </div>
 
     <script id="global-search-index" type="application/json">
-      {
-        "documents": [
-          { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
-          {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-          {% assign sect_pages = sect_pages | sort: 'path' %}
-          {% for p in sect_pages %}
-          ,{ "id": "section-{{ forloop.index }}", "title": "{{ p.title | default: p.url | escape }}", "url": "{{ p.url | relative_url }}" }
-          {% endfor %}
-        ]
-      }
+    {
+      "documents": [
+        { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
+        {% for s in site.data.sections %}
+        ,{ "id": "section-{{ forloop.index }}", "title": "{{ s.sectionTitle | escape }}", "url": "{{ s.url | relative_url }}", "category": "{{ s.category | escape }}" }
+        {% endfor %}
+      ]
+    }
     </script>
   {% endif %}
 

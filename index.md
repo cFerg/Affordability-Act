@@ -22,35 +22,20 @@ title: Affordability Act
 
 <!-- Server-side fallback list from _data/sections.json -->
 <div class="section-grid" id="sections-grid" hidden aria-live="polite" aria-busy="true">
-  {% if site.data.sections and site.data.sections.size > 0 %}
-    {% comment %}Use precomputed list from _data/sections.json{% endcomment %}
-    {% for f in site.data.sections %}
-      {% assign slug = f | replace: '.md','' %}
-      {% assign pretty = slug | replace: '_',' ' | replace: '-',' ' %}
+{% assign grouped = site.data.sections | group_by: "category" %}
+
+{% for g in grouped %}
+  <h3 class="category-title">{{ g.name }}</h3>
+
+  <div class="section-grid">
+    {% for s in g.items %}
       <div class="section-card">
-        <div class="section-card__title">
-          {{ pretty | replace_regex: '^[0-9]+\\s*','' }}
-        </div>
-        <a class="btn" href="{{ '/policy/sections/' | append: slug | append: '/' | relative_url }}">
-          <span>Open</span>
-        </a>
+        <div class="section-card__title">{{ s.sectionTitle }}</div>
+        <a class="btn" href="{{ s.url | relative_url }}"><span>Open</span></a>
       </div>
     {% endfor %}
-  {% else %}
-    {% comment %}Fallback: discover section pages from site.pages{% endcomment %}
-    {% assign sect_pages = site.pages | where_exp: "p", "p.path contains 'policy/sections/'" %}
-    {% assign sect_pages = sect_pages | sort: 'path' %}
-    {% for p in sect_pages %}
-      {% assign slug = p.url | split:'/' | last | default:p.name | replace:'.html','' %}
-      {% assign pretty = slug | replace:'_',' ' | replace:'-',' ' | replace_regex:'^[0-9]+\\s*','' %}
-      <div class="section-card">
-        <div class="section-card__title">{{ pretty }}</div>
-        <a class="btn" href="{{ p.url | relative_url }}">
-          <span>Open</span>
-        </a>
-      </div>
-    {% endfor %}
-  {% endif %}
+  </div>
+{% endfor %}
 </div>
 
 <hr class="home-divider">

@@ -2,7 +2,7 @@
 layout: default
 title: Affordability Act
 permalink: /
-description: A model framework to align prices with wages and real conditions — built in public.
+description: A public proposal to help keep everyday prices fair — by comparing costs to real wages and real conditions.
 ---
 
 <div class="cover">
@@ -12,78 +12,101 @@ description: A model framework to align prices with wages and real conditions �
 
 <div class="act-intro">
   <strong>What is this?</strong> This site hosts the public, version-controlled text of the Affordability Act.
-  Read the full compiled bill or browse individual sections.
+  Read the full compiled bill or browse by category.
 </div>
 
 <hr class="home-divider">
 
 <div class="home-actions home-actions--primary">
-  <a class="btn btn-primary-cta" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
+  <span class="halo halo-cta">
+    <a class="btn btn-primary-cta" href="{{ '/policy/bill-text/' | relative_url }}"><span>Read full bill</span></a>
+  </span>
 </div>
 
-<div class="home-actions home-actions--center">
-  <button class="btn" id="toggle-sections" type="button" aria-expanded="false">
-    <span>Show individual sections</span>
-  </button>
-</div>
-
-<!-- Individual sections (hidden by default; toggled by JS) -->
-<div id="sections-grid" hidden aria-live="polite" aria-busy="false">
+<!-- Categories always shown; only multi-section categories accordion -->
+<div class="home-sections" id="home-sections" aria-live="polite">
   {% assign sections_data = site.data.sections %}
-
   {% if sections_data and sections_data.size > 0 %}
 
     {%- assign keyed = "" | split: "" -%}
-
     {%- for s in sections_data -%}
-      {%- if s.slug or s.url or s.sectionTitle -%}
-        {%- assign ord = s.order | default: 9999 | plus: 0 -%}
-        {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
-        {%- assign cat = s.category | default: "Sections" -%}
-        {%- assign title = s.sectionTitle | default: s.slug | default: "Section" -%}
-        {%- assign url = s.url | default: "" -%}
-          {%- if url == "" -%}
-            {%- assign url = "/policy/sections/" | append: s.slug | append: "/" -%}
-          {%- endif -%}
-        {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
-      {%- else -%}
-        {%- assign filename = s -%}
-        {%- assign slug = filename | replace: ".md", "" -%}
-        {%- assign ord = slug | slice: 0, 2 | plus: 0 -%}
-        {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
-        {%- assign cat = "Sections" -%}
-        {%- assign title = slug | replace: "_", " " | replace: "-", " " -%}
-        {%- assign url = "/policy/sections/" | append: slug | append: "/" -%}
-        {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
+      {%- assign ord = s.order | default: 9999 | plus: 0 -%}
+      {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
+      {%- assign cat = s.category | default: "Sections" -%}
+      {%- assign title = s.sectionTitle | default: s.slug | default: "Section" -%}
+      {%- assign url = s.url | default: "" -%}
+      {%- if url == "" -%}
+        {%- assign url = "/policy/sections/" | append: s.slug | append: "/" -%}
       {%- endif -%}
-
+      {%- assign key = ord_key | append: "||" | append: cat | append: "||" | append: title | append: "||" | append: url -%}
       {%- assign keyed = keyed | push: key -%}
     {%- endfor -%}
 
     {%- assign keyed = keyed | sort -%}
 
+    {%- comment -%}
+      We build a structure by streaming sorted rows and grouping in Liquid.
+      For each category we render:
+        - a header button
+        - an inner list of section buttons
+      JS will auto-collapse categories with >1 section.
+      Categories with exactly 1 section become direct links.
+    {%- endcomment -%}
+
     {%- assign current_cat = "" -%}
+    {%- assign current_items = "" -%}
+    {%- assign current_count = 0 -%}
+
     {%- for row in keyed -%}
       {%- assign parts = row | split: "||" -%}
       {%- assign cat = parts[1] -%}
       {%- assign title = parts[2] -%}
       {%- assign url = parts[3] -%}
 
-      {%- if cat != current_cat -%}
-        {%- if current_cat != "" -%}</div>{%- endif -%}
-        <h3 class="category-title">{{ cat }}</h3>
-        <div class="section-grid">
-        {%- assign current_cat = cat -%}
+      {%- if cat != current_cat and current_cat != "" -%}
+        <section class="cat-block" data-cat-block>
+          <button class="cat-header" type="button" data-cat-toggle aria-expanded="true">
+            <span class="cat-title">{{ current_cat }}</span>
+            <span class="cat-meta" data-cat-meta></span>
+            <span class="cat-chevron" aria-hidden="true">▾</span>
+          </button>
+
+          <div class="cat-body" data-cat-body>
+            {{ current_items }}
+          </div>
+        </section>
+
+        {%- assign current_items = "" -%}
+        {%- assign current_count = 0 -%}
       {%- endif -%}
 
-      <div class="section-card">
-        <div class="section-card__title">{{ title }}</div>
-        <a class="btn" href="{{ url | relative_url }}"><span>Open</span></a>
-      </div>
+      {%- assign current_cat = cat -%}
+      {%- capture add_item -%}
+        <a class="btn section-btn" href="{{ url | relative_url }}"><span>{{ title }}</span></a>
+      {%- endcapture -%}
+      {%- assign current_items = current_items | append: add_item -%}
+      {%- assign current_count = current_count | plus: 1 -%}
+
+      {%- if forloop.last -%}
+        <section class="cat-block" data-cat-block>
+          <button class="cat-header" type="button" data-cat-toggle aria-expanded="true">
+            <span class="cat-title">{{ current_cat }}</span>
+            <span class="cat-meta" data-cat-meta></span>
+            <span class="cat-chevron" aria-hidden="true">▾</span>
+          </button>
+
+          <div class="cat-body" data-cat-body>
+            {{ current_items }}
+          </div>
+        </section>
+      {%- endif -%}
 
     {%- endfor -%}
-    {%- if current_cat != "" -%}</div>{%- endif -%}
 
+  {% else %}
+    <div class="cover">
+      <p class="muted">No sections found yet.</p>
+    </div>
   {% endif %}
 </div>
 

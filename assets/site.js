@@ -1,347 +1,354 @@
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  initThemeToggle();
-  initSectionToggle();
-  initPageSearch();
-  initGlobalSearch();
-  initStickyNav();
-  initVisualViewportBottomFix();
-});
+(() => {
+  "use strict";
 
-function initTheme() {
-  const saved = localStorage.getItem("aa-theme");
-  if (saved === "light") document.body.classList.add("theme-light");
-  else document.body.classList.remove("theme-light");
-}
+  // ---------------------------
+  // Theme: default to system
+  // - If no saved choice, do nothing and let CSS @media control
+  // - If saved "light", apply body.theme-light
+  // - If saved "dark", remove body.theme-light
+  // Toggle button: click toggles light/dark and saves
+  // Shift-click: reset to system (clears saved)
+  // ---------------------------
+  const THEME_KEY = "affordact_theme"; // "light" | "dark" | "system" | null
+  const body = document.body;
 
-function initThemeToggle() {
-  const btn = document.getElementById("theme-toggle");
-  if (!btn) return;
-  btn.addEventListener("click", () => {
-    const isLight = document.body.classList.contains("theme-light");
-    document.body.classList.toggle("theme-light", !isLight);
-    localStorage.setItem("aa-theme", isLight ? "dark" : "light");
-  });
-}
-
-function initSectionToggle() {
-  const toggleBtn = document.querySelector("#toggle-sections");
-  const grid = document.querySelector("#sections-grid");
-  if (!toggleBtn || !grid) return;
-
-  const updateLabel = () => {
-    const isHidden = grid.hasAttribute("hidden");
-    const span = toggleBtn.querySelector("span");
-    if (span) span.textContent = isHidden ? "Show individual sections" : "Hide individual sections";
-    toggleBtn.setAttribute("aria-expanded", isHidden ? "false" : "true");
-  };
-
-  toggleBtn.addEventListener("click", () => {
-    if (grid.hasAttribute("hidden")) {
-      grid.removeAttribute("hidden");
-      grid.setAttribute("aria-busy", "false");
-    } else {
-      grid.setAttribute("hidden", "");
-    }
-    updateLabel();
-  });
-
-  updateLabel();
-}
-
-function initPageSearch() {
-  const searchInputs = document.querySelectorAll("[data-page-search]");
-  const searchRoot = document.querySelector(".content") || document.querySelector("[data-search-root]");
-  if (!searchRoot || !searchInputs.length) return;
-
-  searchInputs.forEach((input) => {
-    input.addEventListener("input", (e) => highlightTerm(searchRoot, e.target.value || ""));
-    input.addEventListener("search", (e) => highlightTerm(searchRoot, e.target.value || ""));
-  });
-
-  try {
-    const url = new URL(window.location.href);
-    const q = url.searchParams.get("q");
-    if (q && q.trim()) {
-      const term = q.trim();
-      searchInputs.forEach((i) => (i.value = term));
-      highlightTerm(searchRoot, term);
-      const firstHit = searchRoot.querySelector(".search-hit");
-      if (firstHit) firstHit.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  } catch {}
-}
-
-function clearHighlights(root) {
-  root.querySelectorAll(".search-hit").forEach((span) => {
-    const parent = span.parentNode;
-    if (!parent) return;
-    parent.replaceChild(document.createTextNode(span.textContent), span);
-    parent.normalize();
-  });
-}
-
-function highlightTerm(root, term) {
-  clearHighlights(root);
-  term = (term || "").trim();
-  if (!term) return;
-
-  const lowerTerm = term.toLowerCase();
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-
-  const hits = [];
-  let node;
-  while ((node = walker.nextNode())) {
-    if (!node.nodeValue.trim()) continue;
-    if (node.parentNode.closest(".search-hit")) continue;
-    const idx = node.nodeValue.toLowerCase().indexOf(lowerTerm);
-    if (idx !== -1) hits.push({ node, idx });
+  function getSystemIsLight() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
   }
 
-  hits.forEach(({ node, idx }) => {
-    const text = node.nodeValue;
-    const before = text.slice(0, idx);
-    const match = text.slice(idx, idx + term.length);
-    const after = text.slice(idx + term.length);
-
-    const frag = document.createDocumentFragment();
-    if (before) frag.appendChild(document.createTextNode(before));
-    const mark = document.createElement("span");
-    mark.className = "search-hit";
-    mark.textContent = match;
-    frag.appendChild(mark);
-    if (after) frag.appendChild(document.createTextNode(after));
-    node.parentNode.replaceChild(frag, node);
-  });
-}
-
-function initGlobalSearch() {
-  const headerInput = document.querySelector("[data-global-search]");
-  const modal = document.getElementById("global-search-modal");
-  const resultsEl = document.getElementById("global-search-results");
-  const indexScript = document.getElementById("global-search-index");
-  const modalInput = document.getElementById("global-search-modal-input");
-  if (!headerInput || !modal || !resultsEl || !indexScript || !modalInput) return;
-
-  let index;
-  try { index = JSON.parse(indexScript.textContent); }
-  catch (e) { console.error("Failed to parse global search index", e); return; }
-
-  const docs = index && Array.isArray(index.documents) ? index.documents : [];
-  const cache = {};
-
-  const preventScroll = (e) => {
-    const dialog = modal.querySelector(".search-modal__dialog");
-    if (dialog && !dialog.contains(e.target)) e.preventDefault();
-  };
-
-  const openModal = () => {
-    modal.removeAttribute("hidden");
-    document.body.classList.add("search-modal-open");
-    document.addEventListener("touchmove", preventScroll, { passive: false });
-    modalInput.value = headerInput.value || "";
-    modalInput.focus();
-    if (modalInput.value.trim()) debounced(modalInput.value);
-  };
-
-  const closeModal = () => {
-    modal.setAttribute("hidden", "");
-    document.body.classList.remove("search-modal-open");
-    document.removeEventListener("touchmove", preventScroll);
-  };
-
-  modal.querySelectorAll("[data-search-modal-close]").forEach((el) => {
-    el.addEventListener("click", (e) => { e.preventDefault(); closeModal(); });
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.hasAttribute("hidden")) closeModal();
-  });
-
-  headerInput.addEventListener("focus", openModal);
-  headerInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") { e.preventDefault(); openModal(); }
-  });
-
-  const loadDocText = async (doc) => {
-    if (cache[doc.url]) return cache[doc.url];
-    try {
-      const res = await fetch(doc.url, { credentials: "same-origin" });
-      if (!res.ok) return "";
-      const html = await res.text();
-      const parsed = new DOMParser().parseFromString(html, "text/html");
-      const contentEl = parsed.querySelector(".content") || parsed.body;
-      const text = (contentEl.textContent || "").replace(/\s+/g, " ").trim();
-      cache[doc.url] = text;
-      return text;
-    } catch (err) {
-      console.error("Fetch error", doc.url, err);
-      cache[doc.url] = "";
-      return "";
+  function applyTheme(mode) {
+    // mode: "light" | "dark" | "system"
+    if (mode === "light") body.classList.add("theme-light");
+    else if (mode === "dark") body.classList.remove("theme-light");
+    else {
+      // system: remove forced class, let CSS media decide
+      body.classList.remove("theme-light");
+      // NOTE: we are using media queries for the rest; body.theme-light only forces light
+      // If you ever add theme-dark, you can expand this.
     }
-  };
-
-  const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  const renderResults = async (term) => {
-    term = term.trim();
-    resultsEl.innerHTML = "";
-    resultsEl.classList.remove("has-results");
-    if (!term) return;
-
-    const lowerTerm = term.toLowerCase();
-    const regex = new RegExp(escapeRegExp(term), "gi");
-    const found = [];
-
-    for (const doc of docs) {
-      const text = cache[doc.url] || "";
-      const idx = text.toLowerCase().indexOf(lowerTerm);
-      if (idx === -1) continue;
-
-      const context = 90;
-      const start = Math.max(0, idx - context);
-      const end = Math.min(text.length, idx + term.length + context);
-      let snippet = text.slice(start, end).trim().replace(/\s+/g, " ");
-
-      const snippetHtml = snippet.replace(regex, (m) => `<mark class="search-hit">${m}</mark>`);
-      const urlWithQuery = doc.url + (doc.url.includes("?") ? "&" : "?") + "q=" + encodeURIComponent(term);
-      found.push({ title: doc.title, url: urlWithQuery, snippetHtml });
-    }
-
-    if (!found.length) {
-      resultsEl.innerHTML = `<p class="muted">No matches found for "<strong>${escapeHtml(term)}</strong>".</p>`;
-      return;
-    }
-
-    const frag = document.createDocumentFragment();
-    found.forEach((hit) => {
-      const div = document.createElement("div");
-      div.className = "global-search-result";
-      div.innerHTML = `
-        <a class="global-search-result__title" href="${hit.url}">${escapeHtml(hit.title)}</a>
-        <p class="global-search-result__snippet">${hit.snippetHtml}</p>
-      `;
-      frag.appendChild(div);
-    });
-
-    resultsEl.appendChild(frag);
-    resultsEl.classList.add("has-results");
-  };
-
-  let loadedAll = false;
-
-  const runSearch = async (term) => {
-    const t = term.trim();
-    if (!t) { resultsEl.innerHTML = ""; resultsEl.classList.remove("has-results"); return; }
-    if (!loadedAll) { loadedAll = true; await Promise.all(docs.map(loadDocText)); }
-    renderResults(t);
-  };
-
-  const debounced = debounce(runSearch, 250);
-  modalInput.addEventListener("input", (e) => debounced(e.target.value || ""));
-  modalInput.addEventListener("search", (e) => debounced(e.target.value || ""));
-}
-
-function escapeHtml(str) {
-  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-function debounce(fn, delay) {
-  let t = null;
-  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); };
-}
-
-function initStickyNav() {
-  const nav = document.querySelector("[data-sticky-nav]");
-  if (!nav) return;
-
-  const prev = nav.querySelector("[data-nav-prev]");
-  const next = nav.querySelector("[data-nav-next]");
-  const topBtn = nav.querySelector("[data-nav-top]");
-  const searchBtn = nav.querySelector("[data-nav-search]");
-
-  if (topBtn) {
-    topBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const el = document.scrollingElement || document.documentElement || document.body;
-      el.scrollTo({ top: 0, behavior: "smooth" });
-    });
   }
 
-  // Bill "Search": focus + select the header search input reliably (desktop + mobile)
-  if (searchBtn) {
-    searchBtn.addEventListener("click", (e) => {
-      e.preventDefault();
+  function loadTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (!saved || saved === "system") {
+      applyTheme("system");
+      return "system";
+    }
+    if (saved === "light" || saved === "dark") {
+      applyTheme(saved);
+      return saved;
+    }
+    applyTheme("system");
+    return "system";
+  }
 
-      const input = document.getElementById("page-search");
-      if (!input) return;
+  function saveTheme(mode) {
+    if (!mode || mode === "system") localStorage.removeItem(THEME_KEY);
+    else localStorage.setItem(THEME_KEY, mode);
+  }
 
-      // Smoothly bring it into view first (helps on desktop small windows too)
-      input.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  function initThemeToggle() {
+    const btn = document.getElementById("theme-toggle");
+    if (!btn) return;
 
-      // Some browsers need a tiny delay after scrollIntoView
-      setTimeout(() => {
-        try {
-          input.focus({ preventScroll: true });
-        } catch {
-          input.focus();
+    let mode = loadTheme(); // "system" | "light" | "dark"
+
+    // If system mode, infer current visible mode for the next toggle
+    function currentEffectiveMode() {
+      if (mode === "light") return "light";
+      if (mode === "dark") return "dark";
+      return getSystemIsLight() ? "light" : "dark";
+    }
+
+    btn.addEventListener("click", (e) => {
+      // Shift-click resets to system
+      if (e.shiftKey) {
+        mode = "system";
+        saveTheme(mode);
+        applyTheme(mode);
+        return;
+      }
+
+      const eff = currentEffectiveMode();
+      mode = (eff === "light") ? "dark" : "light";
+      saveTheme(mode);
+      applyTheme(mode);
+    });
+
+    // If user is in system mode and system theme changes while page is open
+    if (window.matchMedia) {
+      const mq = window.matchMedia("(prefers-color-scheme: light)");
+      mq.addEventListener?.("change", () => {
+        if (mode === "system") applyTheme("system");
+      });
+    }
+  }
+
+  // ---------------------------
+  // Home: Category accordion
+  // Rules:
+  // - If category has 1 section button: header becomes link to that section, no chevron
+  // - If category has >= 2 section buttons: start collapsed, header toggles expand/collapse
+  // ---------------------------
+  function initCategoryAccordion() {
+    const home = document.getElementById("home-sections");
+    if (!home) return;
+
+    const blocks = home.querySelectorAll("[data-cat-block]");
+    blocks.forEach((block) => {
+      const header = block.querySelector("[data-cat-toggle]");
+      const bodyEl = block.querySelector("[data-cat-body]");
+      const meta = block.querySelector("[data-cat-meta]");
+      const chevron = block.querySelector(".cat-chevron");
+
+      if (!header || !bodyEl) return;
+
+      const sectionLinks = bodyEl.querySelectorAll("a.section-btn");
+      const count = sectionLinks.length;
+
+      if (meta) meta.textContent = (count === 1 ? "1 section" : `${count} sections`);
+
+      if (count <= 1) {
+        // Convert header button -> link to the only section (if present)
+        if (count === 1) {
+          const href = sectionLinks[0].getAttribute("href") || "#";
+          const link = document.createElement("a");
+          link.className = header.className.replace("cat-header", "cat-header cat-header--link");
+          link.href = href;
+          link.innerHTML = header.innerHTML;
+          header.replaceWith(link);
+          // Body stays visible but we can hide it to avoid duplicate link display
+          bodyEl.style.display = "none";
+        } else {
+          // No sections: keep open, nothing to toggle
+          if (chevron) chevron.style.display = "none";
         }
-        // select existing text so it "feels focused"
-        if (typeof input.select === "function") input.select();
-      }, 80);
+        return;
+      }
+
+      // Collapse by default for multi-section categories
+      header.setAttribute("aria-expanded", "false");
+      bodyEl.hidden = true;
+
+      header.addEventListener("click", () => {
+        const isOpen = header.getAttribute("aria-expanded") === "true";
+        header.setAttribute("aria-expanded", String(!isOpen));
+        bodyEl.hidden = isOpen;
+      });
     });
   }
 
-  // Prevent clicking disabled placeholders
-  [prev, next].forEach((a) => {
-    if (!a) return;
-    if (a.classList.contains("is-disabled")) a.addEventListener("click", (e) => e.preventDefault());
-  });
+  // ---------------------------
+  // Sticky nav helpers (if present)
+  // - Back to top
+  // - Search focus
+  // ---------------------------
+  function initStickyNav() {
+    const nav = document.querySelector("[data-sticky-nav]");
+    if (!nav) return;
 
-  // Bill-only: hide until scroll on mobile
-  const isBill = nav.classList.contains("sticky-nav--bill");
-  const updateBillVisibility = () => {
-    if (!isBill) return;
-    if (window.innerWidth > 899) {
-      nav.classList.add("is-visible");
-      return;
+    const topBtn = nav.querySelector("[data-nav-top]");
+    const searchBtn = nav.querySelector("[data-nav-search]");
+
+    if (topBtn) {
+      topBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
-    const y = (document.scrollingElement || document.documentElement).scrollTop || 0;
-    nav.classList.toggle("is-visible", y > 120);
-  };
 
-  if (isBill) {
-    window.addEventListener("scroll", updateBillVisibility, { passive: true });
-    window.addEventListener("resize", updateBillVisibility);
-    updateBillVisibility();
+    if (searchBtn) {
+      searchBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const input = document.querySelector("input[data-page-search]");
+        if (input) input.focus();
+      });
+    }
   }
 
-  // Arrow keys navigate (avoid when typing)
-  document.addEventListener("keydown", (e) => {
-    const tag = e.target.tagName;
-    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+  // ---------------------------
+  // Page search highlighting (if you already have it)
+  // If not present in your current site.js, leave this alone.
+  // ---------------------------
+  function initPageSearch() {
+    const input = document.querySelector("input[data-page-search]");
+    if (!input) return;
 
-    if (e.key === "ArrowLeft" && prev && !prev.classList.contains("is-disabled") && prev.href) {
-      e.preventDefault();
-      window.location.href = prev.href;
-    } else if (e.key === "ArrowRight" && next && !next.classList.contains("is-disabled") && next.href) {
-      e.preventDefault();
-      window.location.href = next.href;
+    const root = document.querySelector(".content");
+    if (!root) return;
+
+    let lastMark = [];
+
+    function clearMarks() {
+      for (const m of lastMark) {
+        const parent = m.parentNode;
+        if (!parent) continue;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      }
+      lastMark = [];
     }
+
+    function markText(query) {
+      if (!query) return;
+
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          const p = node.parentElement;
+          if (!p) return NodeFilter.FILTER_REJECT;
+          if (p.closest(".search-modal, script, style, nav, button, input, textarea")) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      const q = query.toLowerCase();
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      for (const node of nodes) {
+        const text = node.nodeValue;
+        const low = text.toLowerCase();
+        let idx = low.indexOf(q);
+        if (idx === -1) continue;
+
+        const frag = document.createDocumentFragment();
+        let last = 0;
+
+        while (idx !== -1) {
+          frag.appendChild(document.createTextNode(text.slice(last, idx)));
+          const span = document.createElement("mark");
+          span.className = "search-hit";
+          span.textContent = text.slice(idx, idx + query.length);
+          frag.appendChild(span);
+          lastMark.push(span);
+          last = idx + query.length;
+          idx = low.indexOf(q, last);
+        }
+
+        frag.appendChild(document.createTextNode(text.slice(last)));
+        node.parentNode.replaceChild(frag, node);
+      }
+    }
+
+    let t = null;
+    input.addEventListener("input", () => {
+      const v = input.value.trim();
+      clearTimeout(t);
+      t = setTimeout(() => {
+        clearMarks();
+        if (v.length >= 2) markText(v);
+      }, 120);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        input.value = "";
+        clearMarks();
+        input.blur();
+      }
+    });
+  }
+
+  // ---------------------------
+  // Global search modal (home)
+  // - opens when the header global input is focused/typed
+  // ---------------------------
+  function initGlobalSearchModal() {
+    const trigger = document.querySelector("input[data-global-search]");
+    const modal = document.getElementById("global-search-modal");
+    const modalInput = document.getElementById("global-search-modal-input");
+    const resultsEl = document.getElementById("global-search-results");
+    const indexScript = document.getElementById("global-search-index");
+
+    if (!trigger || !modal || !modalInput || !resultsEl || !indexScript) return;
+
+    let index = null;
+    try {
+      index = JSON.parse(indexScript.textContent || "{}");
+    } catch {
+      index = null;
+    }
+    const docs = (index && Array.isArray(index.documents)) ? index.documents : [];
+
+    function openModal(prefill) {
+      document.body.classList.add("search-modal-open");
+      modal.hidden = false;
+      modalInput.value = prefill || "";
+      modalInput.focus();
+      render();
+    }
+
+    function closeModal() {
+      document.body.classList.remove("search-modal-open");
+      modal.hidden = true;
+      resultsEl.innerHTML = "";
+    }
+
+    function render() {
+      const q = modalInput.value.trim().toLowerCase();
+      if (!q) {
+        resultsEl.classList.remove("has-results");
+        resultsEl.innerHTML = "";
+        return;
+      }
+
+      const hits = [];
+      for (const d of docs) {
+        const t = String(d.title || "").toLowerCase();
+        const c = String(d.category || "").toLowerCase();
+        if (t.includes(q) || c.includes(q)) hits.push(d);
+      }
+
+      resultsEl.innerHTML = hits.slice(0, 40).map(d => {
+        const cat = d.category ? `<div class="muted" style="font-size:12px;margin-top:2px;">${escapeHtml(d.category)}</div>` : "";
+        return `
+          <div class="global-search-result">
+            <a class="global-search-result__title" href="${escapeAttr(d.url || '#')}">${escapeHtml(d.title || 'Untitled')}</a>
+            ${cat}
+          </div>
+        `;
+      }).join("");
+
+      resultsEl.classList.toggle("has-results", hits.length > 0);
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+    function escapeAttr(s) {
+      return escapeHtml(s).replaceAll("`", "&#96;");
+    }
+
+    // Open modal when user starts typing or focuses
+    trigger.addEventListener("focus", () => openModal(trigger.value));
+    trigger.addEventListener("input", () => openModal(trigger.value));
+
+    // Modal interactions
+    modal.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && (t.matches("[data-search-modal-close]") || t.closest("[data-search-modal-close]"))) closeModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (!modal.hidden && e.key === "Escape") closeModal();
+    });
+
+    modalInput.addEventListener("input", render);
+  }
+
+  // Boot
+  document.addEventListener("DOMContentLoaded", () => {
+    initThemeToggle();
+    initCategoryAccordion();
+    initStickyNav();
+    initPageSearch();
+    initGlobalSearchModal();
   });
-}
 
-function initVisualViewportBottomFix() {
-  if (!window.visualViewport) return;
-  const vv = window.visualViewport;
-
-  const update = () => {
-    const bottom = Math.max(0, window.innerHeight - (vv.height + vv.offsetTop));
-    document.documentElement.style.setProperty("--vv-bottom", `${bottom}px`);
-  };
-
-  vv.addEventListener("resize", update);
-  vv.addEventListener("scroll", update);
-  window.addEventListener("orientationchange", update);
-  update();
-}
+})();

@@ -79,6 +79,40 @@ Minimum usage fees or penalties unrelated to actual consumption are prohibited.
 
 ---
 
+### 7.5 Infrastructure Extension Cost Controls
+
+#### Plain-English Summary  
+Internet access is foundational to education, employment, and civic participation. Infrastructure extension fees must reflect real cost, not monopoly leverage.
+
+---
+
+**7.5.1 Cost-Based Installation Limits**
+Charges for extending infrastructure must be based on:
+- actual material cost,
+- documented labor,
+- reasonable profit margins.
+
+---
+
+**7.5.2 Prohibition on Extortionate Pricing**
+Per-foot pricing disconnected from material cost is prohibited.
+
+Infrastructure access may not be denied through artificially inflated fees.
+
+---
+
+#### Illustrative Example  
+A provider charges $11,000 to extend a line 350 feet where materials cost pennies per foot.  
+→ Prohibited pricing abuse.
+
+---
+
+#### Why This Exists  
+Digital exclusion drives inequality.  
+Access should be expanded, not ransomed.
+
+---
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Winter Rate Spike**  

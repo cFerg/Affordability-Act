@@ -111,28 +111,91 @@ when determining relief eligibility.
 
 ---
 
-### 11.6 Due Process & Appeals
+### 11.6 Government Shutdown Protections & Payment Immunity
 
-**11.6.1 Notice & Opportunity to Respond**  
+## Plain-English Summary  
+Government shutdowns must not be used as leverage against workers. Employees should not suffer financial penalties for political disputes beyond their control, nor should missed wages trigger cascading late fees or credit harm.
+
+---
+
+## Legal-Style Provisions
+
+**11.6.1 Wage Continuity Requirement**  
+During any government shutdown:
+- federal employees shall continue to accrue pay,
+- delayed wages must be paid retroactively in full.
+
+---
+
+**11.6.2 Accountability for Withheld Wages**  
+Where wage withholding causes:
+- late fees,
+- overdraft penalties,
+- credit harm,
+
+the withholding entity shall be responsible for resulting financial damages.
+
+---
+
+**11.6.3 Late Fee & Interest Immunity**  
+For the duration of wage withholding due to government shutdown:
+- late fees must be waived,
+- interest accrual must be paused,
+- penalties may not be applied.
+
+This applies to:
+- rent,
+- mortgages,
+- utilities,
+- loans,
+- insurance premiums.
+
+---
+
+**11.6.4 Deferment Without Accrual**  
+Deferments offered during shutdown periods must:
+- preserve original payment schedules,
+- accrue no additional interest or fees.
+
+---
+
+**11.6.5 Scope Limitation**  
+Protections apply only where:
+- wage interruption is involuntary,
+- and directly attributable to government shutdown.
+
+---
+
+## Why This Subsection Exists
+
+Workers should not bankroll political deadlock.
+
+Affordability collapses when missed pay triggers compounding penalties.
+
+---
+
+### 11.7 Due Process & Appeals
+
+**11.7.1 Notice & Opportunity to Respond**  
 Any enforcement action must provide:
 - written notice,
 - clear description of alleged violations,
 - opportunity to respond or cure.
 
-**11.6.2 Independent Review**  
+**11.7.2 Independent Review**  
 Affected parties are entitled to appeal enforcement actions before an independent body.
 
 ---
 
-### 11.7 Private Right of Action
+### 11.8 Private Right of Action
 
-**11.7.1 Individual Enforcement**  
+**11.8.1 Individual Enforcement**  
 Individuals harmed by violations of this Act may:
 - bring civil action,
 - seek restitution,
 - recover reasonable costs and fees.
 
-**11.7.2 Collective Remedies**  
+**11.8.2 Collective Remedies**  
 Where harm is widespread, collective or representative actions may be permitted.
 
 ---

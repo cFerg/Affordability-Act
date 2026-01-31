@@ -107,6 +107,44 @@ Employers must provide a minimum rest interval between shifts unless:
 
 ---
 
+### 5.7 Overtime Neutrality & Take-Home Protection
+
+## Plain-English Summary  
+Overtime should never reduce a worker’s effective hourly take-home pay. Tax and benefit structures that penalize additional work undermine labor availability, productivity, and fairness.
+
+---
+
+## Legal-Style Provisions
+
+**5.7.1 Take-Home Neutrality Rule**  
+Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
+
+---
+
+**5.7.2 Overtime Premium Protection**  
+The overtime premium portion of pay (above base wage) shall be:
+- taxed at a reduced marginal rate, or
+- deferred for tax calculation purposes,
+to preserve take-home fairness.
+
+---
+
+**5.7.3 Benefit Cliff Safeguard**  
+Overtime earnings may not automatically trigger:
+- loss of essential benefits,
+- abrupt benefit phase-outs,
+- or punitive contribution increases.
+
+Benefit eligibility must consider sustained income, not temporary overtime spikes.
+
+---
+
+## Why This Subsection Exists
+
+When working more results in earning less, systems are broken.
+
+This provision restores **work incentive without removing tax fairness**.
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Constructive Discharge**  

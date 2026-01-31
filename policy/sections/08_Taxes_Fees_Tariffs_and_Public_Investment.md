@@ -108,6 +108,60 @@ Agencies must publish affordability-related outcomes of public research investme
 
 ---
 
+### 8.7 Waste Management, Recycling & Energy Recovery
+
+## Plain-English Summary  
+Waste mismanagement increases public costs, consumes land, and inflates energy prices. This subsection establishes a tiered responsibility model for recycling and requires domestic waste processing that converts refuse into usable energy where feasible.
+
+---
+
+## Legal-Style Provisions
+
+**8.7.1 Tiered Recycling Responsibility**  
+Recycling infrastructure responsibility shall be assigned in the following order:
+1. local municipality,
+2. county authority,
+3. state authority.
+
+Where a lower level lacks funding or facilities, responsibility automatically escalates upward.
+
+---
+
+**8.7.2 Mandatory Recycling Access**  
+Residents must be provided reasonable access to recycling services without punitive fees.
+
+Failure to provide access shifts responsibility to the next governing tier.
+
+---
+
+**8.7.3 Domestic Waste Processing Requirement**  
+Recyclable and non-hazardous waste may not be exported overseas for disposal.
+
+Where feasible, waste shall be:
+- recycled domestically, or
+- processed through waste-to-energy systems for fuel and power generation.
+
+---
+
+**8.7.4 Landfill Reduction & Energy Offset**  
+Waste-to-energy output may be credited toward:
+- local energy supply,
+- grid stabilization,
+- public utility cost offsets.
+
+---
+
+## Why This Subsection Exists
+
+Exporting waste hides costs, wastes land, and raises energy prices.
+
+Domestic recycling and energy recovery:
+- reduce landfills,
+- supplement power generation,
+- and lower long-term public costs.
+
+---
+
 ## Section-Wide Examples (Illustrative)
 
 **Example 1: Tax Inflation**  
@@ -117,6 +171,10 @@ A property’s tax bill rises sharply despite no improvements.
 **Example 2: Research Cuts**  
 Funding cuts force an agency to raise visitor prices to survive.  
 → Violates public investment protections.
+
+**Example 3: Waste Management Issues**  
+Waste mismanagement increases public costs, consumes land, and inflates energy prices.  
+→ Domino effects issues for future generations.
 
 ---
 

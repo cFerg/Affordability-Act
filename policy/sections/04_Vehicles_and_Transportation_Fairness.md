@@ -97,6 +97,55 @@ Individuals may not be billed out-of-pocket for emergency transport beyond stand
 
 ---
 
+### 4.6 Fuel Quality & Efficiency Protection
+
+#### Plain-English Summary  
+Fuel pricing is meaningless without fuel quality. This subsection prevents deceptive fuel practices that reduce mileage and increase consumer cost despite unchanged pump prices.
+
+---
+
+#### Legal-Style Provisions
+
+**4.6.1 Fuel Quality Disclosure**  
+Fuel retailers must disclose:
+- ethanol content,
+- additive levels,
+- and energy density ranges.
+
+---
+
+**4.6.2 Efficiency Parity Requirement**  
+Fuel sold at equivalent prices must provide comparable energy output.
+
+Discount programs may not be used to mask reduced fuel quality.
+
+---
+
+**4.6.3 Prohibited Degradation Practices**  
+It is unlawful to:
+- dilute fuel beyond disclosed standards,
+- substitute lower-efficiency blends at standard pricing,
+- or conceal efficiency loss through marketing programs.
+
+---
+
+**4.6.4 Enforcement & Remedies**  
+Demonstrated efficiency loss resulting in increased consumer fuel costs may trigger:
+- restitution,
+- civil penalties,
+- or class action eligibility.
+
+---
+
+#### Why This Subsection Exists
+
+Selling weaker fuel at the same price:
+- quietly increases transportation costs,
+- disproportionately harms working households,
+- and distorts market fairness.
+
+---
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Used Car Inflation**  
@@ -110,6 +159,14 @@ A driver repeatedly uses temporary plates to avoid registration fees.
 **Example 3: Emergency Ambulance Ride**  
 An individual is billed thousands for a mandatory ambulance ride.  
 → Charges beyond standardized public rates are prohibited.
+
+**Example 4: Fuel price discrepency**  
+Store A, tank of fuel gives 500 miles.
+Store B, tank of fuel gives 380 miles, with 10 cents off per gallon.
+Assume base price of both is $3.50/gallon, tank size is 15 gallon, and both fuel grades are listed the same.
+→ 15 x 3.50 = $52.50, then divide by 500 it would be 10.5¢/mile
+→ 15 x (3.50 - 0.10) = $51.00, then divide by 380 it would be 13.4¢/mile
+→ You think you're saving $1.50, but if you multiply 13.4¢ x 500 miles, you're paying $67, so losing $14.50 at store B to get same fuel efficiency
 
 ---
 

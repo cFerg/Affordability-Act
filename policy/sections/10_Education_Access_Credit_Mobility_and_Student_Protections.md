@@ -87,7 +87,6 @@ Housing and financial aid may not be withdrawn due to:
 Upperclassmen and nontraditional students must have access to housing support equivalent to underclassmen.
 
 ---
-
 ### 10.5 Student Loan Equity
 
 **10.5.1 Federal vs Private Loan Neutrality**  
@@ -97,10 +96,63 @@ Relief programs must not discriminate based on loan origin.
 Institutions must disclose when student loans primarily subsidize housing and food rather than education.
 
 ---
+### 10.6 Student Loan Minimum Payment Integrity
 
-### 10.6 Food Access & Campus Support
+A “minimum payment” that causes a loan balance to grow is not a payment — it is a penalty. Student loans must follow the same amortization principles as other consumer loans, where meeting the minimum obligation results in actual progress toward payoff.
 
-**10.6.1 Enrollment-Based Food Access**  
+---
+
+**10.6.1 Definition of Minimum Payment** 
+For student loans, the minimum payment is defined as the amount required to:
+- cover accrued interest, and
+- reduce principal by a non-zero amount.
+
+Any payment structure that fails to meet this standard is non-compliant.
+
+---
+
+**10.6.2 Prohibition on Negative Amortization** 
+Negative amortization — where loan balances increase despite timely minimum payments — is prohibited.
+
+Interest may accrue beyond minimum payments only when:
+- the borrower pays less than the required minimum, or
+- the borrower has explicitly requested deferment or forbearance.
+
+---
+
+**10.6.3 Transparency & Disclosure**
+Lenders must clearly disclose:
+- how minimum payments are calculated,
+- how much principal will be reduced per payment,
+- the projected payoff timeline at the minimum rate.
+
+Failure to disclose constitutes deceptive lending.
+
+---
+
+**10.6.4 Enforcement & Remedies**
+Loans found to violate minimum payment integrity must:
+- have excess interest reversed,
+- be re-amortized to compliant terms,
+- and refund overpayments where applicable.
+
+---
+
+#### Illustrative Example  
+A borrower pays the stated minimum for five years and owes more than the original balance.  
+→ This loan structure is unlawful under this Act.
+
+---
+
+#### Why This Exists  
+Education debt should reward responsibility, not punish it.  
+When minimum payments fail to reduce debt, borrowers are trapped indefinitely — undermining education, work, and family stability.
+
+---
+
+### 10.7 Food Access & Campus Support
+
+**10.7.1 Enrollment-Based Food Access**  
 Enrolled students must have access to affordable or free campus food services.
 
 ---

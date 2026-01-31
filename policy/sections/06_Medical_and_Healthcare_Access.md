@@ -92,6 +92,117 @@ Preventative care and treatment programs must prioritize long-term health outcom
 
 ---
 
+### 6.6 Veterinary Care Pricing & Emergency Standards
+
+#### Plain-English Summary  
+Veterinary care occupies a unique role: it is medical, time-sensitive, and often unavoidable. Emergency veterinary pricing must follow ethical standards that prevent coercion while preserving professional care.
+
+---
+
+**6.6.1 Emergency Severity Classification**
+Veterinary services shall be classified as:
+- emergency (imminent risk of death or severe suffering),
+- urgent,
+- non-emergency or elective.
+
+Emergency cases must prioritize stabilization before billing discussions.
+
+---
+
+**6.6.2 Emergency Pricing Protections**
+In emergency situations:
+- payment may not be demanded prior to stabilization,
+- cost ranges must be disclosed post-stabilization,
+- coercive “pay-now-or-else” pricing is prohibited.
+
+---
+
+**6.6.3 Transparency & Documentation**
+Veterinary providers must document:
+- emergency classification rationale,
+- services rendered prior to billing,
+- itemized charges.
+
+---
+
+### 6.7 Spay, Neuter & Responsible Breeding
+
+#### Plain-English Summary  
+Unregulated breeding increases abandonment, inbreeding, and public expense. Responsible population control reduces downstream costs borne by shelters, municipalities, and taxpayers.
+
+---
+
+**6.7.4 Mandatory Spay & Neuter**
+Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
+
+---
+
+**6.7.5 Licensed Breeding Requirements**
+Breeding is restricted to licensed individuals or entities, requiring:
+- veterinary health certification,
+- genetic diversity safeguards,
+- welfare standards.
+
+---
+
+#### Illustrative Example  
+An emergency surgery is withheld unless immediate payment is made.  
+→ Prohibited under emergency veterinary protections.
+
+---
+
+#### Why This Exists  
+Animal welfare failures become public costs.  
+Responsible care and population control reduce shelter overcrowding, euthanasia rates, and municipal expense.
+
+---
+
+### 6.8 Essential Medication Price Protections
+
+#### Plain-English Summary  
+Life-sustaining medications must not be priced beyond reach. Monopoly pricing of essential medicine is incompatible with public health and affordability.
+
+---
+
+**6.8.6 Definition of Essential Medications**
+Essential medications include, but are not limited to:
+- insulin,
+- inhalers,
+- epinephrine,
+- critical cardiac and seizure medications.
+
+---
+
+**6.8.7 Cost-Based Pricing Requirement**
+Prices must remain within a reasonable multiple of:
+- verified production cost,
+- distribution and compliance costs,
+- reasonable profit margins.
+
+---
+
+**6.8.8 Prohibited Practices**
+It is unlawful to:
+- exploit patent monopolies to inflate prices,
+- suppress competition through exclusivity abuse,
+- acquire and shelve alternatives to maintain scarcity.
+
+---
+
+#### Enforcement & Remedies  
+Violations constitute price gouging and may trigger:
+- forced price correction,
+- restitution,
+- loss of exclusivity protections.
+
+---
+
+#### Why This Exists  
+No one should face financial ruin to stay alive.  
+Essential medicine pricing must serve health, not extraction.
+
+---
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Ambulance Billing**  

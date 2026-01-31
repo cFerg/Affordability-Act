@@ -486,6 +486,55 @@ Individuals may not be billed out-of-pocket for emergency transport beyond stand
 
 ---
 
+### 4.6 Fuel Quality & Efficiency Protection
+
+#### Plain-English Summary  
+Fuel pricing is meaningless without fuel quality. This subsection prevents deceptive fuel practices that reduce mileage and increase consumer cost despite unchanged pump prices.
+
+---
+
+#### Legal-Style Provisions
+
+**4.6.1 Fuel Quality Disclosure**  
+Fuel retailers must disclose:
+- ethanol content,
+- additive levels,
+- and energy density ranges.
+
+---
+
+**4.6.2 Efficiency Parity Requirement**  
+Fuel sold at equivalent prices must provide comparable energy output.
+
+Discount programs may not be used to mask reduced fuel quality.
+
+---
+
+**4.6.3 Prohibited Degradation Practices**  
+It is unlawful to:
+- dilute fuel beyond disclosed standards,
+- substitute lower-efficiency blends at standard pricing,
+- or conceal efficiency loss through marketing programs.
+
+---
+
+**4.6.4 Enforcement & Remedies**  
+Demonstrated efficiency loss resulting in increased consumer fuel costs may trigger:
+- restitution,
+- civil penalties,
+- or class action eligibility.
+
+---
+
+#### Why This Subsection Exists
+
+Selling weaker fuel at the same price:
+- quietly increases transportation costs,
+- disproportionately harms working households,
+- and distorts market fairness.
+
+---
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Used Car Inflation**  
@@ -499,6 +548,14 @@ A driver repeatedly uses temporary plates to avoid registration fees.
 **Example 3: Emergency Ambulance Ride**  
 An individual is billed thousands for a mandatory ambulance ride.  
 → Charges beyond standardized public rates are prohibited.
+
+**Example 4: Fuel price discrepency**  
+Store A, tank of fuel gives 500 miles.
+Store B, tank of fuel gives 380 miles, with 10 cents off per gallon.
+Assume base price of both is $3.50/gallon, tank size is 15 gallon, and both fuel grades are listed the same.
+→ 15 x 3.50 = $52.50, then divide by 500 it would be 10.5¢/mile
+→ 15 x (3.50 - 0.10) = $51.00, then divide by 380 it would be 13.4¢/mile
+→ You think you're saving $1.50, but if you multiply 13.4¢ x 500 miles, you're paying $67, so losing $14.50 at store B to get same fuel efficiency
 
 ---
 
@@ -618,6 +675,44 @@ Employers must provide a minimum rest interval between shifts unless:
 
 ---
 
+### 5.7 Overtime Neutrality & Take-Home Protection
+
+## Plain-English Summary  
+Overtime should never reduce a worker’s effective hourly take-home pay. Tax and benefit structures that penalize additional work undermine labor availability, productivity, and fairness.
+
+---
+
+## Legal-Style Provisions
+
+**5.7.1 Take-Home Neutrality Rule**  
+Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
+
+---
+
+**5.7.2 Overtime Premium Protection**  
+The overtime premium portion of pay (above base wage) shall be:
+- taxed at a reduced marginal rate, or
+- deferred for tax calculation purposes,
+to preserve take-home fairness.
+
+---
+
+**5.7.3 Benefit Cliff Safeguard**  
+Overtime earnings may not automatically trigger:
+- loss of essential benefits,
+- abrupt benefit phase-outs,
+- or punitive contribution increases.
+
+Benefit eligibility must consider sustained income, not temporary overtime spikes.
+
+---
+
+## Why This Subsection Exists
+
+When working more results in earning less, systems are broken.
+
+This provision restores **work incentive without removing tax fairness**.
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Constructive Discharge**  
@@ -734,6 +829,117 @@ Preventative care and treatment programs must prioritize long-term health outcom
 
 ---
 
+### 6.6 Veterinary Care Pricing & Emergency Standards
+
+#### Plain-English Summary  
+Veterinary care occupies a unique role: it is medical, time-sensitive, and often unavoidable. Emergency veterinary pricing must follow ethical standards that prevent coercion while preserving professional care.
+
+---
+
+**6.6.1 Emergency Severity Classification**
+Veterinary services shall be classified as:
+- emergency (imminent risk of death or severe suffering),
+- urgent,
+- non-emergency or elective.
+
+Emergency cases must prioritize stabilization before billing discussions.
+
+---
+
+**6.6.2 Emergency Pricing Protections**
+In emergency situations:
+- payment may not be demanded prior to stabilization,
+- cost ranges must be disclosed post-stabilization,
+- coercive “pay-now-or-else” pricing is prohibited.
+
+---
+
+**6.6.3 Transparency & Documentation**
+Veterinary providers must document:
+- emergency classification rationale,
+- services rendered prior to billing,
+- itemized charges.
+
+---
+
+### 6.7 Spay, Neuter & Responsible Breeding
+
+#### Plain-English Summary  
+Unregulated breeding increases abandonment, inbreeding, and public expense. Responsible population control reduces downstream costs borne by shelters, municipalities, and taxpayers.
+
+---
+
+**6.7.4 Mandatory Spay & Neuter**
+Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
+
+---
+
+**6.7.5 Licensed Breeding Requirements**
+Breeding is restricted to licensed individuals or entities, requiring:
+- veterinary health certification,
+- genetic diversity safeguards,
+- welfare standards.
+
+---
+
+#### Illustrative Example  
+An emergency surgery is withheld unless immediate payment is made.  
+→ Prohibited under emergency veterinary protections.
+
+---
+
+#### Why This Exists  
+Animal welfare failures become public costs.  
+Responsible care and population control reduce shelter overcrowding, euthanasia rates, and municipal expense.
+
+---
+
+### 6.8 Essential Medication Price Protections
+
+#### Plain-English Summary  
+Life-sustaining medications must not be priced beyond reach. Monopoly pricing of essential medicine is incompatible with public health and affordability.
+
+---
+
+**6.8.6 Definition of Essential Medications**
+Essential medications include, but are not limited to:
+- insulin,
+- inhalers,
+- epinephrine,
+- critical cardiac and seizure medications.
+
+---
+
+**6.8.7 Cost-Based Pricing Requirement**
+Prices must remain within a reasonable multiple of:
+- verified production cost,
+- distribution and compliance costs,
+- reasonable profit margins.
+
+---
+
+**6.8.8 Prohibited Practices**
+It is unlawful to:
+- exploit patent monopolies to inflate prices,
+- suppress competition through exclusivity abuse,
+- acquire and shelve alternatives to maintain scarcity.
+
+---
+
+#### Enforcement & Remedies  
+Violations constitute price gouging and may trigger:
+- forced price correction,
+- restitution,
+- loss of exclusivity protections.
+
+---
+
+#### Why This Exists  
+No one should face financial ruin to stay alive.  
+Essential medicine pricing must serve health, not extraction.
+
+---
+
 ## Example Scenarios (Illustrative)
 
 **Example 1: Ambulance Billing**  
@@ -834,6 +1040,40 @@ Consumers must be provided:
 
 **7.4.2 No Punitive Minimums**  
 Minimum usage fees or penalties unrelated to actual consumption are prohibited.
+
+---
+
+### 7.5 Infrastructure Extension Cost Controls
+
+#### Plain-English Summary  
+Internet access is foundational to education, employment, and civic participation. Infrastructure extension fees must reflect real cost, not monopoly leverage.
+
+---
+
+**7.5.1 Cost-Based Installation Limits**
+Charges for extending infrastructure must be based on:
+- actual material cost,
+- documented labor,
+- reasonable profit margins.
+
+---
+
+**7.5.2 Prohibition on Extortionate Pricing**
+Per-foot pricing disconnected from material cost is prohibited.
+
+Infrastructure access may not be denied through artificially inflated fees.
+
+---
+
+#### Illustrative Example  
+A provider charges $11,000 to extend a line 350 feet where materials cost pennies per foot.  
+→ Prohibited pricing abuse.
+
+---
+
+#### Why This Exists  
+Digital exclusion drives inequality.  
+Access should be expanded, not ransomed.
 
 ---
 
@@ -970,6 +1210,60 @@ Agencies must publish affordability-related outcomes of public research investme
 
 ---
 
+### 8.7 Waste Management, Recycling & Energy Recovery
+
+## Plain-English Summary  
+Waste mismanagement increases public costs, consumes land, and inflates energy prices. This subsection establishes a tiered responsibility model for recycling and requires domestic waste processing that converts refuse into usable energy where feasible.
+
+---
+
+## Legal-Style Provisions
+
+**8.7.1 Tiered Recycling Responsibility**  
+Recycling infrastructure responsibility shall be assigned in the following order:
+1. local municipality,
+2. county authority,
+3. state authority.
+
+Where a lower level lacks funding or facilities, responsibility automatically escalates upward.
+
+---
+
+**8.7.2 Mandatory Recycling Access**  
+Residents must be provided reasonable access to recycling services without punitive fees.
+
+Failure to provide access shifts responsibility to the next governing tier.
+
+---
+
+**8.7.3 Domestic Waste Processing Requirement**  
+Recyclable and non-hazardous waste may not be exported overseas for disposal.
+
+Where feasible, waste shall be:
+- recycled domestically, or
+- processed through waste-to-energy systems for fuel and power generation.
+
+---
+
+**8.7.4 Landfill Reduction & Energy Offset**  
+Waste-to-energy output may be credited toward:
+- local energy supply,
+- grid stabilization,
+- public utility cost offsets.
+
+---
+
+## Why This Subsection Exists
+
+Exporting waste hides costs, wastes land, and raises energy prices.
+
+Domestic recycling and energy recovery:
+- reduce landfills,
+- supplement power generation,
+- and lower long-term public costs.
+
+---
+
 ## Section-Wide Examples (Illustrative)
 
 **Example 1: Tax Inflation**  
@@ -979,6 +1273,10 @@ A property’s tax bill rises sharply despite no improvements.
 **Example 2: Research Cuts**  
 Funding cuts force an agency to raise visitor prices to survive.  
 → Violates public investment protections.
+
+**Example 3: Waste Management Issues**  
+Waste mismanagement increases public costs, consumes land, and inflates energy prices.  
+→ Domino effects issues for future generations.
 
 ---
 
@@ -1062,19 +1360,176 @@ constitute fraud.
 
 ---
 
-### 9.4 Abuse of Assistance & Public Resources
+### 9.4 Artificial Scarcity & Mass Pre-Purchase Restrictions
 
-**9.4.1 Good-Faith Participation Standard**  
-Public assistance programs require reasonable participation toward:
-- employment,
+#### Plain-English Summary   
+Artificial scarcity created through mass pre-purchasing inflates prices and blocks public access to essential goods. This subsection limits exploitative bulk acquisition that serves no legitimate near-term use.
+
+---
+
+#### Legal-Style Provisions
+
+**9.4.1 Prohibited Artificial Scarcity**  
+It is unlawful to mass-purchase consumer goods primarily to:
+- restrict market availability,
+- inflate resale prices,
+- or speculate on future demand without operational capacity.
+
+---
+
+**9.4.2 Capacity Verification Requirement**  
+Bulk purchasers must demonstrate:
+- existing operational facilities,
+- legitimate near-term use,
+- or public utility necessity.
+
+Purchases for hypothetical or non-existent facilities do not qualify.
+
+---
+
+**9.4.3 Covered Goods**  
+This subsection applies to:
+- computing hardware (e.g., GPUs, memory),
+- essential electronics,
+- materials critical to consumer access.
+
+---
+
+**9.4.4 Resale & Hoarding Limits**  
+Hoarded goods may be subject to:
+- compulsory release to market,
+- pricing caps,
+- or anti-profiteering enforcement.
+
+---
+
+#### Why This Subsection Exists
+
+Artificial scarcity:
+- drives up prices,
+- harms consumers,
+- inflates used markets,
+- and undermines technological access.
+
+Markets must serve **real demand, not speculative chokeholds**.
+
+---
+
+### 9.5 Receipt Reuse, False Return & Identity Misrepresentation
+
+#### Plain-English Summary  
+Using another person’s receipt or transaction record to fraudulently obtain goods, refunds, or services is not simple theft. It is a form of identity misrepresentation that raises costs for everyone through loss recovery, increased prices, and restrictive store policies.
+
+---
+
+#### Legal-Style Provisions
+
+**9.5.1 Prohibited Conduct**  
+It is unlawful to:
+- reuse or repurpose receipts belonging to another transaction,
+- falsely claim goods were not received when they were,
+- present a transaction record as one’s own when it is not.
+
+---
+
+**9.5.2 Elevated Classification**  
+Intentional receipt reuse or false return claims constitute:
+- fraud, and
+- identity misrepresentation for enforcement purposes.
+
+---
+
+**9.5.3 Verification Safeguards**  
+Retailers may implement reasonable verification measures, including:
+- receipt-to-exit matching,
+- transaction identifiers,
+- non-invasive markers tied to completed purchases.
+
+Such measures must:
+- avoid biometric tracking,
+- avoid permanent personal data collection,
+- respect accessibility and disability accommodations.
+
+---
+
+**9.5.4 Consumer Protection Clause**  
+Accidental errors, good-faith disputes, or system mistakes may not be penalized under this subsection.
+
+---
+
+#### Why This Subsection Exists
+
+Fraud disguised as “returns”:
+- inflates prices,
+- erodes trust,
+- and forces restrictive policies on honest consumers.
+
+Accountability protects both shoppers and retailers.
+
+---
+
+### 9.6 Public Assistance Integrity & Work Alignment
+
+#### Plain-English Summary  
+Public assistance exists to support individuals facing hardship — not to permanently replace work where participation is feasible. When affordability barriers are reduced, public programs must align incentives toward contribution, recovery, and independence.
+
+---
+
+#### Legal-Style Provisions
+
+**9.6.1 Capability-Based Participation Standard**  
+Recipients of public assistance who are medically and functionally capable of work shall:
+- participate in employment,
 - training,
-- or rehabilitation,
-where such participation is feasible.
+- education,
+- or verified job search activities.
 
-**9.4.2 Safeguard Against Exploitation**  
-Patterns of intentional abuse may be reviewed, but:
-- access may not be terminated without due process,
-- legitimate hardship is not penalized.
+---
+
+**9.6.2 Medical Eligibility Integrity**  
+Medical-based exemptions must be:
+- periodically reviewed,
+- based on functional capacity, not appearance or self-report alone.
+
+Conditions that are treatable or improvable may require participation in treatment or rehabilitation to maintain eligibility.
+
+---
+
+**9.6.3 Benefit Cliff Elimination**  
+Assistance programs must phase out gradually so that:
+- working more always results in net financial gain,
+- no individual is penalized for entering employment.
+
+---
+
+**9.6.4 Anti-Abuse Enforcement**  
+Intentional misrepresentation of work capability or eligibility status constitutes fraud.
+
+Enforcement must be:
+- evidence-based,
+- proportionate,
+- subject to appeal.
+
+---
+
+**9.6.5 Good-Faith Protection**  
+Individuals facing:
+- caregiving responsibilities,
+- temporary illness,
+- lack of available work,
+- or verified hardship  
+may not be penalized.
+
+---
+
+#### Why This Subsection Exists
+
+Affordability systems fail when:
+- work is punished,
+- non-participation is rewarded,
+- and abuse goes unchecked.
+
+This provision restores **fairness, dignity, and incentive alignment**.
 
 ---
 
@@ -1189,7 +1644,6 @@ Housing and financial aid may not be withdrawn due to:
 Upperclassmen and nontraditional students must have access to housing support equivalent to underclassmen.
 
 ---
-
 ### 10.5 Student Loan Equity
 
 **10.5.1 Federal vs Private Loan Neutrality**  
@@ -1199,10 +1653,63 @@ Relief programs must not discriminate based on loan origin.
 Institutions must disclose when student loans primarily subsidize housing and food rather than education.
 
 ---
+### 10.6 Student Loan Minimum Payment Integrity
 
-### 10.6 Food Access & Campus Support
+A “minimum payment” that causes a loan balance to grow is not a payment — it is a penalty. Student loans must follow the same amortization principles as other consumer loans, where meeting the minimum obligation results in actual progress toward payoff.
 
-**10.6.1 Enrollment-Based Food Access**  
+---
+
+**10.6.1 Definition of Minimum Payment** 
+For student loans, the minimum payment is defined as the amount required to:
+- cover accrued interest, and
+- reduce principal by a non-zero amount.
+
+Any payment structure that fails to meet this standard is non-compliant.
+
+---
+
+**10.6.2 Prohibition on Negative Amortization** 
+Negative amortization — where loan balances increase despite timely minimum payments — is prohibited.
+
+Interest may accrue beyond minimum payments only when:
+- the borrower pays less than the required minimum, or
+- the borrower has explicitly requested deferment or forbearance.
+
+---
+
+**10.6.3 Transparency & Disclosure**
+Lenders must clearly disclose:
+- how minimum payments are calculated,
+- how much principal will be reduced per payment,
+- the projected payoff timeline at the minimum rate.
+
+Failure to disclose constitutes deceptive lending.
+
+---
+
+**10.6.4 Enforcement & Remedies**
+Loans found to violate minimum payment integrity must:
+- have excess interest reversed,
+- be re-amortized to compliant terms,
+- and refund overpayments where applicable.
+
+---
+
+#### Illustrative Example  
+A borrower pays the stated minimum for five years and owes more than the original balance.  
+→ This loan structure is unlawful under this Act.
+
+---
+
+#### Why This Exists  
+Education debt should reward responsibility, not punish it.  
+When minimum payments fail to reduce debt, borrowers are trapped indefinitely — undermining education, work, and family stability.
+
+---
+
+### 10.7 Food Access & Campus Support
+
+**10.7.1 Enrollment-Based Food Access**  
 Enrolled students must have access to affordable or free campus food services.
 
 ---
@@ -1335,28 +1842,91 @@ when determining relief eligibility.
 
 ---
 
-### 11.6 Due Process & Appeals
+### 11.6 Government Shutdown Protections & Payment Immunity
 
-**11.6.1 Notice & Opportunity to Respond**  
+## Plain-English Summary  
+Government shutdowns must not be used as leverage against workers. Employees should not suffer financial penalties for political disputes beyond their control, nor should missed wages trigger cascading late fees or credit harm.
+
+---
+
+## Legal-Style Provisions
+
+**11.6.1 Wage Continuity Requirement**  
+During any government shutdown:
+- federal employees shall continue to accrue pay,
+- delayed wages must be paid retroactively in full.
+
+---
+
+**11.6.2 Accountability for Withheld Wages**  
+Where wage withholding causes:
+- late fees,
+- overdraft penalties,
+- credit harm,
+
+the withholding entity shall be responsible for resulting financial damages.
+
+---
+
+**11.6.3 Late Fee & Interest Immunity**  
+For the duration of wage withholding due to government shutdown:
+- late fees must be waived,
+- interest accrual must be paused,
+- penalties may not be applied.
+
+This applies to:
+- rent,
+- mortgages,
+- utilities,
+- loans,
+- insurance premiums.
+
+---
+
+**11.6.4 Deferment Without Accrual**  
+Deferments offered during shutdown periods must:
+- preserve original payment schedules,
+- accrue no additional interest or fees.
+
+---
+
+**11.6.5 Scope Limitation**  
+Protections apply only where:
+- wage interruption is involuntary,
+- and directly attributable to government shutdown.
+
+---
+
+## Why This Subsection Exists
+
+Workers should not bankroll political deadlock.
+
+Affordability collapses when missed pay triggers compounding penalties.
+
+---
+
+### 11.7 Due Process & Appeals
+
+**11.7.1 Notice & Opportunity to Respond**  
 Any enforcement action must provide:
 - written notice,
 - clear description of alleged violations,
 - opportunity to respond or cure.
 
-**11.6.2 Independent Review**  
+**11.7.2 Independent Review**  
 Affected parties are entitled to appeal enforcement actions before an independent body.
 
 ---
 
-### 11.7 Private Right of Action
+### 11.8 Private Right of Action
 
-**11.7.1 Individual Enforcement**  
+**11.8.1 Individual Enforcement**  
 Individuals harmed by violations of this Act may:
 - bring civil action,
 - seek restitution,
 - recover reasonable costs and fees.
 
-**11.7.2 Collective Remedies**  
+**11.8.2 Collective Remedies**  
 Where harm is widespread, collective or representative actions may be permitted.
 
 ---

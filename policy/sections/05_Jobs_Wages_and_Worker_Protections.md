@@ -5,17 +5,16 @@ permalink: /policy/sections/05_Jobs_Wages_and_Worker_Protections/
 ---
 <!--
 SUMMARY:
-Protects workers from constructive discharge, wage suppression, and contract abuse.
-Establishes wage baselines tied to real affordability rather than arbitrary minimums.
-Reforms tipped labor, unemployment access, and layoff notice requirements.
-Ensures full-time work can sustain housing, utilities, transportation, and basic needs.
+This section protects worker economic security, wage fairness, employment stability, and labor rights to ensure work provides stability, dignity, and access to housing affordability.
+It includes protections against wage suppression, constructive discharge, punitive layoffs, tipped wage abuse, and benefit cliffs.
 -->
 
 # 💼 Jobs, Wages & Worker Rights  
 ## Section 5 — Employment, Wage Baselines & Worker Protections
 
-## Plain-English Summary  
-Anyone working full time should be able to afford basic living costs without relying on debt or public assistance. Employment agreements must be honored, wages protected, and job loss handled with fairness and accountability. This section establishes wage baselines, bans abusive employment practices, and safeguards workers from coercive displacement.
+## Section 5 Purpose
+This section protects worker economic security, wage fairness, employment stability, and labor rights to ensure work provides stability, dignity, and access to housing affordability.
+It includes protections against wage suppression, constructive discharge, punitive layoffs, tipped wage abuse, and benefit cliffs.
 
 ---
 
@@ -38,6 +37,19 @@ For workers employed across multiple states:
   - the federal baseline,
   - any state minimum where work is performed.
 
+#### Summary — 5.1 Minimum Wage Redefinition & Baseline
+This subsection establishes a wage floor that enables full-time workers to afford basic necessities, including housing, food, utilities, transportation, healthcare, and modest emergency savings. It also clarifies how minimum wage applies across multiple states.
+
+#### Examples
+• A worker in a high-cost state earns only the federal minimum wage.  
+→ The higher applicable state wage applies.
+
+• A remote employee works in two states with different minimums.  
+→ The highest applicable minimum wage applies.
+
+#### Why this subsection exists  
+Tying minimum wage to real living costs prevents working full-time from being a pathway to poverty and housing insecurity.
+
 ---
 
 ### 5.2 Wage Contract Integrity
@@ -49,6 +61,19 @@ Signed wage agreements may not be reduced below the agreed rate within a defined
 
 **5.2.2 Retroactive Wage Protection**  
 Employers may not retroactively alter pay rates or hours worked.
+
+#### Summary — 5.2 Wage Contract Integrity
+This subsection prevents employers from reducing agreed wages or altering pay retroactively without worker consent or documented hardship justification.
+
+#### Examples
+• An employer lowers a signed wage rate mid-year without consent.  
+→ Non-reduction protections apply.
+
+• Hours worked are retroactively changed to reduce pay.  
+→ Retroactive wage alterations are prohibited.
+
+#### Why this subsection exists  
+Enforceable wage agreements protect workers’ financial planning and prevent arbitrary or abusive employer practices.
 
 ---
 
@@ -68,6 +93,19 @@ Any separation resulting from constructive discharge shall be treated as:
 - an employer-initiated layoff,
 - fully eligible for unemployment and protections.
 
+#### Summary — 5.3 Constructive Discharge Prohibition
+This subsection prohibits workplace actions designed to force an employee to quit, such as sudden wage cuts, hostile scheduling, forced relocations, or deliberate reassignment of duties.
+
+#### Examples
+• An employer cuts hours and changes responsibilities with the aim of prompting resignation.  
+→ Constructive discharge protections apply.
+
+• An employee quits due to unreasonable scheduling designed to destabilize income.  
+→ Separation is treated as employer-initiated.
+
+#### Why this subsection exists  
+Protecting workers from covert termination tactics preserves access to unemployment benefits and prevents hidden layoffs.
+
 ---
 
 ### 5.4 Layoff Notice & Unemployment Access
@@ -79,6 +117,19 @@ Employers must provide advance notice of layoffs or mass reductions except in ve
 Employers may not restructure roles, schedules, or conditions to:
 - evade unemployment liability,
 - force voluntary resignation in name only.
+
+#### Summary — 5.4 Layoff Notice & Unemployment Access
+This subsection requires advance notice for layoffs and prohibits restructuring designed to circumvent unemployment obligations.
+
+#### Examples
+• A company reorganizes job duties to eliminate positions without formal layoffs.  
+→ Anti-circumvention enforcement applies.
+
+• Mass layoffs occur without required advance notice.  
+→ Minimum notice obligations are triggered.
+
+#### Why this subsection exists  
+Advance notice and fair classification help maintain income stability and appropriate access to unemployment systems.
 
 ---
 
@@ -96,6 +147,19 @@ If wages fall below minimum:
 - back pay shall equal the difference between minimum wage and base wage,
 - calculated independently of tips received.
 
+#### Summary — 5.5 Tipped Wage Reform
+This subsection ensures tipped workers earn at least the full minimum wage before tips, that tips belong exclusively to the worker, and that any deficiency is made up through back pay independent of tips.
+
+#### Examples
+• A server’s hourly pay plus tips totals below minimum wage.  
+→ Employer owes back pay equal to the difference.
+
+• Tips are pooled and distributed in a way that displaces minimum wage protections.  
+→ Tip ownership and back pay rules apply.
+
+#### Why this subsection exists  
+Tipped wage abuses perpetuate income instability and reduce affordability for essential workers who depend on fair base compensation.
+
 ---
 
 ### 5.6 Shift Timing & Worker Health
@@ -105,29 +169,31 @@ Employers must provide a minimum rest interval between shifts unless:
 - adequate sleeping accommodations are provided,
 - or emergency services justify extended shifts.
 
+#### Summary — 5.6 Shift Timing & Worker Health
+This subsection mandates minimum rest intervals between shifts, with exceptions for adequate sleeping accommodations or emergency service needs.
+
+#### Examples
+• A worker is scheduled back-to-back without sufficient rest.  
+→ Rest period protections apply.
+
+• A paramedic is scheduled 24-hour shifts without reasonable sleeping accommodations.  
+→ Health provisions apply.
+
+#### Why this subsection exists  
+Insufficient rest and punitive shift design harm health, safety, productivity, and long-term affordability by increasing burnout and turnover.
+
 ---
 
 ### 5.7 Overtime Neutrality & Take-Home Protection
 
-## Plain-English Summary  
-Overtime should never reduce a worker’s effective hourly take-home pay. Tax and benefit structures that penalize additional work undermine labor availability, productivity, and fairness.
-
----
-
-## Legal-Style Provisions
-
 **5.7.1 Take-Home Neutrality Rule**  
 Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
-
----
 
 **5.7.2 Overtime Premium Protection**  
 The overtime premium portion of pay (above base wage) shall be:
 - taxed at a reduced marginal rate, or
 - deferred for tax calculation purposes,
 to preserve take-home fairness.
-
----
 
 **5.7.3 Benefit Cliff Safeguard**  
 Overtime earnings may not automatically trigger:
@@ -137,35 +203,15 @@ Overtime earnings may not automatically trigger:
 
 Benefit eligibility must consider sustained income, not temporary overtime spikes.
 
----
+#### Summary — 5.7 Overtime Neutrality & Take-Home Protection
+This subsection prevents overtime earnings from resulting in lower net hourly pay and protects workers from benefit loss due to temporary overtime spikes.
 
-## Why This Subsection Exists
+#### Examples
+• Overtime pay, after standard tax rates, results in a lower effective hourly rate.  
+→ Take-home neutrality safeguards apply.
 
-When working more results in earning less, systems are broken.
+• A brief increase in hours causes loss of essential benefits.  
+→ Benefit cliff protections apply.
 
-This provision restores **work incentive without removing tax fairness**.
-
-## Example Scenarios (Illustrative)
-
-**Example 1: Constructive Discharge**  
-An employer cuts an employee’s hours and reassigns duties to force resignation.  
-→ This is treated as a layoff with full unemployment eligibility.
-
-**Example 2: Tipped Wage Abuse**  
-A server earns strong tips but is paid below minimum wage hourly.  
-→ Employer owes back pay regardless of tip totals.
-
-**Example 3: Multi-State Worker**  
-A worker commutes between states with different minimum wages.  
-→ The highest applicable wage applies.
-
----
-
-## Why This Section Exists
-
-Wage suppression and job instability:
-- fuel housing insecurity,
-- increase reliance on assistance,
-- and undermine dignity of work.
-
-This section ensures **work provides stability**, not precarity.
+#### Why this subsection exists  
+Workers should be incentivized — not penalized — for extra work, and benefit structures should not inadvertently discourage increased labor participation.

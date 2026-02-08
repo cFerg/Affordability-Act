@@ -5,21 +5,16 @@ permalink: /policy/sections/01_Ownership_Property_Rights_and_Limits/
 ---
 <!--
 SUMMARY:
-Establishes meaningful property ownership while rejecting absolute immunity.
-Prevents hoarding, trust abuse, and speculative accumulation.
-Balances individual ownership rights with public welfare, safety, and affordability.
-Defines limits on corporate, foreign, and HOA control without undermining legitimate ownership.
+This section defines the scope, limits, and responsibilities of property ownership under the Affordability Act. It protects ownership rights while ensuring those rights cannot be used to evade safety standards, distort markets, or undermine access to housing and land.
 -->
 
 # 🏠 Housing & Land  
 ## Section 1 — Ownership, Property Rights & Limits
 
-## Plain-English Summary  
-Ownership of property grants strong rights, but not immunity from laws that protect the public, neighbors, or fair access to housing and land. This section guarantees meaningful ownership while preventing hoarding, neglect, and exploitation that undermine affordability and community stability.
+### Section 1 Purpose  
+This section defines the scope, limits, and responsibilities of property ownership under the Affordability Act. It protects ownership rights while ensuring those rights cannot be used to evade safety standards, distort markets, or undermine access to housing and land.
 
 ---
-
-## Legal-Style Provisions
 
 ### 1.1 Ownership Rights Guaranteed (Not Absolute)
 
@@ -38,6 +33,19 @@ Ownership does not exempt any person or entity from:
 
 Ownership may not be invoked to defeat enforcement of affordability, safety, or public welfare protections.
 
+#### Summary — 1.1 Ownership Rights Guaranteed
+This subsection defines core property rights while affirming that these rights do not override public safety, affordability, or community protections.
+
+#### Examples
+Example: An owner refuses required safety repairs citing full ownership.
+→ Safety and habitability enforcement still applies.
+
+Example: A property owner claims ownership exempts them from valuation limits.
+→ Affordability protections still govern resale and rental pricing.
+
+#### Why this subsection exists
+Without clarifying that ownership is not absolute, ownership claims could be used to evade enforcement of affordability, safety, or public welfare rules.
+
 ---
 
 ### 1.2 Anti-Hoarding & Accumulation Limits
@@ -55,6 +63,19 @@ Entities or individuals holding multiple residential properties may be subject t
 - use-or-release requirements.
 
 Primary residences are exempt from accumulation penalties.
+
+#### Summary — 1.2 Anti-Hoarding & Accumulation Limits
+This subsection limits accumulating residential housing purely for market manipulation or scarcity creation.
+
+#### Examples
+Example: An LLC owns 20 homes and leaves them empty to force rental price inflation.  
+→ Anti-hoarding enforcement applies.
+
+Example: A corporate investor repeatedly flips homes for profit without productive use.  
+→ Accumulation rules trigger.
+
+#### Why this subsection exists
+Without anti-hoarding limits, shortage economics can be engineered, reducing affordability and increasing housing insecurity.
 
 ---
 
@@ -75,6 +96,19 @@ Inherited property is protected from forced sale provided:
 
 Minor beneficiaries are granted extended compliance periods with no penalty accrual.
 
+#### Summary — 1.3 Trusts, Inheritance & Beneficial Ownership
+This subsection ensures trusts and inheritance structures cannot be used to evade accountability or market safeguards.
+
+#### Examples
+Example: A trust obscures beneficial ownership to avoid vacancy rules.  
+→ Beneficial ownership disclosure is required.
+
+Example: A minor inherits a home but cannot maintain it.  
+→ Compliance timelines pause until lawful control is possible.
+
+#### Why this subsection exists
+Trust and inheritance loopholes enable avoidance of valuation and upkeep responsibilities, undermining affordability and community stability.
+
 ---
 
 ### 1.4 Corporate & Foreign Ownership Rules
@@ -94,6 +128,19 @@ Residential property held vacant beyond defined thresholds may be subject to:
 - public acquisition at regulated value,
 - or mandated productive use.
 
+#### Summary — 1.4 Corporate & Foreign Ownership Rules
+This subsection clarifies that ownership protections and responsibilities apply equally to all legal entities.
+
+#### Examples
+Example: A foreign owner claims tax treaties exempt them from upkeep.  
+→ Act protections still apply.
+
+Example: A corporation holds 50 properties and avoids use requirements.  
+→ No ownership class exemptions apply.
+
+#### Why this subsection exists
+Without explicit equality, large entities could evade accountability, accelerating affordability issues.
+
 ---
 
 ### 1.5 HOA & Common-Interest Safeguards
@@ -110,30 +157,15 @@ HOAs may not:
 
 Ownership must not be rendered nominal by private governance.
 
----
+#### Summary — 1.5 HOA & Common-Interest Safeguards
+This subsection ensures HOA governance cannot override essential affordability, safety, or maintenance requirements.
 
-## Example Scenarios (Illustrative)
+#### Examples
+Example: HOA attempts to levy excessive fees unrelated to safety.  
+→ Fees capped as per rules.
 
-**Example 1: Ownership ≠ Immunity**  
-A property owner claims full ownership prevents blight enforcement.  
-→ Ownership does not override safety or maintenance obligations.
+Example: HOA refuses to allow a resident to sell in order to increase dues revenue.  
+→ Control limitations apply.
 
-**Example 2: Trust Abuse**  
-Homes are placed into multiple trusts to evade accumulation limits.  
-→ Beneficial ownership rules collapse the structure.
-
-**Example 3: Inherited Property**  
-A minor inherits a home and cannot immediately maintain it.  
-→ Enforcement pauses; penalties do not accrue.
-
----
-
-## Why This Section Exists
-
-Without clear limits:
-- ownership becomes a shield for neglect,
-- housing is hoarded,
-- communities decay,
-- affordability collapses.
-
-This section ensures ownership remains **meaningful, fair, and socially compatible**.
+#### Why this subsection exists
+Unrestricted HOA authority can suppress ownership rights and increase costs unrelated to property wellbeing.

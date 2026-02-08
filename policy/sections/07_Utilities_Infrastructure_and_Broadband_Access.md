@@ -5,17 +5,16 @@ permalink: /policy/sections/07_Utilities_Infrastructure_and_Broadband_Access/
 ---
 <!--
 SUMMARY:
-Recognizes utilities and internet access as essential services.
-Limits artificial price volatility and unjustified rate increases.
-Requires modern infrastructure, including fiber-first broadband standards.
-Ensures stable access necessary for work, education, and daily life.
+This section ensures infrastructure and utility services (electricity, water, broadband) are reliable, fairly priced, nondiscriminatory, and accessible.
+It prioritizes essential access, prevents exploitative rate spikes, and promotes community resiliency through transparent pricing and accountability.
 -->
 
 # 💡 Utilities & Internet  
 ## Section 7 — Utilities, Infrastructure & Broadband Access
 
-## Plain-English Summary  
-Essential utilities are required for modern life and work. Pricing volatility, artificial scarcity, and outdated infrastructure impose unnecessary financial strain. This section ensures fair utility pricing, stable access, and modern broadband availability as a baseline service for all residents.
+## Section 7 Purpose
+This section ensures infrastructure and utility services (electricity, water, broadband) are reliable, fairly priced, nondiscriminatory, and accessible.
+It prioritizes essential access, prevents exploitative rate spikes, and promotes community resiliency through transparent pricing and accountability.
 
 ---
 
@@ -36,6 +35,19 @@ Essential utilities may not be disconnected due to:
 - temporary hardship,
 - extreme weather conditions.
 
+#### Summary — 7.1 Essential Utility Classification
+This subsection defines which services are treated as essential utilities and establishes baseline continuity protections to prevent loss of life, displacement, or coercion through shutoffs.
+
+#### Examples
+• A household faces water shutoff during a billing dispute that is actively under review.  
+→ Disconnection is prohibited while the dispute is pending.
+
+• An electric utility disconnects power during a severe cold snap for late payment.  
+→ Extreme weather protections apply.
+
+#### Why this subsection exists
+Utilities like electricity and water are not optional in modern life. Treating them as “discretionary” enables coercive shutoffs that worsen poverty and public health risks.
+
 ---
 
 ### 7.2 Utility Pricing Stability & Transparency
@@ -51,6 +63,19 @@ Rate increases must be supported by:
 - documented operating cost changes,
 - public disclosure and review.
 
+#### Summary — 7.2 Utility Pricing Stability & Transparency
+This subsection prevents unjustified rate spikes and requires utility providers to justify increases with documented cost drivers and public disclosure.
+
+#### Examples
+• Winter rates jump sharply with no supporting operating-cost disclosure.  
+→ Violates the anti-volatility rule.
+
+• A provider claims “inflation” as the reason for a major increase but produces no cost breakdown.  
+→ Increase is disallowed until justified.
+
+#### Why this subsection exists
+Unpredictable utility pricing functions like an unavoidable inflation tax. Households can’t budget when essentials can spike without accountability.
+
 ---
 
 ### 7.3 Infrastructure & Modernization Standards
@@ -65,6 +90,19 @@ Every residence must have access to:
 - sufficient internet speeds for education, work, and communication,
 - without mandatory premium pricing.
 
+#### Summary — 7.3 Infrastructure & Modernization Standards
+This subsection ensures new builds and publicly permitted developments are future-proofed (fiber-first where feasible) and that every residence has baseline broadband sufficient for work, school, and communication.
+
+#### Examples
+• A new subdivision installs copper lines even though fiber deployment is feasible.  
+→ Fails modernization standards.
+
+• A resident can only access usable internet by paying “premium tiers.”  
+→ Baseline access must be available without mandatory premium pricing.
+
+#### Why this subsection exists
+Outdated infrastructure creates long-term bottlenecks and forces residents to pay more later. Broadband access is now a core requirement for economic participation.
+
 ---
 
 ### 7.4 Billing Fairness & Consumer Protections
@@ -77,14 +115,22 @@ Consumers must be provided:
 **7.4.2 No Punitive Minimums**  
 Minimum usage fees or penalties unrelated to actual consumption are prohibited.
 
+#### Summary — 7.4 Billing Fairness & Consumer Protections
+This subsection requires clear, understandable billing and prohibits punitive billing structures unrelated to actual usage, including hidden minimums that inflate costs.
+
+#### Examples
+• A bill is unreadable and lacks clear usage metrics that explain the charges.  
+→ Violates usage transparency requirements.
+
+• A utility charges a “minimum usage fee” that applies even when consumption is low or zero.  
+→ Prohibited unless tied to documented service delivery costs under transparent rules.
+
+#### Why this subsection exists
+Billing opacity and artificial minimums allow utilities to extract more money without delivering more service, raising baseline living costs invisibly.
+
 ---
 
 ### 7.5 Infrastructure Extension Cost Controls
-
-#### Plain-English Summary  
-Internet access is foundational to education, employment, and civic participation. Infrastructure extension fees must reflect real cost, not monopoly leverage.
-
----
 
 **7.5.1 Cost-Based Installation Limits**
 Charges for extending infrastructure must be based on:
@@ -92,49 +138,18 @@ Charges for extending infrastructure must be based on:
 - documented labor,
 - reasonable profit margins.
 
----
-
 **7.5.2 Prohibition on Extortionate Pricing**
 Per-foot pricing disconnected from material cost is prohibited.
 
 Infrastructure access may not be denied through artificially inflated fees.
 
----
+#### Summary — 7.5 Infrastructure Extension Cost Controls
+Internet access is foundational to education, employment, and civic participation. Infrastructure extension fees must reflect real cost, not monopoly leverage.
 
-#### Illustrative Example  
+#### Example  
 A provider charges $11,000 to extend a line 350 feet where materials cost pennies per foot.  
 → Prohibited pricing abuse.
 
----
-
-#### Why This Exists  
+#### Why this subsection exists 
 Digital exclusion drives inequality.  
 Access should be expanded, not ransomed.
-
----
-
-## Example Scenarios (Illustrative)
-
-**Example 1: Winter Rate Spike**  
-An electric utility raises rates sharply during winter without cost justification.  
-→ This violates pricing stability requirements.
-
-**Example 2: New Housing Development**  
-A new subdivision installs copper internet lines despite fiber availability.  
-→ This fails modernization standards.
-
-**Example 3: Billing Dispute Shutoff**  
-A household disputes a bill and service is disconnected mid-review.  
-→ Disconnection is prohibited.
-
----
-
-## Why This Section Exists
-
-Utilities and internet access are prerequisites for:
-- employment,
-- education,
-- health,
-- and basic safety.
-
-This section ensures **access is stable, modern, and fairly priced**.

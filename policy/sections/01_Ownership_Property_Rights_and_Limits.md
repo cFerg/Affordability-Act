@@ -18,13 +18,13 @@ This section defines the scope, limits, and responsibilities of property ownersh
 
 ### 1.1 Ownership Rights Guaranteed (Not Absolute)
 
-**1.1.1 Core Ownership Rights**  
+#### 1.1.1 Core Ownership Rights  
 Lawful owners of property are guaranteed:
 - exclusive possession,
 - the right to sell, lease, or occupy,
 - the right to improve or modify property subject to safety codes.
 
-**1.1.2 No-Immunity Clause**  
+#### 1.1.2 No-Immunity Clause  
 Ownership does not exempt any person or entity from:
 - blight enforcement,
 - safety standards,
@@ -50,13 +50,13 @@ Without clarifying that ownership is not absolute, ownership claims could be use
 
 ### 1.2 Anti-Hoarding & Accumulation Limits
 
-**1.2.1 Purpose Limitation**  
+#### 1.2.1 Purpose Limitation  
 Property may not be accumulated primarily for:
 - speculative resale,
 - artificial scarcity,
 - value inflation without productive use.
 
-**1.2.2 Scaled Ownership Review**  
+#### 1.2.2 Scaled Ownership Review  
 Entities or individuals holding multiple residential properties may be subject to:
 - enhanced reporting,
 - valuation caps,
@@ -81,7 +81,7 @@ Without anti-hoarding limits, shortage economics can be engineered, reducing aff
 
 ### 1.3 Trusts, Inheritance & Beneficial Ownership
 
-**1.3.1 Trust Transparency**  
+#### 1.3.1 Trust Transparency  
 Property held in trust must disclose:
 - beneficial owner(s),
 - occupancy status,
@@ -89,7 +89,7 @@ Property held in trust must disclose:
 
 Trust structures may not be used to evade valuation, upkeep, or market participation rules.
 
-**1.3.2 Inherited Property Protections**  
+#### 1.3.2 Inherited Property Protections  
 Inherited property is protected from forced sale provided:
 - base valuation limits are respected, and
 - minimum upkeep standards are met.
@@ -113,7 +113,7 @@ Trust and inheritance loopholes enable avoidance of valuation and upkeep respons
 
 ### 1.4 Corporate & Foreign Ownership Rules
 
-**1.4.1 Equal Applicability**  
+#### 1.4.1 Equal Applicability  
 All provisions of this Act apply equally to:
 - individuals,
 - corporations,
@@ -122,7 +122,7 @@ All provisions of this Act apply equally to:
 
 No entity is exempt by virtue of residence, citizenship, or incorporation location.
 
-**1.4.2 Use-It-or-Release Requirement**  
+#### 1.4.2 Use-It-or-Release Requirement  
 Residential property held vacant beyond defined thresholds may be subject to:
 - compulsory listing,
 - public acquisition at regulated value,
@@ -145,11 +145,11 @@ Without explicit equality, large entities could evade accountability, accelerati
 
 ### 1.5 HOA & Common-Interest Safeguards
 
-**1.5.1 HOA Responsibility for Common Areas**  
+#### 1.5.1 HOA Responsibility for Common Areas  
 Where property is controlled by an HOA:
 - the HOA is responsible for blight, safety, and upkeep of unsold or common units.
 
-**1.5.2 Opt-Out & Control Limits**  
+#### 1.5.2 Opt-Out & Control Limits  
 HOAs may not:
 - impose nonessential restrictions unrelated to safety,
 - extract disproportionate fees,

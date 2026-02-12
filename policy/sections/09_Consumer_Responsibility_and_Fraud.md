@@ -26,7 +26,7 @@ The goal is not punitive control, but restoring fairness where abuse distorts ma
 
 ### 9.1 Deliberate Damage & Cost Accountability
 
-**9.1.1 Intentional Damage Liability**  
+#### 9.1.1 Intentional Damage Liability  
 Individuals who intentionally damage property, merchandise, or facilities may be held financially responsible for:
 - repair costs,
 - replacement costs,
@@ -34,7 +34,7 @@ Individuals who intentionally damage property, merchandise, or facilities may be
 
 Accidental damage is excluded unless negligence is demonstrated.
 
-**9.1.2 No Automatic Insurance Shield**  
+#### 9.1.2 No Automatic Insurance Shield  
 The existence of insurance coverage does not absolve an individual from responsibility for intentional harm.
 
 Where damage is caused deliberately or through willful misconduct, liability may be assessed directly against the responsible individual regardless of whether an insurer ultimately covers repair or replacement costs.
@@ -58,19 +58,19 @@ When intentional damage is treated as “someone else’s problem,” businesses
 
 ### 9.2 Food Waste & Spoilage Prevention
 
-**9.2.1 Spoilage as a Distinct Harm**  
+#### 9.2.1 Spoilage as a Distinct Harm  
 Deliberately placing perishable food or temperature-sensitive goods in conditions that cause spoilage constitutes a distinct violation separate from theft.
 
 Spoilage is considered a permanent loss of usable resources, regardless of whether the actor personally consumes or removes the goods.
 
 Intent may be inferred where food is knowingly moved from required storage conditions without reasonable justification.
 
-**9.2.2 Enhanced Penalty for Waste**  
+#### 9.2.2 Enhanced Penalty for Waste  
 Intentional food waste may be treated as:
 - equivalent to or greater than theft,
 due to the permanent loss of usable resources.
 
-**9.2.3 Prepared Food Controls**  
+#### 9.2.3 Prepared Food Controls  
 Retailers offering prepared or ready-to-eat food may require:
 - payment prior to consumption,
 - reasonable verification before service.
@@ -95,7 +95,7 @@ Spoiling food harms supply without benefiting anyone, increases shrink, and rais
 
 ### 9.3 Payment Integrity & Fraud Prevention
 
-**9.3.1 Payment Method Transparency**  
+#### 9.3.1 Payment Method Transparency  
 Merchants and landlords may not restrict payment exclusively to:
 - cash,
 - check,
@@ -103,7 +103,7 @@ or other methods that eliminate verifiable transaction records.
 
 At least one traceable electronic payment option must be offered.
 
-**9.3.2 Anti-Evasion Rule**  
+#### 9.3.2 Anti-Evasion Rule  
 Practices intended to:
 - evade taxes,
 - obscure payment history,
@@ -130,13 +130,13 @@ When payment records are intentionally erased, consumers and tenants lose proof,
 
 ### 9.4 Artificial Scarcity & Mass Pre-Purchase Restrictions
 
-**9.4.1 Prohibited Artificial Scarcity**  
+#### 9.4.1 Prohibited Artificial Scarcity  
 It is unlawful to mass-purchase consumer goods primarily to:
 - restrict market availability,
 - inflate resale prices,
 - or speculate on future demand without operational capacity.
 
-**9.4.2 Capacity Verification Requirement**  
+#### 9.4.2 Capacity Verification Requirement  
 Bulk purchasers must demonstrate:
 - existing operational facilities,
 - legitimate near-term use,
@@ -144,13 +144,13 @@ Bulk purchasers must demonstrate:
 
 Purchases for hypothetical or non-existent facilities do not qualify.
 
-**9.4.3 Covered Goods**  
+#### 9.4.3 Covered Goods  
 This subsection applies to:
 - computing hardware (e.g., GPUs, memory),
 - essential electronics,
 - materials critical to consumer access.
 
-**9.4.4 Resale & Hoarding Limits**  
+#### 9.4.4 Resale & Hoarding Limits  
 Hoarded goods may be subject to:
 - compulsory release to market,
 - pricing caps,
@@ -179,18 +179,18 @@ Markets must serve **real demand, not speculative chokeholds**.
 
 ### 9.5 Receipt Reuse, False Return & Identity Misrepresentation
 
-**9.5.1 Prohibited Conduct**  
+#### 9.5.1 Prohibited Conduct  
 It is unlawful to:
 - reuse or repurpose receipts belonging to another transaction,
 - falsely claim goods were not received when they were,
 - present a transaction record as one’s own when it is not.
 
-**9.5.2 Elevated Classification**  
+#### 9.5.2 Elevated Classification  
 Intentional receipt reuse or false return claims constitute:
 - fraud, and
 - identity misrepresentation for enforcement purposes.
 
-**9.5.3 Verification Safeguards**  
+#### 9.5.3 Verification Safeguards  
 Retailers may implement reasonable verification measures, including:
 - receipt-to-exit matching,
 - transaction identifiers,
@@ -201,7 +201,7 @@ Such measures must:
 - avoid permanent personal data collection,
 - respect accessibility and disability accommodations.
 
-**9.5.4 Consumer Protection Clause**  
+#### 9.5.4 Consumer Protection Clause  
 Accidental errors, good-faith disputes, system malfunctions, or reasonable misunderstandings may not be penalized under this subsection.
 
 Enforcement actions must distinguish intentional misrepresentation from honest mistakes, technical errors, or merchant system failures.
@@ -230,26 +230,26 @@ Accountability protects both shoppers and retailers.
 
 ### 9.6 Public Assistance Integrity & Work Alignment
 
-**9.6.1 Capability-Based Participation Standard**  
+#### 9.6.1 Capability-Based Participation Standard  
 Recipients of public assistance who are medically and functionally capable of work shall:
 - participate in employment,
 - training,
 - education,
 - or verified job search activities.
 
-**9.6.2 Medical Eligibility Integrity**  
+#### 9.6.2 Medical Eligibility Integrity  
 Medical-based exemptions must be:
 - periodically reviewed,
 - based on functional capacity, not appearance or self-report alone.
 
 Conditions that are treatable or improvable may require participation in treatment or rehabilitation to maintain eligibility.
 
-**9.6.3 Benefit Cliff Elimination**  
+#### 9.6.3 Benefit Cliff Elimination  
 Assistance programs must phase out gradually so that:
 - working more always results in net financial gain,
 - no individual is penalized for entering employment.
 
-**9.6.4 Anti-Abuse Enforcement**  
+#### 9.6.4 Anti-Abuse Enforcement  
 Intentional misrepresentation of work capability or eligibility status constitutes fraud.
 
 Enforcement must be:
@@ -257,7 +257,7 @@ Enforcement must be:
 - proportionate,
 - subject to appeal.
 
-**9.6.5 Good-Faith Protection**  
+#### 9.6.5 Good-Faith Protection  
 Individuals facing:
 - caregiving responsibilities,
 - temporary illness,

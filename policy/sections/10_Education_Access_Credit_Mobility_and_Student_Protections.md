@@ -20,7 +20,7 @@ This section ensures that access to education is not undermined by administrativ
 
 ### 10.1 Degree Structure & Credit Relevance
 
-**10.1.1 Degree-Focused Curriculum**  
+#### 10.1.1 Degree-Focused Curriculum  
 Institutions may not require coursework that is unrelated to a student’s declared degree, minor, or documented academic pathway for the primary purpose of extending enrollment duration, increasing tuition revenue, or meeting artificial credit thresholds.
 
 General education requirements must demonstrate a clear academic or professional nexus to the degree being awarded. Courses that do not materially contribute to the degree’s learning outcomes may not be mandatory for graduation.
@@ -39,12 +39,12 @@ Unnecessary coursework extends enrollment time, increases debt, and disproportio
 
 ### 10.2 Transfer Credit Fairness
 
-**10.2.1 Credit Recognition**  
+#### 10.2.1 Credit Recognition  
 Credits earned at regionally or nationally accredited institutions must transfer with equivalent academic weight, credit hours, and completion status when course content, learning objectives, or instructional level are substantially similar.
 
 Institutions may not deny transfer credit solely based on institutional preference, internal revenue considerations, or degree-path steering practices.
 
-**10.2.2 Prohibited Credit Caps**  
+#### 10.2.2 Prohibited Credit Caps  
 Institutions may not impose arbitrary numerical caps on transferable credits that are unrelated to academic equivalency, instructional rigor, or accreditation requirements.
 
 Credit limits imposed for administrative convenience, financial incentives, or enrollment retention purposes are expressly prohibited.
@@ -63,7 +63,7 @@ Arbitrary credit rejection forces students to repay for education they have alre
 
 ### 10.2A Credit Persistence & Major Mobility
 
-**10.2A.1 Credit Persistence Rule**  
+#### 10.2A.1 Credit Persistence Rule  
 Credits earned remain valid regardless of:
 - major changes,
 - school transfers,
@@ -71,7 +71,7 @@ Credits earned remain valid regardless of:
 
 Credits may be reapplied to new programs where relevant.
 
-**10.2A.2 Major Change Protection**  
+#### 10.2A.2 Major Change Protection  
 Institutions may not restrict students from changing majors through:
 - mandatory waiting periods,
 - credit forfeiture,
@@ -91,12 +91,12 @@ Students should not be penalized for academic exploration or administrative misc
 
 ### 10.3 Academic Probation & Due Process
 
-**10.3.1 Procedural Safeguards**  
+#### 10.3.1 Procedural Safeguards  
 Students may not be placed on academic probation, suspended, dismissed, or otherwise penalized due to institutional system errors, delayed grade processing, faculty submission failures, or administrative faults outside the student’s control.
 
 Any adverse academic action must be based on verified academic performance data that has been properly recorded, reviewed, and communicated to the student.
 
-**10.3.2 Appeal Rights & Timing**  
+#### 10.3.2 Appeal Rights & Timing  
 Students must be granted a clearly defined and reasonable appeal period before any academic penalties, enrollment restrictions, housing removals, or financial aid suspensions take effect.
 
 During an active appeal, all adverse actions related to the contested determination shall be stayed. Institutions may not impose accelerated deadlines, automatic enforcement, or procedural barriers that undermine the student’s ability to meaningfully contest the action.
@@ -115,12 +115,12 @@ Probation without due process can instantly cut off education, housing, and fina
 
 ### 10.4 Financial Aid & Housing Protections
 
-**10.4.1 Aid Continuity**  
+#### 10.4.1 Aid Continuity  
 Housing access, meal plans, and financial aid may not be withdrawn or suspended due to unresolved administrative disputes, temporary enrollment anomalies, or pending appeals, provided the student is otherwise in good standing.
 
 Institutions must maintain aid continuity until due process and correction mechanisms are fully exhausted.
 
-**10.4.2 Upperclassmen Housing Equity**  
+#### 10.4.2 Upperclassmen Housing Equity  
 Institutions may not withdraw housing eligibility, assistance, or placement support from upperclassmen solely based on academic year, age, or progression status without providing reasonable and accessible alternatives.
 
 Where on-campus residency is discouraged or unavailable, institutions must offer transitional housing assistance, verified referrals, or financial offsets sufficient to prevent displacement during active enrollment.
@@ -138,12 +138,12 @@ Housing loss is one of the most common reasons students are forced to abandon ed
 ---
 ### 10.5 Student Loan Equity
 
-**10.5.1 Federal vs Private Loan Neutrality**  
+#### 10.5.1 Federal vs Private Loan Neutrality  
 Relief programs, repayment protections, and hardship accommodations must not discriminate between borrowers based solely on whether a loan is federally issued, privately issued, or institution-selected.
 
 Eligibility must be determined by borrower circumstances, repayment burden, and financial impact — not lender classification.
 
-**10.5.2 Loan Selection Transparency**  
+#### 10.5.2 Loan Selection Transparency  
 Students must be clearly informed, in advance, of all available loan options, associated interest structures, repayment terms, forgiveness eligibility, and long-term financial implications prior to acceptance.
 
 Institutions may not steer students toward private or higher-cost loans without documenting that the student was presented with comparable alternatives and provided informed consent.
@@ -161,7 +161,7 @@ Loan forgiveness and protections should be based on borrower circumstances — n
 ---
 ### 10.6 Student Loan Minimum Payment Integrity
 
-**10.6.1 Definition of Minimum Payment** 
+#### 10.6.1 Definition of Minimum Payment 
 For student loans, the minimum payment is defined as the amount required to:
 - cover accrued interest, and
 - reduce principal by a non-zero amount.
@@ -170,14 +170,14 @@ A “minimum payment” that causes a loan balance to grow is not a payment — 
 
 Any payment structure that fails to meet this standard is non-compliant.
 
-**10.6.2 Prohibition on Negative Amortization** 
+#### 10.6.2 Prohibition on Negative Amortization 
 Negative amortization — where loan balances increase despite timely minimum payments — is prohibited.
 
 Interest may accrue beyond minimum payments only when:
 - the borrower pays less than the required minimum, or
 - the borrower has explicitly requested deferment or forbearance.
 
-**10.6.3 Transparency & Disclosure**
+#### 10.6.3 Transparency & Disclosure
 Lenders must clearly disclose:
 - how minimum payments are calculated,
 - how much principal will be reduced per payment,
@@ -185,7 +185,7 @@ Lenders must clearly disclose:
 
 Failure to disclose constitutes deceptive lending.
 
-**10.6.4 Enforcement & Remedies**
+#### 10.6.4 Enforcement & Remedies
 Loans found to violate minimum payment integrity must:
 - have excess interest reversed,
 - be re-amortized to compliant terms,
@@ -205,7 +205,7 @@ Debt that grows through compliance undermines trust, financial stability, and lo
 
 ### 10.7 Food Access & Campus Support
 
-**10.7.1 Enrollment-Based Food Access**  
+#### 10.7.1 Enrollment-Based Food Access  
 Institutions must ensure that enrolled students have access to affordable or no-cost food options sufficient to meet basic nutritional needs, regardless of housing status, commuter status, or enrollment modality.
 
 Food access programs may not exclude students based solely on part-time enrollment, nontraditional schedules, or off-campus residency.

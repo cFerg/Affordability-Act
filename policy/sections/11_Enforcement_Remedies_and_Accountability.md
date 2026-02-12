@@ -20,7 +20,7 @@ This section ensures that the protections established throughout the Affordabili
 
 ### 11.1 Universal Applicability & No-Immunity Rule
 
-**11.1.1 Equal Application**  
+#### 11.1.1 Equal Application  
 All provisions of this Act apply equally to:
 - individuals,
 - corporations,
@@ -36,7 +36,7 @@ No person or entity is exempt by virtue of:
 - incorporation status,
 - or governmental affiliation.
 
-**11.1.2 No Waiver by Contract**  
+#### 11.1.2 No Waiver by Contract  
 Contracts, terms of service, waivers, arbitration clauses, non-disclosure provisions, or private agreements may not waive, limit, or nullify any right, protection, or remedy established under this Act.
 
 Any clause that attempts to:
@@ -64,14 +64,14 @@ Affordability protections fail if powerful actors can opt out. Uniform applicati
 
 ### 11.2 Enforcement Authorities
 
-**11.2.1 Designated Enforcement Bodies**  
+#### 11.2.1 Designated Enforcement Bodies  
 Federal and state agencies may enforce this Act within their respective jurisdictions, including:
 - labor departments,
 - housing authorities,
 - consumer protection agencies,
 - insurance regulators.
 
-**11.2.2 Concurrent Jurisdiction**  
+#### 11.2.2 Concurrent Jurisdiction  
 Enforcement by one authority does not preclude action by another where violations overlap in subject matter, jurisdiction, or affected parties.
 
 Multiple agencies may act concurrently or sequentially to:
@@ -100,7 +100,7 @@ Complex affordability violations often span multiple domains. Shared authority p
 
 ### 11.3 Penalties & Corrective Measures
 
-**11.3.1 Graduated Penalties**  
+#### 11.3.1 Graduated Penalties  
 Violations may result in:
 - civil fines,
 - restitution to affected individuals,
@@ -113,7 +113,7 @@ Penalties must scale with:
 - number of affected persons,
 - and demonstrated intent.
 
-**11.3.2 Mandatory Correction**  
+#### 11.3.2 Mandatory Correction  
 Where feasible, enforcement shall prioritize:
 - correction of harm,
 - restoration of access,
@@ -137,7 +137,7 @@ Punishment alone does not restore affordability. Corrective action ensures viola
 
 ### 11.4 Clawbacks, Avoidance & Asset Shielding
 
-**11.4.1 Anti-Avoidance Rule**  
+#### 11.4.1 Anti-Avoidance Rule  
 Transfers of assets, property, control, or contractual rights intended to evade compliance, liability, restitution, or enforcement under this Act are voidable.
 
 Avoidance intent may be inferred where transfers occur:
@@ -148,7 +148,7 @@ Avoidance intent may be inferred where transfers occur:
 
 Voidable transfers may be reversed to restore enforceability, restitution, or compliance obligations.
 
-**11.4.2 Lookback Period**  
+#### 11.4.2 Lookback Period  
 Enforcement actions may examine transactions occurring within a defined lookback period where avoidance is suspected, including sales, transfers, restructurings, liens, assignments, or ownership changes.
 
 The lookback period may be extended where:
@@ -159,7 +159,7 @@ The lookback period may be extended where:
 
 Transactions identified as avoidance-driven within the lookback period may be subject to reversal, reclassification, or clawback to effectuate remedies under this Act.
 
-**11.4.3 Beneficial Ownership Disclosure**  
+#### 11.4.3 Beneficial Ownership Disclosure  
 Hidden ownership structures may be disregarded for enforcement purposes where beneficial ownership, effective control, or profit entitlement can be reasonably established.
 
 For enforcement, “beneficial owner” includes any person or entity that:
@@ -187,12 +187,12 @@ Without anti-avoidance rules, bad actors can legally “disappear” assets whil
 
 ### 11.5 Bankruptcy, Insolvency & Abuse Prevention
 
-**11.5.1 No Strategic Bankruptcy Shield**  
+#### 11.5.1 No Strategic Bankruptcy Shield  
 Bankruptcy filings may not be used to:
 - retain control of assets while avoiding obligations,
 - shield repeated affordability violations.
 
-**11.5.2 Equitable Treatment Requirement**  
+#### 11.5.2 Equitable Treatment Requirement  
 Courts must consider:
 - total asset control,
 - beneficial ownership,
@@ -216,12 +216,12 @@ Bankruptcy is meant for relief, not exploitation. This prevents affordability vi
 
 ### 11.6 Government Shutdown Protections & Payment Immunity
 
-**11.6.1 Wage Continuity Requirement**  
+#### 11.6.1 Wage Continuity Requirement  
 During any government shutdown:
 - federal employees shall continue to accrue pay,
 - delayed wages must be paid retroactively in full.
 
-**11.6.2 Accountability for Withheld Wages**  
+#### 11.6.2 Accountability for Withheld Wages  
 Where wage withholding causes:
 - late fees,
 - overdraft penalties,
@@ -229,7 +229,7 @@ Where wage withholding causes:
 
 the withholding entity shall be responsible for resulting financial damages.
 
-**11.6.3 Late Fee & Interest Immunity**  
+#### 11.6.3 Late Fee & Interest Immunity  
 For the duration of wage withholding due to government shutdown:
 - late fees must be waived,
 - interest accrual must be paused,
@@ -242,12 +242,12 @@ This applies to:
 - loans,
 - insurance premiums.
 
-**11.6.4 Deferment Without Accrual**  
+#### 11.6.4 Deferment Without Accrual  
 Deferments offered during shutdown periods must:
 - preserve original payment schedules,
 - accrue no additional interest or fees.
 
-**11.6.5 Scope Limitation**  
+#### 11.6.5 Scope Limitation  
 Protections apply only where:
 - wage interruption is involuntary,
 - and directly attributable to government shutdown.
@@ -269,13 +269,13 @@ Workers should not subsidize political deadlock through personal financial colla
 
 ### 11.7 Due Process & Appeals
 
-**11.7.1 Notice & Opportunity to Respond**  
+#### 11.7.1 Notice & Opportunity to Respond  
 Any enforcement action must provide:
 - written notice,
 - clear description of alleged violations,
 - opportunity to respond or cure.
 
-**11.7.2 Independent Review**  
+#### 11.7.2 Independent Review  
 Affected parties are entitled to appeal enforcement actions before an independent body with authority to review facts, procedure, and proportionality of proposed penalties or corrective orders.
 
 Appeal procedures must include:
@@ -303,13 +303,13 @@ Enforcement legitimacy depends on fairness. Due process protects against abuse a
 
 ### 11.8 Private Right of Action
 
-**11.8.1 Individual Enforcement**  
+#### 11.8.1 Individual Enforcement  
 Individuals harmed by violations of this Act may:
 - bring civil action,
 - seek restitution,
 - recover reasonable costs and fees.
 
-**11.8.2 Collective Remedies**  
+#### 11.8.2 Collective Remedies  
 Where harm is widespread, collective or representative actions may be permitted to efficiently resolve repeated violations and ensure consistent remedies.
 
 Collective remedies may be used where:

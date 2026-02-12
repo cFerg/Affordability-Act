@@ -22,7 +22,7 @@ It includes protections against wage suppression, constructive discharge, puniti
 
 ### 5.1 Minimum Wage Redefinition & Baseline
 
-**5.1.1 Full-Time Affordability Standard**  
+#### 5.1.1 Full-Time Affordability Standard  
 The minimum wage shall be defined as the hourly rate required for a full-time worker to reasonably afford:
 - housing appropriate to the local area,
 - basic food and nutrition,
@@ -31,7 +31,7 @@ The minimum wage shall be defined as the hourly rate required for a full-time wo
 - healthcare coverage,
 - and modest emergency savings.
 
-**5.1.2 Multi-State Employment Rule**  
+#### 5.1.2 Multi-State Employment Rule  
 For workers employed across multiple states:
 - the applicable minimum wage shall be the **highest** of:
   - the federal baseline,
@@ -54,12 +54,12 @@ Tying minimum wage to real living costs prevents working full-time from being a 
 
 ### 5.2 Wage Contract Integrity
 
-**5.2.1 Non-Reduction Clause**  
+#### 5.2.1 Non-Reduction Clause  
 Signed wage agreements may not be reduced below the agreed rate within a defined protection period unless:
 - initiated by the worker, or
 - justified by documented hardship and mutual consent.
 
-**5.2.2 Retroactive Wage Protection**  
+#### 5.2.2 Retroactive Wage Protection  
 Employers may not retroactively alter pay rates or hours worked.
 
 Any reduction, reclassification, “correction,” or timekeeping adjustment that reduces compensation after labor has been performed is prohibited unless it benefits the employee or corrects an objectively provable overpayment with documented employee notice.
@@ -83,7 +83,7 @@ Enforceable wage agreements protect workers’ financial planning and prevent ar
 
 ### 5.3 Constructive Discharge Prohibition
 
-**5.3.1 Absolute Ban**  
+#### 5.3.1 Absolute Ban  
 Constructive discharge — actions intended to force a worker to quit — is prohibited.
 
 This includes:
@@ -92,7 +92,7 @@ This includes:
 - forced relocations,
 - deliberate duty reassignment designed to cause resignation.
 
-**5.3.2 Classification as Involuntary Separation**  
+#### 5.3.2 Classification as Involuntary Separation  
 Any separation resulting from constructive discharge shall be treated as:
 - an employer-initiated layoff,
 - fully eligible for unemployment and protections.
@@ -114,14 +114,14 @@ Protecting workers from covert termination tactics preserves access to unemploym
 
 ### 5.4 Layoff Notice & Unemployment Access
 
-**5.4.1 Minimum Notice Requirement**  
+#### 5.4.1 Minimum Notice Requirement  
 Employers must provide advance notice of layoffs or mass reductions except in verified emergencies.
 
 Notice must include expected timing, affected roles, and a clear statement of eligibility for unemployment and continuation of benefits, and may not be replaced by coercive resignations, forced transfers, or constructive discharge tactics.
 
 Where notice is not feasible due to a verified emergency, employers must document the emergency basis and provide accelerated access to severance, benefits continuity, or equivalent mitigation.
 
-**5.4.2 Anti-Circumvention Rule**  
+#### 5.4.2 Anti-Circumvention Rule  
 Employers may not restructure roles, schedules, or conditions to:
 - evade unemployment liability,
 - force voluntary resignation in name only.
@@ -143,14 +143,14 @@ Advance notice and fair classification help maintain income stability and approp
 
 ### 5.5 Tipped Wage Reform
 
-**5.5.1 Wage Floor Requirement**  
+#### 5.5.1 Wage Floor Requirement  
 Tipped workers must receive the full minimum wage **before tips**.
 
 Tips:
 - belong exclusively to the worker,
 - may not be counted toward wage minimums.
 
-**5.5.2 Back Pay Calculation**  
+#### 5.5.2 Back Pay Calculation  
 If wages fall below minimum:
 - back pay shall equal the difference between minimum wage and base wage,
 - calculated independently of tips received.
@@ -172,7 +172,7 @@ Tipped wage abuses perpetuate income instability and reduce affordability for es
 
 ### 5.6 Shift Timing & Worker Health
 
-**5.6.1 Minimum Rest Periods**  
+#### 5.6.1 Minimum Rest Periods  
 Employers must provide a minimum rest interval between shifts unless:
 - adequate sleeping accommodations are provided,
 - or emergency services justify extended shifts.
@@ -194,20 +194,20 @@ Insufficient rest and punitive shift design harm health, safety, productivity, a
 
 ### 5.7 Overtime Neutrality & Take-Home Protection
 
-**5.7.1 Take-Home Neutrality Rule**  
+#### 5.7.1 Take-Home Neutrality Rule  
 Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
 
 Where withholding, benefit clawbacks, or payroll structures cause overtime hours to reduce effective take-home compensation, employers must provide a corrective adjustment or alternative pay treatment so overtime remains economically neutral or beneficial.
 
 Overtime should not function as an affordability penalty; structures that repeatedly cause net loss on overtime shall be treated as noncompliant.
 
-**5.7.2 Overtime Premium Protection**  
+#### 5.7.2 Overtime Premium Protection  
 The overtime premium portion of pay (above base wage) shall be:
 - taxed at a reduced marginal rate, or
 - deferred for tax calculation purposes,
 to preserve take-home fairness.
 
-**5.7.3 Benefit Cliff Safeguard**  
+#### 5.7.3 Benefit Cliff Safeguard  
 Overtime earnings may not automatically trigger:
 - loss of essential benefits,
 - abrupt benefit phase-outs,

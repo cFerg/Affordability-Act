@@ -22,14 +22,14 @@ It aligns property taxation with regulated value, enforces cost-based fee struct
 
 ### 8.1 Property Tax Alignment
 
-**8.1.1 Assessment Cap**  
+#### 8.1.1 Assessment Cap  
 Property taxes must be based on the Regulated Assessed Current Value (RACV), not speculative market pricing.
 
 Assessors and taxing authorities may not use nearby listings, investor transactions, or speculative comparable sales to inflate taxable valuation beyond RACV.
 
 Any increase in taxable value must be supported by documented improvements, verified condition remediation, or permitted RACV adjustments under this Act, and must exclude purely speculative appreciation.
 
-**8.1.2 Anti-Secondary Inflation Rule**  
+#### 8.1.2 Anti-Secondary Inflation Rule  
 Property tax increases shall not be justified solely by market appreciation, resale listings, or neighboring transactions.
 
 Where no material improvement, expansion, or condition correction has occurred, assessed tax value increases must be capped to prevent secondary inflation unrelated to actual property utility or livability.
@@ -51,13 +51,13 @@ Property taxes tied to speculative values act like invisible inflation, increasi
 
 ### 8.2 Marital & Household Equity
 
-**8.2.1 Neutral Tax Treatment**  
+#### 8.2.1 Neutral Tax Treatment  
 Tax burdens may not disproportionately penalize:
 - single individuals,
 - nontraditional households,
 - individuals without dependents.
 
-**8.2.2 Access Equity**  
+#### 8.2.2 Access Equity  
 Marital status may not be used to deny or inflate access to:
 - mortgages,
 - housing programs,
@@ -84,14 +84,14 @@ Tax systems that privilegize certain household types worsen economic inequality 
 
 ### 8.3 Fees & Administrative Costs
 
-**8.3.1 Cost-Based Fees Only**  
+#### 8.3.1 Cost-Based Fees Only  
 Government and quasi-government fees must reflect actual administrative cost.
 
 Fees may not be used as general revenue tools, and may not exceed the documented cost of providing the service, processing the filing, or administering the program.
 
 Where a fee is standardized, the issuing entity must maintain a public cost basis showing the components of the fee and must revise the fee downward when administrative cost decreases.
 
-**8.3.2 Prohibited Revenue Padding**  
+#### 8.3.2 Prohibited Revenue Padding  
 Fees may not be used as indirect taxation or revenue extraction mechanisms.
 
 Government entities may not use administrative, processing, filing, or convenience fees as indirect revenue generators.
@@ -115,7 +115,7 @@ Fees serving as hidden tax mechanisms inflate citizen costs without transparency
 
 ### 8.4 Tariff Impacts on Affordability
 
-**8.4.1 Essential Material Exemptions**  
+#### 8.4.1 Essential Material Exemptions  
 Tariffs on materials essential to:
 - housing,
 - vehicles,
@@ -123,7 +123,7 @@ Tariffs on materials essential to:
 - medical devices  
 must be reduced or offset when they materially increase end-user costs.
 
-**8.4.2 Cost-Pass Restrictions**  
+#### 8.4.2 Cost-Pass Restrictions  
 Entities may not automatically pass tariff increases to consumers without justification.
 
 Tariff-related cost increases may only be passed to consumers when a direct, proportional, and documented increase in material input cost is demonstrated.
@@ -147,7 +147,7 @@ Tariffs can act as hidden inflation drivers, raising affordability costs for ess
 
 ### 8.5 Public Investment & Affordability
 
-**8.5.1 Infrastructure as Cost Control**  
+#### 8.5.1 Infrastructure as Cost Control  
 Public investment in infrastructure is recognized as a method of reducing long-term consumer costs.
 
 Public investment decisions shall account for long-term affordability impact, including reduction of recurring consumer costs, stabilization of service pricing, and mitigation of future infrastructure scarcity.
@@ -171,10 +171,10 @@ Long-term investments in infrastructure and public goods reduce ongoing expenses
 
 ### 8.6 Public Research, National Capacity & Workforce Stability
 
-**8.6.1 Research as Infrastructure**  
+#### 8.6.1 Research as Infrastructure  
 Public research institutions and programs (including NASA, NSF, NOAA, NIST, EPA, USGS, and similar bodies) are classified as national affordability infrastructure.
 
-**8.6.2 Funding Stability Requirement**  
+#### 8.6.2 Funding Stability Requirement  
 Research funding may not be reduced without considering:
 - workforce displacement,
 - educational pipeline disruption,
@@ -184,20 +184,20 @@ Public research institutions and federally funded programs shall not be subjecte
 
 Funding changes must include transition planning sufficient to prevent sudden job loss, program collapse, or forced commercialization.
 
-**8.6.3 Workforce & Program Protection**  
+#### 8.6.3 Workforce & Program Protection  
 Agencies may not rely on:
 - tourism,
 - merchandise sales,
 - inflated user fees  
 to replace withdrawn public funding.
 
-**8.6.4 Education & Job Pipeline Protection**  
+#### 8.6.4 Education & Job Pipeline Protection  
 Funding decisions must account for impacts on:
 - internships,
 - fellowships,
 - early-career employment.
 
-**8.6.5 Transparency & Return on Investment**  
+#### 8.6.5 Transparency & Return on Investment  
 Agencies must publish affordability-related outcomes of public research investment.
 
 #### Summary — 8.6 Public Research, National Capacity & Workforce Stability
@@ -217,7 +217,7 @@ Public scientific and technical research underpins innovation, job creation, and
 
 ### 8.7 Waste Management, Recycling & Energy Recovery
 
-**8.7.1 Tiered Recycling Responsibility**  
+#### 8.7.1 Tiered Recycling Responsibility  
 Recycling infrastructure responsibility shall be assigned in the following order:
 1. local municipality,
 2. county authority,
@@ -225,19 +225,19 @@ Recycling infrastructure responsibility shall be assigned in the following order
 
 Where a lower level lacks funding or facilities, responsibility automatically escalates upward.
 
-**8.7.2 Mandatory Recycling Access**  
+#### 8.7.2 Mandatory Recycling Access  
 Residents shall have access to recycling services without excessive fees or restrictive conditions.
 
 Where local municipalities lack capacity, responsibility shall escalate to county or state authorities to ensure compliance without shifting cost burdens onto individual households.
 
-**8.7.3 Domestic Waste Processing Requirement**  
+#### 8.7.3 Domestic Waste Processing Requirement  
 Export of waste to foreign entities for disposal shall be prohibited except where no domestic processing alternative exists.
 
 Where feasible, waste shall be:
 - recycled domestically, or
 - processed through waste-to-energy systems for fuel and power generation.
 
-**8.7.4 Landfill Reduction & Energy Offset**  
+#### 8.7.4 Landfill Reduction & Energy Offset  
 Waste-to-energy output may be credited toward:
 - local energy supply,
 - grid stabilization,

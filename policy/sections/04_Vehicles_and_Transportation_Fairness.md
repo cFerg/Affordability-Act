@@ -26,7 +26,7 @@ Reliable transportation is a prerequisite for employment, healthcare access, and
 
 ### 4.1 Vehicle Price Reversion & Valuation
 
-**4.1.1 Vehicle Baseline Value**  
+#### 4.1.1 Vehicle Baseline Value  
 Motor vehicles shall be valued based on:
 - original manufacturer suggested retail price (MSRP), or
 - original purchase price if lower,
@@ -35,7 +35,7 @@ adjusted for:
 - verified improvements,
 - condition and mileage.
 
-**4.1.2 Prohibition on Speculative Pricing**  
+#### 4.1.2 Prohibition on Speculative Pricing  
 Used vehicles may not be sold at or above the current new-vehicle MSRP unless classified as:
 - antique,
 - collectible,
@@ -58,13 +58,13 @@ Vehicles rapidly depreciate in real-world use. Allowing speculative pricing dist
 
 ### 4.2 Dealer & Resale Practices
 
-**4.2.1 Anti-Gouging Rule**  
+#### 4.2.1 Anti-Gouging Rule  
 Dealers and resellers may not:
 - inflate prices due to supply manipulation,
 - impose mandatory add-ons unrelated to safety,
 - disguise price increases as fees.
 
-**4.2.2 Transparent Pricing Requirement**  
+#### 4.2.2 Transparent Pricing Requirement  
 All vehicle listings must display:
 - base price,
 - fees itemized individually,
@@ -87,12 +87,12 @@ Dealer opacity and resale manipulation create false market signals, eroding trus
 
 ### 4.3 Temporary & Paper Registration Abuse
 
-**4.3.1 Registration Integrity**  
+#### 4.3.1 Registration Integrity  
 Temporary and paper license plates may only be issued:
 - once per vehicle sale,
 - for a strictly limited duration.
 
-**4.3.2 Prohibition on Serial Temporary Plates**  
+#### 4.3.2 Prohibition on Serial Temporary Plates  
 Repeated issuance of temporary plates for the same vehicle constitutes:
 - registration fraud,
 - and grounds for fines or suspension.
@@ -114,13 +114,13 @@ Temporary registration abuse undermines road safety, insurance systems, and publ
 
 ### 4.4 Insurance Fairness & Alignment
 
-**4.4.1 Value-Aligned Premiums**  
+#### 4.4.1 Value-Aligned Premiums  
 Vehicle insurance premiums must reasonably correlate with:
 - vehicle value,
 - driver history,
 - actual risk exposure.
 
-**4.4.2 Prohibition on Non-Event Increases**  
+#### 4.4.2 Prohibition on Non-Event Increases  
 Premiums may not be increased due to:
 - general inflation claims alone,
 - industry-wide losses unrelated to the insured.
@@ -142,12 +142,12 @@ Unregulated insurance volatility acts as a hidden tax on transportation, punishi
 
 ### 4.5 Emergency Transportation Protections
 
-**4.5.1 Public Coverage of Emergency Transport**  
+#### 4.5.1 Public Coverage of Emergency Transport  
 Emergency medical transportation required to preserve life or safety shall be covered by:
 - public emergency services,
 - or public insurance mechanisms.
 
-**4.5.2 No Surprise Transport Billing**  
+#### 4.5.2 No Surprise Transport Billing  
 Individuals may not be billed out-of-pocket for emergency transport beyond standardized public rates.
 
 Emergency transport billing must be transparent, standardized, and capped. Patients may not be charged undisclosed, out-of-network, or post-hoc “balance bills” where transport was obtained under emergency conditions.
@@ -171,24 +171,24 @@ Emergency transport is involuntary by nature. Charging individuals for unavoidab
 
 ### 4.6 Fuel Quality & Efficiency Protection
 
-**4.6.1 Fuel Quality Disclosure**  
+#### 4.6.1 Fuel Quality Disclosure  
 Fuel retailers must disclose:
 - ethanol content,
 - additive levels,
 - and energy density ranges.
 
-**4.6.2 Efficiency Parity Requirement**  
+#### 4.6.2 Efficiency Parity Requirement  
 Fuel sold at equivalent prices must provide comparable energy output.
 
 Discount programs may not be used to mask reduced fuel quality.
 
-**4.6.3 Prohibited Degradation Practices**  
+#### 4.6.3 Prohibited Degradation Practices  
 It is unlawful to:
 - dilute fuel beyond disclosed standards,
 - substitute lower-efficiency blends at standard pricing,
 - or conceal efficiency loss through marketing programs.
 
-**4.6.4 Enforcement & Remedies**  
+#### 4.6.4 Enforcement & Remedies  
 Demonstrated efficiency loss resulting in increased consumer fuel costs may trigger:
 - restitution,
 - civil penalties,

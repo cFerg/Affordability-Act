@@ -20,12 +20,12 @@ This section guarantees continuous access to necessary healthcare services and e
 
 ### 6.1 Emergency vs Non-Emergency Care Separation
 
-**6.1.1 Emergency Care Coverage**  
+#### 6.1.1 Emergency Care Coverage  
 Emergency medical treatment required to preserve life or prevent serious harm shall:
 - be provided without regard to insurance status,
 - not require prior authorization.
 
-**6.1.2 Public Responsibility for Emergency Transport**  
+#### 6.1.2 Public Responsibility for Emergency Transport  
 Emergency medical transportation shall be covered through:
 - public emergency services,
 - or public insurance mechanisms,
@@ -48,12 +48,12 @@ Separating emergency from non-emergency care protects critical access while main
 
 ### 6.2 Continuous Healthcare Enrollment
 
-**6.2.1 Year-Round Enrollment Requirement**  
+#### 6.2.1 Year-Round Enrollment Requirement  
 Public healthcare programs, including Medicaid, must allow:
 - continuous enrollment year-round,
 - enrollment upon change in income, employment, or eligibility.
 
-**6.2.2 Enrollment Timing Protection**  
+#### 6.2.2 Enrollment Timing Protection  
 Individuals denied public coverage after an employer enrollment window closes must be:
 - granted a special enrollment period,
 - or automatically provisionally covered.
@@ -75,7 +75,7 @@ Healthcare access should not depend on bureaucratic windows or job-based timing;
 
 ### 6.3 Essential Medical Items & Price Controls
 
-**6.3.1 Covered Medical Necessities**  
+#### 6.3.1 Covered Medical Necessities  
 The following essential medical items shall be provided at regulated or no cost:
 - insulin,
 - epinephrine auto-injectors,
@@ -83,7 +83,7 @@ The following essential medical items shall be provided at regulated or no cost:
 - menstrual hygiene products,
 - and other life-sustaining necessities.
 
-**6.3.2 Anti-Gouging Rule**  
+#### 6.3.2 Anti-Gouging Rule  
 Manufacturers and distributors may not inflate prices of essential medical items beyond regulated cost-plus thresholds.
 
 Regulated pricing must be based on verifiable production, distribution, and compliance costs, plus a permissible margin. Price increases must be supported by documented cost changes, not market leverage, scarcity gaming, or monopoly control.
@@ -107,12 +107,12 @@ Essential medications and life-preserving items should be accessible to all, not
 
 ### 6.4 Insurance Fairness & Stability
 
-**6.4.1 Coverage Stability**  
+#### 6.4.1 Coverage Stability  
 Insurance providers may not:
 - cancel coverage mid-term except for fraud,
 - raise premiums absent documented risk change.
 
-**6.4.2 Non-Event Premium Increases Prohibited**  
+#### 6.4.2 Non-Event Premium Increases Prohibited  
 Premium increases justified solely by:
 - general inflation,
 - unrelated market losses,
@@ -135,12 +135,12 @@ Insurance should respond to individual risk and documented factors, not act as a
 
 ### 6.5 Abuse Prevention & Accountability
 
-**6.5.1 Care Abuse Review**  
+#### 6.5.1 Care Abuse Review  
 Patterns of non-emergency misuse of emergency services may be reviewed, but:
 - care may not be denied retroactively,
 - emergency determination defaults in favor of patient safety.
 
-**6.5.2 Health Outcome Focus**  
+#### 6.5.2 Health Outcome Focus  
 Preventative care and treatment programs must prioritize long-term health outcomes over punitive denial of services.
 
 Coverage and access decisions must be based on medical necessity, demonstrated health benefit, and evidence-based standards—not moral judgment, stigma, or blanket exclusions that increase long-term public cost.
@@ -164,7 +164,7 @@ Balancing abuse prevention with care access protects public resources while safe
 
 ### 6.6 Veterinary Care Pricing & Emergency Standards
 
-**6.6.1 Emergency Severity Classification**
+#### 6.6.1 Emergency Severity Classification
 Veterinary services shall be classified as:
 - emergency (imminent risk of death or severe suffering),
 - urgent,
@@ -172,13 +172,13 @@ Veterinary services shall be classified as:
 
 Emergency cases must prioritize stabilization before billing discussions.
 
-**6.6.2 Emergency Pricing Protections**
+#### 6.6.2 Emergency Pricing Protections
 In emergency situations:
 - payment may not be demanded prior to stabilization,
 - cost ranges must be disclosed post-stabilization,
 - coercive “pay-now-or-else” pricing is prohibited.
 
-**6.6.3 Transparency & Documentation**
+#### 6.6.3 Transparency & Documentation
 Veterinary providers must document:
 - emergency classification rationale,
 - services rendered prior to billing,
@@ -201,14 +201,14 @@ Veterinary emergencies are time-sensitive and often unavoidable; ethical pricing
 
 ### 6.7 Spay, Neuter & Responsible Breeding
 
-**6.7.4 Mandatory Spay & Neuter**
+#### 6.7.4 Mandatory Spay & Neuter
 Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
 
 Licensing exemptions must be limited to verified, accountable breeding programs and documented working/service animal programs where sterilization conflicts with medically supported requirements.
 
 This provision shall be implemented with low-cost access pathways, including subsidized clinics or sliding-scale options, to prevent affordability barriers from turning the rule into a penalty on low-income owners.
 
-**6.7.5 Licensed Breeding Requirements**
+#### 6.7.5 Licensed Breeding Requirements
 Breeding is restricted to licensed individuals or entities, requiring:
 - veterinary health certification,
 - genetic diversity safeguards,
@@ -231,20 +231,20 @@ Responsible population control reduces shelter overcrowding, inbreeding, and pub
 
 ### 6.8 Essential Medication Price Protections
 
-**6.8.6 Definition of Essential Medications**
+#### 6.8.6 Definition of Essential Medications
 Essential medications include, but are not limited to:
 - insulin,
 - inhalers,
 - epinephrine,
 - critical cardiac and seizure medications.
 
-**6.8.7 Cost-Based Pricing Requirement**
+#### 6.8.7 Cost-Based Pricing Requirement
 Prices must remain within a reasonable multiple of:
 - verified production cost,
 - distribution and compliance costs,
 - reasonable profit margins.
 
-**6.8.8 Prohibited Practices**
+#### 6.8.8 Prohibited Practices
 It is unlawful to:
 - exploit patent monopolies to inflate prices,
 - suppress competition through exclusivity abuse,

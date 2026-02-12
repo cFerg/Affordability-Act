@@ -1,195 +1,493 @@
 (() => {
   "use strict";
 
-  // ---------------------------
-  // Theme: default to system
-  // - If no saved choice, do nothing and let CSS @media control
-  // - If saved "light", apply body.theme-light
-  // - If saved "dark", remove body.theme-light
-  // Toggle button: click toggles light/dark and saves
-  // Shift-click: reset to system (clears saved)
-  // ---------------------------
-  const THEME_KEY = "affordact_theme"; // "light" | "dark" | "system" | null
-  const body = document.body;
+  // ----------------------------
+  // Utilities
+  // ----------------------------
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  function getSystemIsLight() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+  function escapeHtml(s) {
+    return String(s)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+  }
+
+  function slugify(s) {
+    return String(s || "")
+      .trim()
+      .toLowerCase()
+      .replace(/&amp;/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 90);
+  }
+
+  // ----------------------------
+  // Theme: system default, 2-state UI
+  // - Default: no preference => follows system
+  // - Click toggle => forces light/dark + saves
+  // - Shift-click => reset to system (clears saved)
+  // ----------------------------
+  const THEME_KEY = "affordact_theme"; // "light" | "dark" | null
+
+  function systemIsLight() {
+    return window.matchMedia?.("(prefers-color-scheme: light)")?.matches ?? false;
   }
 
   function applyTheme(mode) {
-    // mode: "light" | "dark" | "system"
-    if (mode === "light") body.classList.add("theme-light");
-    else if (mode === "dark") body.classList.remove("theme-light");
-    else {
-      // system: remove forced class, let CSS media decide
-      body.classList.remove("theme-light");
-      // NOTE: we are using media queries for the rest; body.theme-light only forces light
-      // If you ever add theme-dark, you can expand this.
-    }
+    // We only use body.theme-light as an override.
+    // Dark is default (unless your CSS prefers-color-scheme sets otherwise).
+    if (mode === "light") document.body.classList.add("theme-light");
+    else document.body.classList.remove("theme-light");
   }
 
   function loadTheme() {
     const saved = localStorage.getItem(THEME_KEY);
-    if (!saved || saved === "system") {
-      applyTheme("system");
-      return "system";
-    }
     if (saved === "light" || saved === "dark") {
       applyTheme(saved);
       return saved;
     }
-    applyTheme("system");
-    return "system";
+    // system mode
+    applyTheme(null);
+    return null;
   }
 
   function saveTheme(mode) {
-    if (!mode || mode === "system") localStorage.removeItem(THEME_KEY);
+    if (!mode) localStorage.removeItem(THEME_KEY);
     else localStorage.setItem(THEME_KEY, mode);
   }
 
   function initThemeToggle() {
-    const btn = document.getElementById("theme-toggle");
+    const btn = $("#theme-toggle");
     if (!btn) return;
 
-    let mode = loadTheme(); // "system" | "light" | "dark"
+    let mode = loadTheme(); // "light" | "dark" | null (system)
 
-    // If system mode, infer current visible mode for the next toggle
-    function currentEffectiveMode() {
-      if (mode === "light") return "light";
-      if (mode === "dark") return "dark";
-      return getSystemIsLight() ? "light" : "dark";
+    function effectiveMode() {
+      if (mode === "light" || mode === "dark") return mode;
+      return systemIsLight() ? "light" : "dark";
     }
 
     btn.addEventListener("click", (e) => {
       // Shift-click resets to system
       if (e.shiftKey) {
-        mode = "system";
+        mode = null;
         saveTheme(mode);
         applyTheme(mode);
         return;
       }
-
-      const eff = currentEffectiveMode();
-      mode = (eff === "light") ? "dark" : "light";
+      const eff = effectiveMode();
+      mode = eff === "light" ? "dark" : "light";
       saveTheme(mode);
       applyTheme(mode);
     });
 
-    // If user is in system mode and system theme changes while page is open
-    if (window.matchMedia) {
-      const mq = window.matchMedia("(prefers-color-scheme: light)");
-      mq.addEventListener?.("change", () => {
-        if (mode === "system") applyTheme("system");
-      });
-    }
+    // If system changes while in system mode, reflect it
+    const mq = window.matchMedia?.("(prefers-color-scheme: light)");
+    mq?.addEventListener?.("change", () => {
+      if (!mode) applyTheme(null);
+    });
   }
 
-  // ---------------------------
-  // Home: Category accordion
-  // Rules:
-  // - If category has 1 section button: header becomes link to that section, no chevron
-  // - If category has >= 2 section buttons: start collapsed, header toggles expand/collapse
-  // ---------------------------
-  function initCategoryAccordion() {
-    const home = document.getElementById("home-sections");
+  // ----------------------------
+  // Home: Category “accordion only if >1 sections”
+  // Expects markup:
+  //  - [data-cat-block] containing:
+  //      - [data-cat-toggle] header element (button or a)
+  //      - [data-cat-body] container with <a.section-btn> children
+  //      - optional .cat-meta and .cat-chevron elements
+  // ----------------------------
+  function initCategoryCards() {
+    const home = $("#home-sections");
     if (!home) return;
 
-    const blocks = home.querySelectorAll("[data-cat-block]");
+    const blocks = $$("[data-cat-block]", home);
+
     blocks.forEach((block) => {
-      const header = block.querySelector("[data-cat-toggle]");
-      const bodyEl = block.querySelector("[data-cat-body]");
-      const meta = block.querySelector("[data-cat-meta]");
-      const chevron = block.querySelector(".cat-chevron");
+      const body = $("[data-cat-body]", block);
+      if (!body) return;
 
-      if (!header || !bodyEl) return;
+      const links = $$("a.section-btn", body);
+      const count = links.length;
 
-      const sectionLinks = bodyEl.querySelectorAll("a.section-btn");
-      const count = sectionLinks.length;
+      const meta = $(".cat-meta", block);
+      const chev = $(".cat-chevron", block);
 
-      if (meta) meta.textContent = (count === 1 ? "1 section" : `${count} sections`);
+      // For single-section categories: header becomes link to that section; hide meta/chevron; hide body
+      if (count === 1) {
+        const onlyHref = links[0].getAttribute("href") || "#";
 
-      if (count <= 1) {
-        // Convert header button -> link to the only section (if present)
-        if (count === 1) {
-          const href = sectionLinks[0].getAttribute("href") || "#";
+        // Convert header button -> link if needed
+        const headerBtn = $("[data-cat-toggle]", block);
+        if (headerBtn && headerBtn.tagName.toLowerCase() !== "a") {
           const link = document.createElement("a");
-          link.className = header.className.replace("cat-header", "cat-header cat-header--link");
-          link.href = href;
-          link.innerHTML = header.innerHTML;
-          header.replaceWith(link);
-          // Body stays visible but we can hide it to avoid duplicate link display
-          bodyEl.style.display = "none";
-        } else {
-          // No sections: keep open, nothing to toggle
-          if (chevron) chevron.style.display = "none";
+          link.href = onlyHref;
+          link.className = headerBtn.className + " cat-header--link";
+          link.innerHTML = headerBtn.innerHTML;
+          headerBtn.replaceWith(link);
+        } else if (headerBtn && headerBtn.tagName.toLowerCase() === "a") {
+          headerBtn.setAttribute("href", onlyHref);
         }
+
+        if (meta) meta.remove();
+        if (chev) chev.remove();
+
+        body.hidden = true;
+        body.style.display = "none";
         return;
       }
 
-      // Collapse by default for multi-section categories
-      header.setAttribute("aria-expanded", "false");
-      bodyEl.hidden = true;
+      // For multi-section categories: true accordion
+      if (meta) meta.textContent = `${count} sections`;
+      if (chev) chev.style.display = "";
 
-      header.addEventListener("click", () => {
+      const header = $("[data-cat-toggle]", block);
+      if (!header) return;
+
+      // start collapsed
+      header.setAttribute("aria-expanded", "false");
+      body.hidden = true;
+
+      header.addEventListener("click", (e) => {
+        // if header is a link, don't toggle
+        if (header.tagName.toLowerCase() === "a") return;
+        e.preventDefault();
         const isOpen = header.getAttribute("aria-expanded") === "true";
         header.setAttribute("aria-expanded", String(!isOpen));
-        bodyEl.hidden = isOpen;
+        body.hidden = isOpen;
       });
     });
   }
 
-  // ---------------------------
-  // Sticky nav helpers (if present)
-  // - Back to top
-  // - Search focus
-  // ---------------------------
-  function initStickyNav() {
-    const nav = document.querySelector("[data-sticky-nav]");
-    if (!nav) return;
+  // ----------------------------
+  // Global search modal (Home): uses /search.json (B style: {documents:[...]})
+  // Searches content FIRST, title second, category last.
+  //
+  // Expected markup exists already in your default.html/index:
+  //  - input[data-global-search] in header
+  //  - #global-search-modal, #global-search-modal-input, #global-search-results
+  //  - elements with [data-search-modal-close]
+  // ----------------------------
+  function initGlobalSearchModal() {
+    const trigger = $("input[data-global-search]");
+    const modal = $("#global-search-modal");
+    const modalInput = $("#global-search-modal-input");
+    const resultsEl = $("#global-search-results");
 
-    const topBtn = nav.querySelector("[data-nav-top]");
-    const searchBtn = nav.querySelector("[data-nav-search]");
+    if (!trigger || !modal || !modalInput || !resultsEl) return;
 
-    if (topBtn) {
-      topBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+    let docs = null;
+    let loading = false;
+
+    async function ensureLoaded() {
+      if (docs || loading) return;
+      loading = true;
+      try {
+        const res = await fetch("/search.json", { cache: "no-store" });
+        if (!res.ok) throw new Error(`search.json fetch failed: ${res.status}`);
+        const json = await res.json();
+        docs = Array.isArray(json) ? json : (json.documents || []);
+      } catch (e) {
+        console.error(e);
+        docs = [];
+      } finally {
+        loading = false;
+      }
     }
 
-    if (searchBtn) {
-      searchBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const input = document.querySelector("input[data-page-search]");
-        if (input) input.focus();
-      });
+    function lockPageScroll(lock) {
+      // Prevent iOS body scroll bleed when modal is open
+      if (lock) document.documentElement.classList.add("modal-lock");
+      else document.documentElement.classList.remove("modal-lock");
     }
+
+    function openModal(prefill) {
+      lockPageScroll(true);
+      modal.hidden = false;
+      modalInput.value = prefill || "";
+      modalInput.focus();
+      render();
+    }
+
+    function closeModal() {
+      lockPageScroll(false);
+      modal.hidden = true;
+      resultsEl.innerHTML = "";
+      resultsEl.classList.remove("has-results");
+    }
+
+    function makeSnippet(content, qLower) {
+      const text = String(content || "").replace(/\s+/g, " ").trim();
+      if (!text) return "";
+      const low = text.toLowerCase();
+      const i = low.indexOf(qLower);
+      if (i < 0) return text.slice(0, 160) + (text.length > 160 ? "…" : "");
+      const start = Math.max(0, i - 60);
+      const end = Math.min(text.length, i + 90);
+      let sn = text.slice(start, end);
+      if (start > 0) sn = "…" + sn;
+      if (end < text.length) sn = sn + "…";
+      return sn;
+    }
+
+    function highlightSnippet(snippet, rawQ) {
+      if (!rawQ) return escapeHtml(snippet);
+      const re = new RegExp(rawQ.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "ig");
+      // escape first, then replace by matching escaped token is hard;
+      // instead do a safe approach: split by matches on original, then escape pieces.
+      const parts = String(snippet).split(re);
+      const matches = String(snippet).match(re) || [];
+      let out = "";
+      for (let i = 0; i < parts.length; i++) {
+        out += escapeHtml(parts[i]);
+        if (i < matches.length) out += `<mark class="search-hit">${escapeHtml(matches[i])}</mark>`;
+      }
+      return out;
+    }
+
+    async function render() {
+      const rawQ = modalInput.value.trim();
+      const q = rawQ.toLowerCase();
+
+      if (!q) {
+        resultsEl.innerHTML = "";
+        resultsEl.classList.remove("has-results");
+        return;
+      }
+
+      await ensureLoaded();
+
+      const hits = [];
+      for (const d of docs) {
+        const title = String(d.title || "");
+        const cat = String(d.category || "");
+        const body = String(d.content || d.body || "");
+
+        const lt = title.toLowerCase();
+        const lc = cat.toLowerCase();
+        const lb = body.toLowerCase();
+
+        // score: body >> title > category
+        let score = 0;
+        if (lb.includes(q)) score += 10;
+        if (lt.includes(q)) score += 3;
+        if (lc.includes(q)) score += 1;
+
+        if (score > 0) hits.push({ d, score });
+      }
+
+      hits.sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        const ao = Number(a.d.order ?? 9999);
+        const bo = Number(b.d.order ?? 9999);
+        return ao - bo;
+      });
+
+      const top = hits.slice(0, 40).map(({ d }) => {
+        const title = d.title || "Untitled";
+        const url = d.url || "#";
+        const cat = d.category
+          ? `<div class="muted global-search-result__cat">${escapeHtml(d.category)}</div>`
+          : "";
+
+        const sn = makeSnippet(d.content || d.body || "", q);
+        const snHtml = sn
+          ? `<p class="global-search-result__snippet">${highlightSnippet(sn, rawQ)}</p>`
+          : "";
+
+        return `
+          <div class="global-search-result">
+            <a class="global-search-result__title" href="${escapeHtml(url)}">${escapeHtml(title)}</a>
+            ${cat}
+            ${snHtml}
+          </div>
+        `;
+      });
+
+      resultsEl.innerHTML = top.join("");
+      resultsEl.classList.toggle("has-results", top.length > 0);
+    }
+
+    // Open when typing/focus
+    trigger.addEventListener("focus", () => openModal(trigger.value));
+    trigger.addEventListener("input", () => openModal(trigger.value));
+
+    // Close handlers
+    modal.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && (t.matches("[data-search-modal-close]") || t.closest("[data-search-modal-close]"))) closeModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (!modal.hidden && e.key === "Escape") closeModal();
+    });
+
+    modalInput.addEventListener("input", () => render());
   }
 
-  // ---------------------------
-  // Page search highlighting (if you already have it)
-  // If not present in your current site.js, leave this alone.
-  // ---------------------------
-  function initPageSearch() {
-    const input = document.querySelector("input[data-page-search]");
-    if (!input) return;
-
-    const root = document.querySelector(".content");
+  // ----------------------------
+  // Heading jump-links: adds 🔗 to h2/h3/h4
+  // ----------------------------
+  function initHeadingAnchors() {
+    const root = $(".content");
     if (!root) return;
 
-    let lastMark = [];
+    const heads = $$("h2,h3,h4", root);
 
-    function clearMarks() {
-      for (const m of lastMark) {
-        const parent = m.parentNode;
-        if (!parent) continue;
-        parent.replaceChild(document.createTextNode(m.textContent), m);
-        parent.normalize();
-      }
-      lastMark = [];
+    heads.forEach((h) => {
+      // skip if inside nav/controls
+      if (h.closest("nav")) return;
+
+      if (!h.id) h.id = slugify(h.textContent);
+
+      if ($(".hdr-anchor", h)) return;
+
+      const a = document.createElement("a");
+      a.className = "hdr-anchor";
+      a.href = `#${h.id}`;
+      a.setAttribute("aria-label", "Link to this section");
+      a.innerHTML = "🔗";
+      h.appendChild(a);
+    });
+  }
+
+  // ----------------------------
+  // TOC (desktop sidebar + mobile dropdown)
+  // Injects into #section-topbar (you already have)
+  // Desktop: sticky sidebar
+  // Mobile: dropdown select
+  // ----------------------------
+  function initTocNav() {
+    const root = $(".content");
+    if (!root) return;
+
+    const topbar = $("#section-topbar");
+    if (!topbar) return;
+
+    const headings = $$("h2,h3,h4", root).filter(h => !!(h.textContent || "").trim());
+    if (headings.length < 2) return;
+
+    // Ensure IDs
+    headings.forEach(h => { if (!h.id) h.id = slugify(h.textContent); });
+
+    // Build items
+    const items = headings.map(h => ({
+      id: h.id,
+      level: h.tagName.toLowerCase(), // h2/h3/h4
+      text: (h.textContent || "").replace("🔗", "").trim()
+    }));
+
+    // Mobile dropdown
+    const select = document.createElement("select");
+    select.className = "toc-select";
+    select.setAttribute("aria-label", "On this page");
+
+    const opt0 = document.createElement("option");
+    opt0.value = "";
+    opt0.textContent = "On this page…";
+    select.appendChild(opt0);
+
+    for (const it of items) {
+      const opt = document.createElement("option");
+      opt.value = it.id;
+      opt.textContent =
+        (it.level === "h3" ? "  ↳ " : it.level === "h4" ? "    • " : "") + it.text;
+      select.appendChild(opt);
     }
 
-    function markText(query) {
+    select.addEventListener("change", () => {
+      const id = select.value;
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // update URL hash
+      history.replaceState(null, "", `#${id}`);
+      select.value = "";
+    });
+
+    // Desktop sidebar list
+    const sidebar = document.createElement("aside");
+    sidebar.className = "toc-sidebar";
+    sidebar.innerHTML = `
+      <div class="toc-title">On this page</div>
+      <nav class="toc-list" aria-label="Table of contents"></nav>
+    `;
+    const list = $(".toc-list", sidebar);
+
+    for (const it of items) {
+      const a = document.createElement("a");
+      a.href = `#${it.id}`;
+      a.className = `toc-link toc-${it.level}`;
+      a.textContent = it.text;
+      list.appendChild(a);
+    }
+
+    // Place controls
+    topbar.innerHTML = "";
+    const barWrap = document.createElement("div");
+    barWrap.className = "topbar-inner";
+    barWrap.appendChild(select);
+
+    // optional in-page search input hook if your layout includes it
+    const pageSearch = $("input[data-page-search]");
+    if (pageSearch) {
+      // move it into topbar on desktop if desired; keep it where it is otherwise
+      // We’ll just clone a simple focus button instead of moving nodes around.
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn topbar-search-btn";
+      btn.innerHTML = "<span>Search this page</span>";
+      btn.addEventListener("click", () => pageSearch.focus());
+      barWrap.appendChild(btn);
+    }
+
+    topbar.appendChild(barWrap);
+    topbar.appendChild(sidebar);
+
+    // Active section highlight (IntersectionObserver)
+    const links = $$("a.toc-link", sidebar);
+
+    function setActive(id) {
+      links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`));
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      // pick the nearest heading above fold
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top));
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: [0, 1] });
+
+    headings.forEach(h => obs.observe(h));
+  }
+
+  // ----------------------------
+  // Page in-content search highlighting (optional)
+  // If you already have a page-search input with data-page-search, this works.
+  // ----------------------------
+  function initPageSearchHighlight() {
+    const input = $("input[data-page-search]");
+    const root = $(".content");
+    if (!input || !root) return;
+
+    let marks = [];
+
+    function clearMarks() {
+      marks.forEach(m => {
+        const parent = m.parentNode;
+        if (!parent) return;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+      });
+      marks = [];
+    }
+
+    function mark(query) {
       if (!query) return;
 
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
@@ -197,7 +495,9 @@
           if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
           const p = node.parentElement;
           if (!p) return NodeFilter.FILTER_REJECT;
-          if (p.closest(".search-modal, script, style, nav, button, input, textarea")) return NodeFilter.FILTER_REJECT;
+          if (p.closest("nav,button,input,textarea,select,script,style,.toc-sidebar,.section-topbar,.search-modal")) {
+            return NodeFilter.FILTER_REJECT;
+          }
           return NodeFilter.FILTER_ACCEPT;
         }
       });
@@ -210,22 +510,21 @@
         const text = node.nodeValue;
         const low = text.toLowerCase();
         let idx = low.indexOf(q);
-        if (idx === -1) continue;
+        if (idx < 0) continue;
 
         const frag = document.createDocumentFragment();
         let last = 0;
 
         while (idx !== -1) {
           frag.appendChild(document.createTextNode(text.slice(last, idx)));
-          const span = document.createElement("mark");
-          span.className = "search-hit";
-          span.textContent = text.slice(idx, idx + query.length);
-          frag.appendChild(span);
-          lastMark.push(span);
+          const m = document.createElement("mark");
+          m.className = "search-hit";
+          m.textContent = text.slice(idx, idx + query.length);
+          frag.appendChild(m);
+          marks.push(m);
           last = idx + query.length;
           idx = low.indexOf(q, last);
         }
-
         frag.appendChild(document.createTextNode(text.slice(last)));
         node.parentNode.replaceChild(frag, node);
       }
@@ -233,11 +532,11 @@
 
     let t = null;
     input.addEventListener("input", () => {
-      const v = input.value.trim();
       clearTimeout(t);
+      const v = input.value.trim();
       t = setTimeout(() => {
         clearMarks();
-        if (v.length >= 2) markText(v);
+        if (v.length >= 2) mark(v);
       }, 120);
     });
 
@@ -250,105 +549,14 @@
     });
   }
 
-  // ---------------------------
-  // Global search modal (home)
-  // - opens when the header global input is focused/typed
-  // ---------------------------
-  function initGlobalSearchModal() {
-    const trigger = document.querySelector("input[data-global-search]");
-    const modal = document.getElementById("global-search-modal");
-    const modalInput = document.getElementById("global-search-modal-input");
-    const resultsEl = document.getElementById("global-search-results");
-    const indexScript = document.getElementById("global-search-index");
-
-    if (!trigger || !modal || !modalInput || !resultsEl || !indexScript) return;
-
-    let index = null;
-    try {
-      index = JSON.parse(indexScript.textContent || "{}");
-    } catch {
-      index = null;
-    }
-    const docs = (index && Array.isArray(index.documents)) ? index.documents : [];
-
-    function openModal(prefill) {
-      document.body.classList.add("search-modal-open");
-      modal.hidden = false;
-      modalInput.value = prefill || "";
-      modalInput.focus();
-      render();
-    }
-
-    function closeModal() {
-      document.body.classList.remove("search-modal-open");
-      modal.hidden = true;
-      resultsEl.innerHTML = "";
-    }
-
-    function render() {
-      const q = modalInput.value.trim().toLowerCase();
-      if (!q) {
-        resultsEl.classList.remove("has-results");
-        resultsEl.innerHTML = "";
-        return;
-      }
-
-      const hits = [];
-      for (const d of docs) {
-        const t = String(d.title || "").toLowerCase();
-        const c = String(d.category || "").toLowerCase();
-        if (t.includes(q) || c.includes(q)) hits.push(d);
-      }
-
-      resultsEl.innerHTML = hits.slice(0, 40).map(d => {
-        const cat = d.category ? `<div class="muted" style="font-size:12px;margin-top:2px;">${escapeHtml(d.category)}</div>` : "";
-        return `
-          <div class="global-search-result">
-            <a class="global-search-result__title" href="${escapeAttr(d.url || '#')}">${escapeHtml(d.title || 'Untitled')}</a>
-            ${cat}
-          </div>
-        `;
-      }).join("");
-
-      resultsEl.classList.toggle("has-results", hits.length > 0);
-    }
-
-    function escapeHtml(s) {
-      return String(s)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;");
-    }
-    function escapeAttr(s) {
-      return escapeHtml(s).replaceAll("`", "&#96;");
-    }
-
-    // Open modal when user starts typing or focuses
-    trigger.addEventListener("focus", () => openModal(trigger.value));
-    trigger.addEventListener("input", () => openModal(trigger.value));
-
-    // Modal interactions
-    modal.addEventListener("click", (e) => {
-      const t = e.target;
-      if (t && (t.matches("[data-search-modal-close]") || t.closest("[data-search-modal-close]"))) closeModal();
-    });
-
-    window.addEventListener("keydown", (e) => {
-      if (!modal.hidden && e.key === "Escape") closeModal();
-    });
-
-    modalInput.addEventListener("input", render);
-  }
-
   // Boot
   document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
-    initCategoryAccordion();
-    initStickyNav();
-    initPageSearch();
+    initCategoryCards();
     initGlobalSearchModal();
+    initHeadingAnchors();
+    initTocNav();
+    initPageSearchHighlight();
   });
 
 })();

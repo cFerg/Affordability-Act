@@ -20,7 +20,7 @@ Renters should not be forced to subsidize vacancy, speculation, or artificial sc
 
 ### 3.1 Base Rent & Cost-Based Pricing
 
-**3.1.1 Rental Baseline Standard**  
+#### 3.1.1 Rental Baseline Standard  
 Rent for residential units shall be calculated from:
 
 - Regulated Assessed Current Value (RACV) of the property, plus  
@@ -28,7 +28,7 @@ Rent for residential units shall be calculated from:
 - Documented operating costs, divided by  
 - Total habitable units.
 
-**3.1.2 Prohibition on Market-Only Rent Setting**  
+#### 3.1.2 Prohibition on Market-Only Rent Setting  
 Rental prices may not be justified solely by market rates where those rates exceed cost-based calculations.
 
 Landlords must be able to show a cost basis for rent (including maintenance, taxes tied to RACV, verified financing costs, and permissible margin). “Comparable rent” claims do not override the cost-based ceiling where comparables reflect scarcity manipulation, speculation, or collusive pricing.
@@ -52,7 +52,7 @@ Market-only rent setting enables coordinated rent inflation, punishes tenants fo
 
 ### 3.2 Unit-Based Allocation & Fair Distribution
 
-**3.2.1 Proportional Rent Allocation**  
+#### 3.2.1 Proportional Rent Allocation  
 Rent must be apportioned fairly between units based on:
 - square footage, or
 - bedroom count, or
@@ -60,7 +60,7 @@ Rent must be apportioned fairly between units based on:
 
 Landlords must choose one allocation method, and apply it consistently, unless it is disclosed and justfied.
 
-**3.2.2 Transparency Requirement**  
+#### 3.2.2 Transparency Requirement  
 Landlords must provide tenants with a clear rent breakdown upon request, showing how rent was calculated.
 
 The breakdown must include the components used to calculate rent (base cost, allowable adjustments, verified shared-cost allocation method, and any permitted variance), and must be provided within a reasonable timeframe.
@@ -84,7 +84,7 @@ Unequal unit pricing creates hidden discrimination, encourages gouging of high-n
 
 ### 3.3 Vacancy & Empty-Unit Protections
 
-**3.3.1 No Vacancy Cost Shifting**  
+#### 3.3.1 No Vacancy Cost Shifting  
 Occupied tenants may not be charged higher rent to offset:
 - vacant units,
 - unsold units,
@@ -92,7 +92,7 @@ Occupied tenants may not be charged higher rent to offset:
 
 Vacancy costs are the responsibility of the property owner.
 
-**3.3.2 Chronic Vacancy Review**  
+#### 3.3.2 Chronic Vacancy Review  
 Multi-unit properties with persistent vacancy may be subject to:
 - rent caps,
 - compulsory unit offering,
@@ -117,14 +117,14 @@ Vacancy cost-shifting makes tenants subsidize speculation and rewards artificial
 
 ### 3.4 Maintenance, Habitability & Rent Adjustment
 
-**3.4.1 Habitability Standard**  
+#### 3.4.1 Habitability Standard  
 Rental units must meet minimum safety and habitability requirements.
 
 Habitability includes structural integrity, weatherproofing, functional plumbing and electricity, absence of hazardous mold or infestation, and compliance with applicable safety codes.
 
 Where habitability materially degrades, rent must be reduced proportionally and corrective repair timelines enforced, with penalties for prolonged noncompliance.
 
-**3.4.2 Rent Reduction for Defects**  
+#### 3.4.2 Rent Reduction for Defects  
 Where deficiencies exist:
 - rent must be reduced proportionally until resolved,
 - repair costs may not be passed through retroactively.
@@ -148,14 +148,14 @@ Without a rent consequence, neglect becomes profitable and tenants are forced to
 
 ### 3.5 Student Housing & Boarding
 
-**3.5.1 Equal Treatment of Student Housing**  
+#### 3.5.1 Equal Treatment of Student Housing  
 Student housing, boarding houses, and dormitory-style rentals are subject to the same pricing and habitability rules as standard rentals.
 
 Educational affiliation does not exempt landlords or institutions from cost-based pricing, safety requirements, or transparency obligations.
 
 Where student housing is institution-controlled, the institution is treated as the responsible landlord entity for compliance and enforcement purposes.
 
-**3.5.2 Anti-Exploitation Rule**  
+#### 3.5.2 Anti-Exploitation Rule  
 Institutions or landlords may not inflate rent based on:
 - enrollment status,
 - academic year,
@@ -180,12 +180,12 @@ Students often lack bargaining power and are forced into proximity-based housing
 
 ### 3.6 Campgrounds, RV Parks & Long-Term Lodging
 
-**3.6.1 Lodging Classification**  
+#### 3.6.1 Lodging Classification  
 Campgrounds, RV parks, and extended-stay lodging serving long-term residents are treated as residential housing for pricing purposes.
 
 Long-term = Individuals are at a given location for 30+ days, or it is listed as a primary residence.
 
-**3.6.2 Cost-Aligned Pricing**  
+#### 3.6.2 Cost-Aligned Pricing  
 Rates must reflect:
 - land value,
 - provided utilities,

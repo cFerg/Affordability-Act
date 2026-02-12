@@ -208,54 +208,6 @@
         </div>
       </div>
     </div>
-
-    <script id="global-search-index" type="application/json">
-    {
-      "documents": [
-        { "id": "bill", "title": "Full compiled bill", "url": "{{ '/policy/bill-text/' | relative_url }}" }
-        {% assign sections_data = site.data.sections %}
-        {% if sections_data and sections_data.size > 0 %}
-
-          {%- assign keyed = "" | split: "" -%}
-          {%- for s in sections_data -%}
-            {%- if s.slug or s.url or s.sectionTitle -%}
-              {%- assign ord = s.order | default: 9999 | plus: 0 -%}
-              {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
-              {%- assign title = (s.sectionTitle | default: s.slug | default: "Section") -%}
-              {%- assign url = s.url | default: "" -%}
-                {%- if url == "" -%}
-                  {%- assign url = "/policy/sections/" | append: s.slug | append: "/" -%}
-                {%- endif -%}
-              {%- assign cat = (s.category | default: "Sections") -%}
-              {%- assign key = ord_key | append: "||" | append: title | append: "||" | append: url | append: "||" | append: cat -%}
-            {%- else -%}
-              {%- assign slug = s | replace: ".md","" -%}
-              {%- assign ord = slug | slice: 0, 2 | plus: 0 -%}
-              {%- assign ord_key = ord | prepend: "0000" | slice: -4, 4 -%}
-              {%- assign title = slug | replace: "_"," " | replace: "-"," " -%}
-              {%- assign url = "/policy/sections/" | append: slug | append: "/" -%}
-              {%- assign cat = "Sections" -%}
-              {%- assign key = ord_key | append: "||" | append: title | append: "||" | append: url | append: "||" | append: cat -%}
-            {%- endif -%}
-            {%- assign keyed = keyed | push: key -%}
-          {%- endfor -%}
-          {%- assign keyed = keyed | sort -%}
-
-          {%- for row in keyed -%}
-            {%- assign parts = row | split: "||" -%}
-            {%- assign title = parts[1] -%}
-            {%- assign url = parts[2] -%}
-            {%- assign cat = parts[3] -%}
-            ,{ "id": "section-{{ forloop.index }}",
-              "title": {{ title | jsonify }},
-              "url": "{{ url | relative_url }}",
-              "category": {{ cat | jsonify }} }
-          {%- endfor -%}
-
-        {% endif %}
-      ]
-    }
-    </script>
   {% endif %}
 
   <script src="{{ '/assets/site.js' | relative_url }}"></script>

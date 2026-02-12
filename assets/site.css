@@ -1,5 +1,5 @@
 /* ============================
-   Base
+   Base + utilities
 ============================ */
 
 *,
@@ -22,11 +22,26 @@ a:hover { text-decoration: underline; }
 
 .muted { color: rgba(233,237,241,0.70); }
 
-/* Lock body scrolling when modal open */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* critical: keep labels hidden visually but accessible */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* lock scroll when modal open */
 html.modal-lock,
 html.modal-lock body {
-  overflow: hidden !important;
   height: 100%;
+  overflow: hidden !important;
 }
 
 /* ============================
@@ -38,7 +53,7 @@ html.modal-lock body {
 .main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 16px 90px;
+  padding: 0 16px 120px;
 }
 
 .content { max-width: 78ch; margin: 0 auto; }
@@ -48,7 +63,7 @@ html.modal-lock body {
 }
 
 /* ============================
-   Header (assumes your existing HTML)
+   Header
 ============================ */
 
 .site-header {
@@ -90,7 +105,7 @@ html.modal-lock body {
 
 .header-search input[type="search"]{
   padding: 7px 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.18);
   background: #020617;
   color: #e9edf1;
@@ -143,7 +158,6 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   box-shadow: 0 14px 34px rgba(0,0,0,0.45);
 }
 .btn:active{ transform: translateY(0); }
-
 .btn span{ pointer-events: none; }
 
 .btn-primary-cta{
@@ -201,66 +215,25 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   opacity: .34;
   z-index: -1;
   pointer-events:none;
-
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 }
 
-@property --spin {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0turn;
-}
+@property --spin { syntax: "<angle>"; inherits: true; initial-value: 0turn; }
 @keyframes halo-spin { to { --spin: 1turn; } }
 @keyframes halo-breathe { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-1px);} }
 
 .halo { animation: halo-spin var(--speed) linear infinite; }
-.halo:hover, .halo:focus-within {
-  animation: halo-spin var(--speed) linear infinite, halo-breathe 1.6s ease-in-out infinite;
-}
+.halo:hover, .halo:focus-within { animation: halo-spin var(--speed) linear infinite, halo-breathe 1.6s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce){
   .halo { animation: none !important; }
 }
 
 /* ============================
-   Home cards / categories
+   Home categories
 ============================ */
-
-.cover{
-  max-width: 78ch;
-  margin: 28px auto 14px;
-  padding: 16px 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: radial-gradient(circle at 0 0, #111827, #020617 62%);
-}
-
-.cover h1 { margin: 0 0 6px; font-size: 2.1rem; }
-.cover h2 { margin: 0 0 6px; font-size: 1.25rem; }
-.cover p { margin: 6px 0; }
-
-.act-intro{
-  max-width: 78ch;
-  margin: 10px auto 0;
-  color: rgba(233,237,241,0.78);
-}
-
-.home-actions{
-  max-width: 78ch;
-  margin: 14px auto 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.home-divider{
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  margin: 24px 0;
-}
 
 .home-sections{
   max-width: 980px;
@@ -277,15 +250,13 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   overflow: hidden;
 }
 
-/* left-ish but centered overall:
-   we center the whole header row,
-   but align the text group left so emojis line up */
+/* left-ish but centered overall */
 .cat-header{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;   /* center the group overall */
-  text-align: left;          /* text inside stays left */
+  justify-content: center;
+  text-align: left;
   gap: 10px;
   padding: 12px 14px;
   cursor: pointer;
@@ -332,7 +303,6 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 @media (min-width: 900px){
-  .cat-title{ font-size: 1.15rem; }
   .section-btn{
     min-width: 300px;
     max-width: 420px;
@@ -340,41 +310,12 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 /* ============================
-   Content headings + anchor links
-============================ */
-
-.content h2,
-.content h3,
-.content h4{
-  position: relative;
-  scroll-margin-top: 90px;
-}
-
-.hdr-anchor{
-  margin-left: 10px;
-  opacity: .40;
-  text-decoration: none;
-  font-size: .92em;
-}
-.hdr-anchor:hover{ opacity: .90; }
-
-/* Provision look (your plan: use #### for provision titles) */
-.content h4{
-  margin-top: 18px;
-  margin-bottom: 8px;
-  padding-top: 10px;
-  font-size: 1.02rem;
-  letter-spacing: .01em;
-  border-top: 1px solid rgba(255,255,255,0.10);
-}
-
-/* ============================
-   TOC: desktop sidebar + mobile dropdown
+   Topbar (mobile dropdown)
 ============================ */
 
 .section-topbar{
   max-width: 1100px;
-  margin: 0 auto 10px;
+  margin: 10px auto 10px;
 }
 
 .topbar-inner{
@@ -395,45 +336,42 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   color: #e9edf1;
 }
 
-.topbar-search-btn{
-  padding: 10px 14px;
-}
+/* ============================
+   Desktop floating TOC (fixed, not pushing content)
+============================ */
 
-.toc-sidebar{
+.toc-float{
   display: none;
 }
 
-/* Desktop sidebar layout */
 @media (min-width: 1100px){
-  .main.is-section .content,
-  .main.is-bill .content{
-    max-width: 82ch;
-  }
-
-  /* Create a right-side TOC using free space */
-  .section-topbar{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 22px;
-    align-items: start;
-  }
-
-  .topbar-inner{
-    grid-column: 1;
-    justify-content: flex-start;
-  }
-
-  .toc-sidebar{
-    grid-column: 2;
+  .toc-float{
     display: block;
-    position: sticky;
-    top: 90px;
-    align-self: start;
+    position: fixed;
+    right: 18px;
+    top: 92px;
+    z-index: 40;
+  }
+
+  .toc-toggle{
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(8,12,18,0.55);
+    color: #e9edf1;
+    cursor: pointer;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+  }
+
+  .toc-panel{
+    margin-top: 10px;
+    width: 320px;
     padding: 12px 12px 14px;
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.10);
     background: radial-gradient(circle at 0 0, #111827, #020617 62%);
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 140px);
     overflow: auto;
   }
 
@@ -443,10 +381,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
     opacity: .92;
   }
 
-  .toc-list{
-    display: grid;
-    gap: 6px;
-  }
+  .toc-list{ display: grid; gap: 6px; }
 
   .toc-link{
     display: block;
@@ -472,7 +407,34 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 }
 
 /* ============================
-   Search highlight + global modal
+   Heading anchors + provision styling
+============================ */
+
+.content h2, .content h3, .content h4{
+  position: relative;
+  scroll-margin-top: 90px;
+}
+
+.hdr-anchor{
+  margin-left: 10px;
+  opacity: .40;
+  text-decoration: none;
+  font-size: .92em;
+}
+.hdr-anchor:hover{ opacity: .90; }
+
+/* If you switch provisions to #### headings */
+.content h4{
+  margin-top: 18px;
+  margin-bottom: 8px;
+  padding-top: 10px;
+  font-size: 1.02rem;
+  letter-spacing: .01em;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+/* ============================
+   Search modal
 ============================ */
 
 .search-hit{
@@ -520,10 +482,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   justify-content: space-between;
 }
 
-.search-modal__header h2{
-  margin: 0;
-  font-size: 1rem;
-}
+.search-modal__header h2{ margin: 0; font-size: 1rem; }
 
 .search-modal__close{
   border: none;
@@ -548,9 +507,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   background: #020617;
   color: #e9edf1;
 }
-.search-modal__search-row input[type="search"]::placeholder{
-  color: rgba(233,237,241,0.65);
-}
+.search-modal__search-row input[type="search"]::placeholder{ color: rgba(233,237,241,0.65); }
 
 .global-search-result{
   border-radius: 12px;
@@ -566,14 +523,68 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
   margin-bottom: 4px;
 }
 
-.global-search-result__cat{
-  margin-top: 2px;
-}
-
 .global-search-result__snippet{
   margin: 8px 0 0;
   color: rgba(233,237,241,0.78);
   font-size: .95rem;
+}
+
+/* ============================
+   Sticky footer nav (fix giant arrows)
+============================ */
+
+.sticky-nav{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  z-index: 50;
+
+  height: 56px;
+  width: min(520px, calc(100% - 24px));
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(8, 12, 18, 0.62);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  padding: 8px 10px;
+}
+
+.sticky-nav__btn{
+  justify-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(2, 6, 23, 0.55);
+  color: #e9edf1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.nav-icon{
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+.sticky-nav__btn:hover{
+  text-decoration: none;
+  background: rgba(29, 78, 216, 0.25);
+}
+
+.sticky-nav__btn.is-disabled{
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 /* ============================
@@ -591,7 +602,7 @@ body.theme-light .theme-toggle__icon--light { display: inline; }
 .site-footer .shell{ display: flex; justify-content: center; }
 
 /* ============================
-   Light mode overrides (more contrast)
+   Light mode overrides
 ============================ */
 
 body.theme-light{
@@ -623,7 +634,7 @@ body.theme-light .btn{
   background: linear-gradient(135deg, #ffffff, #e5e7eb);
   color: #111827;
   border-color: rgba(15,23,42,0.16);
-  box-shadow: 0 10px 22px rgba(15,23,42,0.18); /* stronger separation */
+  box-shadow: 0 10px 22px rgba(15,23,42,0.18);
 }
 
 body.theme-light .btn:hover{
@@ -631,17 +642,17 @@ body.theme-light .btn:hover{
   box-shadow: 0 14px 30px rgba(15,23,42,0.22);
 }
 
-/* Make CTA halo visible in light mode */
+/* boost CTA halo contrast in light mode */
 body.theme-light .halo::before{
   background: conic-gradient(
     from var(--spin),
     rgba(255,190,80,0.0),
-    rgba(255,190,80,0.50),
+    rgba(255,190,80,0.55),
     rgba(140,205,255,0.22),
-    rgba(255,190,80,0.50),
+    rgba(255,190,80,0.55),
     rgba(255,190,80,0.0)
   );
-  opacity: .78;
+  opacity: .82;
   filter: blur(12px);
 }
 
@@ -649,25 +660,13 @@ body.theme-light .halo::after{
   background: conic-gradient(
     from var(--spin),
     rgba(255,190,80,0.0),
-    rgba(255,190,80,0.85),
+    rgba(255,190,80,0.90),
     rgba(140,205,255,0.55),
     rgba(255,255,255,0.85),
     rgba(255,190,80,0.0)
   );
-  opacity: .56;
+  opacity: .60;
 }
-
-body.theme-light .cover,
-body.theme-light .cat-block,
-body.theme-light .global-search-result{
-  background: #ffffff;
-  border-color: rgba(15,23,42,0.12);
-}
-
-body.theme-light .act-intro{ color: rgba(15,23,42,0.82); }
-body.theme-light .home-divider{ border-top-color: rgba(15,23,42,0.12); }
-
-body.theme-light .cat-meta{ color: rgba(15,23,42,0.62); }
 
 body.theme-light .search-modal__dialog{
   background: #ffffff;
@@ -676,10 +675,23 @@ body.theme-light .search-modal__dialog{
 body.theme-light .search-modal__backdrop{ background: rgba(15,23,42,0.35); }
 body.theme-light .search-modal__close{ color: #111827; }
 
+body.theme-light .global-search-result{
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.12);
+}
+
 body.theme-light .global-search-result__snippet{
   color: rgba(15,23,42,0.75);
 }
 
-body.theme-light .content h4{
-  border-top-color: rgba(15,23,42,0.12);
+body.theme-light .sticky-nav{
+  border-color: rgba(15,23,42,0.14);
+  background: rgba(255,255,255,0.58);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.18);
+}
+
+body.theme-light .sticky-nav__btn{
+  border-color: rgba(15,23,42,0.16);
+  background: rgba(255,255,255,0.55);
+  color: #111827;
 }

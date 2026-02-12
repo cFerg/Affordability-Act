@@ -15,13 +15,13 @@ This section defines the scope, limits, and responsibilities of property ownersh
 
 ### 1.1 Ownership Rights Guaranteed (Not Absolute)
 
-**1.1.1 Core Ownership Rights**  
+#### 1.1.1 Core Ownership Rights  
 Lawful owners of property are guaranteed:
 - exclusive possession,
 - the right to sell, lease, or occupy,
 - the right to improve or modify property subject to safety codes.
 
-**1.1.2 No-Immunity Clause**  
+#### 1.1.2 No-Immunity Clause  
 Ownership does not exempt any person or entity from:
 - blight enforcement,
 - safety standards,
@@ -47,13 +47,13 @@ Without clarifying that ownership is not absolute, ownership claims could be use
 
 ### 1.2 Anti-Hoarding & Accumulation Limits
 
-**1.2.1 Purpose Limitation**  
+#### 1.2.1 Purpose Limitation  
 Property may not be accumulated primarily for:
 - speculative resale,
 - artificial scarcity,
 - value inflation without productive use.
 
-**1.2.2 Scaled Ownership Review**  
+#### 1.2.2 Scaled Ownership Review  
 Entities or individuals holding multiple residential properties may be subject to:
 - enhanced reporting,
 - valuation caps,
@@ -78,7 +78,7 @@ Without anti-hoarding limits, shortage economics can be engineered, reducing aff
 
 ### 1.3 Trusts, Inheritance & Beneficial Ownership
 
-**1.3.1 Trust Transparency**  
+#### 1.3.1 Trust Transparency  
 Property held in trust must disclose:
 - beneficial owner(s),
 - occupancy status,
@@ -86,7 +86,7 @@ Property held in trust must disclose:
 
 Trust structures may not be used to evade valuation, upkeep, or market participation rules.
 
-**1.3.2 Inherited Property Protections**  
+#### 1.3.2 Inherited Property Protections  
 Inherited property is protected from forced sale provided:
 - base valuation limits are respected, and
 - minimum upkeep standards are met.
@@ -110,7 +110,7 @@ Trust and inheritance loopholes enable avoidance of valuation and upkeep respons
 
 ### 1.4 Corporate & Foreign Ownership Rules
 
-**1.4.1 Equal Applicability**  
+#### 1.4.1 Equal Applicability  
 All provisions of this Act apply equally to:
 - individuals,
 - corporations,
@@ -119,7 +119,7 @@ All provisions of this Act apply equally to:
 
 No entity is exempt by virtue of residence, citizenship, or incorporation location.
 
-**1.4.2 Use-It-or-Release Requirement**  
+#### 1.4.2 Use-It-or-Release Requirement  
 Residential property held vacant beyond defined thresholds may be subject to:
 - compulsory listing,
 - public acquisition at regulated value,
@@ -142,11 +142,11 @@ Without explicit equality, large entities could evade accountability, accelerati
 
 ### 1.5 HOA & Common-Interest Safeguards
 
-**1.5.1 HOA Responsibility for Common Areas**  
+#### 1.5.1 HOA Responsibility for Common Areas  
 Where property is controlled by an HOA:
 - the HOA is responsible for blight, safety, and upkeep of unsold or common units.
 
-**1.5.2 Opt-Out & Control Limits**  
+#### 1.5.2 Opt-Out & Control Limits  
 HOAs may not:
 - impose nonessential restrictions unrelated to safety,
 - extract disproportionate fees,
@@ -184,7 +184,7 @@ This section establishes fair, auditable valuation rules for housing and land, e
 
 ### 2.1 Regulated Assessed Current Value (RACV)
 
-**2.1.1 Baseline Valuation Standard**  
+#### 2.1.1 Baseline Valuation Standard  
 All residential property shall be assigned a **Regulated Assessed Current Value (RACV)** calculated as:
 - original purchase or construction cost,
 - plus approved inflation adjustments tied to wage growth,
@@ -195,14 +195,14 @@ RACV is binding for regulated sales, rentals, taxation alignment, and enforcemen
 
 RACV must decrease when verified deterioration or habitability defects exist, regardless of surrounding market appreciation or comparable listings.
 
-**2.1.2 Market Limitation Rule**  
+#### 2.1.2 Market Limitation Rule  
 Market comparables alone may not justify prices exceeding RACV limits.
 
 Comparable sales may be used only as supporting context and must be adjusted for speculation, investor premiums, scarcity effects, and non-owner-occupant bidding.
 
 Where comparables conflict with RACV, RACV governs. Any deviation above RACV must be justified by documented improvements or permitted variance under this Act, not general market escalation.
 
-**2.1.3 Wage-Anchored Valuation Adjustment**
+#### 2.1.3 Wage-Anchored Valuation Adjustment
 Permissible valuation increases under RACV are tied exclusively to verified wage growth, not speculative inflation, asset scarcity, or monetary expansion.
 
 Where wages remain stagnant, RACV must remain unchanged.  
@@ -210,7 +210,7 @@ Where wages increase, valuation adjustments apply proportionally and only for th
 
 Time-weighted adjustment ensures valuation reflects lived affordability rather than retroactive inflation.
 
-**2.1.4 Improvements, Maintenance & Condition Adjustment**
+#### 2.1.4 Improvements, Maintenance & Condition Adjustment
 Only verified capital improvements that materially increase a property’s utility may justify RACV increases.
 
 Routine maintenance and defect correction do not qualify as capital improvements. Maintenance includes, but is not limited to:
@@ -242,13 +242,13 @@ Without regulated valuations, price speculation would continue enabling pricing 
 
 ### 2.2 Permissible Variance & Sale Caps
 
-**2.2.1 Negotiation Allowance**  
+#### 2.2.1 Negotiation Allowance  
 Sellers may list property within a limited percentage above RACV to allow for:
 - negotiation,
 - assessment variance,
 - localized demand.
 
-**2.2.2 Absolute Price Ceiling**  
+#### 2.2.2 Absolute Price Ceiling  
 Under no circumstance may a sale exceed the RACV plus permissible variance, unless purchased for verified personal occupancy by a priority buyer.
 
 Even under priority purchase, sale price may not exceed the occupancy-verified ceiling set by this Act, and may not be inflated through side agreements, undisclosed fees, bundled service charges, or forced add-ons.
@@ -272,12 +272,12 @@ Rigid valuation without reasonable negotiated range would discourage legitimate 
 
 ### 2.3 Anti-Speculation & Vacancy Controls
 
-**2.3.1 Use Requirement**  
+#### 2.3.1 Use Requirement  
 Residential land and housing may not be held vacant beyond defined thresholds without:
 - legitimate renovation,
 - or approved hardship exemption.
 
-**2.3.2 Vacancy Enforcement**  
+#### 2.3.2 Vacancy Enforcement  
 Extended vacancy may trigger:
 - vacancy fees,
 - compulsory listing,
@@ -307,14 +307,14 @@ Artificial scarcity raises costs for everyone and locks local buyers out. Vacanc
 
 ### 2.4 Blight, Neglect & Valuation Adjustment
 
-**2.4.1 Maintenance Obligation**  
+#### 2.4.1 Maintenance Obligation  
 Owners must maintain minimum habitability and safety standards regardless of occupancy.
 
 Minimum maintenance includes preventing structural decay, controlling infestation, securing the premises against hazards, and preventing conditions that endanger neighbors or degrade surrounding property usability.
 
 Failure to maintain triggers corrective timelines, enforceable remediation orders, and valuation adjustments reflecting deterioration and repair cost.
 
-**2.4.2 Repair-Based Valuation Reduction**  
+#### 2.4.2 Repair-Based Valuation Reduction  
 RACV must be reduced by the documented cost required to restore habitability.
 
 Assessors may not inflate value while ignoring required repairs.
@@ -336,10 +336,10 @@ Neglected properties reduce neighborhood value, increase municipal costs, and re
 
 ### 2.5 Rezoning & Public Value Capture
 
-**2.5.1 Original Zoning Baseline**  
+#### 2.5.1 Original Zoning Baseline  
 Where rezoning increases allowable use or market demand, RACV must reference the pre-rezoning baseline and may not be inflated solely by public designation changes.
 
-**2.5.2 Public Benefit Share**  
+#### 2.5.2 Public Benefit Share  
 Value created through public rezoning may be partially recaptured for:
 - housing development,
 - infrastructure,
@@ -362,13 +362,13 @@ Rezoning decisions are public actions that can artificially inflate land values.
 
 ### 2.6 Advertising & Market Access Fairness
 
-**2.6.1 Equal Exposure Requirement**  
+#### 2.6.1 Equal Exposure Requirement  
 Properties must be advertised in venues accessible to:
 - local residents,
 - individual buyers,
 - non-corporate purchasers.
 
-**2.6.2 Prohibited Targeting**  
+#### 2.6.2 Prohibited Targeting  
 Exclusive advertising to corporations or private investor networks violates priority access rules.
 
 Properties subject to priority access must be marketed in a manner reasonably accessible to priority-eligible individuals, including public listings or equivalent broad distribution.
@@ -407,7 +407,7 @@ Renters should not be forced to subsidize vacancy, speculation, or artificial sc
 
 ### 3.1 Base Rent & Cost-Based Pricing
 
-**3.1.1 Rental Baseline Standard**  
+#### 3.1.1 Rental Baseline Standard  
 Rent for residential units shall be calculated from:
 
 - Regulated Assessed Current Value (RACV) of the property, plus  
@@ -415,7 +415,7 @@ Rent for residential units shall be calculated from:
 - Documented operating costs, divided by  
 - Total habitable units.
 
-**3.1.2 Prohibition on Market-Only Rent Setting**  
+#### 3.1.2 Prohibition on Market-Only Rent Setting  
 Rental prices may not be justified solely by market rates where those rates exceed cost-based calculations.
 
 Landlords must be able to show a cost basis for rent (including maintenance, taxes tied to RACV, verified financing costs, and permissible margin). “Comparable rent” claims do not override the cost-based ceiling where comparables reflect scarcity manipulation, speculation, or collusive pricing.
@@ -439,7 +439,7 @@ Market-only rent setting enables coordinated rent inflation, punishes tenants fo
 
 ### 3.2 Unit-Based Allocation & Fair Distribution
 
-**3.2.1 Proportional Rent Allocation**  
+#### 3.2.1 Proportional Rent Allocation  
 Rent must be apportioned fairly between units based on:
 - square footage, or
 - bedroom count, or
@@ -447,7 +447,7 @@ Rent must be apportioned fairly between units based on:
 
 Landlords must choose one allocation method, and apply it consistently, unless it is disclosed and justfied.
 
-**3.2.2 Transparency Requirement**  
+#### 3.2.2 Transparency Requirement  
 Landlords must provide tenants with a clear rent breakdown upon request, showing how rent was calculated.
 
 The breakdown must include the components used to calculate rent (base cost, allowable adjustments, verified shared-cost allocation method, and any permitted variance), and must be provided within a reasonable timeframe.
@@ -471,7 +471,7 @@ Unequal unit pricing creates hidden discrimination, encourages gouging of high-n
 
 ### 3.3 Vacancy & Empty-Unit Protections
 
-**3.3.1 No Vacancy Cost Shifting**  
+#### 3.3.1 No Vacancy Cost Shifting  
 Occupied tenants may not be charged higher rent to offset:
 - vacant units,
 - unsold units,
@@ -479,7 +479,7 @@ Occupied tenants may not be charged higher rent to offset:
 
 Vacancy costs are the responsibility of the property owner.
 
-**3.3.2 Chronic Vacancy Review**  
+#### 3.3.2 Chronic Vacancy Review  
 Multi-unit properties with persistent vacancy may be subject to:
 - rent caps,
 - compulsory unit offering,
@@ -504,14 +504,14 @@ Vacancy cost-shifting makes tenants subsidize speculation and rewards artificial
 
 ### 3.4 Maintenance, Habitability & Rent Adjustment
 
-**3.4.1 Habitability Standard**  
+#### 3.4.1 Habitability Standard  
 Rental units must meet minimum safety and habitability requirements.
 
 Habitability includes structural integrity, weatherproofing, functional plumbing and electricity, absence of hazardous mold or infestation, and compliance with applicable safety codes.
 
 Where habitability materially degrades, rent must be reduced proportionally and corrective repair timelines enforced, with penalties for prolonged noncompliance.
 
-**3.4.2 Rent Reduction for Defects**  
+#### 3.4.2 Rent Reduction for Defects  
 Where deficiencies exist:
 - rent must be reduced proportionally until resolved,
 - repair costs may not be passed through retroactively.
@@ -535,14 +535,14 @@ Without a rent consequence, neglect becomes profitable and tenants are forced to
 
 ### 3.5 Student Housing & Boarding
 
-**3.5.1 Equal Treatment of Student Housing**  
+#### 3.5.1 Equal Treatment of Student Housing  
 Student housing, boarding houses, and dormitory-style rentals are subject to the same pricing and habitability rules as standard rentals.
 
 Educational affiliation does not exempt landlords or institutions from cost-based pricing, safety requirements, or transparency obligations.
 
 Where student housing is institution-controlled, the institution is treated as the responsible landlord entity for compliance and enforcement purposes.
 
-**3.5.2 Anti-Exploitation Rule**  
+#### 3.5.2 Anti-Exploitation Rule  
 Institutions or landlords may not inflate rent based on:
 - enrollment status,
 - academic year,
@@ -567,12 +567,12 @@ Students often lack bargaining power and are forced into proximity-based housing
 
 ### 3.6 Campgrounds, RV Parks & Long-Term Lodging
 
-**3.6.1 Lodging Classification**  
+#### 3.6.1 Lodging Classification  
 Campgrounds, RV parks, and extended-stay lodging serving long-term residents are treated as residential housing for pricing purposes.
 
 Long-term = Individuals are at a given location for 30+ days, or it is listed as a primary residence.
 
-**3.6.2 Cost-Aligned Pricing**  
+#### 3.6.2 Cost-Aligned Pricing  
 Rates must reflect:
 - land value,
 - provided utilities,
@@ -617,7 +617,7 @@ Reliable transportation is a prerequisite for employment, healthcare access, and
 
 ### 4.1 Vehicle Price Reversion & Valuation
 
-**4.1.1 Vehicle Baseline Value**  
+#### 4.1.1 Vehicle Baseline Value  
 Motor vehicles shall be valued based on:
 - original manufacturer suggested retail price (MSRP), or
 - original purchase price if lower,
@@ -626,7 +626,7 @@ adjusted for:
 - verified improvements,
 - condition and mileage.
 
-**4.1.2 Prohibition on Speculative Pricing**  
+#### 4.1.2 Prohibition on Speculative Pricing  
 Used vehicles may not be sold at or above the current new-vehicle MSRP unless classified as:
 - antique,
 - collectible,
@@ -649,13 +649,13 @@ Vehicles rapidly depreciate in real-world use. Allowing speculative pricing dist
 
 ### 4.2 Dealer & Resale Practices
 
-**4.2.1 Anti-Gouging Rule**  
+#### 4.2.1 Anti-Gouging Rule  
 Dealers and resellers may not:
 - inflate prices due to supply manipulation,
 - impose mandatory add-ons unrelated to safety,
 - disguise price increases as fees.
 
-**4.2.2 Transparent Pricing Requirement**  
+#### 4.2.2 Transparent Pricing Requirement  
 All vehicle listings must display:
 - base price,
 - fees itemized individually,
@@ -678,12 +678,12 @@ Dealer opacity and resale manipulation create false market signals, eroding trus
 
 ### 4.3 Temporary & Paper Registration Abuse
 
-**4.3.1 Registration Integrity**  
+#### 4.3.1 Registration Integrity  
 Temporary and paper license plates may only be issued:
 - once per vehicle sale,
 - for a strictly limited duration.
 
-**4.3.2 Prohibition on Serial Temporary Plates**  
+#### 4.3.2 Prohibition on Serial Temporary Plates  
 Repeated issuance of temporary plates for the same vehicle constitutes:
 - registration fraud,
 - and grounds for fines or suspension.
@@ -705,13 +705,13 @@ Temporary registration abuse undermines road safety, insurance systems, and publ
 
 ### 4.4 Insurance Fairness & Alignment
 
-**4.4.1 Value-Aligned Premiums**  
+#### 4.4.1 Value-Aligned Premiums  
 Vehicle insurance premiums must reasonably correlate with:
 - vehicle value,
 - driver history,
 - actual risk exposure.
 
-**4.4.2 Prohibition on Non-Event Increases**  
+#### 4.4.2 Prohibition on Non-Event Increases  
 Premiums may not be increased due to:
 - general inflation claims alone,
 - industry-wide losses unrelated to the insured.
@@ -733,12 +733,12 @@ Unregulated insurance volatility acts as a hidden tax on transportation, punishi
 
 ### 4.5 Emergency Transportation Protections
 
-**4.5.1 Public Coverage of Emergency Transport**  
+#### 4.5.1 Public Coverage of Emergency Transport  
 Emergency medical transportation required to preserve life or safety shall be covered by:
 - public emergency services,
 - or public insurance mechanisms.
 
-**4.5.2 No Surprise Transport Billing**  
+#### 4.5.2 No Surprise Transport Billing  
 Individuals may not be billed out-of-pocket for emergency transport beyond standardized public rates.
 
 Emergency transport billing must be transparent, standardized, and capped. Patients may not be charged undisclosed, out-of-network, or post-hoc “balance bills” where transport was obtained under emergency conditions.
@@ -762,24 +762,24 @@ Emergency transport is involuntary by nature. Charging individuals for unavoidab
 
 ### 4.6 Fuel Quality & Efficiency Protection
 
-**4.6.1 Fuel Quality Disclosure**  
+#### 4.6.1 Fuel Quality Disclosure  
 Fuel retailers must disclose:
 - ethanol content,
 - additive levels,
 - and energy density ranges.
 
-**4.6.2 Efficiency Parity Requirement**  
+#### 4.6.2 Efficiency Parity Requirement  
 Fuel sold at equivalent prices must provide comparable energy output.
 
 Discount programs may not be used to mask reduced fuel quality.
 
-**4.6.3 Prohibited Degradation Practices**  
+#### 4.6.3 Prohibited Degradation Practices  
 It is unlawful to:
 - dilute fuel beyond disclosed standards,
 - substitute lower-efficiency blends at standard pricing,
 - or conceal efficiency loss through marketing programs.
 
-**4.6.4 Enforcement & Remedies**  
+#### 4.6.4 Enforcement & Remedies  
 Demonstrated efficiency loss resulting in increased consumer fuel costs may trigger:
 - restitution,
 - civil penalties,
@@ -819,7 +819,7 @@ It includes protections against wage suppression, constructive discharge, puniti
 
 ### 5.1 Minimum Wage Redefinition & Baseline
 
-**5.1.1 Full-Time Affordability Standard**  
+#### 5.1.1 Full-Time Affordability Standard  
 The minimum wage shall be defined as the hourly rate required for a full-time worker to reasonably afford:
 - housing appropriate to the local area,
 - basic food and nutrition,
@@ -828,7 +828,7 @@ The minimum wage shall be defined as the hourly rate required for a full-time wo
 - healthcare coverage,
 - and modest emergency savings.
 
-**5.1.2 Multi-State Employment Rule**  
+#### 5.1.2 Multi-State Employment Rule  
 For workers employed across multiple states:
 - the applicable minimum wage shall be the **highest** of:
   - the federal baseline,
@@ -851,12 +851,12 @@ Tying minimum wage to real living costs prevents working full-time from being a 
 
 ### 5.2 Wage Contract Integrity
 
-**5.2.1 Non-Reduction Clause**  
+#### 5.2.1 Non-Reduction Clause  
 Signed wage agreements may not be reduced below the agreed rate within a defined protection period unless:
 - initiated by the worker, or
 - justified by documented hardship and mutual consent.
 
-**5.2.2 Retroactive Wage Protection**  
+#### 5.2.2 Retroactive Wage Protection  
 Employers may not retroactively alter pay rates or hours worked.
 
 Any reduction, reclassification, “correction,” or timekeeping adjustment that reduces compensation after labor has been performed is prohibited unless it benefits the employee or corrects an objectively provable overpayment with documented employee notice.
@@ -880,7 +880,7 @@ Enforceable wage agreements protect workers’ financial planning and prevent ar
 
 ### 5.3 Constructive Discharge Prohibition
 
-**5.3.1 Absolute Ban**  
+#### 5.3.1 Absolute Ban  
 Constructive discharge — actions intended to force a worker to quit — is prohibited.
 
 This includes:
@@ -889,7 +889,7 @@ This includes:
 - forced relocations,
 - deliberate duty reassignment designed to cause resignation.
 
-**5.3.2 Classification as Involuntary Separation**  
+#### 5.3.2 Classification as Involuntary Separation  
 Any separation resulting from constructive discharge shall be treated as:
 - an employer-initiated layoff,
 - fully eligible for unemployment and protections.
@@ -911,14 +911,14 @@ Protecting workers from covert termination tactics preserves access to unemploym
 
 ### 5.4 Layoff Notice & Unemployment Access
 
-**5.4.1 Minimum Notice Requirement**  
+#### 5.4.1 Minimum Notice Requirement  
 Employers must provide advance notice of layoffs or mass reductions except in verified emergencies.
 
 Notice must include expected timing, affected roles, and a clear statement of eligibility for unemployment and continuation of benefits, and may not be replaced by coercive resignations, forced transfers, or constructive discharge tactics.
 
 Where notice is not feasible due to a verified emergency, employers must document the emergency basis and provide accelerated access to severance, benefits continuity, or equivalent mitigation.
 
-**5.4.2 Anti-Circumvention Rule**  
+#### 5.4.2 Anti-Circumvention Rule  
 Employers may not restructure roles, schedules, or conditions to:
 - evade unemployment liability,
 - force voluntary resignation in name only.
@@ -940,14 +940,14 @@ Advance notice and fair classification help maintain income stability and approp
 
 ### 5.5 Tipped Wage Reform
 
-**5.5.1 Wage Floor Requirement**  
+#### 5.5.1 Wage Floor Requirement  
 Tipped workers must receive the full minimum wage **before tips**.
 
 Tips:
 - belong exclusively to the worker,
 - may not be counted toward wage minimums.
 
-**5.5.2 Back Pay Calculation**  
+#### 5.5.2 Back Pay Calculation  
 If wages fall below minimum:
 - back pay shall equal the difference between minimum wage and base wage,
 - calculated independently of tips received.
@@ -969,7 +969,7 @@ Tipped wage abuses perpetuate income instability and reduce affordability for es
 
 ### 5.6 Shift Timing & Worker Health
 
-**5.6.1 Minimum Rest Periods**  
+#### 5.6.1 Minimum Rest Periods  
 Employers must provide a minimum rest interval between shifts unless:
 - adequate sleeping accommodations are provided,
 - or emergency services justify extended shifts.
@@ -991,20 +991,20 @@ Insufficient rest and punitive shift design harm health, safety, productivity, a
 
 ### 5.7 Overtime Neutrality & Take-Home Protection
 
-**5.7.1 Take-Home Neutrality Rule**  
+#### 5.7.1 Take-Home Neutrality Rule  
 Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
 
 Where withholding, benefit clawbacks, or payroll structures cause overtime hours to reduce effective take-home compensation, employers must provide a corrective adjustment or alternative pay treatment so overtime remains economically neutral or beneficial.
 
 Overtime should not function as an affordability penalty; structures that repeatedly cause net loss on overtime shall be treated as noncompliant.
 
-**5.7.2 Overtime Premium Protection**  
+#### 5.7.2 Overtime Premium Protection  
 The overtime premium portion of pay (above base wage) shall be:
 - taxed at a reduced marginal rate, or
 - deferred for tax calculation purposes,
 to preserve take-home fairness.
 
-**5.7.3 Benefit Cliff Safeguard**  
+#### 5.7.3 Benefit Cliff Safeguard  
 Overtime earnings may not automatically trigger:
 - loss of essential benefits,
 - abrupt benefit phase-outs,
@@ -1044,12 +1044,12 @@ This section guarantees continuous access to necessary healthcare services and e
 
 ### 6.1 Emergency vs Non-Emergency Care Separation
 
-**6.1.1 Emergency Care Coverage**  
+#### 6.1.1 Emergency Care Coverage  
 Emergency medical treatment required to preserve life or prevent serious harm shall:
 - be provided without regard to insurance status,
 - not require prior authorization.
 
-**6.1.2 Public Responsibility for Emergency Transport**  
+#### 6.1.2 Public Responsibility for Emergency Transport  
 Emergency medical transportation shall be covered through:
 - public emergency services,
 - or public insurance mechanisms,
@@ -1072,12 +1072,12 @@ Separating emergency from non-emergency care protects critical access while main
 
 ### 6.2 Continuous Healthcare Enrollment
 
-**6.2.1 Year-Round Enrollment Requirement**  
+#### 6.2.1 Year-Round Enrollment Requirement  
 Public healthcare programs, including Medicaid, must allow:
 - continuous enrollment year-round,
 - enrollment upon change in income, employment, or eligibility.
 
-**6.2.2 Enrollment Timing Protection**  
+#### 6.2.2 Enrollment Timing Protection  
 Individuals denied public coverage after an employer enrollment window closes must be:
 - granted a special enrollment period,
 - or automatically provisionally covered.
@@ -1099,7 +1099,7 @@ Healthcare access should not depend on bureaucratic windows or job-based timing;
 
 ### 6.3 Essential Medical Items & Price Controls
 
-**6.3.1 Covered Medical Necessities**  
+#### 6.3.1 Covered Medical Necessities  
 The following essential medical items shall be provided at regulated or no cost:
 - insulin,
 - epinephrine auto-injectors,
@@ -1107,7 +1107,7 @@ The following essential medical items shall be provided at regulated or no cost:
 - menstrual hygiene products,
 - and other life-sustaining necessities.
 
-**6.3.2 Anti-Gouging Rule**  
+#### 6.3.2 Anti-Gouging Rule  
 Manufacturers and distributors may not inflate prices of essential medical items beyond regulated cost-plus thresholds.
 
 Regulated pricing must be based on verifiable production, distribution, and compliance costs, plus a permissible margin. Price increases must be supported by documented cost changes, not market leverage, scarcity gaming, or monopoly control.
@@ -1131,12 +1131,12 @@ Essential medications and life-preserving items should be accessible to all, not
 
 ### 6.4 Insurance Fairness & Stability
 
-**6.4.1 Coverage Stability**  
+#### 6.4.1 Coverage Stability  
 Insurance providers may not:
 - cancel coverage mid-term except for fraud,
 - raise premiums absent documented risk change.
 
-**6.4.2 Non-Event Premium Increases Prohibited**  
+#### 6.4.2 Non-Event Premium Increases Prohibited  
 Premium increases justified solely by:
 - general inflation,
 - unrelated market losses,
@@ -1159,12 +1159,12 @@ Insurance should respond to individual risk and documented factors, not act as a
 
 ### 6.5 Abuse Prevention & Accountability
 
-**6.5.1 Care Abuse Review**  
+#### 6.5.1 Care Abuse Review  
 Patterns of non-emergency misuse of emergency services may be reviewed, but:
 - care may not be denied retroactively,
 - emergency determination defaults in favor of patient safety.
 
-**6.5.2 Health Outcome Focus**  
+#### 6.5.2 Health Outcome Focus  
 Preventative care and treatment programs must prioritize long-term health outcomes over punitive denial of services.
 
 Coverage and access decisions must be based on medical necessity, demonstrated health benefit, and evidence-based standards—not moral judgment, stigma, or blanket exclusions that increase long-term public cost.
@@ -1188,7 +1188,7 @@ Balancing abuse prevention with care access protects public resources while safe
 
 ### 6.6 Veterinary Care Pricing & Emergency Standards
 
-**6.6.1 Emergency Severity Classification**
+#### 6.6.1 Emergency Severity Classification
 Veterinary services shall be classified as:
 - emergency (imminent risk of death or severe suffering),
 - urgent,
@@ -1196,13 +1196,13 @@ Veterinary services shall be classified as:
 
 Emergency cases must prioritize stabilization before billing discussions.
 
-**6.6.2 Emergency Pricing Protections**
+#### 6.6.2 Emergency Pricing Protections
 In emergency situations:
 - payment may not be demanded prior to stabilization,
 - cost ranges must be disclosed post-stabilization,
 - coercive “pay-now-or-else” pricing is prohibited.
 
-**6.6.3 Transparency & Documentation**
+#### 6.6.3 Transparency & Documentation
 Veterinary providers must document:
 - emergency classification rationale,
 - services rendered prior to billing,
@@ -1225,14 +1225,14 @@ Veterinary emergencies are time-sensitive and often unavoidable; ethical pricing
 
 ### 6.7 Spay, Neuter & Responsible Breeding
 
-**6.7.4 Mandatory Spay & Neuter**
+#### 6.7.4 Mandatory Spay & Neuter
 Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
 
 Licensing exemptions must be limited to verified, accountable breeding programs and documented working/service animal programs where sterilization conflicts with medically supported requirements.
 
 This provision shall be implemented with low-cost access pathways, including subsidized clinics or sliding-scale options, to prevent affordability barriers from turning the rule into a penalty on low-income owners.
 
-**6.7.5 Licensed Breeding Requirements**
+#### 6.7.5 Licensed Breeding Requirements
 Breeding is restricted to licensed individuals or entities, requiring:
 - veterinary health certification,
 - genetic diversity safeguards,
@@ -1255,20 +1255,20 @@ Responsible population control reduces shelter overcrowding, inbreeding, and pub
 
 ### 6.8 Essential Medication Price Protections
 
-**6.8.6 Definition of Essential Medications**
+#### 6.8.6 Definition of Essential Medications
 Essential medications include, but are not limited to:
 - insulin,
 - inhalers,
 - epinephrine,
 - critical cardiac and seizure medications.
 
-**6.8.7 Cost-Based Pricing Requirement**
+#### 6.8.7 Cost-Based Pricing Requirement
 Prices must remain within a reasonable multiple of:
 - verified production cost,
 - distribution and compliance costs,
 - reasonable profit margins.
 
-**6.8.8 Prohibited Practices**
+#### 6.8.8 Prohibited Practices
 It is unlawful to:
 - exploit patent monopolies to inflate prices,
 - suppress competition through exclusivity abuse,
@@ -1314,14 +1314,14 @@ It prioritizes essential access, prevents exploitative rate spikes, and promotes
 
 ### 7.1 Essential Utility Classification
 
-**7.1.1 Covered Utilities**  
+#### 7.1.1 Covered Utilities  
 The following services are classified as essential utilities:
 - electricity,
 - water and sewage,
 - heating and cooling,
 - basic residential internet access.
 
-**7.1.2 Continuous Service Requirement**  
+#### 7.1.2 Continuous Service Requirement  
 Essential utilities may not be disconnected due to:
 - billing disputes under review,
 - temporary hardship,
@@ -1344,13 +1344,13 @@ Utilities like electricity and water are not optional in modern life. Treating t
 
 ### 7.2 Utility Pricing Stability & Transparency
 
-**7.2.1 Anti-Volatility Rule**  
+#### 7.2.1 Anti-Volatility Rule  
 Utility providers may not impose sudden rate increases due solely to:
 - seasonal demand,
 - market speculation,
 - generalized inflation claims.
 
-**7.2.2 Cost Justification Requirement**  
+#### 7.2.2 Cost Justification Requirement  
 Rate increases must be supported by:
 - documented operating cost changes,
 - public disclosure and review.
@@ -1372,12 +1372,12 @@ Unpredictable utility pricing functions like an unavoidable inflation tax. House
 
 ### 7.3 Infrastructure & Modernization Standards
 
-**7.3.1 Fiber-First Requirement**  
+#### 7.3.1 Fiber-First Requirement  
 New residential developments receiving public permits or funds must:
 - install fiber-optic infrastructure where feasible,
 - avoid obsolete copper-based bottlenecks.
 
-**7.3.2 Universal Baseline Access**  
+#### 7.3.2 Universal Baseline Access  
 Every residence must have access to:
 - sufficient internet speeds for education, work, and communication,
 - without mandatory premium pricing.
@@ -1399,12 +1399,12 @@ Outdated infrastructure creates long-term bottlenecks and forces residents to pa
 
 ### 7.4 Billing Fairness & Consumer Protections
 
-**7.4.1 Usage Transparency**  
+#### 7.4.1 Usage Transparency  
 Consumers must be provided:
 - clear usage metrics,
 - understandable billing statements.
 
-**7.4.2 No Punitive Minimums**  
+#### 7.4.2 No Punitive Minimums  
 Minimum usage fees or penalties unrelated to actual consumption are prohibited.
 
 #### Summary — 7.4 Billing Fairness & Consumer Protections
@@ -1424,13 +1424,13 @@ Billing opacity and artificial minimums allow utilities to extract more money wi
 
 ### 7.5 Infrastructure Extension Cost Controls
 
-**7.5.1 Cost-Based Installation Limits**
+#### 7.5.1 Cost-Based Installation Limits
 Charges for extending infrastructure must be based on:
 - actual material cost,
 - documented labor,
 - reasonable profit margins.
 
-**7.5.2 Prohibition on Extortionate Pricing**
+#### 7.5.2 Prohibition on Extortionate Pricing
 Per-foot pricing disconnected from material cost is prohibited.
 
 Infrastructure access may not be denied through artificially inflated fees.
@@ -1467,14 +1467,14 @@ It aligns property taxation with regulated value, enforces cost-based fee struct
 
 ### 8.1 Property Tax Alignment
 
-**8.1.1 Assessment Cap**  
+#### 8.1.1 Assessment Cap  
 Property taxes must be based on the Regulated Assessed Current Value (RACV), not speculative market pricing.
 
 Assessors and taxing authorities may not use nearby listings, investor transactions, or speculative comparable sales to inflate taxable valuation beyond RACV.
 
 Any increase in taxable value must be supported by documented improvements, verified condition remediation, or permitted RACV adjustments under this Act, and must exclude purely speculative appreciation.
 
-**8.1.2 Anti-Secondary Inflation Rule**  
+#### 8.1.2 Anti-Secondary Inflation Rule  
 Property tax increases shall not be justified solely by market appreciation, resale listings, or neighboring transactions.
 
 Where no material improvement, expansion, or condition correction has occurred, assessed tax value increases must be capped to prevent secondary inflation unrelated to actual property utility or livability.
@@ -1496,13 +1496,13 @@ Property taxes tied to speculative values act like invisible inflation, increasi
 
 ### 8.2 Marital & Household Equity
 
-**8.2.1 Neutral Tax Treatment**  
+#### 8.2.1 Neutral Tax Treatment  
 Tax burdens may not disproportionately penalize:
 - single individuals,
 - nontraditional households,
 - individuals without dependents.
 
-**8.2.2 Access Equity**  
+#### 8.2.2 Access Equity  
 Marital status may not be used to deny or inflate access to:
 - mortgages,
 - housing programs,
@@ -1529,14 +1529,14 @@ Tax systems that privilegize certain household types worsen economic inequality 
 
 ### 8.3 Fees & Administrative Costs
 
-**8.3.1 Cost-Based Fees Only**  
+#### 8.3.1 Cost-Based Fees Only  
 Government and quasi-government fees must reflect actual administrative cost.
 
 Fees may not be used as general revenue tools, and may not exceed the documented cost of providing the service, processing the filing, or administering the program.
 
 Where a fee is standardized, the issuing entity must maintain a public cost basis showing the components of the fee and must revise the fee downward when administrative cost decreases.
 
-**8.3.2 Prohibited Revenue Padding**  
+#### 8.3.2 Prohibited Revenue Padding  
 Fees may not be used as indirect taxation or revenue extraction mechanisms.
 
 Government entities may not use administrative, processing, filing, or convenience fees as indirect revenue generators.
@@ -1560,7 +1560,7 @@ Fees serving as hidden tax mechanisms inflate citizen costs without transparency
 
 ### 8.4 Tariff Impacts on Affordability
 
-**8.4.1 Essential Material Exemptions**  
+#### 8.4.1 Essential Material Exemptions  
 Tariffs on materials essential to:
 - housing,
 - vehicles,
@@ -1568,7 +1568,7 @@ Tariffs on materials essential to:
 - medical devices  
 must be reduced or offset when they materially increase end-user costs.
 
-**8.4.2 Cost-Pass Restrictions**  
+#### 8.4.2 Cost-Pass Restrictions  
 Entities may not automatically pass tariff increases to consumers without justification.
 
 Tariff-related cost increases may only be passed to consumers when a direct, proportional, and documented increase in material input cost is demonstrated.
@@ -1592,7 +1592,7 @@ Tariffs can act as hidden inflation drivers, raising affordability costs for ess
 
 ### 8.5 Public Investment & Affordability
 
-**8.5.1 Infrastructure as Cost Control**  
+#### 8.5.1 Infrastructure as Cost Control  
 Public investment in infrastructure is recognized as a method of reducing long-term consumer costs.
 
 Public investment decisions shall account for long-term affordability impact, including reduction of recurring consumer costs, stabilization of service pricing, and mitigation of future infrastructure scarcity.
@@ -1616,10 +1616,10 @@ Long-term investments in infrastructure and public goods reduce ongoing expenses
 
 ### 8.6 Public Research, National Capacity & Workforce Stability
 
-**8.6.1 Research as Infrastructure**  
+#### 8.6.1 Research as Infrastructure  
 Public research institutions and programs (including NASA, NSF, NOAA, NIST, EPA, USGS, and similar bodies) are classified as national affordability infrastructure.
 
-**8.6.2 Funding Stability Requirement**  
+#### 8.6.2 Funding Stability Requirement  
 Research funding may not be reduced without considering:
 - workforce displacement,
 - educational pipeline disruption,
@@ -1629,20 +1629,20 @@ Public research institutions and federally funded programs shall not be subjecte
 
 Funding changes must include transition planning sufficient to prevent sudden job loss, program collapse, or forced commercialization.
 
-**8.6.3 Workforce & Program Protection**  
+#### 8.6.3 Workforce & Program Protection  
 Agencies may not rely on:
 - tourism,
 - merchandise sales,
 - inflated user fees  
 to replace withdrawn public funding.
 
-**8.6.4 Education & Job Pipeline Protection**  
+#### 8.6.4 Education & Job Pipeline Protection  
 Funding decisions must account for impacts on:
 - internships,
 - fellowships,
 - early-career employment.
 
-**8.6.5 Transparency & Return on Investment**  
+#### 8.6.5 Transparency & Return on Investment  
 Agencies must publish affordability-related outcomes of public research investment.
 
 #### Summary — 8.6 Public Research, National Capacity & Workforce Stability
@@ -1662,7 +1662,7 @@ Public scientific and technical research underpins innovation, job creation, and
 
 ### 8.7 Waste Management, Recycling & Energy Recovery
 
-**8.7.1 Tiered Recycling Responsibility**  
+#### 8.7.1 Tiered Recycling Responsibility  
 Recycling infrastructure responsibility shall be assigned in the following order:
 1. local municipality,
 2. county authority,
@@ -1670,19 +1670,19 @@ Recycling infrastructure responsibility shall be assigned in the following order
 
 Where a lower level lacks funding or facilities, responsibility automatically escalates upward.
 
-**8.7.2 Mandatory Recycling Access**  
+#### 8.7.2 Mandatory Recycling Access  
 Residents shall have access to recycling services without excessive fees or restrictive conditions.
 
 Where local municipalities lack capacity, responsibility shall escalate to county or state authorities to ensure compliance without shifting cost burdens onto individual households.
 
-**8.7.3 Domestic Waste Processing Requirement**  
+#### 8.7.3 Domestic Waste Processing Requirement  
 Export of waste to foreign entities for disposal shall be prohibited except where no domestic processing alternative exists.
 
 Where feasible, waste shall be:
 - recycled domestically, or
 - processed through waste-to-energy systems for fuel and power generation.
 
-**8.7.4 Landfill Reduction & Energy Offset**  
+#### 8.7.4 Landfill Reduction & Energy Offset  
 Waste-to-energy output may be credited toward:
 - local energy supply,
 - grid stabilization,
@@ -1726,7 +1726,7 @@ The goal is not punitive control, but restoring fairness where abuse distorts ma
 
 ### 9.1 Deliberate Damage & Cost Accountability
 
-**9.1.1 Intentional Damage Liability**  
+#### 9.1.1 Intentional Damage Liability  
 Individuals who intentionally damage property, merchandise, or facilities may be held financially responsible for:
 - repair costs,
 - replacement costs,
@@ -1734,7 +1734,7 @@ Individuals who intentionally damage property, merchandise, or facilities may be
 
 Accidental damage is excluded unless negligence is demonstrated.
 
-**9.1.2 No Automatic Insurance Shield**  
+#### 9.1.2 No Automatic Insurance Shield  
 The existence of insurance coverage does not absolve an individual from responsibility for intentional harm.
 
 Where damage is caused deliberately or through willful misconduct, liability may be assessed directly against the responsible individual regardless of whether an insurer ultimately covers repair or replacement costs.
@@ -1758,19 +1758,19 @@ When intentional damage is treated as “someone else’s problem,” businesses
 
 ### 9.2 Food Waste & Spoilage Prevention
 
-**9.2.1 Spoilage as a Distinct Harm**  
+#### 9.2.1 Spoilage as a Distinct Harm  
 Deliberately placing perishable food or temperature-sensitive goods in conditions that cause spoilage constitutes a distinct violation separate from theft.
 
 Spoilage is considered a permanent loss of usable resources, regardless of whether the actor personally consumes or removes the goods.
 
 Intent may be inferred where food is knowingly moved from required storage conditions without reasonable justification.
 
-**9.2.2 Enhanced Penalty for Waste**  
+#### 9.2.2 Enhanced Penalty for Waste  
 Intentional food waste may be treated as:
 - equivalent to or greater than theft,
 due to the permanent loss of usable resources.
 
-**9.2.3 Prepared Food Controls**  
+#### 9.2.3 Prepared Food Controls  
 Retailers offering prepared or ready-to-eat food may require:
 - payment prior to consumption,
 - reasonable verification before service.
@@ -1795,7 +1795,7 @@ Spoiling food harms supply without benefiting anyone, increases shrink, and rais
 
 ### 9.3 Payment Integrity & Fraud Prevention
 
-**9.3.1 Payment Method Transparency**  
+#### 9.3.1 Payment Method Transparency  
 Merchants and landlords may not restrict payment exclusively to:
 - cash,
 - check,
@@ -1803,7 +1803,7 @@ or other methods that eliminate verifiable transaction records.
 
 At least one traceable electronic payment option must be offered.
 
-**9.3.2 Anti-Evasion Rule**  
+#### 9.3.2 Anti-Evasion Rule  
 Practices intended to:
 - evade taxes,
 - obscure payment history,
@@ -1830,13 +1830,13 @@ When payment records are intentionally erased, consumers and tenants lose proof,
 
 ### 9.4 Artificial Scarcity & Mass Pre-Purchase Restrictions
 
-**9.4.1 Prohibited Artificial Scarcity**  
+#### 9.4.1 Prohibited Artificial Scarcity  
 It is unlawful to mass-purchase consumer goods primarily to:
 - restrict market availability,
 - inflate resale prices,
 - or speculate on future demand without operational capacity.
 
-**9.4.2 Capacity Verification Requirement**  
+#### 9.4.2 Capacity Verification Requirement  
 Bulk purchasers must demonstrate:
 - existing operational facilities,
 - legitimate near-term use,
@@ -1844,13 +1844,13 @@ Bulk purchasers must demonstrate:
 
 Purchases for hypothetical or non-existent facilities do not qualify.
 
-**9.4.3 Covered Goods**  
+#### 9.4.3 Covered Goods  
 This subsection applies to:
 - computing hardware (e.g., GPUs, memory),
 - essential electronics,
 - materials critical to consumer access.
 
-**9.4.4 Resale & Hoarding Limits**  
+#### 9.4.4 Resale & Hoarding Limits  
 Hoarded goods may be subject to:
 - compulsory release to market,
 - pricing caps,
@@ -1879,18 +1879,18 @@ Markets must serve **real demand, not speculative chokeholds**.
 
 ### 9.5 Receipt Reuse, False Return & Identity Misrepresentation
 
-**9.5.1 Prohibited Conduct**  
+#### 9.5.1 Prohibited Conduct  
 It is unlawful to:
 - reuse or repurpose receipts belonging to another transaction,
 - falsely claim goods were not received when they were,
 - present a transaction record as one’s own when it is not.
 
-**9.5.2 Elevated Classification**  
+#### 9.5.2 Elevated Classification  
 Intentional receipt reuse or false return claims constitute:
 - fraud, and
 - identity misrepresentation for enforcement purposes.
 
-**9.5.3 Verification Safeguards**  
+#### 9.5.3 Verification Safeguards  
 Retailers may implement reasonable verification measures, including:
 - receipt-to-exit matching,
 - transaction identifiers,
@@ -1901,7 +1901,7 @@ Such measures must:
 - avoid permanent personal data collection,
 - respect accessibility and disability accommodations.
 
-**9.5.4 Consumer Protection Clause**  
+#### 9.5.4 Consumer Protection Clause  
 Accidental errors, good-faith disputes, system malfunctions, or reasonable misunderstandings may not be penalized under this subsection.
 
 Enforcement actions must distinguish intentional misrepresentation from honest mistakes, technical errors, or merchant system failures.
@@ -1930,26 +1930,26 @@ Accountability protects both shoppers and retailers.
 
 ### 9.6 Public Assistance Integrity & Work Alignment
 
-**9.6.1 Capability-Based Participation Standard**  
+#### 9.6.1 Capability-Based Participation Standard  
 Recipients of public assistance who are medically and functionally capable of work shall:
 - participate in employment,
 - training,
 - education,
 - or verified job search activities.
 
-**9.6.2 Medical Eligibility Integrity**  
+#### 9.6.2 Medical Eligibility Integrity  
 Medical-based exemptions must be:
 - periodically reviewed,
 - based on functional capacity, not appearance or self-report alone.
 
 Conditions that are treatable or improvable may require participation in treatment or rehabilitation to maintain eligibility.
 
-**9.6.3 Benefit Cliff Elimination**  
+#### 9.6.3 Benefit Cliff Elimination  
 Assistance programs must phase out gradually so that:
 - working more always results in net financial gain,
 - no individual is penalized for entering employment.
 
-**9.6.4 Anti-Abuse Enforcement**  
+#### 9.6.4 Anti-Abuse Enforcement  
 Intentional misrepresentation of work capability or eligibility status constitutes fraud.
 
 Enforcement must be:
@@ -1957,7 +1957,7 @@ Enforcement must be:
 - proportionate,
 - subject to appeal.
 
-**9.6.5 Good-Faith Protection**  
+#### 9.6.5 Good-Faith Protection  
 Individuals facing:
 - caregiving responsibilities,
 - temporary illness,
@@ -2037,7 +2037,7 @@ This section ensures that access to education is not undermined by administrativ
 
 ### 10.1 Degree Structure & Credit Relevance
 
-**10.1.1 Degree-Focused Curriculum**  
+#### 10.1.1 Degree-Focused Curriculum  
 Institutions may not require coursework that is unrelated to a student’s declared degree, minor, or documented academic pathway for the primary purpose of extending enrollment duration, increasing tuition revenue, or meeting artificial credit thresholds.
 
 General education requirements must demonstrate a clear academic or professional nexus to the degree being awarded. Courses that do not materially contribute to the degree’s learning outcomes may not be mandatory for graduation.
@@ -2056,12 +2056,12 @@ Unnecessary coursework extends enrollment time, increases debt, and disproportio
 
 ### 10.2 Transfer Credit Fairness
 
-**10.2.1 Credit Recognition**  
+#### 10.2.1 Credit Recognition  
 Credits earned at regionally or nationally accredited institutions must transfer with equivalent academic weight, credit hours, and completion status when course content, learning objectives, or instructional level are substantially similar.
 
 Institutions may not deny transfer credit solely based on institutional preference, internal revenue considerations, or degree-path steering practices.
 
-**10.2.2 Prohibited Credit Caps**  
+#### 10.2.2 Prohibited Credit Caps  
 Institutions may not impose arbitrary numerical caps on transferable credits that are unrelated to academic equivalency, instructional rigor, or accreditation requirements.
 
 Credit limits imposed for administrative convenience, financial incentives, or enrollment retention purposes are expressly prohibited.
@@ -2080,7 +2080,7 @@ Arbitrary credit rejection forces students to repay for education they have alre
 
 ### 10.2A Credit Persistence & Major Mobility
 
-**10.2A.1 Credit Persistence Rule**  
+#### 10.2A.1 Credit Persistence Rule  
 Credits earned remain valid regardless of:
 - major changes,
 - school transfers,
@@ -2088,7 +2088,7 @@ Credits earned remain valid regardless of:
 
 Credits may be reapplied to new programs where relevant.
 
-**10.2A.2 Major Change Protection**  
+#### 10.2A.2 Major Change Protection  
 Institutions may not restrict students from changing majors through:
 - mandatory waiting periods,
 - credit forfeiture,
@@ -2108,12 +2108,12 @@ Students should not be penalized for academic exploration or administrative misc
 
 ### 10.3 Academic Probation & Due Process
 
-**10.3.1 Procedural Safeguards**  
+#### 10.3.1 Procedural Safeguards  
 Students may not be placed on academic probation, suspended, dismissed, or otherwise penalized due to institutional system errors, delayed grade processing, faculty submission failures, or administrative faults outside the student’s control.
 
 Any adverse academic action must be based on verified academic performance data that has been properly recorded, reviewed, and communicated to the student.
 
-**10.3.2 Appeal Rights & Timing**  
+#### 10.3.2 Appeal Rights & Timing  
 Students must be granted a clearly defined and reasonable appeal period before any academic penalties, enrollment restrictions, housing removals, or financial aid suspensions take effect.
 
 During an active appeal, all adverse actions related to the contested determination shall be stayed. Institutions may not impose accelerated deadlines, automatic enforcement, or procedural barriers that undermine the student’s ability to meaningfully contest the action.
@@ -2132,12 +2132,12 @@ Probation without due process can instantly cut off education, housing, and fina
 
 ### 10.4 Financial Aid & Housing Protections
 
-**10.4.1 Aid Continuity**  
+#### 10.4.1 Aid Continuity  
 Housing access, meal plans, and financial aid may not be withdrawn or suspended due to unresolved administrative disputes, temporary enrollment anomalies, or pending appeals, provided the student is otherwise in good standing.
 
 Institutions must maintain aid continuity until due process and correction mechanisms are fully exhausted.
 
-**10.4.2 Upperclassmen Housing Equity**  
+#### 10.4.2 Upperclassmen Housing Equity  
 Institutions may not withdraw housing eligibility, assistance, or placement support from upperclassmen solely based on academic year, age, or progression status without providing reasonable and accessible alternatives.
 
 Where on-campus residency is discouraged or unavailable, institutions must offer transitional housing assistance, verified referrals, or financial offsets sufficient to prevent displacement during active enrollment.
@@ -2155,12 +2155,12 @@ Housing loss is one of the most common reasons students are forced to abandon ed
 ---
 ### 10.5 Student Loan Equity
 
-**10.5.1 Federal vs Private Loan Neutrality**  
+#### 10.5.1 Federal vs Private Loan Neutrality  
 Relief programs, repayment protections, and hardship accommodations must not discriminate between borrowers based solely on whether a loan is federally issued, privately issued, or institution-selected.
 
 Eligibility must be determined by borrower circumstances, repayment burden, and financial impact — not lender classification.
 
-**10.5.2 Loan Selection Transparency**  
+#### 10.5.2 Loan Selection Transparency  
 Students must be clearly informed, in advance, of all available loan options, associated interest structures, repayment terms, forgiveness eligibility, and long-term financial implications prior to acceptance.
 
 Institutions may not steer students toward private or higher-cost loans without documenting that the student was presented with comparable alternatives and provided informed consent.
@@ -2178,7 +2178,7 @@ Loan forgiveness and protections should be based on borrower circumstances — n
 ---
 ### 10.6 Student Loan Minimum Payment Integrity
 
-**10.6.1 Definition of Minimum Payment** 
+#### 10.6.1 Definition of Minimum Payment 
 For student loans, the minimum payment is defined as the amount required to:
 - cover accrued interest, and
 - reduce principal by a non-zero amount.
@@ -2187,14 +2187,14 @@ A “minimum payment” that causes a loan balance to grow is not a payment — 
 
 Any payment structure that fails to meet this standard is non-compliant.
 
-**10.6.2 Prohibition on Negative Amortization** 
+#### 10.6.2 Prohibition on Negative Amortization 
 Negative amortization — where loan balances increase despite timely minimum payments — is prohibited.
 
 Interest may accrue beyond minimum payments only when:
 - the borrower pays less than the required minimum, or
 - the borrower has explicitly requested deferment or forbearance.
 
-**10.6.3 Transparency & Disclosure**
+#### 10.6.3 Transparency & Disclosure
 Lenders must clearly disclose:
 - how minimum payments are calculated,
 - how much principal will be reduced per payment,
@@ -2202,7 +2202,7 @@ Lenders must clearly disclose:
 
 Failure to disclose constitutes deceptive lending.
 
-**10.6.4 Enforcement & Remedies**
+#### 10.6.4 Enforcement & Remedies
 Loans found to violate minimum payment integrity must:
 - have excess interest reversed,
 - be re-amortized to compliant terms,
@@ -2222,7 +2222,7 @@ Debt that grows through compliance undermines trust, financial stability, and lo
 
 ### 10.7 Food Access & Campus Support
 
-**10.7.1 Enrollment-Based Food Access**  
+#### 10.7.1 Enrollment-Based Food Access  
 Institutions must ensure that enrolled students have access to affordable or no-cost food options sufficient to meet basic nutritional needs, regardless of housing status, commuter status, or enrollment modality.
 
 Food access programs may not exclude students based solely on part-time enrollment, nontraditional schedules, or off-campus residency.
@@ -2256,7 +2256,7 @@ This section ensures that the protections established throughout the Affordabili
 
 ### 11.1 Universal Applicability & No-Immunity Rule
 
-**11.1.1 Equal Application**  
+#### 11.1.1 Equal Application  
 All provisions of this Act apply equally to:
 - individuals,
 - corporations,
@@ -2272,7 +2272,7 @@ No person or entity is exempt by virtue of:
 - incorporation status,
 - or governmental affiliation.
 
-**11.1.2 No Waiver by Contract**  
+#### 11.1.2 No Waiver by Contract  
 Contracts, terms of service, waivers, arbitration clauses, non-disclosure provisions, or private agreements may not waive, limit, or nullify any right, protection, or remedy established under this Act.
 
 Any clause that attempts to:
@@ -2300,14 +2300,14 @@ Affordability protections fail if powerful actors can opt out. Uniform applicati
 
 ### 11.2 Enforcement Authorities
 
-**11.2.1 Designated Enforcement Bodies**  
+#### 11.2.1 Designated Enforcement Bodies  
 Federal and state agencies may enforce this Act within their respective jurisdictions, including:
 - labor departments,
 - housing authorities,
 - consumer protection agencies,
 - insurance regulators.
 
-**11.2.2 Concurrent Jurisdiction**  
+#### 11.2.2 Concurrent Jurisdiction  
 Enforcement by one authority does not preclude action by another where violations overlap in subject matter, jurisdiction, or affected parties.
 
 Multiple agencies may act concurrently or sequentially to:
@@ -2336,7 +2336,7 @@ Complex affordability violations often span multiple domains. Shared authority p
 
 ### 11.3 Penalties & Corrective Measures
 
-**11.3.1 Graduated Penalties**  
+#### 11.3.1 Graduated Penalties  
 Violations may result in:
 - civil fines,
 - restitution to affected individuals,
@@ -2349,7 +2349,7 @@ Penalties must scale with:
 - number of affected persons,
 - and demonstrated intent.
 
-**11.3.2 Mandatory Correction**  
+#### 11.3.2 Mandatory Correction  
 Where feasible, enforcement shall prioritize:
 - correction of harm,
 - restoration of access,
@@ -2373,7 +2373,7 @@ Punishment alone does not restore affordability. Corrective action ensures viola
 
 ### 11.4 Clawbacks, Avoidance & Asset Shielding
 
-**11.4.1 Anti-Avoidance Rule**  
+#### 11.4.1 Anti-Avoidance Rule  
 Transfers of assets, property, control, or contractual rights intended to evade compliance, liability, restitution, or enforcement under this Act are voidable.
 
 Avoidance intent may be inferred where transfers occur:
@@ -2384,7 +2384,7 @@ Avoidance intent may be inferred where transfers occur:
 
 Voidable transfers may be reversed to restore enforceability, restitution, or compliance obligations.
 
-**11.4.2 Lookback Period**  
+#### 11.4.2 Lookback Period  
 Enforcement actions may examine transactions occurring within a defined lookback period where avoidance is suspected, including sales, transfers, restructurings, liens, assignments, or ownership changes.
 
 The lookback period may be extended where:
@@ -2395,7 +2395,7 @@ The lookback period may be extended where:
 
 Transactions identified as avoidance-driven within the lookback period may be subject to reversal, reclassification, or clawback to effectuate remedies under this Act.
 
-**11.4.3 Beneficial Ownership Disclosure**  
+#### 11.4.3 Beneficial Ownership Disclosure  
 Hidden ownership structures may be disregarded for enforcement purposes where beneficial ownership, effective control, or profit entitlement can be reasonably established.
 
 For enforcement, “beneficial owner” includes any person or entity that:
@@ -2423,12 +2423,12 @@ Without anti-avoidance rules, bad actors can legally “disappear” assets whil
 
 ### 11.5 Bankruptcy, Insolvency & Abuse Prevention
 
-**11.5.1 No Strategic Bankruptcy Shield**  
+#### 11.5.1 No Strategic Bankruptcy Shield  
 Bankruptcy filings may not be used to:
 - retain control of assets while avoiding obligations,
 - shield repeated affordability violations.
 
-**11.5.2 Equitable Treatment Requirement**  
+#### 11.5.2 Equitable Treatment Requirement  
 Courts must consider:
 - total asset control,
 - beneficial ownership,
@@ -2452,12 +2452,12 @@ Bankruptcy is meant for relief, not exploitation. This prevents affordability vi
 
 ### 11.6 Government Shutdown Protections & Payment Immunity
 
-**11.6.1 Wage Continuity Requirement**  
+#### 11.6.1 Wage Continuity Requirement  
 During any government shutdown:
 - federal employees shall continue to accrue pay,
 - delayed wages must be paid retroactively in full.
 
-**11.6.2 Accountability for Withheld Wages**  
+#### 11.6.2 Accountability for Withheld Wages  
 Where wage withholding causes:
 - late fees,
 - overdraft penalties,
@@ -2465,7 +2465,7 @@ Where wage withholding causes:
 
 the withholding entity shall be responsible for resulting financial damages.
 
-**11.6.3 Late Fee & Interest Immunity**  
+#### 11.6.3 Late Fee & Interest Immunity  
 For the duration of wage withholding due to government shutdown:
 - late fees must be waived,
 - interest accrual must be paused,
@@ -2478,12 +2478,12 @@ This applies to:
 - loans,
 - insurance premiums.
 
-**11.6.4 Deferment Without Accrual**  
+#### 11.6.4 Deferment Without Accrual  
 Deferments offered during shutdown periods must:
 - preserve original payment schedules,
 - accrue no additional interest or fees.
 
-**11.6.5 Scope Limitation**  
+#### 11.6.5 Scope Limitation  
 Protections apply only where:
 - wage interruption is involuntary,
 - and directly attributable to government shutdown.
@@ -2505,13 +2505,13 @@ Workers should not subsidize political deadlock through personal financial colla
 
 ### 11.7 Due Process & Appeals
 
-**11.7.1 Notice & Opportunity to Respond**  
+#### 11.7.1 Notice & Opportunity to Respond  
 Any enforcement action must provide:
 - written notice,
 - clear description of alleged violations,
 - opportunity to respond or cure.
 
-**11.7.2 Independent Review**  
+#### 11.7.2 Independent Review  
 Affected parties are entitled to appeal enforcement actions before an independent body with authority to review facts, procedure, and proportionality of proposed penalties or corrective orders.
 
 Appeal procedures must include:
@@ -2539,13 +2539,13 @@ Enforcement legitimacy depends on fairness. Due process protects against abuse a
 
 ### 11.8 Private Right of Action
 
-**11.8.1 Individual Enforcement**  
+#### 11.8.1 Individual Enforcement  
 Individuals harmed by violations of this Act may:
 - bring civil action,
 - seek restitution,
 - recover reasonable costs and fees.
 
-**11.8.2 Collective Remedies**  
+#### 11.8.2 Collective Remedies  
 Where harm is widespread, collective or representative actions may be permitted to efficiently resolve repeated violations and ensure consistent remedies.
 
 Collective remedies may be used where:

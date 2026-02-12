@@ -31,6 +31,10 @@ Rent for residential units shall be calculated from:
 **3.1.2 Prohibition on Market-Only Rent Setting**  
 Rental prices may not be justified solely by market rates where those rates exceed cost-based calculations.
 
+Landlords must be able to show a cost basis for rent (including maintenance, taxes tied to RACV, verified financing costs, and permissible margin). “Comparable rent” claims do not override the cost-based ceiling where comparables reflect scarcity manipulation, speculation, or collusive pricing.
+
+Where market rates are used as a reference, they may only be used to set rent downward, not to exceed the allowable cost-based cap.
+
 #### Summary — 3.1 Base Rent & Cost-Based Pricing
 This subsection ensures rent is anchored to real ownership cost, verified operating expenses, and habitable unit count—rather than speculative market rates.
 
@@ -58,6 +62,10 @@ Landlords must choose one allocation method, and apply it consistently, unless i
 
 **3.2.2 Transparency Requirement**  
 Landlords must provide tenants with a clear rent breakdown upon request, showing how rent was calculated.
+
+The breakdown must include the components used to calculate rent (base cost, allowable adjustments, verified shared-cost allocation method, and any permitted variance), and must be provided within a reasonable timeframe.
+
+Failure to provide a breakdown creates a rebuttable presumption that rent was not calculated in compliance with this Act.
 
 #### Summary — 3.2 Unit-Based Allocation & Fair Distribution
 This subsection prevents arbitrary pricing between units by requiring a consistent allocation method based on size and/or capacity.
@@ -112,6 +120,10 @@ Vacancy cost-shifting makes tenants subsidize speculation and rewards artificial
 **3.4.1 Habitability Standard**  
 Rental units must meet minimum safety and habitability requirements.
 
+Habitability includes structural integrity, weatherproofing, functional plumbing and electricity, absence of hazardous mold or infestation, and compliance with applicable safety codes.
+
+Where habitability materially degrades, rent must be reduced proportionally and corrective repair timelines enforced, with penalties for prolonged noncompliance.
+
 **3.4.2 Rent Reduction for Defects**  
 Where deficiencies exist:
 - rent must be reduced proportionally until resolved,
@@ -138,6 +150,10 @@ Without a rent consequence, neglect becomes profitable and tenants are forced to
 
 **3.5.1 Equal Treatment of Student Housing**  
 Student housing, boarding houses, and dormitory-style rentals are subject to the same pricing and habitability rules as standard rentals.
+
+Educational affiliation does not exempt landlords or institutions from cost-based pricing, safety requirements, or transparency obligations.
+
+Where student housing is institution-controlled, the institution is treated as the responsible landlord entity for compliance and enforcement purposes.
 
 **3.5.2 Anti-Exploitation Rule**  
 Institutions or landlords may not inflate rent based on:

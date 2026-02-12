@@ -32,6 +32,10 @@ RACV must decrease when verified deterioration or habitability defects exist, re
 **2.1.2 Market Limitation Rule**  
 Market comparables alone may not justify prices exceeding RACV limits.
 
+Comparable sales may be used only as supporting context and must be adjusted for speculation, investor premiums, scarcity effects, and non-owner-occupant bidding.
+
+Where comparables conflict with RACV, RACV governs. Any deviation above RACV must be justified by documented improvements or permitted variance under this Act, not general market escalation.
+
 **2.1.3 Wage-Anchored Valuation Adjustment**
 Permissible valuation increases under RACV are tied exclusively to verified wage growth, not speculative inflation, asset scarcity, or monetary expansion.
 
@@ -80,6 +84,10 @@ Sellers may list property within a limited percentage above RACV to allow for:
 
 **2.2.2 Absolute Price Ceiling**  
 Under no circumstance may a sale exceed the RACV plus permissible variance, unless purchased for verified personal occupancy by a priority buyer.
+
+Even under priority purchase, sale price may not exceed the occupancy-verified ceiling set by this Act, and may not be inflated through side agreements, undisclosed fees, bundled service charges, or forced add-ons.
+
+Any attempt to circumvent the ceiling through indirect consideration is void and enforceable as an avoidance violation.
 
 #### Summary — 2.2 Permissible Variance & Sale Caps
 This subsection allows a narrow, negotiable margin above RACV to protect sellers and buyers while preventing price gouging.
@@ -135,6 +143,10 @@ Artificial scarcity raises costs for everyone and locks local buyers out. Vacanc
 
 **2.4.1 Maintenance Obligation**  
 Owners must maintain minimum habitability and safety standards regardless of occupancy.
+
+Minimum maintenance includes preventing structural decay, controlling infestation, securing the premises against hazards, and preventing conditions that endanger neighbors or degrade surrounding property usability.
+
+Failure to maintain triggers corrective timelines, enforceable remediation orders, and valuation adjustments reflecting deterioration and repair cost.
 
 **2.4.2 Repair-Based Valuation Reduction**  
 RACV must be reduced by the documented cost required to restore habitability.
@@ -192,6 +204,10 @@ Properties must be advertised in venues accessible to:
 
 **2.6.2 Prohibited Targeting**  
 Exclusive advertising to corporations or private investor networks violates priority access rules.
+
+Properties subject to priority access must be marketed in a manner reasonably accessible to priority-eligible individuals, including public listings or equivalent broad distribution.
+
+Selective marketing, off-market steering, or restricted access listings intended to bypass priority purchasers constitutes a violation subject to corrective relisting and penalties.
 
 #### Summary — 2.6 Advertising & Market Access Fairness
 This subsection prevents selective marketing that bypasses local buyers and enables institutional capture of housing supply.

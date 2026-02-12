@@ -150,6 +150,10 @@ Emergency medical transportation required to preserve life or safety shall be co
 **4.5.2 No Surprise Transport Billing**  
 Individuals may not be billed out-of-pocket for emergency transport beyond standardized public rates.
 
+Emergency transport billing must be transparent, standardized, and capped. Patients may not be charged undisclosed, out-of-network, or post-hoc “balance bills” where transport was obtained under emergency conditions.
+
+Any supplemental billing beyond standardized rates must be directed to public funding pools, insurer negotiations, or provider reimbursement mechanisms rather than the individual patient.
+
 #### Summary — 4.5  
 This subsection ensures emergency medical transportation is treated as a public safety service, not a financial penalty.
 

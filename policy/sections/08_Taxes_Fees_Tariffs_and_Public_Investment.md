@@ -25,6 +25,10 @@ It aligns property taxation with regulated value, enforces cost-based fee struct
 **8.1.1 Assessment Cap**  
 Property taxes must be based on the Regulated Assessed Current Value (RACV), not speculative market pricing.
 
+Assessors and taxing authorities may not use nearby listings, investor transactions, or speculative comparable sales to inflate taxable valuation beyond RACV.
+
+Any increase in taxable value must be supported by documented improvements, verified condition remediation, or permitted RACV adjustments under this Act, and must exclude purely speculative appreciation.
+
 **8.1.2 Anti-Secondary Inflation Rule**  
 Property tax increases shall not be justified solely by market appreciation, resale listings, or neighboring transactions.
 
@@ -82,6 +86,10 @@ Tax systems that privilegize certain household types worsen economic inequality 
 
 **8.3.1 Cost-Based Fees Only**  
 Government and quasi-government fees must reflect actual administrative cost.
+
+Fees may not be used as general revenue tools, and may not exceed the documented cost of providing the service, processing the filing, or administering the program.
+
+Where a fee is standardized, the issuing entity must maintain a public cost basis showing the components of the fee and must revise the fee downward when administrative cost decreases.
 
 **8.3.2 Prohibited Revenue Padding**  
 Fees may not be used as indirect taxation or revenue extraction mechanisms.

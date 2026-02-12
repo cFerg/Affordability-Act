@@ -86,6 +86,10 @@ The following essential medical items shall be provided at regulated or no cost:
 **6.3.2 Anti-Gouging Rule**  
 Manufacturers and distributors may not inflate prices of essential medical items beyond regulated cost-plus thresholds.
 
+Regulated pricing must be based on verifiable production, distribution, and compliance costs, plus a permissible margin. Price increases must be supported by documented cost changes, not market leverage, scarcity gaming, or monopoly control.
+
+Where a product is essential to life or baseline function (including insulin, inhalers, epipens, and comparable critical medication), excessive price escalation constitutes unlawful gouging subject to corrective pricing and restitution.
+
 #### Summary — 6.3
 This subsection defines essential, life-sustaining medical items that must be provided at regulated cost or no cost and prohibits gouging by manufacturers and distributors.
 
@@ -138,6 +142,10 @@ Patterns of non-emergency misuse of emergency services may be reviewed, but:
 
 **6.5.2 Health Outcome Focus**  
 Preventative care and treatment programs must prioritize long-term health outcomes over punitive denial of services.
+
+Coverage and access decisions must be based on medical necessity, demonstrated health benefit, and evidence-based standards—not moral judgment, stigma, or blanket exclusions that increase long-term public cost.
+
+Programs may include supportive participation requirements only where they are reasonable, accessible, and directly related to improved outcomes, and may not be used to deny essential care.
 
 #### Summary — 6.5
 This subsection permits review of patterns of non-emergency misuse of emergency services without denying care, and directs preventative programs to focus on health outcomes over punitive exclusion.
@@ -195,6 +203,10 @@ Veterinary emergencies are time-sensitive and often unavoidable; ethical pricing
 
 **6.7.4 Mandatory Spay & Neuter**
 Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
+
+Licensing exemptions must be limited to verified, accountable breeding programs and documented working/service animal programs where sterilization conflicts with medically supported requirements.
+
+This provision shall be implemented with low-cost access pathways, including subsidized clinics or sliding-scale options, to prevent affordability barriers from turning the rule into a penalty on low-income owners.
 
 **6.7.5 Licensed Breeding Requirements**
 Breeding is restricted to licensed individuals or entities, requiring:

@@ -62,6 +62,10 @@ Signed wage agreements may not be reduced below the agreed rate within a defined
 **5.2.2 Retroactive Wage Protection**  
 Employers may not retroactively alter pay rates or hours worked.
 
+Any reduction, reclassification, “correction,” or timekeeping adjustment that reduces compensation after labor has been performed is prohibited unless it benefits the employee or corrects an objectively provable overpayment with documented employee notice.
+
+Time records must be preserved, and any dispute must default in favor of the worker where employer records are missing, altered, or inconsistent.
+
 #### Summary — 5.2 Wage Contract Integrity
 This subsection prevents employers from reducing agreed wages or altering pay retroactively without worker consent or documented hardship justification.
 
@@ -112,6 +116,10 @@ Protecting workers from covert termination tactics preserves access to unemploym
 
 **5.4.1 Minimum Notice Requirement**  
 Employers must provide advance notice of layoffs or mass reductions except in verified emergencies.
+
+Notice must include expected timing, affected roles, and a clear statement of eligibility for unemployment and continuation of benefits, and may not be replaced by coercive resignations, forced transfers, or constructive discharge tactics.
+
+Where notice is not feasible due to a verified emergency, employers must document the emergency basis and provide accelerated access to severance, benefits continuity, or equivalent mitigation.
 
 **5.4.2 Anti-Circumvention Rule**  
 Employers may not restructure roles, schedules, or conditions to:
@@ -188,6 +196,10 @@ Insufficient rest and punitive shift design harm health, safety, productivity, a
 
 **5.7.1 Take-Home Neutrality Rule**  
 Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
+
+Where withholding, benefit clawbacks, or payroll structures cause overtime hours to reduce effective take-home compensation, employers must provide a corrective adjustment or alternative pay treatment so overtime remains economically neutral or beneficial.
+
+Overtime should not function as an affordability penalty; structures that repeatedly cause net loss on overtime shall be treated as noncompliant.
 
 **5.7.2 Overtime Premium Protection**  
 The overtime premium portion of pay (above base wage) shall be:

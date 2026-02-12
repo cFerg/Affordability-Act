@@ -1,49 +1,18 @@
 (() => {
   "use strict";
 
-  // ----------------------------
-  // Helpers
-  // ----------------------------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  function escapeHtml(s) {
-    return String(s)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
-  }
-
-  function slugify(s) {
-    return String(s || "")
-      .trim()
-      .toLowerCase()
-      .replace(/&amp;/g, "and")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .slice(0, 90);
-  }
-
-  // ----------------------------
-  // Theme: system default, two-button toggle
-  // - Default: follow system (no saved pref)
-  // - Click: toggle light/dark and save
-  // - Shift-click: reset to system (clear saved)
-  // ----------------------------
-  const THEME_KEY = "affordact_theme"; // "light" | "dark" | null
-
+  // ---------- Theme ----------
+  const THEME_KEY = "affordact_theme"; // "light" | "dark" | null(system)
   function systemIsLight() {
     return window.matchMedia?.("(prefers-color-scheme: light)")?.matches ?? false;
   }
-
   function applyTheme(mode) {
-    // We use body.theme-light as the only explicit override.
     if (mode === "light") document.body.classList.add("theme-light");
     else document.body.classList.remove("theme-light");
   }
-
   function loadTheme() {
     const saved = localStorage.getItem(THEME_KEY);
     if (saved === "light" || saved === "dark") {
@@ -51,24 +20,17 @@
       return saved;
     }
     applyTheme(null);
-    return null; // system
+    return null;
   }
-
   function saveTheme(mode) {
     if (!mode) localStorage.removeItem(THEME_KEY);
     else localStorage.setItem(THEME_KEY, mode);
   }
-
   function initThemeToggle() {
     const btn = $("#theme-toggle");
     if (!btn) return;
-
-    let mode = loadTheme(); // "light" | "dark" | null
-
-    function effectiveMode() {
-      if (mode === "light" || mode === "dark") return mode;
-      return systemIsLight() ? "light" : "dark";
-    }
+    let mode = loadTheme();
+    const eff = () => (mode ? mode : (systemIsLight() ? "light" : "dark"));
 
     btn.addEventListener("click", (e) => {
       if (e.shiftKey) {
@@ -77,50 +39,16 @@
         applyTheme(mode);
         return;
       }
-      const eff = effectiveMode();
-      mode = eff === "light" ? "dark" : "light";
+      mode = (eff() === "light") ? "dark" : "light";
       saveTheme(mode);
       applyTheme(mode);
     });
 
     const mq = window.matchMedia?.("(prefers-color-scheme: light)");
-    mq?.addEventListener?.("change", () => {
-      if (!mode) applyTheme(null);
-    });
+    mq?.addEventListener?.("change", () => { if (!mode) applyTheme(null); });
   }
 
-  // ----------------------------
-  // Sticky footer nav actions
-  // - Back to top
-  // - Search button (bill only) focuses header page search input
-  // ----------------------------
-  function initStickyNavActions() {
-    const nav = $("[data-sticky-nav]");
-    if (!nav) return;
-
-    const topBtn = $("[data-nav-top]", nav);
-    if (topBtn) {
-      topBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-
-    const searchBtn = $("[data-nav-search]", nav);
-    if (searchBtn) {
-      searchBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const input = $("input[data-page-search]");
-        if (input) input.focus();
-      });
-    }
-  }
-
-  // ----------------------------
-  // Home: category cards
-  // - Only show chevron + “X sections” if >1 sections
-  // - If exactly 1, turn the header into a direct link and remove chevron/meta
-  // ----------------------------
+  // ---------- Home categories ----------
   function initCategoryCards() {
     const home = $("#home-sections");
     if (!home) return;
@@ -136,14 +64,15 @@
 
       const meta = $(".cat-meta", block);
       const chev = $(".cat-chevron", block);
+      const header = $("[data-cat-toggle]", block);
 
+      // Single section => header becomes direct link, remove meta/chevron, hide body
       if (count === 1) {
         const onlyHref = links[0].getAttribute("href") || "#";
 
-        const header = $("[data-cat-toggle]", block);
         if (header) {
           if (header.tagName.toLowerCase() === "a") {
-            header.setAttribute("href", onlyHref);
+            header.href = onlyHref;
             header.classList.add("cat-header--link");
           } else {
             const a = document.createElement("a");
@@ -157,24 +86,25 @@
         if (meta) meta.remove();
         if (chev) chev.remove();
 
+        // also strip any literal chevron characters that might have been baked in
+        const h = block.querySelector(".cat-header, .cat-header--link");
+        if (h) h.innerHTML = h.innerHTML.replace(/[▾▼]/g, "");
+
         body.hidden = true;
         body.style.display = "none";
         return;
       }
 
-      // multi-section: true accordion
+      // Multi section => accordion
       if (meta) meta.textContent = `${count} sections`;
       if (chev) chev.style.display = "";
 
-      const header = $("[data-cat-toggle]", block);
-      if (!header) return;
+      if (!header || header.tagName.toLowerCase() === "a") return;
 
       header.setAttribute("aria-expanded", "false");
       body.hidden = true;
 
       header.addEventListener("click", (e) => {
-        // only if it's still a button
-        if (header.tagName.toLowerCase() === "a") return;
         e.preventDefault();
         const open = header.getAttribute("aria-expanded") === "true";
         header.setAttribute("aria-expanded", String(!open));
@@ -183,11 +113,7 @@
     });
   }
 
-  // ----------------------------
-  // Global search modal (Home)
-  // Uses /search.json (B-style: {documents:[...]})
-  // Searches content first, title second, category last.
-  // ----------------------------
+  // ---------- Global search modal ----------
   function initGlobalSearchModal() {
     const trigger = $("input[data-global-search]");
     const modal = $("#global-search-modal");
@@ -198,16 +124,28 @@
     let docs = null;
     let loading = false;
 
+    const base = (window.AFFORDACT_BASEURL || "").replace(/\/$/, "");
+    const searchUrl = `${base}/search.json`;
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
     async function ensureLoaded() {
       if (docs || loading) return;
       loading = true;
       try {
-        const res = await fetch("/search.json", { cache: "no-store" });
+        const res = await fetch(searchUrl, { cache: "no-store" });
         if (!res.ok) throw new Error(`search.json fetch failed: ${res.status}`);
         const json = await res.json();
         docs = Array.isArray(json) ? json : (json.documents || []);
       } catch (e) {
-        console.error(e);
+        console.error("Search load failed", e);
         docs = [];
       } finally {
         loading = false;
@@ -295,13 +233,9 @@
       });
 
       resultsEl.innerHTML = hits.slice(0, 40).map(({ d }) => {
-        const catHtml = d.category
-          ? `<div class="muted global-search-result__cat">${escapeHtml(d.category)}</div>`
-          : "";
+        const catHtml = d.category ? `<div class="muted global-search-result__cat">${escapeHtml(d.category)}</div>` : "";
         const sn = snippet(d.content || d.body || "", q);
-        const snHtml = sn
-          ? `<p class="global-search-result__snippet">${highlight(sn, rawQ)}</p>`
-          : "";
+        const snHtml = sn ? `<p class="global-search-result__snippet">${highlight(sn, rawQ)}</p>` : "";
         return `
           <div class="global-search-result">
             <a class="global-search-result__title" href="${escapeHtml(d.url || "#")}">${escapeHtml(d.title || "Untitled")}</a>
@@ -314,7 +248,6 @@
       resultsEl.classList.toggle("has-results", hits.length > 0);
     }
 
-    // open on focus/typing
     trigger.addEventListener("focus", () => open(trigger.value));
     trigger.addEventListener("input", () => open(trigger.value));
 
@@ -330,19 +263,14 @@
     modalInput.addEventListener("input", render);
   }
 
-  // ----------------------------
-  // Heading anchors: add 🔗 to h2/h3/h4
-  // ----------------------------
+  // ---------- Heading anchors ----------
   function initHeadingAnchors() {
     const root = $(".content");
     if (!root) return;
-
     const heads = $$("h2,h3,h4", root);
     heads.forEach((h) => {
-      if (h.closest("nav")) return;
-      if (!h.id) h.id = slugify(h.textContent);
-      if ($(".hdr-anchor", h)) return;
-
+      if (!h.id) h.id = slugify(h.textContent || "");
+      if (h.querySelector(".hdr-anchor")) return;
       const a = document.createElement("a");
       a.className = "hdr-anchor";
       a.href = `#${h.id}`;
@@ -352,31 +280,30 @@
     });
   }
 
-  // ----------------------------
-  // TOC for bill/section pages (uses #section-topbar)
-  // - Mobile: dropdown inside topbar
-  // - Desktop: fixed right-side panel (does not push page down)
-  // - Includes a small hide/show toggle
-  // ----------------------------
+  // ---------- TOC ----------
   function initTocNav() {
     const topbar = $("#section-topbar");
-    if (!topbar) return; // only on bill/sections per your layout :contentReference[oaicite:6]{index=6}
+    if (!topbar) return;
 
     const root = $(".content");
     if (!root) return;
 
-    const headings = $$("h2,h3,h4", root).filter(h => (h.textContent || "").trim().length > 0);
+    const headings = $$("h2,h3,h4", root).filter(h => (h.textContent || "").trim());
     if (headings.length < 2) return;
 
     headings.forEach(h => { if (!h.id) h.id = slugify(h.textContent); });
 
     const items = headings.map(h => ({
       id: h.id,
-      level: h.tagName.toLowerCase(), // h2/h3/h4
+      level: h.tagName.toLowerCase(),
       text: (h.textContent || "").replace("🔗", "").trim()
     }));
 
-    // Mobile dropdown
+    // dropdown (mobile + medium)
+    topbar.innerHTML = "";
+    const inner = document.createElement("div");
+    inner.className = "topbar-inner";
+
     const select = document.createElement("select");
     select.className = "toc-select";
     select.setAttribute("aria-label", "On this page");
@@ -389,8 +316,7 @@
     for (const it of items) {
       const opt = document.createElement("option");
       opt.value = it.id;
-      opt.textContent =
-        (it.level === "h3" ? "  ↳ " : it.level === "h4" ? "    • " : "") + it.text;
+      opt.textContent = (it.level === "h3" ? "  ↳ " : it.level === "h4" ? "    • " : "") + it.text;
       select.appendChild(opt);
     }
 
@@ -402,13 +328,10 @@
       select.value = "";
     });
 
-    topbar.innerHTML = "";
-    const inner = document.createElement("div");
-    inner.className = "topbar-inner";
     inner.appendChild(select);
     topbar.appendChild(inner);
 
-    // Desktop sidebar panel (fixed)
+    // floating sidebar (desktop wide)
     const panel = document.createElement("aside");
     panel.className = "toc-float";
     panel.innerHTML = `
@@ -419,17 +342,17 @@
       </div>
     `;
 
-    const list = $(".toc-list", panel);
-    const toggle = $(".toc-toggle", panel);
-    const panelInner = $("[data-toc-panel]", panel);
+    const list = panel.querySelector(".toc-list");
+    const toggle = panel.querySelector(".toc-toggle");
+    const panelInner = panel.querySelector("[data-toc-panel]");
 
-    for (const it of items) {
+    items.forEach(it => {
       const a = document.createElement("a");
       a.href = `#${it.id}`;
       a.className = `toc-link toc-${it.level}`;
       a.textContent = it.text;
       list.appendChild(a);
-    }
+    });
 
     toggle.addEventListener("click", () => {
       const open = toggle.getAttribute("aria-expanded") === "true";
@@ -439,52 +362,51 @@
 
     document.body.appendChild(panel);
 
+    // auto-keep active link visible
     const links = $$("a.toc-link", panel);
     function setActive(id) {
-      links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${id}`));
+      let activeEl = null;
+      links.forEach(a => {
+        const on = a.getAttribute("href") === `#${id}`;
+        a.classList.toggle("is-active", on);
+        if (on) activeEl = a;
+      });
+      if (activeEl) activeEl.scrollIntoView({ block: "nearest" });
     }
 
     const obs = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
       if (visible.length) setActive(visible[0].target.id);
     }, { rootMargin: "-20% 0px -70% 0px", threshold: [0, 1] });
 
     headings.forEach(h => obs.observe(h));
   }
 
-  // ----------------------------
-  // Page search highlight (header input data-page-search)
-  // ----------------------------
+  // ---------- Page search highlight ----------
   function initPageSearchHighlight() {
     const input = $("input[data-page-search]");
     const root = $(".content");
     if (!input || !root) return;
 
     let marks = [];
-
-    function clearMarks() {
+    const clear = () => {
       marks.forEach(m => {
-        const parent = m.parentNode;
-        if (!parent) return;
-        parent.replaceChild(document.createTextNode(m.textContent), m);
-        parent.normalize();
+        const p = m.parentNode;
+        if (!p) return;
+        p.replaceChild(document.createTextNode(m.textContent), m);
+        p.normalize();
       });
       marks = [];
-    }
+    };
 
-    function mark(query) {
+    const mark = (query) => {
       if (!query) return;
-
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
         acceptNode(node) {
           if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
           const p = node.parentElement;
           if (!p) return NodeFilter.FILTER_REJECT;
-          if (p.closest("nav,button,input,textarea,select,script,style,.toc-float,.section-topbar,.search-modal")) {
-            return NodeFilter.FILTER_REJECT;
-          }
+          if (p.closest("nav,button,input,textarea,select,script,style,.toc-float,.section-topbar,.search-modal")) return NodeFilter.FILTER_REJECT;
           return NodeFilter.FILTER_ACCEPT;
         }
       });
@@ -516,14 +438,14 @@
         frag.appendChild(document.createTextNode(text.slice(last)));
         node.parentNode.replaceChild(frag, node);
       }
-    }
+    };
 
     let t = null;
     input.addEventListener("input", () => {
       clearTimeout(t);
       const v = input.value.trim();
       t = setTimeout(() => {
-        clearMarks();
+        clear();
         if (v.length >= 2) mark(v);
       }, 120);
     });
@@ -531,7 +453,7 @@
     input.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         input.value = "";
-        clearMarks();
+        clear();
         input.blur();
       }
     });
@@ -539,12 +461,10 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
-    initStickyNavActions();
     initCategoryCards();
     initGlobalSearchModal();
     initHeadingAnchors();
     initTocNav();
     initPageSearchHighlight();
   });
-
 })();

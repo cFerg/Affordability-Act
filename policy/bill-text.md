@@ -198,6 +198,10 @@ RACV must decrease when verified deterioration or habitability defects exist, re
 **2.1.2 Market Limitation Rule**  
 Market comparables alone may not justify prices exceeding RACV limits.
 
+Comparable sales may be used only as supporting context and must be adjusted for speculation, investor premiums, scarcity effects, and non-owner-occupant bidding.
+
+Where comparables conflict with RACV, RACV governs. Any deviation above RACV must be justified by documented improvements or permitted variance under this Act, not general market escalation.
+
 **2.1.3 Wage-Anchored Valuation Adjustment**
 Permissible valuation increases under RACV are tied exclusively to verified wage growth, not speculative inflation, asset scarcity, or monetary expansion.
 
@@ -246,6 +250,10 @@ Sellers may list property within a limited percentage above RACV to allow for:
 
 **2.2.2 Absolute Price Ceiling**  
 Under no circumstance may a sale exceed the RACV plus permissible variance, unless purchased for verified personal occupancy by a priority buyer.
+
+Even under priority purchase, sale price may not exceed the occupancy-verified ceiling set by this Act, and may not be inflated through side agreements, undisclosed fees, bundled service charges, or forced add-ons.
+
+Any attempt to circumvent the ceiling through indirect consideration is void and enforceable as an avoidance violation.
 
 #### Summary — 2.2 Permissible Variance & Sale Caps
 This subsection allows a narrow, negotiable margin above RACV to protect sellers and buyers while preventing price gouging.
@@ -301,6 +309,10 @@ Artificial scarcity raises costs for everyone and locks local buyers out. Vacanc
 
 **2.4.1 Maintenance Obligation**  
 Owners must maintain minimum habitability and safety standards regardless of occupancy.
+
+Minimum maintenance includes preventing structural decay, controlling infestation, securing the premises against hazards, and preventing conditions that endanger neighbors or degrade surrounding property usability.
+
+Failure to maintain triggers corrective timelines, enforceable remediation orders, and valuation adjustments reflecting deterioration and repair cost.
 
 **2.4.2 Repair-Based Valuation Reduction**  
 RACV must be reduced by the documented cost required to restore habitability.
@@ -359,6 +371,10 @@ Properties must be advertised in venues accessible to:
 **2.6.2 Prohibited Targeting**  
 Exclusive advertising to corporations or private investor networks violates priority access rules.
 
+Properties subject to priority access must be marketed in a manner reasonably accessible to priority-eligible individuals, including public listings or equivalent broad distribution.
+
+Selective marketing, off-market steering, or restricted access listings intended to bypass priority purchasers constitutes a violation subject to corrective relisting and penalties.
+
 #### Summary — 2.6 Advertising & Market Access Fairness
 This subsection prevents selective marketing that bypasses local buyers and enables institutional capture of housing supply.
 
@@ -402,6 +418,10 @@ Rent for residential units shall be calculated from:
 **3.1.2 Prohibition on Market-Only Rent Setting**  
 Rental prices may not be justified solely by market rates where those rates exceed cost-based calculations.
 
+Landlords must be able to show a cost basis for rent (including maintenance, taxes tied to RACV, verified financing costs, and permissible margin). “Comparable rent” claims do not override the cost-based ceiling where comparables reflect scarcity manipulation, speculation, or collusive pricing.
+
+Where market rates are used as a reference, they may only be used to set rent downward, not to exceed the allowable cost-based cap.
+
 #### Summary — 3.1 Base Rent & Cost-Based Pricing
 This subsection ensures rent is anchored to real ownership cost, verified operating expenses, and habitable unit count—rather than speculative market rates.
 
@@ -429,6 +449,10 @@ Landlords must choose one allocation method, and apply it consistently, unless i
 
 **3.2.2 Transparency Requirement**  
 Landlords must provide tenants with a clear rent breakdown upon request, showing how rent was calculated.
+
+The breakdown must include the components used to calculate rent (base cost, allowable adjustments, verified shared-cost allocation method, and any permitted variance), and must be provided within a reasonable timeframe.
+
+Failure to provide a breakdown creates a rebuttable presumption that rent was not calculated in compliance with this Act.
 
 #### Summary — 3.2 Unit-Based Allocation & Fair Distribution
 This subsection prevents arbitrary pricing between units by requiring a consistent allocation method based on size and/or capacity.
@@ -483,6 +507,10 @@ Vacancy cost-shifting makes tenants subsidize speculation and rewards artificial
 **3.4.1 Habitability Standard**  
 Rental units must meet minimum safety and habitability requirements.
 
+Habitability includes structural integrity, weatherproofing, functional plumbing and electricity, absence of hazardous mold or infestation, and compliance with applicable safety codes.
+
+Where habitability materially degrades, rent must be reduced proportionally and corrective repair timelines enforced, with penalties for prolonged noncompliance.
+
 **3.4.2 Rent Reduction for Defects**  
 Where deficiencies exist:
 - rent must be reduced proportionally until resolved,
@@ -509,6 +537,10 @@ Without a rent consequence, neglect becomes profitable and tenants are forced to
 
 **3.5.1 Equal Treatment of Student Housing**  
 Student housing, boarding houses, and dormitory-style rentals are subject to the same pricing and habitability rules as standard rentals.
+
+Educational affiliation does not exempt landlords or institutions from cost-based pricing, safety requirements, or transparency obligations.
+
+Where student housing is institution-controlled, the institution is treated as the responsible landlord entity for compliance and enforcement purposes.
 
 **3.5.2 Anti-Exploitation Rule**  
 Institutions or landlords may not inflate rent based on:
@@ -709,6 +741,10 @@ Emergency medical transportation required to preserve life or safety shall be co
 **4.5.2 No Surprise Transport Billing**  
 Individuals may not be billed out-of-pocket for emergency transport beyond standardized public rates.
 
+Emergency transport billing must be transparent, standardized, and capped. Patients may not be charged undisclosed, out-of-network, or post-hoc “balance bills” where transport was obtained under emergency conditions.
+
+Any supplemental billing beyond standardized rates must be directed to public funding pools, insurer negotiations, or provider reimbursement mechanisms rather than the individual patient.
+
 #### Summary — 4.5  
 This subsection ensures emergency medical transportation is treated as a public safety service, not a financial penalty.
 
@@ -823,6 +859,10 @@ Signed wage agreements may not be reduced below the agreed rate within a defined
 **5.2.2 Retroactive Wage Protection**  
 Employers may not retroactively alter pay rates or hours worked.
 
+Any reduction, reclassification, “correction,” or timekeeping adjustment that reduces compensation after labor has been performed is prohibited unless it benefits the employee or corrects an objectively provable overpayment with documented employee notice.
+
+Time records must be preserved, and any dispute must default in favor of the worker where employer records are missing, altered, or inconsistent.
+
 #### Summary — 5.2 Wage Contract Integrity
 This subsection prevents employers from reducing agreed wages or altering pay retroactively without worker consent or documented hardship justification.
 
@@ -873,6 +913,10 @@ Protecting workers from covert termination tactics preserves access to unemploym
 
 **5.4.1 Minimum Notice Requirement**  
 Employers must provide advance notice of layoffs or mass reductions except in verified emergencies.
+
+Notice must include expected timing, affected roles, and a clear statement of eligibility for unemployment and continuation of benefits, and may not be replaced by coercive resignations, forced transfers, or constructive discharge tactics.
+
+Where notice is not feasible due to a verified emergency, employers must document the emergency basis and provide accelerated access to severance, benefits continuity, or equivalent mitigation.
 
 **5.4.2 Anti-Circumvention Rule**  
 Employers may not restructure roles, schedules, or conditions to:
@@ -949,6 +993,10 @@ Insufficient rest and punitive shift design harm health, safety, productivity, a
 
 **5.7.1 Take-Home Neutrality Rule**  
 Overtime compensation may not result in a lower net hourly rate than a worker’s base wage.
+
+Where withholding, benefit clawbacks, or payroll structures cause overtime hours to reduce effective take-home compensation, employers must provide a corrective adjustment or alternative pay treatment so overtime remains economically neutral or beneficial.
+
+Overtime should not function as an affordability penalty; structures that repeatedly cause net loss on overtime shall be treated as noncompliant.
 
 **5.7.2 Overtime Premium Protection**  
 The overtime premium portion of pay (above base wage) shall be:
@@ -1062,6 +1110,10 @@ The following essential medical items shall be provided at regulated or no cost:
 **6.3.2 Anti-Gouging Rule**  
 Manufacturers and distributors may not inflate prices of essential medical items beyond regulated cost-plus thresholds.
 
+Regulated pricing must be based on verifiable production, distribution, and compliance costs, plus a permissible margin. Price increases must be supported by documented cost changes, not market leverage, scarcity gaming, or monopoly control.
+
+Where a product is essential to life or baseline function (including insulin, inhalers, epipens, and comparable critical medication), excessive price escalation constitutes unlawful gouging subject to corrective pricing and restitution.
+
 #### Summary — 6.3
 This subsection defines essential, life-sustaining medical items that must be provided at regulated cost or no cost and prohibits gouging by manufacturers and distributors.
 
@@ -1114,6 +1166,10 @@ Patterns of non-emergency misuse of emergency services may be reviewed, but:
 
 **6.5.2 Health Outcome Focus**  
 Preventative care and treatment programs must prioritize long-term health outcomes over punitive denial of services.
+
+Coverage and access decisions must be based on medical necessity, demonstrated health benefit, and evidence-based standards—not moral judgment, stigma, or blanket exclusions that increase long-term public cost.
+
+Programs may include supportive participation requirements only where they are reasonable, accessible, and directly related to improved outcomes, and may not be used to deny essential care.
 
 #### Summary — 6.5
 This subsection permits review of patterns of non-emergency misuse of emergency services without denying care, and directs preventative programs to focus on health outcomes over punitive exclusion.
@@ -1171,6 +1227,10 @@ Veterinary emergencies are time-sensitive and often unavoidable; ethical pricing
 
 **6.7.4 Mandatory Spay & Neuter**
 Routine spay or neuter is required for non-licensed animals, except where medically contraindicated.
+
+Licensing exemptions must be limited to verified, accountable breeding programs and documented working/service animal programs where sterilization conflicts with medically supported requirements.
+
+This provision shall be implemented with low-cost access pathways, including subsidized clinics or sliding-scale options, to prevent affordability barriers from turning the rule into a penalty on low-income owners.
 
 **6.7.5 Licensed Breeding Requirements**
 Breeding is restricted to licensed individuals or entities, requiring:
@@ -1410,6 +1470,10 @@ It aligns property taxation with regulated value, enforces cost-based fee struct
 **8.1.1 Assessment Cap**  
 Property taxes must be based on the Regulated Assessed Current Value (RACV), not speculative market pricing.
 
+Assessors and taxing authorities may not use nearby listings, investor transactions, or speculative comparable sales to inflate taxable valuation beyond RACV.
+
+Any increase in taxable value must be supported by documented improvements, verified condition remediation, or permitted RACV adjustments under this Act, and must exclude purely speculative appreciation.
+
 **8.1.2 Anti-Secondary Inflation Rule**  
 Property tax increases shall not be justified solely by market appreciation, resale listings, or neighboring transactions.
 
@@ -1467,6 +1531,10 @@ Tax systems that privilegize certain household types worsen economic inequality 
 
 **8.3.1 Cost-Based Fees Only**  
 Government and quasi-government fees must reflect actual administrative cost.
+
+Fees may not be used as general revenue tools, and may not exceed the documented cost of providing the service, processing the filing, or administering the program.
+
+Where a fee is standardized, the issuing entity must maintain a public cost basis showing the components of the fee and must revise the fee downward when administrative cost decreases.
 
 **8.3.2 Prohibited Revenue Padding**  
 Fees may not be used as indirect taxation or revenue extraction mechanisms.

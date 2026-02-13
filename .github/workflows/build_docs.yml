@@ -1,38 +1,53 @@
-name: Build policy artifacts
+name: Build Docs (Generate Bill + Indexes)
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
     paths:
       - "policy/**"
-      - "tools/build_docs.py"
+      - "tools/**"
+      - "_config.yml"
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-docs:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
 
-      - name: Generate docs
+      - name: Generate docs + indexes
         run: |
           python tools/build_docs.py
 
-      - name: Commit generated files
+      - name: Show generated outputs
         run: |
-          git config user.name "AffordAct Bot"
-          git config user.email "bot@affordact.com"
-          git add _data/sections.json policy/bill-text.md search.json
-          git diff --cached --quiet || git commit -m "Auto-generate bill and section data"
+          ls -la _data || true
+          ls -la policy || true
+          ls -la . || true
+          echo "----"
+          test -f _data/sections.json && echo "_data/sections.json OK"
+          test -f policy/bill-text.md && echo "policy/bill-text.md OK"
+          test -f search.json && echo "search.json OK"
 
-      - name: Push changes
-        run: git push
+      - name: Commit generated files (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _data/sections.json policy/bill-text.md search.json
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: autogenerate bill + indexes"
+          git push

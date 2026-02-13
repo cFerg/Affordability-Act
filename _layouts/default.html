@@ -211,6 +211,14 @@
   {% endif %}
 
   <script>window.AFFORDACT_BASEURL = "{{ site.baseurl | default: '' }}";</script>
-  <script src="{{ '/assets/site.js' | relative_url }}"></script>
+
+  <script defer src="{{ '/assets/js/core.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/home.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/global-search.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/toc.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/page-search.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/sticky-nav.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
+  <script defer src="{{ '/assets/js/init.js' | relative_url }}?v={{ site.github.build_revision }}"></script>
 </body>
 </html>

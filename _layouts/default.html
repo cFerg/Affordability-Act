@@ -42,7 +42,7 @@
     <meta name="author" content="{{ site.author | escape }}" />
   {% endif %}
 
-  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}?v={{ site.github.build_revision }}">
 </head>
 
 <body

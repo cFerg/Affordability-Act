@@ -15,11 +15,35 @@ OUT_SEARCH = ROOT / "search.json"
 SECTION_RE = re.compile(r"^##\s*(Section\s+\d+.*)$", re.MULTILINE)
 CATEGORY_RE = re.compile(r"^#\s+(.+)$", re.MULTILINE)
 
+FRONTMATTER_RE = re.compile(r"^---\s.*?\s---\s*", re.S)
+FENCED_CODE_RE = re.compile(r"```.*?```", re.S)
+MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
+INLINE_CODE_RE = re.compile(r"`([^`]+)`")
+HEADING_MARK_RE = re.compile(r"^#{1,6}\s*", re.M)
+WHITESPACE_RE = re.compile(r"\s+")
+
 def slug_to_order(slug: str) -> int:
     try:
         return int(slug.split("_", 1)[0])
     except Exception:
         return 9999
+
+def strip_frontmatter(md: str) -> str:
+    return FRONTMATTER_RE.sub("", md)
+
+def md_to_text(md: str) -> str:
+    """
+    Convert markdown-ish content to plain text suitable for search indexing.
+    Keep it conservative: remove frontmatter + code blocks + link URLs, collapse whitespace.
+    """
+    md = strip_frontmatter(md)
+    md = FENCED_CODE_RE.sub(" ", md)
+    md = MD_LINK_RE.sub(r"\1", md)          # [text](url) -> text
+    md = INLINE_CODE_RE.sub(r"\1", md)      # `code` -> code
+    md = HEADING_MARK_RE.sub("", md)        # remove heading markers
+    md = md.replace("**", "").replace("__", "").replace("*", "").replace("_", "")
+    md = WHITESPACE_RE.sub(" ", md).strip()
+    return md
 
 items = []
 bill_parts = []
@@ -46,8 +70,8 @@ for md in sorted(SECTIONS_DIR.glob("*.md")):
         "url": url
     })
 
-    # Bill text
-    cleaned = re.sub(r"^---.*?---\s*", "", text, flags=re.S)
+    # Bill text: remove frontmatter only, keep markdown structure for the compiled page
+    cleaned = strip_frontmatter(text)
     bill_parts.append(cleaned.strip())
 
 # Sort once, everywhere
@@ -60,26 +84,31 @@ OUT_SECTIONS.write_text(
 )
 
 # Write compiled bill
-OUT_BILL.write_text(
-    "# Full Compiled Bill\n\n" + "\n\n---\n\n".join(bill_parts) + "\n",
-    encoding="utf-8"
-)
+compiled_bill_md = "# Full Compiled Bill\n\n" + "\n\n---\n\n".join(bill_parts) + "\n"
+OUT_BILL.write_text(compiled_bill_md, encoding="utf-8")
 
-# Write search index
+# Write search index (now includes content)
 search_docs = [
     {
         "id": "bill",
         "title": "Full compiled bill",
-        "url": "/policy/bill-text/"
+        "url": "/policy/bill-text/",
+        "order": 0,
+        "category": "Full Bill",
+        "content": md_to_text(compiled_bill_md),
     }
 ]
 
 for it in items:
+    section_path = SECTIONS_DIR / f"{it['slug']}.md"
+    raw_md = section_path.read_text(encoding="utf-8") if section_path.exists() else ""
     search_docs.append({
         "id": it["slug"],
         "title": it["sectionTitle"],
         "url": it["url"],
-        "category": it["category"]
+        "category": it["category"],
+        "order": it["order"],
+        "content": md_to_text(raw_md),
     })
 
 OUT_SEARCH.write_text(
@@ -88,3 +117,6 @@ OUT_SEARCH.write_text(
 )
 
 print(f"Generated {len(items)} sections")
+print(f"Wrote: {OUT_SECTIONS.relative_to(ROOT)}")
+print(f"Wrote: {OUT_BILL.relative_to(ROOT)}")
+print(f"Wrote: {OUT_SEARCH.relative_to(ROOT)}")

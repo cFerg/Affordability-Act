@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", () => {
   A.initGlobalSearch?.();
   A.initTOC?.();
   A.initPageSearch?.();
+  A.initAnchors?.();
 });

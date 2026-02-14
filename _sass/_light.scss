@@ -127,3 +127,34 @@ body.theme-light .toc-link.is-active {
   background: rgba(29,78,216,0.14);
   border-color: rgba(29,78,216,0.22);
 }
+
+/* Home containers (index.md uses .cover) */
+body.theme-light .cover {
+  background: #ffffff !important;
+  border-color: rgba(15,23,42,0.12) !important;
+}
+
+/* Muted text on home (page description + donate copy) */
+body.theme-light .muted {
+  color: rgba(15,23,42,0.72) !important;
+}
+
+/* "What is this?" block readability */
+body.theme-light .act-intro {
+  color: rgba(15,23,42,0.86) !important;
+}
+body.theme-light .act-intro strong {
+  color: rgba(15,23,42,0.95) !important;
+}
+
+/* Section buttons on home are <a class="btn section-btn"> */
+body.theme-light a.btn.section-btn {
+  background: linear-gradient(135deg, #ffffff, #e5e7eb) !important;
+  color: #111827 !important;
+  border-color: rgba(15,23,42,0.16) !important;
+  box-shadow: 0 10px 22px rgba(15,23,42,0.18) !important;
+}
+body.theme-light a.btn.section-btn:hover {
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db) !important;
+  box-shadow: 0 14px 30px rgba(15,23,42,0.22) !important;
+}

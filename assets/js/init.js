@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   A.initStickyNav?.();
   A.initHome?.();
   A.initGlobalSearch?.();
+  A.initSearchJump?.();
   A.initTOC?.();
   A.initPageSearch?.();
   A.initAnchors?.();

@@ -2,6 +2,43 @@
   const $ = window.AffordAct.$;
   const escapeHtml = window.AffordAct.escapeHtml;
 
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function makeSnippets(content, q, maxSnippets = 3) {
+    const text = String(content || "").replace(/\s+/g, " ").trim();
+    if (!text) return [];
+
+    const re = new RegExp(escapeRegExp(q), "ig");
+    const snippets = [];
+    let m;
+
+    while ((m = re.exec(text)) && snippets.length < maxSnippets) {
+      const idx = m.index;
+      const start = Math.max(0, idx - 70);
+      const end = Math.min(text.length, idx + 110);
+      let sn = text.slice(start, end);
+      if (start > 0) sn = "…" + sn;
+      if (end < text.length) sn = sn + "…";
+      snippets.push(sn);
+    }
+
+    return snippets;
+  }
+
+  function highlight(sn, q) {
+    const re = new RegExp(escapeRegExp(q), "ig");
+    const parts = String(sn).split(re);
+    const matches = String(sn).match(re) || [];
+    let out = "";
+    for (let i = 0; i < parts.length; i++) {
+      out += escapeHtml(parts[i]);
+      if (i < matches.length) out += `<mark class="search-hit">${escapeHtml(matches[i])}</mark>`;
+    }
+    return out;
+  }
+
   window.AffordAct.initGlobalSearch = () => {
     const trigger = $("input[data-global-search]");
     const modal = $("#global-search-modal");
@@ -50,33 +87,10 @@
       resultsEl.classList.remove("has-results");
     }
 
-    function snippet(content, qLower) {
-      const text = String(content || "").replace(/\s+/g, " ").trim();
-      if (!text) return "";
-      const low = text.toLowerCase();
-      const i = low.indexOf(qLower);
-      if (i < 0) return text.slice(0, 160) + (text.length > 160 ? "…" : "");
-      const start = Math.max(0, i - 60);
-      const end = Math.min(text.length, i + 90);
-      return (start ? "…" : "") + text.slice(start, end) + (end < text.length ? "…" : "");
-    }
-
-    function highlight(sn, rawQ) {
-      if (!rawQ) return escapeHtml(sn);
-      const re = new RegExp(rawQ.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "ig");
-      const parts = String(sn).split(re);
-      const matches = String(sn).match(re) || [];
-      let out = "";
-      for (let i = 0; i < parts.length; i++) {
-        out += escapeHtml(parts[i]);
-        if (i < matches.length) out += `<mark class="search-hit">${escapeHtml(matches[i])}</mark>`;
-      }
-      return out;
-    }
-
     async function render() {
       const rawQ = modalInput.value.trim();
       const q = rawQ.toLowerCase();
+
       if (!q) {
         resultsEl.innerHTML = "";
         resultsEl.classList.remove("has-results");
@@ -86,10 +100,15 @@
       await ensureLoaded();
 
       const hits = [];
+
       for (const d of docs) {
+        // Remove full bill from results entirely
+        if (d.id === "bill") continue;
+
         const title = String(d.title || "");
         const cat = String(d.category || "");
         const body = String(d.content || d.body || "");
+
         const lt = title.toLowerCase();
         const lc = cat.toLowerCase();
         const lb = body.toLowerCase();
@@ -98,7 +117,11 @@
         if (lb.includes(q)) score += 10;
         if (lt.includes(q)) score += 3;
         if (lc.includes(q)) score += 1;
-        if (score > 0) hits.push({ d, score });
+
+        if (score <= 0) continue;
+
+        const snippets = makeSnippets(body, rawQ, 3);
+        hits.push({ d, score, snippets });
       }
 
       hits.sort((a, b) => {
@@ -108,10 +131,24 @@
         return ao - bo;
       });
 
-      resultsEl.innerHTML = hits.slice(0, 40).map(({ d }) => {
+      resultsEl.innerHTML = hits.slice(0, 40).map(({ d, snippets }) => {
         const catHtml = d.category ? `<div class="muted global-search-result__cat">${escapeHtml(d.category)}</div>` : "";
-        const sn = snippet(d.content || d.body || "", q);
-        const snHtml = sn ? `<p class="global-search-result__snippet">${highlight(sn, rawQ)}</p>` : "";
+
+        const snHtml = snippets.length
+          ? `<div class="global-search-result__snips">
+              ${snippets.map((sn, i) => {
+                const url = `${d.url}#aff-hit-${encodeURIComponent(d.id)}-${i}`;
+                return `<a class="global-search-result__snip" href="${escapeHtml(url)}"
+                          data-aff-jump="1"
+                          data-aff-doc="${escapeHtml(d.id)}"
+                          data-aff-hit="${i}"
+                          data-aff-q="${escapeHtml(rawQ)}">
+                          ${highlight(sn, rawQ)}
+                        </a>`;
+              }).join("")}
+            </div>`
+          : "";
+
         return `
           <div class="global-search-result">
             <a class="global-search-result__title" href="${escapeHtml(d.url || "#")}">${escapeHtml(d.title || "Untitled")}</a>
@@ -123,8 +160,21 @@
       resultsEl.classList.toggle("has-results", hits.length > 0);
     }
 
+    // open on focus/typing
     trigger.addEventListener("focus", () => open(trigger.value));
     trigger.addEventListener("input", () => open(trigger.value));
+
+    // store jump intent so destination page can focus correct match
+    resultsEl.addEventListener("click", (e) => {
+      const a = e.target.closest?.("a[data-aff-jump]");
+      if (!a) return;
+      sessionStorage.setItem("aff_search_jump", JSON.stringify({
+        doc: a.getAttribute("data-aff-doc"),
+        hit: Number(a.getAttribute("data-aff-hit") || 0),
+        q: a.getAttribute("data-aff-q") || ""
+      }));
+      close();
+    });
 
     modal.addEventListener("click", (e) => {
       const t = e.target;

@@ -1,0 +1,53 @@
+.sticky-nav{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  z-index: 50;
+
+  height: 56px;
+  width: min(520px, calc(100% - 24px));
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(8, 12, 18, 0.62);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  padding: 8px 10px;
+}
+
+.sticky-nav__btn{
+  justify-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(2, 6, 23, 0.55);
+  color: #e9edf1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.nav-icon{
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+.sticky-nav__btn:hover{
+  text-decoration: none;
+  background: rgba(29, 78, 216, 0.25);
+}
+
+.sticky-nav__btn.is-disabled{
+  opacity: 0.35;
+  pointer-events: none;
+}

@@ -1,0 +1,129 @@
+body.theme-light{
+  background: #f5f5f7;
+  color: #111827;
+}
+
+body.theme-light .muted{ color: rgba(15,23,42,0.72); }
+
+body.theme-light .site-header{
+  background: linear-gradient(180deg, #ffffff, #e5e7eb);
+  border-bottom-color: rgba(15,23,42,0.12);
+}
+
+body.theme-light .header-search input[type="search"],
+body.theme-light .toc-select,
+body.theme-light .search-modal__search-row input[type="search"]{
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.16);
+  color: #111827;
+}
+
+body.theme-light .header-search input[type="search"]::placeholder,
+body.theme-light .search-modal__search-row input[type="search"]::placeholder{
+  color: rgba(15,23,42,0.60);
+}
+
+body.theme-light .btn{
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  color: #111827;
+  border-color: rgba(15,23,42,0.16);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.18);
+}
+
+body.theme-light .btn:hover{
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.22);
+}
+
+/* CTA halo contrast */
+body.theme-light .halo::before{
+  background: conic-gradient(
+    from var(--spin),
+    rgba(255,190,80,0.0),
+    rgba(255,190,80,0.55),
+    rgba(140,205,255,0.22),
+    rgba(255,190,80,0.55),
+    rgba(255,190,80,0.0)
+  );
+  opacity: .82;
+  filter: blur(12px);
+}
+
+body.theme-light .halo::after{
+  background: conic-gradient(
+    from var(--spin),
+    rgba(255,190,80,0.0),
+    rgba(255,190,80,0.90),
+    rgba(140,205,255,0.55),
+    rgba(255,255,255,0.85),
+    rgba(255,190,80,0.0)
+  );
+  opacity: .60;
+}
+
+/* modal */
+body.theme-light .search-modal__dialog{
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.16);
+}
+body.theme-light .search-modal__backdrop{ background: rgba(15,23,42,0.35); }
+body.theme-light .search-modal__close{ color: #111827; }
+
+body.theme-light .global-search-result{
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.12);
+}
+body.theme-light .global-search-result__snippet{
+  color: rgba(15,23,42,0.75);
+}
+
+/* sticky nav + buttons + toc in light mode */
+body.theme-light .sticky-nav{
+  border-color: rgba(15,23,42,0.14);
+  background: rgba(255,255,255,0.58);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.18);
+}
+body.theme-light .sticky-nav__btn{
+  border-color: rgba(15,23,42,0.16);
+  background: rgba(255,255,255,0.55);
+  color: #111827;
+}
+
+body.theme-light .section-btn,
+body.theme-light a.section-btn.btn {
+  background: linear-gradient(135deg, #ffffff, #e5e7eb);
+  color: #111827;
+  border-color: rgba(15,23,42,0.16);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.18);
+}
+body.theme-light .section-btn:hover {
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+  box-shadow: 0 14px 30px rgba(15,23,42,0.22);
+}
+
+body.theme-light .theme-toggle {
+  background: rgba(255,255,255,0.9);
+  color: #111827;
+  border-color: rgba(15,23,42,0.16);
+}
+
+body.theme-light .toc-toggle {
+  background: rgba(255,255,255,0.75);
+  color: #111827;
+  border-color: rgba(15,23,42,0.16);
+}
+
+body.theme-light .toc-panel {
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(15,23,42,0.12);
+}
+
+body.theme-light .toc-link {
+  color: rgba(15,23,42,0.86);
+}
+
+body.theme-light .toc-link.is-active {
+  background: rgba(29,78,216,0.14);
+  border-color: rgba(29,78,216,0.22);
+}

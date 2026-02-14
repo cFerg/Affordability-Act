@@ -1,0 +1,93 @@
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(135deg, #111827, #020617);
+  color: #e9edf1;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.38);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover{
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.45);
+}
+.btn:active{ transform: translateY(0); }
+.btn span{ pointer-events: none; }
+
+.btn-primary-cta{
+  min-width: min(560px, 100%);
+  padding: 12px 18px;
+  font-size: 1.05rem;
+  border-color: rgba(123,180,255,0.45);
+  background: radial-gradient(circle at 20% 0, rgba(29,78,216,0.60), rgba(2,6,23,1) 65%);
+}
+
+/* halo */
+.halo{
+  position: relative;
+  display: inline-grid;
+  isolation: isolate;
+  --spin: 0turn;
+  --speed: 4s;
+}
+.halo-cta{ width: min(560px, 100%); }
+.halo-cta .btn{ width: 100%; }
+
+.halo::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius: calc(999px + 12px);
+  background: conic-gradient(
+    from var(--spin),
+    rgba(140,205,255,0.0),
+    rgba(140,205,255,0.35),
+    rgba(255,205,140,0.22),
+    rgba(140,205,255,0.35),
+    rgba(140,205,255,0.0)
+  );
+  filter: blur(10px);
+  opacity: .55;
+  z-index: -2;
+  pointer-events:none;
+}
+
+.halo::after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius: calc(999px + 10px);
+  padding: 1px;
+  background: conic-gradient(
+    from var(--spin),
+    rgba(140,205,255,0.0),
+    rgba(140,205,255,0.75),
+    rgba(255,205,140,0.50),
+    rgba(235,250,255,0.80),
+    rgba(140,205,255,0.0)
+  );
+  opacity: .34;
+  z-index: -1;
+  pointer-events:none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@property --spin { syntax: "<angle>"; inherits: true; initial-value: 0turn; }
+@keyframes halo-spin { to { --spin: 1turn; } }
+@keyframes halo-breathe { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-1px);} }
+
+.halo { animation: halo-spin var(--speed) linear infinite; }
+.halo:hover, .halo:focus-within { animation: halo-spin var(--speed) linear infinite, halo-breathe 1.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce){
+  .halo { animation: none !important; }
+}

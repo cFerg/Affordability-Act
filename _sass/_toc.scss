@@ -46,7 +46,7 @@
 
   .toc-panel{
     margin-top: 10px;
-    width: 320px;
+    width: 280px;
     padding: 12px 12px 14px;
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.10);
@@ -86,4 +86,10 @@
   .toc-h4{ padding-left: 30px; opacity: .86; font-size: .95rem; }
 
   .section-topbar .topbar-inner{ display: none !important; }
+
+  /* When floating TOC is visible, reserve room so it doesn't overlap content */
+  .main.is-section .content,
+  .main.is-bill .content {
+    max-width: 74ch; /* slightly narrower to leave breathing room */
+  }
 }

@@ -124,14 +124,27 @@
         hits.push({ d, score, snippets });
       }
 
+      // Rank categories by earliest section order in that category
+      const catRank = new Map();
+      for (const h of hits) {
+        const cat = String(h.d.category || "");
+        const ord = Number.isFinite(Number(h.d.order)) ? Number(h.d.order) : 9999;
+        if (!catRank.has(cat) || ord < catRank.get(cat)) catRank.set(cat, ord);
+      }
+
       hits.sort((a, b) => {
-        if (b.score !== a.score) return b.score - a.score;
+        const ac = String(a.d.category || "");
+        const bc = String(b.d.category || "");
+
+        const acr = catRank.get(ac) ?? 9999;
+        const bcr = catRank.get(bc) ?? 9999;
+        if (acr !== bcr) return acr - bcr;
 
         const ao = Number.isFinite(Number(a.d.order)) ? Number(a.d.order) : 9999;
         const bo = Number.isFinite(Number(b.d.order)) ? Number(b.d.order) : 9999;
         if (ao !== bo) return ao - bo;
 
-        // stable final tie-breaker
+        // stable tie-breaker
         return String(a.d.id || "").localeCompare(String(b.d.id || ""));
       });
 

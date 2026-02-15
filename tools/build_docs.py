@@ -42,6 +42,7 @@ def md_to_text(md: str) -> str:
     md = INLINE_CODE_RE.sub(r"\1", md)      # `code` -> code
     md = HEADING_MARK_RE.sub("", md)        # remove heading markers
     md = md.replace("**", "").replace("__", "").replace("*", "").replace("_", "")
+    md = re.sub(r"<!--.*?-->", " ", md, flags=re.S)  # remove HTML comments (Summary blocks etc)
     md = WHITESPACE_RE.sub(" ", md).strip()
     return md
 

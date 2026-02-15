@@ -141,15 +141,17 @@
       const q = pillInput.value.trim();
 
       t = setTimeout(() => {
+        pill.hidden = false;     // keep it open while the user is interacting
+        syncToHeader();
         clearMarks();
+
         if (q.length >= 2) {
-          pill.hidden = false;
-          syncToHeader();
           markAll(q);
           if (marks.length) setActive(0);
           else updateCount();
         } else {
-          pill.hidden = true;
+          // show empty state but don't close
+          updateCount();
         }
       }, 120);
     }

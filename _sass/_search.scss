@@ -89,3 +89,69 @@
   color: rgba(233,237,241,0.78);
   font-size: .95rem;
 }
+
+/* ===== In-page search pill (Ctrl+F style) ===== */
+
+.findpill{
+  position: fixed;
+  z-index: 70;
+}
+
+.findpill__inner{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(8,12,18,0.72);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+}
+
+.findpill__count{
+  font-size: 0.9rem;
+  color: rgba(233,237,241,0.85);
+  min-width: 64px;
+  text-align: center;
+}
+
+.findpill__btn{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(2,6,23,0.50);
+  color: #e9edf1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.findpill__btn:hover{
+  background: rgba(123,180,255,0.12);
+}
+
+/* Active match gets a stronger outline */
+.search-hit--active{
+  outline: 2px solid rgba(123,180,255,0.85);
+  outline-offset: 2px;
+}
+
+/* Light mode */
+body.theme-light .findpill__inner{
+  background: rgba(255,255,255,0.78);
+  border-color: rgba(15,23,42,0.14);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.18);
+}
+
+body.theme-light .findpill__count{
+  color: rgba(15,23,42,0.82);
+}
+
+body.theme-light .findpill__btn{
+  background: rgba(255,255,255,0.60);
+  border-color: rgba(15,23,42,0.16);
+  color: #111827;
+}

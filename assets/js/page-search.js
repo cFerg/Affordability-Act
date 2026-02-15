@@ -6,81 +6,38 @@
   }
 
   window.AffordAct.initPageSearch = () => {
-    const input = $("input[data-page-search]");
+    const headerInput = $("input[data-page-search]");
     const root = document.querySelector(".content");
-    if (!input || !root) return;
+    if (!headerInput || !root) return;
 
     let marks = [];
     let activeIndex = -1;
-    let ui = null;
-    let uiCount = null;
 
-    function createUI() {
-      if (ui) return;
+    // Build pill
+    const pill = document.createElement("div");
+    pill.className = "findpill";
+    pill.hidden = true;
+    pill.innerHTML = `
+      <div class="findpill__inner" role="status" aria-live="polite">
+        <input class="findpill__input" type="search" placeholder="Search this page…" autocomplete="off" />
+        <span class="findpill__count">0 / 0</span>
+        <button type="button" class="findpill__btn" data-find-prev aria-label="Previous match">↑</button>
+        <button type="button" class="findpill__btn" data-find-next aria-label="Next match">↓</button>
+        <button type="button" class="findpill__btn" data-find-close aria-label="Close">×</button>
+      </div>
+    `;
+    document.body.appendChild(pill);
 
-      ui = document.createElement("div");
-      ui.className = "findpill";
-      ui.hidden = true;
-      ui.innerHTML = `
-        <div class="findpill__inner" role="status" aria-live="polite">
-          <span class="findpill__count">0 / 0</span>
-          <button type="button" class="findpill__btn" data-find-prev aria-label="Previous match">↑</button>
-          <button type="button" class="findpill__btn" data-find-next aria-label="Next match">↓</button>
-          <button type="button" class="findpill__btn" data-find-close aria-label="Close">×</button>
-        </div>
-      `;
-      document.body.appendChild(ui);
-
-      uiCount = ui.querySelector(".findpill__count");
-
-      ui.addEventListener("click", (e) => {
-        const t = e.target;
-        if (!(t instanceof Element)) return;
-
-        if (t.matches("[data-find-prev]")) {
-          e.preventDefault();
-          gotoPrev();
-        } else if (t.matches("[data-find-next]")) {
-          e.preventDefault();
-          gotoNext();
-        } else if (t.matches("[data-find-close]")) {
-          e.preventDefault();
-          clearAll();
-          input.value = "";
-          input.blur();
-        }
-      });
-    }
-
-    function positionUI() {
-      if (!ui || ui.hidden) return;
-      const r = input.getBoundingClientRect();
-      const top = Math.max(8, r.bottom + 8);
-      const left = Math.min(window.innerWidth - 16, Math.max(16, r.left));
-      ui.style.top = `${top}px`;
-      ui.style.left = `${left}px`;
-    }
-
-    function showUI() {
-      createUI();
-      ui.hidden = false;
-      positionUI();
-    }
-
-    function hideUI() {
-      if (!ui) return;
-      ui.hidden = true;
-    }
+    const pillInput = pill.querySelector(".findpill__input");
+    const pillCount = pill.querySelector(".findpill__count");
 
     function updateCount() {
-      if (!uiCount) return;
       const total = marks.length;
       const cur = total ? (activeIndex + 1) : 0;
-      uiCount.textContent = `${cur} / ${total}`;
+      pillCount.textContent = `${cur} / ${total}`;
     }
 
     function clearMarks() {
-      // Replace marks back to text nodes (best-effort, conservative)
       marks.forEach(m => {
         const parent = m.parentNode;
         if (!parent) return;
@@ -89,6 +46,7 @@
       });
       marks = [];
       activeIndex = -1;
+      updateCount();
     }
 
     function markAll(query) {
@@ -111,18 +69,18 @@
 
       for (const node of nodes) {
         const text = node.nodeValue;
-        let m;
         re.lastIndex = 0;
-
         if (!re.test(text)) continue;
 
         re.lastIndex = 0;
         const frag = document.createDocumentFragment();
         let last = 0;
+        let m;
 
         while ((m = re.exec(text))) {
           const idx = m.index;
           const hit = m[0];
+
           frag.appendChild(document.createTextNode(text.slice(last, idx)));
 
           const mark = document.createElement("mark");
@@ -145,75 +103,103 @@
         updateCount();
         return;
       }
-
-      // Clear previous active marker styling
       marks.forEach((m, idx) => m.classList.toggle("search-hit--active", idx === i));
       activeIndex = i;
       updateCount();
-
-      const el = marks[activeIndex];
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      marks[activeIndex].scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
     function gotoNext() {
       if (!marks.length) return;
-      const next = (activeIndex + 1) % marks.length;
-      setActive(next);
+      setActive((activeIndex + 1) % marks.length);
     }
 
     function gotoPrev() {
       if (!marks.length) return;
-      const prev = (activeIndex - 1 + marks.length) % marks.length;
-      setActive(prev);
+      setActive((activeIndex - 1 + marks.length) % marks.length);
     }
 
-    function clearAll() {
+    function closePill() {
+      pill.hidden = true;
       clearMarks();
-      hideUI();
-      updateCount();
+      pillInput.value = "";
+      headerInput.value = "";
     }
 
-    // Re-run search on input changes (debounced)
+    // Keep header input and pill input in sync
+    function syncFromHeader() {
+      pillInput.value = headerInput.value;
+    }
+    function syncToHeader() {
+      headerInput.value = pillInput.value;
+    }
+
+    // Main search runner (debounced)
     let t = null;
-    input.addEventListener("input", () => {
+    function runSearch() {
       clearTimeout(t);
-      const q = input.value.trim();
+      const q = pillInput.value.trim();
 
       t = setTimeout(() => {
         clearMarks();
-
         if (q.length >= 2) {
-          showUI();
+          pill.hidden = false;
+          syncToHeader();
           markAll(q);
           if (marks.length) setActive(0);
           else updateCount();
         } else {
-          hideUI();
+          pill.hidden = true;
         }
       }, 120);
+    }
+
+    // Clicking the header input should open the pill near top
+    headerInput.addEventListener("focus", () => {
+      syncFromHeader();
+      pill.hidden = false;
+      pillInput.focus();
+      pillInput.select();
+      runSearch();
     });
 
-    // Keyboard controls similar to browser find
-    input.addEventListener("keydown", (e) => {
+    // Typing in header input should open pill
+    headerInput.addEventListener("input", () => {
+      syncFromHeader();
+      pill.hidden = false;
+      runSearch();
+    });
+
+    // Pill input is the primary control
+    pillInput.addEventListener("input", runSearch);
+
+    pill.addEventListener("click", (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.matches("[data-find-prev]")) { e.preventDefault(); gotoPrev(); }
+      if (t.matches("[data-find-next]")) { e.preventDefault(); gotoNext(); }
+      if (t.matches("[data-find-close]")) { e.preventDefault(); closePill(); }
+    });
+
+    // Keyboard behavior
+    pillInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        if (e.shiftKey) gotoPrev();
-        else gotoNext();
+        if (e.shiftKey) gotoPrev(); else gotoNext();
       } else if (e.key === "Escape") {
         e.preventDefault();
-        input.value = "";
-        clearAll();
-        input.blur();
+        closePill();
       }
     });
 
-    // Reposition pill on resize/scroll
-    window.addEventListener("resize", positionUI, { passive: true });
-    window.addEventListener("scroll", positionUI, { passive: true });
-
-    // If focus leaves the input, keep the pill (like ctrl+f) unless query is tiny
-    input.addEventListener("blur", () => {
-      if ((input.value || "").trim().length < 2) hideUI();
+    // Optional: also support Enter on header input
+    headerInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        pill.hidden = false;
+        pillInput.focus();
+        if (e.shiftKey) gotoPrev(); else gotoNext();
+      }
     });
   };
 })();

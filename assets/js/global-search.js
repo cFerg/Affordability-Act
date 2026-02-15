@@ -126,9 +126,13 @@
 
       hits.sort((a, b) => {
         if (b.score !== a.score) return b.score - a.score;
-        const ao = Number(a.d.order ?? 9999);
-        const bo = Number(b.d.order ?? 9999);
-        return ao - bo;
+
+        const ao = Number.isFinite(Number(a.d.order)) ? Number(a.d.order) : 9999;
+        const bo = Number.isFinite(Number(b.d.order)) ? Number(b.d.order) : 9999;
+        if (ao !== bo) return ao - bo;
+
+        // stable final tie-breaker
+        return String(a.d.id || "").localeCompare(String(b.d.id || ""));
       });
 
       resultsEl.innerHTML = hits.slice(0, 40).map(({ d, snippets }) => {

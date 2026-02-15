@@ -159,3 +159,10 @@ body.theme-light a.btn.section-btn:hover,
 body.theme-light .home-sections a.btn.section-btn:hover {
   background: linear-gradient(135deg, #e5e7eb, #d1d5db) !important;
 }
+
+/* Force home section buttons in light mode (must be last) */
+body.theme-light .cat-body a.btn.section-btn{
+  background: linear-gradient(135deg, #ffffff, #e5e7eb) !important;
+  color: #111827 !important;
+  border-color: rgba(15,23,42,0.16) !important;
+}

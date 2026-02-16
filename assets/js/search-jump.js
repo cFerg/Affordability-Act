@@ -79,6 +79,6 @@
 
     const id = `aff-hit-${encodeURIComponent(String(data.doc || "doc"))}-${hitIndex}`;
     const anchor = wrapMatch(match, id);
-    anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 })();

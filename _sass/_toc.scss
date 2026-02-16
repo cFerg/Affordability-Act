@@ -30,7 +30,7 @@
     position: fixed;
     right: 18px;
     top: 92px;
-    z-index: 40;
+    z-index: 120;
   }
 
   .toc-toggle{
@@ -91,5 +91,26 @@
   .main.is-section .content,
   .main.is-bill .content {
     max-width: 74ch; /* slightly narrower to leave breathing room */
+  }
+}
+
+/* On small screens, keep the "On this page" dropdown always accessible */
+@media (max-width: 1279px){
+  .section-topbar{
+    position: sticky;
+    top: 62px;            /* adjust if header height differs */
+    z-index: 75;          /* below header (80), above content */
+    background: transparent;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  /* If the header wraps on very small screens, give more clearance */
+  @media (max-width: 760px){
+    .section-topbar{ top: 96px; }
+  }
+
+  .topbar-inner{
+    margin: 0 auto;
   }
 }

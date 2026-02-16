@@ -6,20 +6,19 @@
   }
 
   window.AffordAct.initPageSearch = () => {
-    const headerInput = $("input[data-page-search]");
+    const input = $("input[data-page-search]");
     const root = document.querySelector(".content");
-    if (!headerInput || !root) return;
+    if (!input || !root) return;
 
     let marks = [];
     let activeIndex = -1;
 
-    // Build pill
+    // Controls pill (no input inside)
     const pill = document.createElement("div");
-    pill.className = "findpill";
+    pill.className = "findpill findpill--dock";
     pill.hidden = true;
     pill.innerHTML = `
       <div class="findpill__inner" role="status" aria-live="polite">
-        <input class="findpill__input" type="search" placeholder="Search this page…" autocomplete="off" />
         <span class="findpill__count">0 / 0</span>
         <button type="button" class="findpill__btn" data-find-prev aria-label="Previous match">↑</button>
         <button type="button" class="findpill__btn" data-find-next aria-label="Next match">↓</button>
@@ -28,8 +27,22 @@
     `;
     document.body.appendChild(pill);
 
-    const pillInput = pill.querySelector(".findpill__input");
     const pillCount = pill.querySelector(".findpill__count");
+
+    function positionPill() {
+      if (pill.hidden) return;
+      const r = input.getBoundingClientRect();
+      const top = Math.round(r.bottom + 8);
+
+      // Align pill to the input's right edge
+      const left = Math.min(
+        window.innerWidth - 16,
+        Math.max(16, Math.round(r.right - pill.offsetWidth))
+      );
+
+      pill.style.top = `${top}px`;
+      pill.style.left = `${left}px`;
+    }
 
     function updateCount() {
       const total = marks.length;
@@ -80,7 +93,6 @@
         while ((m = re.exec(text))) {
           const idx = m.index;
           const hit = m[0];
-
           frag.appendChild(document.createTextNode(text.slice(last, idx)));
 
           const mark = document.createElement("mark");
@@ -122,58 +134,43 @@
     function closePill() {
       pill.hidden = true;
       clearMarks();
-      pillInput.value = "";
-      headerInput.value = "";
     }
 
-    // Keep header input and pill input in sync
-    function syncFromHeader() {
-      pillInput.value = headerInput.value;
-    }
-    function syncToHeader() {
-      headerInput.value = pillInput.value;
-    }
-
-    // Main search runner (debounced)
+    // Debounced search runner
     let t = null;
-    function runSearch() {
+    function run() {
       clearTimeout(t);
-      const q = pillInput.value.trim();
+      const q = input.value.trim();
 
       t = setTimeout(() => {
-        pill.hidden = false;     // keep it open while the user is interacting
-        syncToHeader();
         clearMarks();
 
         if (q.length >= 2) {
+          pill.hidden = false;
           markAll(q);
           if (marks.length) setActive(0);
           else updateCount();
+          positionPill();
         } else {
-          // show empty state but don't close
-          updateCount();
+          pill.hidden = true;
         }
       }, 120);
     }
 
-    // Clicking the header input should open the pill near top
-    headerInput.addEventListener("focus", () => {
-      syncFromHeader();
-      pill.hidden = false;
-      pillInput.focus();
-      pillInput.select();
-      runSearch();
-    });
+    input.addEventListener("input", run);
 
-    // Typing in header input should open pill
-    headerInput.addEventListener("input", () => {
-      syncFromHeader();
-      pill.hidden = false;
-      runSearch();
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (e.shiftKey) gotoPrev();
+        else gotoNext();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        input.value = "";
+        closePill();
+        input.blur();
+      }
     });
-
-    // Pill input is the primary control
-    pillInput.addEventListener("input", runSearch);
 
     pill.addEventListener("click", (e) => {
       const t = e.target;
@@ -183,25 +180,8 @@
       if (t.matches("[data-find-close]")) { e.preventDefault(); closePill(); }
     });
 
-    // Keyboard behavior
-    pillInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        if (e.shiftKey) gotoPrev(); else gotoNext();
-      } else if (e.key === "Escape") {
-        e.preventDefault();
-        closePill();
-      }
-    });
-
-    // Optional: also support Enter on header input
-    headerInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        pill.hidden = false;
-        pillInput.focus();
-        if (e.shiftKey) gotoPrev(); else gotoNext();
-      }
-    });
+    // Keep pill in the right spot as page scrolls/resizes
+    window.addEventListener("resize", positionPill, { passive: true });
+    window.addEventListener("scroll", positionPill, { passive: true });
   };
 })();

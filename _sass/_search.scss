@@ -8,7 +8,7 @@
 .search-modal{
   position: fixed;
   inset: 0;
-  z-index: 60;
+  z-index: 200;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -112,28 +112,35 @@ body.theme-light .global-search-result__snip{
   border-color: rgba(15,23,42,0.12);
 }
 
-/* ===== In-page search pill (Ctrl+F style) ===== */
-
 .findpill{
   position: fixed;
-  top: 72px;
-  right: 16px;
-  z-index: 70;
+  z-index: 180;
 }
 
+/* Docked pill: JS sets top/left, we only constrain sizing */
+.findpill--dock{
+  max-width: calc(100vw - 20px);
+}
+
+/* On small screens, prefer centering so it never clips */
 @media (max-width: 760px){
-  .findpill{
-    left: 50%;
-    right: auto;
+  .findpill--dock{
+    left: 50% !important;         /* override JS left */
     transform: translateX(-50%);
-    top: 64px;
-    width: calc(100% - 20px);
-    max-width: 520px;
+    max-width: min(520px, calc(100vw - 20px));
+  }
+}
+
+/* If you center it on mobile, keep it visually aligned */
+@media (max-width: 760px){
+  .findpill__inner{
+    width: 100%;
+    justify-content: center;
   }
 }
 
 .findpill__inner{
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
@@ -144,37 +151,45 @@ body.theme-light .global-search-result__snip{
   backdrop-filter: blur(8px);
 }
 
-.findpill__input{
-  width: 220px;
-  max-width: 45vw;
-  padding: 7px 10px;
+.findpill__count{
+  font-size: 0.9rem;
+  color: rgba(233,237,241,0.85);
+  min-width: 64px;
+  text-align: center;
+}
+
+.findpill__btn{
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(2,6,23,0.55);
+  background: rgba(2,6,23,0.50);
   color: #e9edf1;
-  outline: none;
-}
-.findpill__input::placeholder{ color: rgba(233,237,241,0.65); }
-
-@media (max-width: 760px){
-  .findpill__input{ flex: 1; max-width: none; width: auto; }
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* active match */
+.findpill__btn:hover{
+  background: rgba(123,180,255,0.12);
+}
+
 .search-hit--active{
   outline: 2px solid rgba(123,180,255,0.85);
   outline-offset: 2px;
 }
 
-/* light mode */
+/* Light mode */
 body.theme-light .findpill__inner{
   background: rgba(255,255,255,0.78);
   border-color: rgba(15,23,42,0.14);
   box-shadow: 0 10px 30px rgba(15,23,42,0.18);
 }
-body.theme-light .findpill__input{
-  background: rgba(255,255,255,0.65);
+
+body.theme-light .findpill__count{ color: rgba(15,23,42,0.80); }
+body.theme-light .findpill__btn{
+  background: rgba(255,255,255,0.60);
   border-color: rgba(15,23,42,0.16);
   color: #111827;
 }
-body.theme-light .findpill__input::placeholder{ color: rgba(15,23,42,0.55); }

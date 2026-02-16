@@ -3,10 +3,14 @@
 .main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 16px 120px;
+  padding: 0 16px 160px;
 }
 
 .content { max-width: 78ch; margin: 0 auto; }
+
+.content h2, .content h3, .content h4 {
+  scroll-margin-top: 110px; /* more room due to sticky header */
+}
 
 @media (min-width: 1100px) {
   .content { max-width: 82ch; }

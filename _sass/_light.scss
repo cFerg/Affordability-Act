@@ -189,3 +189,30 @@ body.theme-light .cat-body a.btn.section-btn:hover,
 body.theme-light a.btn.section-btn:hover {
   background: linear-gradient(135deg, #e5e7eb, #d1d5db) !important;
 }
+
+body.theme-light .home-divider{
+  border-top-color: rgba(15,23,42,0.14) !important;
+}
+
+body.theme-light .site-footer{
+  color: rgba(15,23,42,0.70) !important;
+  border-top-color: rgba(15,23,42,0.12) !important;
+}
+
+/* Light mode form controls */
+body.theme-light input,
+body.theme-light textarea,
+body.theme-light select{
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid rgba(15,23,42,0.16) !important;
+}
+
+body.theme-light input::placeholder,
+body.theme-light textarea::placeholder{
+  color: rgba(15,23,42,0.55) !important;
+}
+
+body.theme-light label{
+  color: rgba(15,23,42,0.82) !important;
+}

@@ -1,4 +1,8 @@
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   background: radial-gradient(circle at top, #1e293b 0, #020617 65%);
 }

@@ -11,7 +11,7 @@ permalink: /submit/
       No GitHub account needed. Messages go straight to the project inbox.
     </p>
 
-    <form class="aff-form" method="POST" action="https://feedback.affordact.com/api/submit">
+    <form class="aff-form" method="POST" action="https://api.affordact.com/feedback/submit">
       <!-- Category -->
       <div class="field">
         <label for="fb_kind">Feedback type <span class="req">*</span></label>
@@ -101,7 +101,6 @@ permalink: /submit/
 
       <div class="form-actions">
         <button class="btn btn-primary-cta" type="submit"><span>Send</span></button>
-        <a class="btn" href="{{ '/' | relative_url }}"><span>Back home</span></a>
       </div>
 
       <p class="form-fineprint muted">

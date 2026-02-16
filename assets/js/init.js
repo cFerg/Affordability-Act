@@ -8,4 +8,5 @@ document.addEventListener("DOMContentLoaded", () => {
   A.initTOC?.();
   A.initPageSearch?.();
   A.initAnchors?.();
+  A.initSubmitForm?.();
 });

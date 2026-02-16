@@ -1,0 +1,121 @@
+/* ===== Submit form styling ===== */
+
+.form-wrap{
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 26px 0 0;
+}
+
+.form-card{
+  max-width: 78ch;
+  margin: 0 auto;
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: radial-gradient(circle at 0 0, #111827, #020617 62%);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.40);
+}
+
+.form-title{ margin: 0 0 6px; font-size: 2rem; }
+.form-subtitle{ margin: 0 0 14px; }
+
+.aff-form{ margin-top: 8px; }
+
+.field{ margin: 12px 0; }
+.field label{
+  display: block;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.req{ color: #ffb86b; }
+
+.help{ margin-top: 6px; font-size: .92rem; }
+
+.aff-form input[type="text"],
+.aff-form input[type="email"],
+.aff-form select,
+.aff-form textarea{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(2,6,23,0.65);
+  color: #e9edf1;
+  outline: none;
+}
+
+.aff-form textarea{ resize: vertical; }
+
+.aff-form input::placeholder,
+.aff-form textarea::placeholder{
+  color: rgba(233,237,241,0.62);
+}
+
+.aff-form select{
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(233,237,241,0.72) 50%),
+    linear-gradient(135deg, rgba(233,237,241,0.72) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 3px),
+    calc(100% - 12px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+
+.field.checkbox label{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 520;
+}
+
+.field.checkbox input{
+  width: 18px;
+  height: 18px;
+}
+
+.form-actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-fineprint{
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: .92rem;
+}
+
+/* Light mode */
+body.theme-light .form-card{
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.12);
+  box-shadow: 0 12px 40px rgba(15,23,42,0.16);
+}
+
+body.theme-light .aff-form input[type="text"],
+body.theme-light .aff-form input[type="email"],
+body.theme-light .aff-form select,
+body.theme-light .aff-form textarea{
+  background: #ffffff;
+  color: #111827;
+  border-color: rgba(15,23,42,0.16);
+}
+
+body.theme-light .aff-form input::placeholder,
+body.theme-light .aff-form textarea::placeholder{
+  color: rgba(15,23,42,0.55);
+}
+
+body.theme-light .aff-form select{
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(15,23,42,0.55) 50%),
+    linear-gradient(135deg, rgba(15,23,42,0.55) 50%, transparent 50%);
+}
+
+body.theme-light .req{ color: #b45309; }

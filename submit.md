@@ -61,8 +61,8 @@ permalink: /submit/
 
       <!-- Name -->
       <div class="field">
-        <label for="fb_name">Name (optional)</label>
-        <input id="fb_name" name="name" type="text" placeholder="Example: Alex" autocomplete="name" />
+        <label for="fb_name">Name</label>
+        <input id="fb_name" name="name" type="text" placeholder="Example: Alex" autocomplete="name" required />
       </div>
 
       <!-- Email (required) -->

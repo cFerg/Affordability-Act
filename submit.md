@@ -59,9 +59,9 @@ permalink: /submit/
         />
       </div>
 
-      <!-- Name -->
+      <!-- Name (required) -->
       <div class="field">
-        <label for="fb_name">Name</label>
+        <label for="fb_name">Name <span class="req">*</span></label>
         <input id="fb_name" name="name" type="text" placeholder="Example: Alex" autocomplete="name" required />
       </div>
 

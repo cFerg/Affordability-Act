@@ -4,6 +4,8 @@ title: Submit Feedback
 permalink: /submit/
 ---
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <div class="form-wrap">
   <div class="form-card">
     <h1 class="form-title">Send feedback</h1>
@@ -11,7 +13,7 @@ permalink: /submit/
       No GitHub account needed. Messages go straight to the project inbox.
     </p>
 
-    <form class="aff-form" method="POST" action="https://api.affordact.com/feedback/submit">
+    <form class="aff-form" method="POST" action="https://api.affordact.com/feedback/submit" novalidate>
       <!-- Category -->
       <div class="field">
         <label for="fb_kind">Feedback type <span class="req">*</span></label>
@@ -59,13 +61,20 @@ permalink: /submit/
         />
       </div>
 
-      <!-- Name (required) -->
+      <!-- Name -->
       <div class="field">
         <label for="fb_name">Name <span class="req">*</span></label>
-        <input id="fb_name" name="name" type="text" placeholder="Example: Alex" autocomplete="name" required />
+        <input
+          id="fb_name"
+          name="name"
+          type="text"
+          placeholder="Example: Alex"
+          autocomplete="name"
+          required
+        />
       </div>
 
-      <!-- Email (required) -->
+      <!-- Email -->
       <div class="field">
         <label for="fb_email">Email <span class="req">*</span></label>
         <input
@@ -77,6 +86,21 @@ permalink: /submit/
           required
         />
         <div class="help muted">We only use this to reply. We don’t publish it.</div>
+      </div>
+
+      <!-- Honeypot -->
+      <div
+        style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"
+        aria-hidden="true"
+      >
+        <label for="fb_company">Company</label>
+        <input
+          id="fb_company"
+          name="company"
+          type="text"
+          tabindex="-1"
+          autocomplete="organization"
+        />
       </div>
 
       <!-- Wants reply -->
@@ -99,8 +123,21 @@ permalink: /submit/
         ></textarea>
       </div>
 
+      <!-- Turnstile -->
+      <div class="field">
+        <div
+          class="cf-turnstile"
+          data-sitekey="0x4AAAAAACoKADj7bcQ_ic7g"
+          data-theme="auto"
+        ></div>
+      </div>
+
+      <div id="form-status" class="help muted" aria-live="polite" style="margin-top:10px;"></div>
+
       <div class="form-actions">
-        <button class="btn btn-primary-cta" type="submit"><span>Send</span></button>
+        <button class="btn btn-primary-cta" type="submit" id="submitBtn">
+          <span>Send</span>
+        </button>
       </div>
 
       <p class="form-fineprint muted">

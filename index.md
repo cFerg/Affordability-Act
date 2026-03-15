@@ -120,6 +120,6 @@ description: A public proposal to help keep everyday prices fair — by comparin
   <div class="home-actions home-actions--center" style="margin: 12px auto 0;">
     <a class="btn" href="{{ '/donate/' | relative_url }}"><span>Donate</span></a>
     <a class="btn" href="{{ '/submit/' | relative_url }}"><span>Send feedback</span></a>
-    <a class="btn" href="{{ site.github.repository_url | default: 'https://github.com/cFerg/Affordability-Act' }}"><span>View GitHub repo</span></a>
+    <a class="btn" href="{{ '/board/' | relative_url }}"><span>Board Members</span></a>
   </div>
 </div>
